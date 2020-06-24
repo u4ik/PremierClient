@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
+
 import './Sitebar.css'
+
 import Authform from '../Auth/Auth';
 import { Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink } from 'reactstrap';
 import Logo from '../../assets/Premier-Commercial-Services-logo.svg';
@@ -32,20 +34,23 @@ const Sitebar: React.FunctionComponent<{ props?: any }> = ({props}) => {
                 <Navbar color="faded" light expand='lg' style={navbar}>
                     <img src={Logo} style={logo} />
                     <NavbarToggler onClick={(e) => {
+
                         {collapsed===true ? setFlexType('column'): setFlexType('row')}
                         toggleNavbar()}} className="mr-2" />
                     <Collapse isOpen={!collapsed} navbar>
-                        <Nav>
-                            
-                            <div className='navlinkWrap' style={{
+
+                            <div style={{
+
                                 display: 'flex',
                                 flexDirection: flexType,
                                 justifyContent: 'center',
                                 float: 'right',
                                 textAlign: 'right'
                             }} >
+
                             
                      
+
                                 <NavItem >
                                     <NavLink href="/" className="nav-links">Home</NavLink>
                                 </NavItem>
