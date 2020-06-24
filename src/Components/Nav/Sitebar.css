@@ -1,0 +1,48 @@
+@media(min-width:1025px) {
+    .navlinkWrap {
+        flex-direction: row !important;
+    }
+}
+
+a:link {
+    color: red;
+}
+
+
+/* visited link */
+
+a:visited {
+    color: #ffffff;
+}
+
+
+/* mouse over link */
+
+a:hover {
+    color: hotpink;
+}
+
+
+/* selected link */
+
+a:active {
+    color: blue;
+}
+
+a.nav-links:link {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+a.nav-links:hover {
+    color: #E8C10D;
+}
+
+.navbar-expand-lg .navbar-collapse {
+    justify-content: flex-end;
+}
+
+.collapse.show.navbar-collapse {
+    display: flex;
+    justify-content: flex-end;
+}
