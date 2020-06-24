@@ -13,7 +13,8 @@ import Logo from '../../assets/Premier-Commercial-Services-logo.svg';
 // const container: React.C
 const logo: React.CSSProperties ={
     height: '5.5vh',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    filter: 'drop-shadow(1px 1px 1px  black)'
 }
 
 const navbar: React.CSSProperties ={
@@ -79,6 +80,7 @@ const Sitebar: React.FunctionComponent<{ props?: any }> = ({props}) => {
                                 <NavItem>
                                 <NavLink href="/" className="nav-links">All Orders</NavLink>
                                  </NavItem> : null}
+
 
                             </div>
 
