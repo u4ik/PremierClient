@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 import './Sitebar.css'
-import Authform from '../Auth/Auth';
+// import Authform from '../Auth/Auth';
 import { Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink } from 'reactstrap';
 import Logo from '../../assets/Premier-Commercial-Services-logo.svg';
-import MediaQuery from 'react-responsive';
+// import MediaQuery from 'react-responsive';
 
 
 // const container: React.C
@@ -25,6 +25,7 @@ const Sitebar: React.FunctionComponent<{ props?: any }> = ({props}) => {
     const [collapsed, setCollapsed] = useState(true);
     const toggleNavbar = () => setCollapsed(!collapsed);
     const [signedIn, setSignedIn] = useState(true);
+    const [isAdmin, setIsAdmin] = useState(true);
     const [flexType, setFlexType] = useState<any>('row')
 
         return (
@@ -61,6 +62,18 @@ const Sitebar: React.FunctionComponent<{ props?: any }> = ({props}) => {
                                 <NavItem>
                                     <NavLink href="/" className="nav-links">Contact Us</NavLink>
                                 </NavItem>
+                                {signedIn === true ? 
+                                <NavItem>
+                                    <NavLink href="/" className="nav-links">Logout</NavLink>
+                                </NavItem>
+                                :    <NavItem>
+                                <NavLink href="/" className="nav-links">Signup/Login</NavLink>
+                                </NavItem>}
+                                {isAdmin === true ? 
+                                <NavItem>
+                                <NavLink href="/" className="nav-links">All Orders</NavLink>
+                                 </NavItem> : null}
+
 
                                 {/* <NavItem>
                                     {signedIn?
