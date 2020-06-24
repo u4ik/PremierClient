@@ -3,10 +3,10 @@ import React from 'react';
 
 
 
-const logo: React.CSSProperties ={
-    height: '5.5vh',
-    cursor: 'pointer'
-}
+// const logo: React.CSSProperties ={
+//     height: '5.5vh',
+//     cursor: 'pointer'
+// }
 
 const footerWrap: React.CSSProperties ={
     background: '#177BBD',
@@ -31,7 +31,7 @@ const Footer: React.FunctionComponent = () => {
             flexDirection:'column'
         }}>
                     
-        <p style={footerText}>Premier Commerical Services</p>
+        <p style={footerText}>Premier Commercial Services</p>
         <p style={footerText}>555-555-5555</p>
         <p style={footerText}>123 Fake St.</p>
         </div>
