@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
-import Navbar from './Components/Nav/Navbar';
+import Sitebar from './Components/Nav/Sitebar';
 import Home from './Components/Home/Home';
 
-function App() {
+
+const App: React.FunctionComponent = () => {
   return (
     <div className="App">
-      <Navbar />
+      <Sitebar />
       <Home />
     </div>
   );
