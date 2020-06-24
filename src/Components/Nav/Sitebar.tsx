@@ -74,13 +74,6 @@ const Sitebar: React.FunctionComponent<{ props?: any }> = ({props}) => {
                                 <NavLink href="/" className="nav-links">All Orders</NavLink>
                                  </NavItem> : null}
 
-
-                                {/* <NavItem>
-                                    {signedIn?
-                                        <Authform/>
-                                        : <></>
-                                    }
-                                </NavItem> */}
                             </div>
 
                         </Nav>

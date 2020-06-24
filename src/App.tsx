@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Sitebar from './Components/Nav/Sitebar';
 import Home from './Components/Home/Home';
+import Footer from './Components/Footer/Footer'
 
 
 const App: React.FunctionComponent = () => {
@@ -9,6 +10,7 @@ const App: React.FunctionComponent = () => {
     <div className="App">
       <Sitebar />
       <Home />
+      <Footer />
     </div>
   );
 }

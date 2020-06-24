@@ -32,6 +32,8 @@ a:active {
 a.nav-links:link {
     color: #ffffff;
     text-decoration: none;
+    text-shadow: .1rem .1rem .1rem black;
+    ;
 }
 
 a.nav-links:hover {
