@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import './Sitebar.css'
-// import Authform from '../Auth/Auth';
+import Contact from '../Contact/Contact';
 import { Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink } from 'reactstrap';
 import Logo from '../../assets/Premier-Commercial-Services-logo.svg';
 // import MediaQuery from 'react-responsive';
@@ -23,18 +23,34 @@ const navbar: React.CSSProperties ={
 
 
 const Sitebar: React.FunctionComponent<{ props?: any }> = ({props}) => {
-    const [collapsed, setCollapsed] = useState(true);
+    const [collapsed, setCollapsed] = useState<boolean>(true);
     const toggleNavbar = () => setCollapsed(!collapsed);
-    const [signedIn, setSignedIn] = useState(true);
+    const [signedIn, setSignedIn] = useState<boolean>(true);
     const [isAdmin, setIsAdmin] = useState(true);
+
+    const [showContact, setShowContact] = useState<boolean>(false);
+    
     const [flexType, setFlexType] = useState<any>('row')
+
+
+    const showThatContact= (e:any) => {
+        e.preventDefault();
+     
+        if(showContact === true){
+            setShowContact(false);
+            
+        }else{
+            setShowContact(true);
+        }
+    }
+
 
         return (
             <div >
                 <Navbar color="faded" light expand='lg' style={navbar}>
-                    <img src={Logo} style={logo} />
+                    <img alt = 'Premier Commercial Services Logo'src={Logo} style={logo} />
                     <NavbarToggler onClick={(e) => {
-                        {collapsed===true ? setFlexType('column'): setFlexType('row')}
+                        collapsed===true ? setFlexType('column'): setFlexType('row')
                         toggleNavbar()}} className="mr-2" />
                     <Collapse isOpen={!collapsed} navbar>
                         <Nav>
@@ -46,7 +62,7 @@ const Sitebar: React.FunctionComponent<{ props?: any }> = ({props}) => {
                                 float: 'right',
                                 textAlign: 'right'
                             }} >
-                            
+                                    {showContact ===  true ? <Contact  />:null}        
                      
                                 <NavItem >
                                     <NavLink href="/" className="nav-links">Home</NavLink>
@@ -61,8 +77,13 @@ const Sitebar: React.FunctionComponent<{ props?: any }> = ({props}) => {
                                 </NavItem>
 
                                 <NavItem>
-                                    <NavLink href="/" className="nav-links">Contact Us</NavLink>
+                                    <NavLink href="/" className="nav-links" onClick={(e:any) => {
+                                        showThatContact(e);
+                                    }} 
+                                    
+                                    >Contact Us</NavLink>
                                 </NavItem>
+                           
                                 {signedIn === true ? 
                                 <NavItem>
                                     <NavLink href="/" className="nav-links">Logout</NavLink>
@@ -81,7 +102,7 @@ const Sitebar: React.FunctionComponent<{ props?: any }> = ({props}) => {
                         </Nav>
         
                     </Collapse>
-                    
+                        
                 </Navbar>
             </div>
 
