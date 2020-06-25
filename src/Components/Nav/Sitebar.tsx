@@ -1,16 +1,24 @@
 import React, { useState } from 'react';
-import Authform from '../Auth/Auth';
-import { Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink } from 'reactstrap';
-import Logo from '../../assets/Premier-Commercial-Services-logo.svg';
-import MediaQuery from 'react-responsive';
+
+
+import './Sitebar.css'
+
+import Contact from '../Contact/Contact';
+
+
+// import Authform from '../Auth/Auth';
+
+
+import { Collapse, Navbar, NavbarToggler, NavItem, NavLink } from 'reactstrap';
+import Logo from '../../assets/Premier-Commercial-Services-icon.svg';
+// import MediaQuery from 'react-responsive';
 
 
 // const container: React.C
 const logo: React.CSSProperties ={
     height: '8vh',
     cursor: 'pointer',
-    margin: '3px'
-    
+    // filter: 'drop-shadow(1px 1px 1px  black)'
 }
 
 const navbar: React.CSSProperties ={
@@ -22,27 +30,52 @@ const navbar: React.CSSProperties ={
 
 
 const Sitebar: React.FunctionComponent<{ props?: any }> = ({props}) => {
-    const [collapsed, setCollapsed] = useState(true);
+    const [collapsed, setCollapsed] = useState<boolean>(true);
     const toggleNavbar = () => setCollapsed(!collapsed);
-    const [signedIn, setSignedIn] = useState(true);
+    const [signedIn, setSignedIn] = useState<boolean>(true);
+    const [isAdmin, setIsAdmin] = useState(true);
+
+    const [showContact, setShowContact] = useState<boolean>(false);
+    
     const [flexType, setFlexType] = useState<any>('row')
+
+
+    const showThatContact= (e:any) => {
+        e.preventDefault();
+     
+        // if(showContact === true){
+        //     setShowContact(false);
+            
+        // }else{
+        //     setShowContact(true);
+        // }
+        setShowContact(!showContact)
+    }
+
 
         return (
             <div >
                 <Navbar color="faded" light expand='lg' style={navbar}>
-                    <img src={Logo} style={logo} />
+                    <img alt = 'Premier Commercial Services Logo'src={Logo} style={logo} />
+                    <h3 className="brandName">Premier Commercial Services</h3>
                     <NavbarToggler onClick={(e) => {
-                        {collapsed===true? setFlexType('column'): setFlexType('row')}
+
+                        collapsed===true ? setFlexType('column'): setFlexType('row')
+
                         toggleNavbar()}} className="mr-2" />
                     <Collapse isOpen={!collapsed} navbar>
-                        <Nav>
+
                             <div style={{
+
                                 display: 'flex',
                                 flexDirection: flexType,
                                 justifyContent: 'center',
                                 float: 'right',
                                 textAlign: 'right'
                             }} >
+
+                                <Contact setShowContact={setShowContact} showContact ={showContact} />       
+
                                 <NavItem >
                                     <NavLink href="/" className="nav-links">Home</NavLink>
                                 </NavItem>
@@ -56,21 +89,29 @@ const Sitebar: React.FunctionComponent<{ props?: any }> = ({props}) => {
                                 </NavItem>
 
                                 <NavItem>
-                                    <NavLink href="/" className="nav-links">Contact Us</NavLink>
+                                    <NavLink href="/" className="nav-links" onClick={(e:any) => {
+                                        showThatContact(e);
+                                    }} 
+                                    >Contact Us</NavLink>
                                 </NavItem>
+                           
+                                {signedIn === true ? 
+                                <NavItem>
+                                    <NavLink href="/" className="nav-links">Logout</NavLink>
+                                </NavItem>
+                                :    <NavItem>
+                                <NavLink href="/" className="nav-links">Signup/Login</NavLink>
+                                </NavItem>}
+                                {isAdmin === true ? 
+                                <NavItem>
+                                <NavLink href="/" className="nav-links">All Orders</NavLink>
+                                 </NavItem> : null}
 
-                                {/* <NavItem>
-                                    {signedIn?
-                                        <Authform/>
-                                        : <></>
-                                    }
-                                </NavItem> */}
+
                             </div>
-
-                        </Nav>
         
                     </Collapse>
-                    
+                        
                 </Navbar>
             </div>
 
