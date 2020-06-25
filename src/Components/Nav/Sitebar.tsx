@@ -14,7 +14,7 @@ import Logo from '../../assets/Premier-Commercial-Services-icon.svg';
 
 
 
-// const container: React.C
+
 const logo: React.CSSProperties ={
     height: '5.5vh',
     cursor: 'pointer',
