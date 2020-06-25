@@ -19,12 +19,8 @@ const TestimonialsHome: React.FunctionComponent = (props) => {
   const [testimonialData, setTestimonialData] = useState<any>([])
   const [testUserData, setTestUserData] = useState<any>()
   
-
-
-
-
   const getTestimonials = () => {
-    const APIURL = 'http://localhost:3000/testimonial/all'
+    const APIURL:string = 'http://localhost:3000/testimonial/all'
     fetch(APIURL ,{
         method: 'GET',
         headers: {
