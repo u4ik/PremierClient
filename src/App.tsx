@@ -12,6 +12,7 @@ const App: React.FunctionComponent = () => {
       <Sitebar />
       <Home />
       <Footer />
+      
  
     </div>
   );

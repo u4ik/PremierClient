@@ -11,7 +11,7 @@ class Home extends React.Component {
                 <div style={{
                     
                 }}>
-                    <h1> HomeWelcome to Premier Commercial Services!</h1>
+                    <h1> Home/welcome/whatever: Welcome to Premier Commercial Services!</h1>
                 </div>
 
                 <div style={{borderBottom:'solid 1px white'}}>

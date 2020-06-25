@@ -40,8 +40,8 @@ const logoTitleStyle:React.CSSProperties={
 const Sitebar: React.FunctionComponent<{ props?: any }> = ({props}) => {
     const [collapsed, setCollapsed] = useState<boolean>(true);
     const toggleNavbar = () => setCollapsed(!collapsed);
-    const [signedIn, setSignedIn] = useState<boolean>(true);
-    const [isAdmin, setIsAdmin] = useState(true);
+    const [signedIn, setSignedIn] = useState<boolean>(false);
+    const [isAdmin, setIsAdmin] = useState(false);
 
     const [showContact, setShowContact] = useState<boolean>(false);
     
