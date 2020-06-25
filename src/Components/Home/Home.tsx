@@ -11,13 +11,13 @@ class Home extends React.Component {
                 <div style={{
                     
                 }}>
-                    <h1> HomeWelcome to Premier Commercial Services!</h1>
+                    <h1 style= {{fontSize:'1rem'}}> Home/welcome/whatever: Welcome to Premier Commercial Services!</h1>
                 </div>
 
                 <div style={{borderBottom:'solid 1px white'}}>
                         <ServicesHome/>
                 </div>
-                <div style={{borderBottom:'solid 1px white'}}>
+                <div style={{borderBottom:'solid 1px white', backgroundColor: '#009FE4'}}>
                         <TestimonialsHome/>
                 </div>
             </div>

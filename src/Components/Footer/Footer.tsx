@@ -25,7 +25,8 @@ const footerText: React.CSSProperties ={
 const footerText1: React.CSSProperties ={
     marginBottom: '1%',
     textShadow: '.1rem .1rem .1rem black',
-    fontSize:'1.2rem'
+    fontSize:'1.2rem',
+    color:'#E8D47B'
 }
 
 const Footer: React.FunctionComponent = () => {
