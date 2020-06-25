@@ -36,12 +36,13 @@ const Sitebar: React.FunctionComponent<{ props?: any }> = ({props}) => {
     const showThatContact= (e:any) => {
         e.preventDefault();
      
-        if(showContact === true){
-            setShowContact(false);
+        // if(showContact === true){
+        //     setShowContact(false);
             
-        }else{
-            setShowContact(true);
-        }
+        // }else{
+        //     setShowContact(true);
+        // }
+        setShowContact(!showContact)
     }
 
 
@@ -62,7 +63,7 @@ const Sitebar: React.FunctionComponent<{ props?: any }> = ({props}) => {
                                 float: 'right',
                                 textAlign: 'right'
                             }} >
-                                    {showContact ===  true ? <Contact  />:null}        
+                                    <Contact setShowContact={setShowContact} showContact ={showContact} />       
                      
                                 <NavItem >
                                     <NavLink href="/" className="nav-links">Home</NavLink>
