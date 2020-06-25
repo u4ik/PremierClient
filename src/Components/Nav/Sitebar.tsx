@@ -7,8 +7,10 @@ import MediaQuery from 'react-responsive';
 
 // const container: React.C
 const logo: React.CSSProperties ={
-    height: '5.5vh',
-    cursor: 'pointer'
+    height: '8vh',
+    cursor: 'pointer',
+    margin: '3px'
+    
 }
 
 const navbar: React.CSSProperties ={
