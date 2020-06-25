@@ -64,7 +64,7 @@ useEffect (() => {
 
 
 
-          <h3 style={{fontSize:'1.4rem', textShadow:'.1px .1px .1px grey', color:'black', userSelect:'none'}}>{item.userQuote}</h3>
+          <h3 style={{fontSize:'1.4rem', textShadow:'.1px .1px .1px grey', color:'black', userSelect:'none'}}>{ `"` + `${item.userQuote}` + `"`}</h3>
          
         </div>
         <div>
