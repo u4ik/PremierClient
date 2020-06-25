@@ -31,7 +31,7 @@ const logoTitleStyle:React.CSSProperties={
     fontSize: '2.2rem',
     lineHeight:'1.2',
     color:'#E8C10D',
-    textShadow:'1px 1px 1px black',
+    textShadow:'2px 2px 1px black',
     fontWeight: 400
 }
 

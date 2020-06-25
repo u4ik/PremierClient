@@ -47,16 +47,35 @@ useEffect (() => {
         onExited={() => setAnimating(false)}
         key={item.id}
       >
-        {/* <img src={IconBackground} alt= "TestimonialBacker" /> */}
-        <div>
-        {/* <CarouselCaption style = {{lineHeight: '1rem', marginTop:''}}  captionText={"-" + item.userFirstName + " " + item.userLastName}  captionHeader={`"${item.userQuote}"`}/> */}
-        <div className="carousel-caption d-none d-md-block">
-        <h3>{item.userQuote}</h3>
-        <h4 style= {{fontSize: '1.3rem',marginBottom:''}}>{"-" + `${item.userFirstName}` + " " + `${item.userLastName}`}</h4>
-        <h5 style={{fontSize:'.8rem'}}>{item.userLocation}</h5>
-        <p style={{fontSize:'.7rem'}}>{item.serviceCompletionDate}</p>
-        </div>
         
+        {/* <img src={IconBackground} alt= "TestimonialBacker" /> */}
+        <div style={{display:'flex', flexDirection:'column', justifyContent:'center'}}>
+        {/* <CarouselCaption style = {{lineHeight: '1rem', marginTop:''}}  captionText={"-" + item.userFirstName + " " + item.userLastName}  captionHeader={`"${item.userQuote}"`}/> */}
+        
+
+        <div className="carousel-caption d-none d-md-block" style={{
+          backgroundColor:'white',
+          borderRadius:'1rem',
+          paddingLeft:'.5rem',
+          paddingRight:'.5rem',
+          marginTop:'.5rem',
+          userSelect:'none',
+          marginBottom:'.5rem',
+          width:'auto',
+          filter: 'drop-shadow(3px 3px 5px black)',
+          marginLeft:'20%',
+          marginRight:'20%'}}>
+
+
+
+          <h3 style={{fontSize:'1.4rem', textShadow:'.1px .1px .1px grey', color:'black', userSelect:'none'}}>{item.userQuote}</h3>
+         
+        </div>
+        <div>
+            <h4 style= {{fontSize: '1.1rem', textShadow:'1px 1px 1px black', color:'#E8D47B',  userSelect:'none'}}>{"- " + `${item.userFirstName}` + " " + `${item.userLastName}`}</h4>
+            <h5 style={{fontSize:'.8rem', color:'white', textShadow:'1px 1px 1px black', userSelect:'none'}}>{item.userLocation}</h5>
+            <p style={{fontSize:'.7rem', color:' white', textShadow:'1px 1px 1px black', userSelect:'none'}}>{item.serviceCompletionDate}</p>
+          </div>
         
     
         </div>
@@ -82,17 +101,18 @@ useEffect (() => {
 
   return (
     <div style={{width:'100vw', backgroundColor:'#009FE4'}}>
+        <h3 style={{fontSize:'1.7rem',paddingTop:'1rem', textShadow:'1.5px 2px 1px black', color:'#E8D47B', userSelect:'none'}}>Testimonials</h3>
         <Carousel
-        activeIndex={activeIndex}
-        next={next}
-        previous={previous}
-        >
-        {slides}
-        <div>
-        <CarouselIndicators items={testimonialData} activeIndex={activeIndex} onClickHandler={goToIndex} />
-        </div>
-        <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
-        <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
+          activeIndex={activeIndex}
+          next={next} 
+          previous={previous}
+          >
+          {slides}
+          <div style={{marginTop:'1%', backgroundColor:'#009FE4'}}>
+          <CarouselIndicators items={testimonialData} activeIndex={activeIndex} onClickHandler={goToIndex} />
+          </div>
+          <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
+          <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
         </Carousel>
     </div>
   );

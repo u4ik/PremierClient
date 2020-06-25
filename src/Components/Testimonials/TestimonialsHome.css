@@ -10,8 +10,8 @@
 
 .carousel-caption,
 .d-none.d-md-block {
-    color: white;
-    text-shadow: 1.5px 1.5px 1px black;
+    color: black;
+    text-shadow: .5px .5px .5px #177BBD;
     display: block !important;
     padding: none !important
 }
@@ -20,4 +20,8 @@
     position: initial !important;
     padding-bottom: none !important;
     padding-top: none !important;
+}
+
+.carousel-indicators {
+    bottom: -25px !important
 }
