@@ -18,7 +18,7 @@ import Logo from '../../assets/Premier-Commercial-Services-icon.svg';
 const logo: React.CSSProperties ={
     height: '5.5vh',
     cursor: 'pointer',
-    filter: 'drop-shadow(1px 1px 1px  black)'
+    filter: 'drop-shadow(2px 2px 1px  black)'
 }
 
 const navbar: React.CSSProperties ={
