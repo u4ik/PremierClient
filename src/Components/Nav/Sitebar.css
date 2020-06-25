@@ -2,6 +2,9 @@
     .navlinkWrap {
         flex-direction: row !important;
     }
+    #navLinkWrap {
+        flex-direction: row !important;
+    }
 }
 
 a:link {

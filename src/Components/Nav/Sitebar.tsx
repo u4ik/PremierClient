@@ -10,8 +10,8 @@ import Contact from '../Contact/Contact';
 
 
 import { Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink } from 'reactstrap';
-import Logo from '../../assets/Premier-Commercial-Services-logo.svg';
-// import MediaQuery from 'react-responsive';
+import Logo from '../../assets/Premier-Commercial-Services-icon.svg';
+
 
 
 // const container: React.C
@@ -27,6 +27,14 @@ const navbar: React.CSSProperties ={
     
 }
 
+const logoTitleStyle:React.CSSProperties={
+    fontSize: '2.2rem',
+    lineHeight:'1.2',
+    color:'#E8C10D',
+    textShadow:'1px 1px 1px black',
+    fontWeight: 400
+}
+
 
 
 const Sitebar: React.FunctionComponent<{ props?: any }> = ({props}) => {
@@ -37,18 +45,11 @@ const Sitebar: React.FunctionComponent<{ props?: any }> = ({props}) => {
 
     const [showContact, setShowContact] = useState<boolean>(false);
     
-    const [flexType, setFlexType] = useState<any>('row')
+    const [flexType, setFlexType] = useState<any>()
 
 
     const showThatContact= (e:any) => {
         e.preventDefault();
-     
-        // if(showContact === true){
-        //     setShowContact(false);
-            
-        // }else{
-        //     setShowContact(true);
-        // }
         setShowContact(!showContact)
     }
 
@@ -56,15 +57,31 @@ const Sitebar: React.FunctionComponent<{ props?: any }> = ({props}) => {
         return (
             <div >
                 <Navbar color="faded" light expand='lg' style={navbar}>
-                    <img alt = 'Premier Commercial Services Logo'src={Logo} style={logo} />
+
+                    <div style={{
+                        display: 'flex',
+                        flexDirection:'row'
+                    }}>
+                        <div>
+                            <img alt = 'Premier Commercial Services Logo'src={Logo} style={logo} />
+                        </div>
+
+                        <div>
+                            <h1 style={logoTitleStyle}>Premier Commercial Services</h1>
+                        </div>
+                        <div>
+
+
+                        </div>
+                    </div>
                     <NavbarToggler onClick={(e) => {
 
                         collapsed===true ? setFlexType('column'): setFlexType('row')
 
                         toggleNavbar()}} className="mr-2" />
                     <Collapse isOpen={!collapsed} navbar>
-
-                            <div style={{
+                        <Nav>
+                            <div id = 'navlinkwrap' style={{
 
                                 display: 'flex',
                                 flexDirection: flexType,

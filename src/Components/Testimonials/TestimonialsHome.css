@@ -1,0 +1,16 @@
+.carousel-item,
+.carousel-item.active {
+    align-items: center;
+}
+
+.carousel-item>img {
+    width: 100%;
+    height: 18vh
+}
+
+.carousel-caption,
+.d-none.d-md-block {
+    color: white;
+    text-shadow: 1.5px 1.5px 1px black;
+    display: block !important
+}
