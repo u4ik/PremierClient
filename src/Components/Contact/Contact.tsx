@@ -2,6 +2,9 @@ import React, {useState} from 'react'
 
 
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import Logo from '../../assets/Premier-Commercial-Services-icon.svg';
+
+import './Contact.css'
 interface somethingfornow {
 
 
@@ -22,13 +25,18 @@ const Contact: React.FunctionComponent<somethingfornow> = (props:somethingfornow
     const modalHeaderStyle:React.CSSProperties= {
         backgroundColor:'#177BBD',
         color: 'white',
-        textShadow: '.1rem .1rem .1rem black'
+        textShadow: '.1rem .1rem .1rem black',
+        borderColor:'transparent',
+        borderRadius: '20px 20px 0px 0px',
+
     } 
 
     const modalFooterStyle:React.CSSProperties= {
         backgroundColor:'#177BBD',
         color: 'white',
-        textShadow: '.1rem .1rem .1rem black'
+        textShadow: '.1rem .1rem .1rem black',
+        borderColor:'transparent',
+        borderRadius: '0px 0px 20px 20px'
     } 
 
 
@@ -56,8 +64,11 @@ const Contact: React.FunctionComponent<somethingfornow> = (props:somethingfornow
     <div className="" >
         <div>
 
-            <Modal isOpen={props.showContact} toggle={toggle} className=''>
-                <ModalHeader toggle={toggle} style={modalHeaderStyle}>Contact Form</ModalHeader>
+            <Modal style={{borderRadius:'20px'}}isOpen={props.showContact} toggle={toggle} className=''>
+                <ModalHeader toggle={toggle} style={modalHeaderStyle}>
+                
+                <img src = {Logo} style={{}} />
+                </ModalHeader>
                 <ModalBody style={{backgroundColor: '#009FE4'}}>
                 <form className="fs-frm" id="myForm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/insighteuphoric@gmail.com" method="post">
 

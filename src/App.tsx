@@ -7,11 +7,12 @@ import Footer from './Components/Footer/Footer';
 
 const App: React.FunctionComponent = () => {
   return (
-    <div className="App">
+    <div className="App" >
  
       <Sitebar />
       <Home />
       <Footer />
+      
  
     </div>
   );

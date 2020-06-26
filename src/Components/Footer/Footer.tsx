@@ -20,7 +20,13 @@ const footerWrap: React.CSSProperties ={
 
 const footerText: React.CSSProperties ={
     marginBottom: '1%',
-    textShadow: '.1rem .1rem .1rem black'
+    textShadow: '.1rem .1rem .1rem #024160'
+}
+const footerText1: React.CSSProperties ={
+    marginBottom: '1%',
+    textShadow: '.1rem .1rem .1rem #024160',
+    fontSize:'1.2rem',
+    color:'#E8D47B'
 }
 
 const Footer: React.FunctionComponent = () => {
@@ -31,9 +37,10 @@ const Footer: React.FunctionComponent = () => {
             flexDirection:'column'
         }}>
                     
-        <p style={footerText}>Premier Commercial Services</p>
-        <p style={footerText}>555-555-5555</p>
-        <p style={footerText}>123 Fake St.</p>
+        <p style={footerText1}>Premier Commercial Services</p>
+        <p style={footerText}>Tel. 317.417.8208</p>
+        <p style={footerText}>21113 N Banbury Rd</p>
+        <p style={footerText}>Noblesville, IN 46062</p>
         </div>
     </div>
   );

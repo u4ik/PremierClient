@@ -2,6 +2,9 @@
     .navlinkWrap {
         flex-direction: row !important;
     }
+    #navLinkWrap {
+        flex-direction: row !important;
+    }
 }
 
 a:link {
@@ -32,7 +35,7 @@ a:active {
 a.nav-links:link {
     color: #ffffff;
     text-decoration: none;
-    text-shadow: .1rem .1rem .1rem black;
+    text-shadow: .1rem .1rem .1rem #024160;
     ;
 }
 
@@ -47,13 +50,4 @@ a.nav-links:hover {
 .collapse.show.navbar-collapse {
     display: flex;
     justify-content: flex-end;
-}
-
-.brandName{
-    font-family: 'Barlow', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #E8C10D;
-    /* filter: drop-shadow(1px 1px 1px  black); */
-    margin-left: 5px;
 }
