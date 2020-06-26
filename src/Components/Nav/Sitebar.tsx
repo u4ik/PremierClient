@@ -10,15 +10,17 @@ import Contact from '../Contact/Contact';
 
 
 import { Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink } from 'reactstrap';
-import Logo from '../../assets/Premier-Commercial-Services-icon.svg';
+import Logo from '../../assets/Premier-Commercial-Services-logo.svg';
 
 
 
 
 const logo: React.CSSProperties ={
-    height: '5.5vh',
+    // height: '8vh',
+    width: '100%',
+    height: 'auto',
     cursor: 'pointer',
-    filter: 'drop-shadow(2px 2px 1px  black)'
+    filter: 'drop-shadow(1px 1px 1px  #024160)'
 }
 
 const navbar: React.CSSProperties ={
@@ -66,9 +68,9 @@ const Sitebar: React.FunctionComponent<{ props?: any }> = ({props}) => {
                             <img alt = 'Premier Commercial Services Logo'src={Logo} style={logo} />
                         </div>
 
-                        <div>
+                        {/* <div>
                             <h1 style={logoTitleStyle}>Premier Commercial Services</h1>
-                        </div>
+                        </div> */}
                         <div>
 
 
@@ -90,10 +92,7 @@ const Sitebar: React.FunctionComponent<{ props?: any }> = ({props}) => {
                                 textAlign: 'right'
                             }} >
 
-                                    <Contact setShowContact={setShowContact} showContact ={showContact} />       
-
-
-                     
+                                <Contact setShowContact={setShowContact} showContact ={showContact} />       
 
                                 <NavItem >
                                     <NavLink href="/" className="nav-links">Home</NavLink>
@@ -111,7 +110,6 @@ const Sitebar: React.FunctionComponent<{ props?: any }> = ({props}) => {
                                     <NavLink href="/" className="nav-links" onClick={(e:any) => {
                                         showThatContact(e);
                                     }} 
-                                    
                                     >Contact Us</NavLink>
                                 </NavItem>
                            
@@ -129,8 +127,7 @@ const Sitebar: React.FunctionComponent<{ props?: any }> = ({props}) => {
 
 
                             </div>
-
-                        </Nav>
+                            </Nav>
         
                     </Collapse>
                         

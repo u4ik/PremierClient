@@ -97,7 +97,7 @@ useEffect (() => {
 
   return (
     <div style={{width:'100vw', backgroundColor:'#009FE4'}}>
-        <h3 style={{fontSize:'1.7rem',paddingTop:'1rem', textShadow:'1.5px 2px 1px black', color:'#E8D47B', userSelect:'none'}}>Testimonials</h3>
+        <h3 style={{fontSize:'1.7rem',paddingTop:'1rem', textShadow:'1.5px 2px 1px #024160', color:'#E8D47B', userSelect:'none'}}>Testimonials</h3>
         <Carousel
           activeIndex={activeIndex}
           next={next} 
@@ -107,8 +107,10 @@ useEffect (() => {
           <div style={{marginTop:'1%', backgroundColor:'#009FE4'}}>
           <CarouselIndicators items={testimonialData} activeIndex={activeIndex} onClickHandler={goToIndex} />
           </div>
-          <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
-          <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
+          <div>
+            <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
+            <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
+          </div>
         </Carousel>
     </div>
   );
