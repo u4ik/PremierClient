@@ -58,7 +58,7 @@ useEffect (() => {
           userSelect:'none',
           marginBottom:'.5rem',
           width:'auto',
-          filter: 'drop-shadow(3px 3px 5px black)',
+          filter: 'drop-shadow(2px 2px 2px black)',
           marginLeft:'20%',
           marginRight:'20%'}}>
 
@@ -96,8 +96,8 @@ useEffect (() => {
 
 
   return (
-    <div style={{width:'100vw', backgroundColor:'#009FE4'}}>
-        <h3 style={{fontSize:'1.7rem',paddingTop:'1rem', textShadow:'1.5px 2px 1px #024160', color:'#E8D47B', userSelect:'none'}}>Testimonials</h3>
+    <div style={{width:'auto', backgroundColor:'#009FE4'}}>
+        <h3 style={{fontSize:'1.7rem',paddingTop:'1%', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', backgroundColor: '#177BBD', borderBottom: 'solid 1px white'}}>Testimonials</h3>
         <Carousel
           activeIndex={activeIndex}
           next={next} 
