@@ -42,7 +42,7 @@ const logoTitleStyle:React.CSSProperties={
 const Sitebar: React.FunctionComponent<{ props?: any }> = ({props}) => {
     const [collapsed, setCollapsed] = useState<boolean>(true);
     const toggleNavbar = () => setCollapsed(!collapsed);
-    const [signedIn, setSignedIn] = useState<boolean>(false);
+    const [signedIn, setSignedIn] = useState<boolean>(true);
     const [isAdmin, setIsAdmin] = useState(false);
 
     const [showContact, setShowContact] = useState<boolean>(false);
@@ -113,6 +113,11 @@ const Sitebar: React.FunctionComponent<{ props?: any }> = ({props}) => {
                                     >Contact Us</NavLink>
                                 </NavItem>
                            
+                                {signedIn === true ? 
+                                <NavItem>
+                                    <NavLink href="/" className="nav-links">My Orders</NavLink>
+                                </NavItem>
+                                : null}
                                 {signedIn === true ? 
                                 <NavItem>
                                     <NavLink href="/" className="nav-links">Logout</NavLink>

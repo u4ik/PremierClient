@@ -22,12 +22,23 @@ class Home extends React.Component {
                   
                 </div>
 
+                <div>
+
+
+                </div>
+
+
+
                 <div style={{borderBottom:'solid 1px white'}}>
                     <ServicesHome/>
                 </div>
                 <div style={{borderBottom:'solid 1px white', backgroundColor: '#009FE4'}}>
                     <TestimonialsHome/>
                 </div>
+
+
+
+                
             </div>
         );
     }

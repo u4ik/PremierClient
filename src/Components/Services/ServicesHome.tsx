@@ -7,7 +7,7 @@ import MedicalImg from  '../../assets/locationIcons/medical2.svg'
 import OfficeImg from  '../../assets/locationIcons/office.svg'
 import ServicesImg from  '../../assets/locationIcons/services.svg'
 
-import {Container, Row, Col} from 'reactstrap'
+import {Container, Row, Col, UncontrolledPopover, PopoverHeader, PopoverBody, Button} from 'reactstrap'
 
 import './Services.css'
 
@@ -39,8 +39,9 @@ class ServicesHome extends React.Component {
                     <Row>
                         <Col >
                         
-                        <img draggable = 'false' className='locationIcon' style ={iconStyle} src={RestaurantImg}/>
+                        <img id="PopoverFocus"  draggable = 'false' className='locationIcon' style ={iconStyle} src={RestaurantImg}/>
                         <p style={iconText}>Restaurants</p>
+                       
                         </Col>
 
                         <Col>
@@ -72,7 +73,10 @@ class ServicesHome extends React.Component {
 
            
 
-
+                    <UncontrolledPopover trigger="focus" placement="bottom" target="PopoverFocus">
+                    <PopoverHeader>Focus Trigger</PopoverHeader>
+                    <PopoverBody>Focusing on the trigging element makes this popover appear. Blurring (clicking away) makes it disappear. You cannot select this text as the popover will disappear when you try.</PopoverBody>
+                    </UncontrolledPopover>
 
                 </Container>
                
