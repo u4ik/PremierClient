@@ -67,7 +67,7 @@ const Contact: React.FunctionComponent<somethingfornow> = (props:somethingfornow
             <Modal style={{borderRadius:'20px'}}isOpen={props.showContact} toggle={toggle} className=''>
                 <ModalHeader toggle={toggle} style={modalHeaderStyle}>
                 
-                <img src = {Logo} style={{}} />
+                <img src = {Logo} style={{width:'20%'}} />
                 </ModalHeader>
                 <ModalBody style={{backgroundColor: '#009FE4'}}>
                 <form className="fs-frm" id="myForm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/insighteuphoric@gmail.com" method="post">
