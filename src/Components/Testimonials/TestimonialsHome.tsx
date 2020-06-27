@@ -69,6 +69,7 @@ useEffect (() => {
         </div>
         <div>
             <h4 style= {{fontSize: '1.1rem', textShadow:'1px 1px 1px black', color:'#E8D47B',  userSelect:'none'}}>{"- " + `${item.userFirstName}` + " " + `${item.userLastName}`}</h4>
+            <h5 style={{fontSize:'.8rem', color:'white', textShadow:'1px 1px 1px black', userSelect:'none'}}>{item.userLocationType}</h5>
             <h5 style={{fontSize:'.8rem', color:'white', textShadow:'1px 1px 1px black', userSelect:'none'}}>{item.userLocation}</h5>
             <p style={{fontSize:'.7rem', color:' white', textShadow:'1px 1px 1px black', userSelect:'none'}}>{item.serviceCompletionDate}</p>
           </div>

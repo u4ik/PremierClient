@@ -12,7 +12,11 @@ interface displayAuthForm {
     setUpdateToken: any
     signup: any
     setSignup: any
+    setSignedIn: any
+    signedIn: boolean
 }
+
+
 
 const modalHeaderStyle:React.CSSProperties= {
     backgroundColor:'#177BBD',
@@ -39,7 +43,7 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
     const toggle = () => props.setShowAuth(!props.showAuth);
 
     
-
+const [jsonStuff, setJsonStuff] = useState('');
 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -47,12 +51,13 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
     const [password, setPassword] = useState('');
     const [location, setLocation] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
+  
    
     
 
     const submit = (e: any) => {
         e.preventDefault();
-        const url = props.signup ? baseURL + '/signup' : baseURL + '/signin';
+        const url = props.signup ? baseURL + '/create' : baseURL + '/login';
         const reqBody = {
                 firstName: firstName,
                 lastName: lastName,
@@ -60,7 +65,7 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
                 passwordhash: password,
                 location: location,
                 phoneNumber: phoneNumber,
-                isAdmin: ''
+                isAdmin: 'something'
 
         };
 
@@ -72,7 +77,18 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
             body: JSON.stringify(reqBody)
         }).then(response => response.json())
             .then(rjson =>{
-                props.updateToken(rjson.sessionToken)
+                // console.log(rjson.message)
+                // console.log(rjson.failure)
+                console.log(rjson.Greeting)
+                if (rjson.Greeting !== undefined){
+
+                console.log(rjson)
+                setJsonStuff(rjson);
+                toggle()
+                props.setSignedIn(true)
+                props.setUpdateToken(rjson.sessionToken)
+                console.log(props.updateToken)
+                }
             })
         .catch(err => console.log(err.message))
     }
@@ -80,7 +96,7 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
     return (
             <div>
 
-                <Modal style={{borderRadius:'20px'}} isOpen={props.showAuth} toggle={toggle} className=''>
+                <Modal style={{borderRadius:'20px'}} isOpen={props.showAuth}  className=''>
                     <ModalHeader toggle={toggle} style={modalHeaderStyle}>
                     
                     <img src = {Logo} style={{width:'20%'}} />
@@ -127,10 +143,10 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
                         
                     </ModalBody>
                     <ModalFooter style={modalFooterStyle}>
-                    <Button type="button" onClick={() => props.setSignup(!props.signup)}>{props.signup ? 'Have an account? Signin' : 'Need an account? Signup!'}</Button>
+                        <Button type="button" onClick={() => props.setSignup(!props.signup)}>{props.signup ? 'Have an account? Signin' : 'Need an account? Signup!'}</Button>
                         <Button color="primary" onClick={(e) => {
-                            toggle()
-                            submit(e)}}>Submit</Button>{' '}
+                                // toggle()
+                                submit(e)}}>Submit</Button>{' '}
                         
                     </ModalFooter>
                     

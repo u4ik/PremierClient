@@ -17,9 +17,6 @@ const iconStyle:React.CSSProperties={
     width: '50%',
     filter:'drop-shadow(1px 1px 1px #024160)',
     userSelect:'none',
-    
-
-
 }
 
 const iconText:React.CSSProperties={
@@ -29,6 +26,14 @@ const iconText:React.CSSProperties={
     textShadow:'.1rem .1rem .1rem #024160',
     userSelect:'none'
 }
+//Popover Descriptions
+let RestaurantInfo = 'Something about Restaurants'
+let AthleticInfo = 'Something about Athletics'
+let MedicalInfo = 'Something about Medical'
+let OfficeInfo = 'Something about Offices'
+let GroceryInfo = 'Something about Grocery'
+let ServicesInfo = 'Something about Services'
+
 
 class ServicesHome extends React.Component {
     render() {
@@ -37,11 +42,8 @@ class ServicesHome extends React.Component {
                 <h3 style={{fontSize:'1.7rem',paddingTop:'1%', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', backgroundColor: '#177BBD', borderBottom: 'solid 1px white',borderTop: 'solid 1px white'}}>Service Locations</h3>
                 
                 <div style={{display:'flex',  flexDirection:'row'}}>
-
-
                     <Container style={{display:'flex',  flexDirection:'column'}}>
                      <Row>
-
                         <Col>
                             <MDBContainer>
                     <div style={{ }} className="">
@@ -58,8 +60,7 @@ class ServicesHome extends React.Component {
                                 <div>
                                     <MDBPopoverHeader>Restaurants</MDBPopoverHeader>
                                     <MDBPopoverBody>
-                                    Sed posuere consectetur est at lobortis. Aenean eu leo quam.
-                                    Pellentesque ornare sem lacinia quam venenatis vestibulum.
+                                    {RestaurantInfo}
                                     </MDBPopoverBody>
                                 </div>
                                 </MDBPopover>
@@ -80,10 +81,9 @@ class ServicesHome extends React.Component {
                                     <p style={iconText}>Athletics</p>
                                 </MDBBtn>
                                 <div>
-                                    <MDBPopoverHeader>Restaurants</MDBPopoverHeader>
+                                    <MDBPopoverHeader>Athletics</MDBPopoverHeader>
                                     <MDBPopoverBody>
-                                    Sed posuere consectetur est at lobortis. Aenean eu leo quam.
-                                    Pellentesque ornare sem lacinia quam venenatis vestibulum.
+                                    {AthleticInfo}
                                     </MDBPopoverBody>
                                 </div>
                                 </MDBPopover>
@@ -107,10 +107,9 @@ class ServicesHome extends React.Component {
                                     <p style={iconText}>Medical</p>
                                 </MDBBtn>
                                 <div>
-                                    <MDBPopoverHeader>Restaurants</MDBPopoverHeader>
+                                    <MDBPopoverHeader>Medical</MDBPopoverHeader>
                                     <MDBPopoverBody>
-                                    Sed posuere consectetur est at lobortis. Aenean eu leo quam.
-                                    Pellentesque ornare sem lacinia quam venenatis vestibulum.
+                                    {MedicalInfo}
                                     </MDBPopoverBody>
                                 </div>
                                 </MDBPopover>
@@ -120,8 +119,6 @@ class ServicesHome extends React.Component {
                     </div>
                             </MDBContainer>
                         </Col>  
-
-
                     </Row>  
                     <Row>       
                         <Col>
@@ -138,10 +135,9 @@ class ServicesHome extends React.Component {
                                     <p style={iconText}>Office</p>
                                 </MDBBtn>
                                 <div>
-                                    <MDBPopoverHeader>Restaurants</MDBPopoverHeader>
+                                    <MDBPopoverHeader>Office</MDBPopoverHeader>
                                     <MDBPopoverBody>
-                                    Sed posuere consectetur est at lobortis. Aenean eu leo quam.
-                                    Pellentesque ornare sem lacinia quam venenatis vestibulum.
+                                    {OfficeInfo}
                                     </MDBPopoverBody>
                                 </div>
                                 </MDBPopover>
@@ -165,10 +161,9 @@ class ServicesHome extends React.Component {
                                     <p style={iconText}>Grocery</p>
                                 </MDBBtn>
                                 <div>
-                                    <MDBPopoverHeader>Restaurants</MDBPopoverHeader>
+                                    <MDBPopoverHeader>Grocery</MDBPopoverHeader>
                                     <MDBPopoverBody>
-                                    Sed posuere consectetur est at lobortis. Aenean eu leo quam.
-                                    Pellentesque ornare sem lacinia quam venenatis vestibulum.
+                                    {GroceryInfo}
                                     </MDBPopoverBody>
                                 </div>
                                 </MDBPopover>
@@ -192,10 +187,9 @@ class ServicesHome extends React.Component {
                                                 <p style={iconText}>Services</p>
                                             </MDBBtn>
                                             <div>
-                                                <MDBPopoverHeader>Restaurants</MDBPopoverHeader>
+                                                <MDBPopoverHeader>Services</MDBPopoverHeader>
                                                 <MDBPopoverBody>
-                                                Sed posuere consectetur est at lobortis. Aenean eu leo quam.
-                                                Pellentesque ornare sem lacinia quam venenatis vestibulum.
+                                            {ServicesInfo}
                                                 </MDBPopoverBody>
                                             </div>
                                             </MDBPopover>
@@ -204,19 +198,8 @@ class ServicesHome extends React.Component {
                         </Col>
                     </Row>      
                     </Container>
-
-
-                  
                 </div>
-               
-
-
-
-
-
             </div>
-
-      
         );
     }
 }
