@@ -7,7 +7,7 @@ import MedicalImg from  '../../assets/locationIcons/medical2.svg'
 import OfficeImg from  '../../assets/locationIcons/office.svg'
 import ServicesImg from  '../../assets/locationIcons/services.svg'
 
-import {Container, Row, UncontrolledPopover, PopoverHeader, PopoverBody, Button} from 'reactstrap'
+import {Container,Col, Row, UncontrolledPopover, PopoverHeader, PopoverBody, Button} from 'reactstrap'
 import { MDBPopover, MDBPopoverBody, MDBPopoverHeader, MDBBtn, MDBContainer } from "mdbreact";
 
 import './Services.css'
@@ -37,9 +37,12 @@ class ServicesHome extends React.Component {
                 <h3 style={{fontSize:'1.7rem',paddingTop:'1%', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', backgroundColor: '#177BBD', borderBottom: 'solid 1px white',borderTop: 'solid 1px white'}}>Service Locations</h3>
                 
                 <div style={{display:'flex',  flexDirection:'row'}}>
-        
 
 
+                    <Container style={{display:'flex',  flexDirection:'column'}}>
+                     <Row>
+
+                        <Col>
                             <MDBContainer>
                     <div style={{ }} className="">
                                 <MDBPopover
@@ -50,7 +53,7 @@ class ServicesHome extends React.Component {
                                 >
                                 <MDBBtn>    
                                     <img id="PopoverFocus"  draggable = 'false' className='locationIcon' style ={iconStyle} src={RestaurantImg}/>
-                                    <p style={iconText}>Restaurants</p>
+                                    <p style={iconText}>Food</p>
                                 </MDBBtn>
                                 <div>
                                     <MDBPopoverHeader>Restaurants</MDBPopoverHeader>
@@ -62,8 +65,8 @@ class ServicesHome extends React.Component {
                                 </MDBPopover>
                     </div>
                             </MDBContainer>
-                        
-                    
+                        </Col>
+                        <Col>
                             <MDBContainer>
                     <div style={{ }} className="">
                                 <MDBPopover
@@ -74,7 +77,7 @@ class ServicesHome extends React.Component {
                                 >
                                 <MDBBtn>    
                                     <img id="PopoverFocus"  draggable = 'false' className='locationIcon' style ={iconStyle} src={AthleticImg}/>
-                                    <p style={iconText}>Restaurants</p>
+                                    <p style={iconText}>Athletics</p>
                                 </MDBBtn>
                                 <div>
                                     <MDBPopoverHeader>Restaurants</MDBPopoverHeader>
@@ -89,8 +92,8 @@ class ServicesHome extends React.Component {
 
                     </div>
                             </MDBContainer>
-                        
-                    
+                        </Col>
+                        <Col>
                             <MDBContainer>
                     <div style={{ }} className="">
                                 <MDBPopover
@@ -101,7 +104,7 @@ class ServicesHome extends React.Component {
                                 >
                                 <MDBBtn>    
                                     <img id="PopoverFocus"  draggable = 'false' className='locationIcon' style ={iconStyle} src={MedicalImg}/>
-                                    <p style={iconText}>Restaurants</p>
+                                    <p style={iconText}>Medical</p>
                                 </MDBBtn>
                                 <div>
                                     <MDBPopoverHeader>Restaurants</MDBPopoverHeader>
@@ -116,7 +119,12 @@ class ServicesHome extends React.Component {
 
                     </div>
                             </MDBContainer>
-                        
+                        </Col>  
+
+
+                    </Row>  
+                    <Row>       
+                        <Col>
                             <MDBContainer>
                     <div style={{ }} className="">
                                 <MDBPopover
@@ -127,7 +135,7 @@ class ServicesHome extends React.Component {
                                 >
                                 <MDBBtn>    
                                     <img id="PopoverFocus"  draggable = 'false' className='locationIcon' style ={iconStyle} src={OfficeImg}/>
-                                    <p style={iconText}>Restaurants</p>
+                                    <p style={iconText}>Office</p>
                                 </MDBBtn>
                                 <div>
                                     <MDBPopoverHeader>Restaurants</MDBPopoverHeader>
@@ -142,7 +150,8 @@ class ServicesHome extends React.Component {
 
                     </div>
                             </MDBContainer>
-                                               
+                        </Col>     
+                        <Col>
                             <MDBContainer>
                     <div style={{}} className="">
                                 <MDBPopover
@@ -153,7 +162,7 @@ class ServicesHome extends React.Component {
                                 >
                                 <MDBBtn>    
                                     <img id="PopoverFocus"  draggable = 'false' className='locationIcon' style ={iconStyle} src={GroceryImg}/>
-                                    <p style={iconText}>Restaurants</p>
+                                    <p style={iconText}>Grocery</p>
                                 </MDBBtn>
                                 <div>
                                     <MDBPopoverHeader>Restaurants</MDBPopoverHeader>
@@ -168,7 +177,8 @@ class ServicesHome extends React.Component {
 
                     </div>
                             </MDBContainer>
-                                               
+                            </Col> 
+                        <Col>                
                             <MDBContainer>
                     <div style={{ }} className="">
                                             <MDBPopover
@@ -179,7 +189,7 @@ class ServicesHome extends React.Component {
                                             >
                                             <MDBBtn>    
                                                 <img id="PopoverFocus"  draggable = 'false' className='locationIcon' style ={iconStyle} src={ServicesImg}/>
-                                                <p style={iconText}>Restaurants</p>
+                                                <p style={iconText}>Services</p>
                                             </MDBBtn>
                                             <div>
                                                 <MDBPopoverHeader>Restaurants</MDBPopoverHeader>
@@ -191,8 +201,9 @@ class ServicesHome extends React.Component {
                                             </MDBPopover>
                                 </div>
                             </MDBContainer>
-                                       
-                    
+                        </Col>
+                    </Row>      
+                    </Container>
 
 
                   
