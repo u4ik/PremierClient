@@ -43,7 +43,7 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
     const toggle = () => props.setShowAuth(!props.showAuth);
 
     
-const [jsonStuff, setJsonStuff] = useState('');
+    const [jsonStuff, setJsonStuff] = useState('');
 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -51,6 +51,9 @@ const [jsonStuff, setJsonStuff] = useState('');
     const [password, setPassword] = useState('');
     const [location, setLocation] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
+
+    const [errorMessage, setErrorMessage] = useState('')
+    const [passwordError, setPasswordError] = useState('')
   
    
     
@@ -78,8 +81,12 @@ const [jsonStuff, setJsonStuff] = useState('');
         }).then(response => response.json())
             .then(rjson =>{
                 // console.log(rjson.message)
+
+                setErrorMessage(rjson.message)
+                setPasswordError(rjson.PasswordError)
                 // console.log(rjson.failure)
-                console.log(rjson.Greeting)
+                // console.log(rjson.Greeting)
+                // console.log(rjson.PasswordError)
                 if (rjson.Greeting !== undefined){
 
                 console.log(rjson)
@@ -102,9 +109,10 @@ const [jsonStuff, setJsonStuff] = useState('');
                     <img src = {Logo} style={{width:'20%'}} />
                     </ModalHeader>
                     <ModalBody style={{backgroundColor: '#009FE4'}}>
-                        <Form>
-                            <h3>{props.signup ? 'Sign Up' : 'Sign In'}</h3>
-                          
+                        <Form style={{textAlign:'center'}}>
+                            <h3 style={{textAlign:'center'}}>{props.signup ? 'Sign Up' : 'Sign In'}</h3>
+                          <p style={{color:'red'}}>{errorMessage}</p>
+                          <p style={{color:'red'}}>{passwordError}</p>
                             <FormGroup>
                                 <Label htmlFor="email">Email</Label>
                                 <Input name="email" value={email} onChange={e => setEmail(e.target.value)} required />
