@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
 import './Auth.css';
 import Logo from '../../assets/Premier-Commercial-Services-icon.svg';
@@ -14,6 +14,9 @@ interface displayAuthForm {
     setSignup: any
     setSignedIn: any
     signedIn: boolean
+    updateTheToken(arg0:any, arg1:any): any
+    // setCurrentUser: any
+    // currentUser: string
 }
 
 
@@ -42,8 +45,7 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
     
     const toggle = () => props.setShowAuth(!props.showAuth);
 
-    
-    const [jsonStuff, setJsonStuff] = useState('');
+
 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -54,9 +56,11 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
 
     const [errorMessage, setErrorMessage] = useState('')
     const [passwordError, setPasswordError] = useState('')
+
+
+    const [userId, setUserId] = useState('')
   
-   
-    
+
 
     const submit = (e: any) => {
         e.preventDefault();
@@ -79,23 +83,20 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
             },
             body: JSON.stringify(reqBody)
         }).then(response => response.json())
-            .then(rjson =>{
-                // console.log(rjson.message)
+            .then(userdata =>{
+             // console.log(userdata)
+             console.log(userdata)
+             setErrorMessage(userdata.message)
+             console.log(userdata)
+             if(userdata.Status !== undefined){
+             props.updateTheToken(userdata.sessionToken, userdata.email)
+             console.log('Logged In!')
+             }
 
-                setErrorMessage(rjson.message)
-                setPasswordError(rjson.PasswordError)
-                // console.log(rjson.failure)
-                // console.log(rjson.Greeting)
-                // console.log(rjson.PasswordError)
-                if (rjson.Greeting !== undefined){
+            //  setCurrentUser(userdata.user.username);
+            //  setUserId(userdata.user.id)
+        
 
-                console.log(rjson)
-                setJsonStuff(rjson);
-                toggle()
-                props.setSignedIn(true)
-                props.setUpdateToken(rjson.sessionToken)
-                console.log(props.updateToken)
-                }
             })
         .catch(err => console.log(err.message))
     }
