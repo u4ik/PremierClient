@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
+import AuthForm from '../Auth/Auth';
 
 
 import './Sitebar.css'
 
 import Contact from '../Contact/Contact';
-
-
-// import Authform from '../Auth/Auth';
-
 
 import { Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink } from 'reactstrap';
 import Logo from '../../assets/Premier-Commercial-Services-logo.svg';
@@ -37,12 +34,22 @@ const logoTitleStyle:React.CSSProperties={
     fontWeight: 400
 }
 
+interface siteBarProps{
+    signedIn: boolean
+    setSignedIn: any
+    signup: boolean
+    setSignup: any
+    showAuth: any
+    setShowAuth: any
+    updateToken: any
+    setUpdateToken: any
+    isAdmin: boolean
+    setIsAdmin: any
+}
 
-
-const Sitebar: React.FunctionComponent<{ props?: any }> = ({props}) => {
+const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
     const [collapsed, setCollapsed] = useState<boolean>(true);
     const toggleNavbar = () => setCollapsed(!collapsed);
-    const [signedIn, setSignedIn] = useState<boolean>(true);
     const [isAdmin, setIsAdmin] = useState(false);
 
     const [showContact, setShowContact] = useState<boolean>(false);
@@ -53,6 +60,11 @@ const Sitebar: React.FunctionComponent<{ props?: any }> = ({props}) => {
     const showThatContact= (e:any) => {
         e.preventDefault();
         setShowContact(!showContact)
+    }
+
+    const showThatAuth = (e: any) =>{
+        e.preventDefault();
+        props.setShowAuth(!props.showAuth)
     }
 
 
@@ -92,7 +104,8 @@ const Sitebar: React.FunctionComponent<{ props?: any }> = ({props}) => {
                                 textAlign: 'right'
                             }} >
 
-                                <Contact setShowContact={setShowContact} showContact ={showContact} />       
+                                <Contact setShowContact={setShowContact} showContact ={showContact} />   
+                                <AuthForm updateToken={props.updateToken} setUpdateToken={props.setUpdateToken}  showAuth={props.showAuth} setShowAuth={props.setShowAuth} signup={props.signup} setSignup={props.setSignup}/>    
 
                                 <NavItem >
                                     <NavLink href="/" className="nav-links">Home</NavLink>
@@ -113,19 +126,19 @@ const Sitebar: React.FunctionComponent<{ props?: any }> = ({props}) => {
                                     >Contact Us</NavLink>
                                 </NavItem>
                            
-                                {signedIn === true ? 
+                                {props.signedIn === true ? 
                                 <NavItem>
                                     <NavLink href="/" className="nav-links">My Orders</NavLink>
                                 </NavItem>
                                 : null}
-                                {signedIn === true ? 
+                                {props.signedIn === true ? 
                                 <NavItem>
-                                    <NavLink href="/" className="nav-links">Logout</NavLink>
+                                    <NavLink href="/" className="nav-links" onClick={props.setSignedIn(false)}>Logout</NavLink>
                                 </NavItem>
                                 :    <NavItem>
-                                <NavLink href="/" className="nav-links">Signup/Login</NavLink>
+                                <NavLink href="/" className="nav-links" onClick={(e: any) => showThatAuth(e)}>Signup/Login</NavLink>
                                 </NavItem>}
-                                {isAdmin === true ? 
+                                {props.isAdmin === true ? 
                                 <NavItem>
                                 <NavLink href="/" className="nav-links">All Orders</NavLink>
                                  </NavItem> : null}
