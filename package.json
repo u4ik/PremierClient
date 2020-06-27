@@ -9,6 +9,7 @@
     "@types/react-responsive": "^8.0.2",
     "@types/reactstrap": "^8.4.3",
     "bootstrap": "^4.5.0",
+    "mdbreact": "^4.27.0",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
