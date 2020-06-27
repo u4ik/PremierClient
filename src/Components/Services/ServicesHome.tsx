@@ -15,7 +15,7 @@ import './Services.css'
 
 const iconStyle:React.CSSProperties={
     width: '50%',
-    filter:'drop-shadow(2px 2px 1px black)',
+    filter:'drop-shadow(1px 1px 1px #024160)',
     userSelect:'none',
     
 
@@ -26,7 +26,7 @@ const iconText:React.CSSProperties={
     fontSize:'1rem',
     color:'#E8C10D',
     fontWeight: 'bold',
-    textShadow:'1px 1px 1px black',
+    textShadow:'.1rem .1rem .1rem #024160',
     userSelect:'none'
 }
 
