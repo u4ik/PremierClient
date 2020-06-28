@@ -3,12 +3,12 @@ import './App.css';
 import Sitebar from './Components/Nav/Sitebar';
 import Home from './Components/Home/Home';
 import Footer from './Components/Footer/Footer';
-
+import Orders from './Components/Orders/Orders'
 
 
 const App: React.FunctionComponent = () => {
 
-  // const [updateToken, setUpdateToken] = useState<string>('')
+  const [updateToken, setUpdateToken] = useState<any>('')
   // const [showAuth, setShowAuth] = useState<boolean>(false);
   // const [signup, setSignup] = useState<boolean>(false);
   // const [signedIn, setSignedIn] = useState<boolean>(false);
@@ -17,8 +17,10 @@ const App: React.FunctionComponent = () => {
   return (
     <div className="App" >
  
-      <Sitebar  />
-      <Home />
+      <Sitebar updateToken = {updateToken} setUpdateToken={setUpdateToken}  />
+
+      <Orders updateToken = {updateToken} />
+      {/* <Home  /> */}
 
       <Footer />
       

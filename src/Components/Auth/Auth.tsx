@@ -85,12 +85,13 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
         }).then(response => response.json())
             .then(userdata =>{
              // console.log(userdata)
-             console.log(userdata)
+
              setErrorMessage(userdata.message)
-             console.log(userdata)
+            //  console.log(userdata)
              if(userdata.Status !== undefined){
              props.updateTheToken(userdata.sessionToken, userdata.email)
              console.log('Logged In!')
+         
              }
 
             //  setCurrentUser(userdata.user.username);
