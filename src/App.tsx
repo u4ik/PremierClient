@@ -6,6 +6,10 @@ import Footer from './Components/Footer/Footer';
 import Orders from './Components/Orders/Orders'
 
 
+// import {Switch, Route, BrowserRouter} from 'react-router-dom';
+
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+
 const App: React.FunctionComponent = () => {
 
   const [updateToken, setUpdateToken] = useState<any>('')
@@ -16,17 +20,27 @@ const App: React.FunctionComponent = () => {
 
   return (
     <div className="App" >
- 
-      <Sitebar updateToken = {updateToken} setUpdateToken={setUpdateToken}  />
+      <Router>
+        <Sitebar updateToken = {updateToken} setUpdateToken={setUpdateToken}  />
 
-      <Orders updateToken = {updateToken} />
-      {/* <Home  /> */}
 
-      <Footer />
-      
+    <Switch>
+        <Route path="/" exact component={Home}  />
+        <Route path ="/orders" exact render={(props) => (< Orders updateToken = {updateToken}/>)} />
+    </Switch>
+
+        <Footer />
+      </Router>  
+
+
+
+
  
     </div>
   );
 }
+
+
+
 
 export default App;
