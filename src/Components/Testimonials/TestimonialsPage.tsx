@@ -1,8 +1,8 @@
 import React,{useEffect, useState, useReducer}  from "react";
 import { MDBCarousel, MDBCard, MDBCardBody,MDBCardImage, MDBCardTitle,MDBCardText,MDBBtn, MDBCarouselInner, MDBCarouselItem, MDBContainer, MDBRow, MDBCol, MDBIcon } from "mdbreact";
 import {Container,Col, Row, UncontrolledPopover, PopoverHeader, PopoverBody, Button} from 'reactstrap'
-
-
+import Rater from 'react-rater'
+import 'react-rater/lib/react-rater.css'
 
 import RestaurantImg from  '../../assets/locationIcons/restaurant.svg'
 import AthleticImg from  '../../assets/locationIcons/athletic.svg'
@@ -26,7 +26,7 @@ const TestimonialsPage = () => {
 
   const [newImg, setNewImg] = useState<any>()
 
-const cardStyle ={
+  const cardStyle ={
   width: "13rem", 
   marginBottom:'10%',
   marginTop:'2%', 
@@ -57,7 +57,8 @@ const cardStyle ={
     fontSize:'1rem'
   }
   const cardQuoteStyle={
-    fontSize:'.8rem'
+    fontSize:'.8rem',
+    lineHeight: '0.9rem'
   }
 
   const cardLocationStyle={
@@ -114,7 +115,9 @@ useEffect (() => {
       : null}
 
       <MDBCardBody style={cardBodyStyle}>
+      <Rater  total={5} rating={item.userRating} interactive={false}  />
       <MDBCardTitle style={cardNameStyle}>{``+`${item.userFirstName}` + " " + `${item.userLastName}`}</MDBCardTitle>
+      
       <div style={{overflowY:'auto', height: 'auto', minHeight:'4rem', maxHeight:'4rem'}}>
            
         <MDBCardText style={cardQuoteStyle}>
@@ -122,7 +125,7 @@ useEffect (() => {
       
         </MDBCardText>
         </div>
-
+     
     <MDBCardTitle style={cardLocationStyle}>{item.userLocation}</MDBCardTitle>
     <MDBCardTitle style={serviceCompletionDateStyle}>{item.serviceCompletionDate}</MDBCardTitle>
         {/* <MDBBtn href="#">MDBBtn</MDBBtn> */}

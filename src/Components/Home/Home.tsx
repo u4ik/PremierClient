@@ -23,12 +23,12 @@ class Home extends React.Component {
                                 <Col className="welcomeText">
                             <h4 style={{fontSize:'1.8rem', textShadow:'1px 1px 1px #024160', color:'#E8C10D', userSelect:'none' }}>
                                 Welcome!</h4>
-                            <p className='welcomeText' style={{ fontSize: '1.2rem', lineHeight:'3rem',filter:'drop-shadow(1px 1px 3px lightgrey'}}><b>
+                            <p className='welcomeText' style={{ fontSize: '1.2rem', lineHeight:'3rem',filter:'drop-shadow(1px 1px 1px lightgrey'}}><b>
                                 In simplest terms, Premier Commercial Services provides a refreshingly reliable and unique approach to providing basic facilities management resources. Our foundational services are janitorial/cleaning, light maintenance and grounds keeping.
                         Our approach to customer accountability and collaboration are causing businesses to leave their traditional facilities support services and switch to Premier. In exchange, they partner with a professional and reliable resource that eliminates the headaches often related to this type of service. </b> </p>
-                    <p style={{ marginLeft:'10%',marginRight:'10%',fontSize: '1.2rem', lineHeight:'1rem',filter:'drop-shadow(1px 1px 3px lightgrey'}}><b>
+                    <p style={{ marginLeft:'10%',marginRight:'10%',fontSize: '1.2rem', lineHeight:'1rem',filter:'drop-shadow(1px 1px 1px lightgrey'}}><b>
                         -Michael Rootes</b></p>
-                    <p style={{ marginLeft:'10%',marginRight:'10%',fontSize: '1.2rem', lineHeight:'1rem',filter:'drop-shadow(1px 1px 3px lightgrey'}}>
+                    <p style={{ marginLeft:'10%',marginRight:'10%',fontSize: '1.2rem', lineHeight:'1rem',filter:'drop-shadow(1px 1px 1px lightgrey'}}>
                         Owner at Premier Commercial Services LLC</p>
                     </Col>
                     </Container>

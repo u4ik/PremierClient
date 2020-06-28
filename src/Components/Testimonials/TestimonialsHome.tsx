@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 
 import './TestimonialsHome.css'
+import Rater from 'react-rater'
+import 'react-rater/lib/react-rater.css'
 
 import IconBackground from '../../assets/IconBackground.png'
 
@@ -65,7 +67,7 @@ useEffect (() => {
 
 
           <h3 style={{fontSize:'1.4rem', textShadow:'.1px .1px .1px grey', color:'black', userSelect:'none'}}>{ `"` + `${item.userQuote}` + `"`}</h3>
-         
+          <Rater  total={5} rating={item.userRating} interactive={false}  />
         </div>
         <div>
             <h4 style= {{fontSize: '1.1rem', textShadow:'1px 1px 1px black', color:'#E8D47B',  userSelect:'none'}}>{"- " + `${item.userFirstName}` + " " + `${item.userLastName}`}</h4>
