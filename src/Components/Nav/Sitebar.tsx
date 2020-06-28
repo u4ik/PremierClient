@@ -16,7 +16,7 @@ const logo: React.CSSProperties ={
     // height: '8vh',
     width: '100%',
     height: 'auto',
-    cursor: 'pointer',
+    // cursor: 'pointer',
     filter: 'drop-shadow(1px 1px 1px  #024160)'
 }
 
@@ -41,8 +41,8 @@ interface siteBarProps{
     // setSignup: any
     // showAuth: any
     // setShowAuth: any
-    // updateToken: any
-    // setUpdateToken: any
+    updateToken: any
+    setUpdateToken: any
     // isAdmin: boolean
     // setIsAdmin: any
 }
@@ -62,7 +62,7 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
 
 
 
-    const [updateToken, setUpdateToken] = useState<string>('')
+ 
     const [showAuth, setShowAuth] = useState<boolean>(false);
     const [signup, setSignup] = useState<boolean>(false);
     const [signedIn, setSignedIn] = useState<any>(false);
@@ -77,7 +77,7 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
         localStorage.setItem('token', newToken);
         localStorage.setItem('user', user);
         setCurrentUser(user);
-        setUpdateToken(newToken);
+        props.setUpdateToken(newToken);
         setSignedIn(true);
       
         setShowAuth(false)
@@ -85,7 +85,7 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
     
       const logOut = () => {
         setSignedIn(false);
-        setUpdateToken('');
+        props.setUpdateToken('');
         localStorage.removeItem('token')
     
       }
@@ -148,7 +148,7 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                             }} >
 
                                 <Contact setShowContact={setShowContact} showContact ={showContact} />   
-                                <AuthForm updateTheToken={updateTheToken} signedIn = {signedIn}  setSignedIn = {setSignedIn}  updateToken={updateToken} setUpdateToken={setUpdateToken}  showAuth={showAuth} setShowAuth={setShowAuth} signup={signup} setSignup={setSignup}/>    
+                                <AuthForm updateTheToken={updateTheToken} signedIn = {signedIn}  setSignedIn = {setSignedIn}  updateToken={props.updateToken} setUpdateToken={props.setUpdateToken}  showAuth={showAuth} setShowAuth={setShowAuth} signup={signup} setSignup={setSignup}/>    
 
                                 <NavItem >
                                     <NavLink href="/" className="nav-links">Home</NavLink>
