@@ -1,12 +1,144 @@
-import React  from "react";
-import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBContainer, MDBRow, MDBCol, MDBIcon } from "mdbreact";
+import React,{useEffect, useState, useReducer}  from "react";
+import { MDBCarousel, MDBCard, MDBCardBody,MDBCardImage, MDBCardTitle,MDBCardText,MDBBtn, MDBCarouselInner, MDBCarouselItem, MDBContainer, MDBRow, MDBCol, MDBIcon } from "mdbreact";
+import {Container,Col, Row, UncontrolledPopover, PopoverHeader, PopoverBody, Button} from 'reactstrap'
+
+
+
+import RestaurantImg from  '../../assets/locationIcons/restaurant.svg'
+import AthleticImg from  '../../assets/locationIcons/athletic.svg'
+import GroceryImg from  '../../assets/locationIcons/grocery.svg'
+import MedicalImg from  '../../assets/locationIcons/medical2.svg'
+import OfficeImg from  '../../assets/locationIcons/office.svg'
+import ServicesImg from  '../../assets/locationIcons/services.svg'
+
+
+
+
+
+
 
 const TestimonialsPage = () => {
+
+
+  const [testimonialData, setTestimonialData] = useState<any>([])
+  const [testUserData, setTestUserData] = useState<any>()
+
+
+  const [newImg, setNewImg] = useState<any>()
+
+const cardStyle ={
+  width: "13rem", 
+  marginBottom:'10%',
+  marginTop:'2%', 
+  height:'fit-content', 
+  borderRadius:'20px'
+
+}
+  const cardImgStyle={
+    backgroundColor:'#177BBD',
+    borderRadius:'20px 20px 0px 0px',
+    width:'',
+    padding:'30%',
+    marginTop:'1%'
+  }
+
+  
+  const getTestimonials = () => {
+    const APIURL:string = 'http://localhost:3000/testimonial/all'
+    fetch(APIURL ,{
+        method: 'GET',
+        headers: {
+            'Content-Type' : 'application/json'
+        }
+    }).then(res => res.json())
+    .then(testData => {
+        setTestimonialData(testData.AllTestimonials);
+        setTestUserData(testData)
+    })
+    .catch(err => console.warn(err))
+}
+useEffect (() => {
+    getTestimonials();
+ },[])
+  
+ 
+ const slides = testimonialData.map((item:any) => {
+
+
+  let imgSrc = "../../assets/locationIcons/" + item.userLocationType + ".svg"
+
+  if(item.userLocationType === 'restaurant'){
+    setNewImg(RestaurantImg)
+  }
+
+
+
+    return (
+     
+
+
+      <div style={{margin:'2%'}}>
+
+
+        
+      <MDBCard style={cardStyle}>
+
+        {item.userLocationType === 'Restaurant' ? 
+      <MDBCardImage style={cardImgStyle} className="img-fluid" src= {RestaurantImg} waves />
+      : null}
+        {item.userLocationType === 'Grocery' ? 
+      <MDBCardImage style={cardImgStyle} className="img-fluid" src= {GroceryImg} waves />
+      : null}
+        {item.userLocationType === 'Office' ? 
+      <MDBCardImage style={cardImgStyle} className="img-fluid" src= {OfficeImg} waves />
+      : null}
+        {item.userLocationType === 'Medical' ? 
+      <MDBCardImage style={cardImgStyle} className="img-fluid" src= {MedicalImg} waves />
+      : null}
+        {item.userLocationType === 'Athletic' ? 
+      <MDBCardImage style={cardImgStyle} className="img-fluid" src= {AthleticImg} waves />
+      : null}
+      {item.userLocationType === 'Services' ? 
+      <MDBCardImage style={cardImgStyle} className="img-fluid" src= {ServicesImg} waves />
+      : null}
+
+
+
+      <p>{item.userLocationType}</p>
+      <MDBCardBody>
+      <div style={{overflowY:'auto', height: 'auto', minHeight:'4rem', maxHeight:'4rem'}}>
+        <MDBCardText style={{fontSize:'.8rem'}}>
+         {item.userQuote}
+      
+        </MDBCardText>
+        </div>
+    <MDBCardTitle style={{fontSize:'1rem'}}>{`${item.userFirstName}` + " " + `${item.userLastName}`}</MDBCardTitle>
+    <MDBCardTitle style={{fontSize:'.6rem'}}>{item.userLocation}</MDBCardTitle>
+    <MDBCardTitle style={{fontSize:'.6rem'}}>{item.serviceCompletionDate}</MDBCardTitle>
+        {/* <MDBBtn href="#">MDBBtn</MDBBtn> */}
+      </MDBCardBody>
+    </MDBCard></div>
+
+    )})
+
+
+
   return (
     <div style={{backgroundColor:'#009FE4'}}>
        <h3 style={{fontSize:'1.7rem',paddingTop:'1%', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '1%', backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}>All Testimonials</h3>
-    <p>yooyoyo</p>
-    </div>
+
+       <Container style={{display:'flex', flexDirection:'row', justifyContent:'center', flexWrap:'wrap'}}>
+    
+   
+
+        {slides}
+          
+
+ 
+        </Container>
+
+
+      </div>
   );
 }
 

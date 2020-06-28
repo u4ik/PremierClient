@@ -20,7 +20,9 @@ const App: React.FunctionComponent = () => {
   // const [isAdmin, setIsAdmin] = useState<boolean>(false);
 
   return (
-    <div className="App" >
+    <div className="App" style={{}}  >
+
+      
       <Router>
         <Sitebar updateToken = {updateToken} setUpdateToken={setUpdateToken}  />
 

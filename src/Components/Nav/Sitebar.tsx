@@ -115,7 +115,7 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
 
 
         return (
-            <div >
+            <div style={{}} >
                 <Navbar color="faded" light expand='lg' style={navbar}>
 
                     <div style={{
