@@ -4,6 +4,7 @@ import Sitebar from './Components/Nav/Sitebar';
 import Home from './Components/Home/Home';
 import Footer from './Components/Footer/Footer';
 import Orders from './Components/Orders/Orders'
+import TestimonialsPage from './Components/Testimonials/TestimonialsPage'
 
 
 // import {Switch, Route, BrowserRouter} from 'react-router-dom';
@@ -19,7 +20,9 @@ const App: React.FunctionComponent = () => {
   // const [isAdmin, setIsAdmin] = useState<boolean>(false);
 
   return (
-    <div className="App" >
+    <div className="App" style={{}}  >
+
+      
       <Router>
         <Sitebar updateToken = {updateToken} setUpdateToken={setUpdateToken}  />
 
@@ -27,6 +30,7 @@ const App: React.FunctionComponent = () => {
     <Switch>
         <Route path="/" exact component={Home}  />
         <Route path ="/orders" exact render={(props) => (< Orders updateToken = {updateToken}/>)} />
+        <Route path ="/testimonials" exact render={(props) => (<TestimonialsPage/>)}/>
     </Switch>
 
         <Footer />

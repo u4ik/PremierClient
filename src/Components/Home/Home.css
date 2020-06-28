@@ -1,6 +1,6 @@
 @media(min-width:375px) {
     .welcomeText {
-        font-size: 1rem !important;
+        font-size: .7rem !important;
         line-height: 1rem !important
     }
 }
