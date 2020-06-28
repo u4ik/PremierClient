@@ -42,7 +42,7 @@ const [userOrders, setUserOrders] =useState<any>([])
             label: '#',
             field: 'id',
             sort: 'asc',
-            width: 150
+            width: 50
           },
           {
             label: 'Location',
