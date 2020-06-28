@@ -66,14 +66,14 @@ const [userOrders, setUserOrders] =useState<any>([])
             label: 'Complete',
             field: 'isComplete',
             sort: 'asc',
-            width: 150
+            width: 120
           },
         ],
         rows: 
         userOrders
       };
     return(
-        <div>
+        <div style={{backgroundColor:'#009FE4',color:'white' ,textShadow:'.4px .4px 1px black'}}>
 
 
         <h3 style={{fontSize:'1.7rem',paddingTop:'1%', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', paddingBottom: '1%', backgroundColor: '#177BBD', borderTop: 'solid 1px white', borderBottom: 'solid 1px white', marginBottom:'0'}}>Orders</h3>
