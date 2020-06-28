@@ -1,0 +1,13 @@
+@media(min-width:375px) {
+    .welcomeText {
+        font-size: 1rem !important;
+        line-height: 1rem !important
+    }
+}
+
+@media(min-width:1000px) {
+    .welcomeText {
+        font-size: 1.2rem !important;
+        line-height: 2rem !important
+    }
+}
