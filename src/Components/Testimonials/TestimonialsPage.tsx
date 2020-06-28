@@ -104,15 +104,14 @@ useEffect (() => {
 
 
 
-      <p>{item.userLocationType}</p>
       <MDBCardBody>
       <div style={{overflowY:'auto', height: 'auto', minHeight:'4rem', maxHeight:'4rem'}}>
         <MDBCardText style={{fontSize:'.8rem'}}>
-         {item.userQuote}
+         {`"` + item.userQuote + `"`}
       
         </MDBCardText>
         </div>
-    <MDBCardTitle style={{fontSize:'1rem'}}>{`${item.userFirstName}` + " " + `${item.userLastName}`}</MDBCardTitle>
+    <MDBCardTitle style={{fontSize:'1rem'}}>{`-`+`${item.userFirstName}` + " " + `${item.userLastName}`}</MDBCardTitle>
     <MDBCardTitle style={{fontSize:'.6rem'}}>{item.userLocation}</MDBCardTitle>
     <MDBCardTitle style={{fontSize:'.6rem'}}>{item.serviceCompletionDate}</MDBCardTitle>
         {/* <MDBBtn href="#">MDBBtn</MDBBtn> */}
