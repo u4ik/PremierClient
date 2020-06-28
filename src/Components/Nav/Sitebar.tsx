@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom'
+
+
 import AuthForm from '../Auth/Auth';
 
 
@@ -151,27 +154,38 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                 <AuthForm updateTheToken={updateTheToken} signedIn = {signedIn}  setSignedIn = {setSignedIn}  updateToken={props.updateToken} setUpdateToken={props.setUpdateToken}  showAuth={showAuth} setShowAuth={setShowAuth} signup={signup} setSignup={setSignup}/>    
 
                                 <NavItem >
-                                    <NavLink href="/" className="nav-links">Home</NavLink>
+                                    <Link  className="nav-links" to ="/">
+                                    <NavLink  className="nav-links" href="">Home</NavLink>
+                                    </Link>
                                 </NavItem>
 
                                 <NavItem>
-                                    <NavLink href="/" className="nav-links">Services</NavLink>
+                                <Link  className="nav-links" to ="/services">
+                                    <NavLink  className="nav-links" href="">Services</NavLink>
+                                    </Link>
                                 </NavItem>
 
                                 <NavItem>
-                                    <NavLink href="/" className="nav-links">Testimonials</NavLink>
+                                <Link  className="nav-links" to ="/testimonials">
+                                    <NavLink  className="nav-links" href="">Testimonials</NavLink>
+                                </Link>
                                 </NavItem>
 
                                 <NavItem>
+                                <Link  className="nav-links" to ="/contact">
                                     <NavLink href="/" className="nav-links" onClick={(e:any) => {
                                         showThatContact(e);
                                     }} 
                                     >Contact Us</NavLink>
+                                    </Link>
                                 </NavItem>
                            
                                 {signedIn === true ? 
+                                
                                 <NavItem>
-                                    <NavLink href="/orders" className="nav-links">My Orders</NavLink>
+                                    <Link  className="nav-links" to ="/orders">
+                                    <NavLink  className="nav-links" href="">My Orders</NavLink>
+                                </Link>
                                 </NavItem>
                                 : null}
                                 {signedIn === true ? 
