@@ -12,7 +12,7 @@ import OfficeImg from  '../../assets/locationIcons/office.svg'
 import ServicesImg from  '../../assets/locationIcons/services.svg'
 
 
-
+import './TestimonialsPage.css'
 
 
 
@@ -31,17 +31,41 @@ const cardStyle ={
   marginBottom:'10%',
   marginTop:'2%', 
   height:'fit-content', 
-  borderRadius:'20px'
+  borderRadius:'20px',
+  border:'solid 2px white',
+  filter: 'drop-shadow(3px 3px 3px black)'
 
 }
   const cardImgStyle={
-    backgroundColor:'#177BBD',
+    backgroundColor:'',
     borderRadius:'20px 20px 0px 0px',
     width:'',
     padding:'30%',
-    marginTop:'1%'
+    marginTop:'1%',
+    filter: 'drop-shadow(3px 3px 3px black)'
+
   }
 
+  const cardBodyStyle={
+    backgroundColor:'white',
+    borderRadius:'0px 0px 15px 15px',
+    border: 'solid 2px white'
+
+  }
+
+  const cardNameStyle={
+    fontSize:'1rem'
+  }
+  const cardQuoteStyle={
+    fontSize:'.8rem'
+  }
+
+  const cardLocationStyle={
+    fontSize:'.6rem'
+  }
+  const serviceCompletionDateStyle={
+    fontSize:'.6rem'
+  }
   
   const getTestimonials = () => {
     const APIURL:string = 'http://localhost:3000/testimonial/all'
@@ -64,24 +88,11 @@ useEffect (() => {
  
  const slides = testimonialData.map((item:any) => {
 
-
-  let imgSrc = "../../assets/locationIcons/" + item.userLocationType + ".svg"
-
-  if(item.userLocationType === 'restaurant'){
-    setNewImg(RestaurantImg)
-  }
-
-
-
     return (
      
+      <div  className="cardStyle" style={{margin:'2%'}}>
 
-
-      <div style={{margin:'2%'}}>
-
-
-        
-      <MDBCard style={cardStyle}>
+      <MDBCard  id="cardStyle2"  style={cardStyle}>
 
         {item.userLocationType === 'Restaurant' ? 
       <MDBCardImage style={cardImgStyle} className="img-fluid" src= {RestaurantImg} waves />
@@ -102,18 +113,18 @@ useEffect (() => {
       <MDBCardImage style={cardImgStyle} className="img-fluid" src= {ServicesImg} waves />
       : null}
 
-
-
-      <MDBCardBody>
+      <MDBCardBody style={cardBodyStyle}>
+      <MDBCardTitle style={cardNameStyle}>{``+`${item.userFirstName}` + " " + `${item.userLastName}`}</MDBCardTitle>
       <div style={{overflowY:'auto', height: 'auto', minHeight:'4rem', maxHeight:'4rem'}}>
-        <MDBCardText style={{fontSize:'.8rem'}}>
+           
+        <MDBCardText style={cardQuoteStyle}>
          {`"` + item.userQuote + `"`}
       
         </MDBCardText>
         </div>
-    <MDBCardTitle style={{fontSize:'1rem'}}>{`-`+`${item.userFirstName}` + " " + `${item.userLastName}`}</MDBCardTitle>
-    <MDBCardTitle style={{fontSize:'.6rem'}}>{item.userLocation}</MDBCardTitle>
-    <MDBCardTitle style={{fontSize:'.6rem'}}>{item.serviceCompletionDate}</MDBCardTitle>
+
+    <MDBCardTitle style={cardLocationStyle}>{item.userLocation}</MDBCardTitle>
+    <MDBCardTitle style={serviceCompletionDateStyle}>{item.serviceCompletionDate}</MDBCardTitle>
         {/* <MDBBtn href="#">MDBBtn</MDBBtn> */}
       </MDBCardBody>
     </MDBCard></div>
@@ -127,16 +138,8 @@ useEffect (() => {
        <h3 style={{fontSize:'1.7rem',paddingTop:'1%', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '1%', backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}>All Testimonials</h3>
 
        <Container style={{display:'flex', flexDirection:'row', justifyContent:'center', flexWrap:'wrap'}}>
-    
-   
-
         {slides}
-          
-
- 
         </Container>
-
-
       </div>
   );
 }
