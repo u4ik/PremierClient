@@ -3,6 +3,8 @@ import React, {useEffect, useState} from 'react'
 import {Col, Row, Container} from 'reactstrap'
 import { MDBDataTable,MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
 
+import './Orders.css'
+
 interface orderProps  {
     updateToken: any
 }
@@ -78,7 +80,7 @@ const [userOrders, setUserOrders] =useState<any>([])
 <Container>
 
 
-<MDBDataTable
+<MDBDataTable style={{color: '', textShadow: ''}}
       scrollY
       maxHeight="200px"
       striped

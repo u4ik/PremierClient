@@ -171,7 +171,7 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                            
                                 {signedIn === true ? 
                                 <NavItem>
-                                    <NavLink href="/" className="nav-links">My Orders</NavLink>
+                                    <NavLink href="/orders" className="nav-links">My Orders</NavLink>
                                 </NavItem>
                                 : null}
                                 {signedIn === true ? 
