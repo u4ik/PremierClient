@@ -14,23 +14,20 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 const App: React.FunctionComponent = () => {
 
   const [updateToken, setUpdateToken] = useState<any>('')
-  // const [showAuth, setShowAuth] = useState<boolean>(false);
-  // const [signup, setSignup] = useState<boolean>(false);
-  // const [signedIn, setSignedIn] = useState<boolean>(false);
-  // const [isAdmin, setIsAdmin] = useState<boolean>(false);
+  const [enableTestCreate, setEnableTestCreate] = useState<boolean>(false)
 
   return (
     <div className="App" style={{}}  >
 
       
       <Router>
-        <Sitebar updateToken = {updateToken} setUpdateToken={setUpdateToken}  />
+        <Sitebar setEnableTestCreate={setEnableTestCreate}  enableTestCreate={enableTestCreate} updateToken = {updateToken} setUpdateToken={setUpdateToken}  />
 
 
     <Switch>
         <Route path="/" exact component={Home}  />
         <Route path ="/orders" exact render={(props) => (< Orders updateToken = {updateToken}/>)} />
-        <Route path ="/testimonials" exact render={(props) => (<TestimonialsPage/>)}/>
+        <Route path ="/testimonials" exact render={(props) => (<TestimonialsPage  enableTestCreate={enableTestCreate}/>)}/>
     </Switch>
 
         <Footer />
