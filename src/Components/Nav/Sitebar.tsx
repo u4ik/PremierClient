@@ -46,7 +46,9 @@ interface siteBarProps{
     // setShowAuth: any
     updateToken: any
     setUpdateToken: any
-    // isAdmin: boolean
+
+    enableTestCreate: boolean
+    setEnableTestCreate: any
     // setIsAdmin: any
 }
 
@@ -71,15 +73,40 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
     const [signedIn, setSignedIn] = useState<any>(false);
     const [isAdmin, setIsAdmin] = useState<boolean>(false);
 
+
+    const [userData, setUserData] = useState<any>()
+
+    const [currentUserId, setCurrentUserId] = useState<any>()
+
     
     const [currentUser, setCurrentUser] = useState('')
 
 
 
+    //TESTING SHIT OUT HERE
+    const isServiceComplete = (userdata:any) => {
+        console.log(userdata.ID)
+        setCurrentUserId(userdata.ID)
+        console.log(currentUserId)
+
+        // fetch('http://localhost:3000/user' + "/" + userdata.ID)
+        // .then(res => res.json())
+        // .then(userget => {
+        //     console.log(userget)
+        // })
+    }
+    //     useEffect(() => {
+
+    //     isServiceComplete(userdata);
+
+    //     })
+
+
     const updateTheToken = (newToken:any, user:any) =>{
         localStorage.setItem('token', newToken);
         localStorage.setItem('user', user);
-        setCurrentUser(user);
+        // setCurrentUser(user);
+        console.log(userData)
         props.setUpdateToken(newToken);
         setSignedIn(true);
       
@@ -94,11 +121,16 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
       }
     
       useEffect(() => {
+        
         if(localStorage.getItem('token')){
           updateTheToken(localStorage.getItem('token'),localStorage.getItem('user'));
+
         }
+
         
       },[])
+
+   
 
 
 
@@ -123,7 +155,7 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                         flexDirection:'row'
                     }}>
                         <div>
-                            <img alt = 'Premier Commercial Services Logo'src={Logo} style={logo} />
+                            <img alt = 'Premier Commercial Services Logo' src={Logo} style={logo} />
                         </div>
 
                         {/* <div>
@@ -150,8 +182,12 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                 textAlign: 'right'
                             }} >
 
+
+                            {/* CONTACT COMPONENT/MODAL */}
                                 <Contact setShowContact={setShowContact} showContact ={showContact} />   
-                                <AuthForm updateTheToken={updateTheToken} signedIn = {signedIn}  setSignedIn = {setSignedIn}  updateToken={props.updateToken} setUpdateToken={props.setUpdateToken}  showAuth={showAuth} setShowAuth={setShowAuth} signup={signup} setSignup={setSignup}/>    
+
+                            {/* AUTHFORM COMPONENT/MODAL */}
+                                <AuthForm userData={userData} setUserData={setUserData} isServiceComplete={isServiceComplete} setCurrentUserId={setCurrentUserId} currentUserId={currentUserId} enableTestCreate={props.enableTestCreate}  setEnableTestCreate={props.setEnableTestCreate} updateTheToken={updateTheToken} signedIn = {signedIn}  setSignedIn = {setSignedIn}  updateToken={props.updateToken} setUpdateToken={props.setUpdateToken}  showAuth={showAuth} setShowAuth={setShowAuth} signup={signup} setSignup={setSignup}/>    
 
                                 <NavItem >
                                     <Link  className="nav-links" to ="/">

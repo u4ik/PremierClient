@@ -14,12 +14,18 @@ interface displayAuthForm {
     setSignup: any
     setSignedIn: any
     signedIn: boolean
+    setEnableTestCreate: any
+    enableTestCreate: boolean
     updateTheToken(arg0:any, arg1:any): any
+    currentUserId: any
+    setCurrentUserId: any
+    isServiceComplete(arg0:any):any
+    userData:any
+    setUserData:any
+
     // setCurrentUser: any
     // currentUser: string
 }
-
-
 
 const modalHeaderStyle:React.CSSProperties= {
     backgroundColor:'#177BBD',
@@ -58,7 +64,6 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
     const [passwordError, setPasswordError] = useState('')
 
 
-    const [userId, setUserId] = useState('')
   
 
 
@@ -72,7 +77,8 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
                 passwordhash: password,
                 location: location,
                 phoneNumber: phoneNumber,
-                isAdmin: 'something'
+                isAdmin: 'uwishuwereanadminha',
+                serviceComplete: 'No'
 
         };
 
@@ -84,14 +90,26 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
             body: JSON.stringify(reqBody)
         }).then(response => response.json())
             .then(userdata =>{
-             // console.log(userdata)
-
+             console.log(userdata)
+     
              setErrorMessage(userdata.message)
-            //  console.log(userdata)
-             if(userdata.Status !== undefined){
-             props.updateTheToken(userdata.sessionToken, userdata.email)
-             console.log('Logged In!')
-         
+            
+            //  if(userdata.Status !== undefined){
+
+                if(userdata.ID && userdata.Status !== undefined){
+                    props.setUserData(userdata)
+                    
+                    props.setCurrentUserId(userdata.ID)
+                    props.updateTheToken(userdata.sessionToken, userdata.email)
+                    // props.isServiceComplete(userdata)
+
+                    console.log(props.currentUserId)
+                    if(userdata.ServiceComplete === 'yes'){
+                        props.setEnableTestCreate(true)
+                    }else if(userdata.ServiceComplete ==='no'){
+                        props.setEnableTestCreate(false)
+                    }
+                    console.log('Logged In!')
              }
 
             //  setCurrentUser(userdata.user.username);
