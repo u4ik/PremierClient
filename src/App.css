@@ -1,3 +1,74 @@
+
+
+
+@media (max-width: 375px){
+    #titleId{
+        margin-top: 14.4vh
+    }
+}
+
+@media (max-width: 1024px){
+    #titleId{
+        margin-top: 5.65vh
+    }
+}
+
+@media (min-width: 768px){
+    #titleId{
+        margin-top: 7.48vh
+    }
+}
+
+@media (min-width: 360px){
+    #titleId{
+        margin-top: 18.3vh
+    }
+}
+
+@media (min-width: 320px){
+    #titleId{
+        margin-top: 20.3vh
+    }
+}
+
+@media (min-width: 414px){
+    #titleId{
+        margin-top: 10.5vh
+    }
+}
+
+@media (min-width: 375px){
+    #titleId{
+        margin-top: 17.5vh
+    }
+}
+
+/* @media (min-width: 411px){
+    #titleId{
+        margin-top: 9.41vh
+    }
+} */
+
+/* @media (min-height: 731px){
+    #titleId{
+        margin-top: 10.6vh
+    }
+} */
+
+/* @media (min-width: 411px), (min-height: 823px){
+    #titleId{
+        margin-top: 9.42vh
+    }
+} */
+
+/* @media (min-width: 411px), (min-height: 731px){
+    #titleId{
+        margin-top: 10.5vh
+    }
+} */
+
+
+
 .App {
     text-align: center;
 }
@@ -28,6 +99,12 @@
     color: #61dafb;
 }
 
+<<<<<<< HEAD
 [data-reactroot] {
     height: 100% !important;
 }
+=======
+html {
+    width: 100%
+}
+>>>>>>> b248f4d9fa790b46795173bf6ad8bcc2d619ec2c
