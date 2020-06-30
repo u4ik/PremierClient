@@ -6,7 +6,7 @@ import { MDBDataTable,MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
 import './Orders.css'
 
 interface orderProps  {
-    updateToken: any
+    updateToken: string
 }
 
 const Orders:React.FunctionComponent<orderProps> = (props:orderProps) => {
@@ -26,12 +26,7 @@ const [userOrders, setUserOrders] =useState<any>([])
           console.log(noteData);
             setUserOrders(noteData.YourOrders);
             console.log(userOrders)
-<<<<<<< HEAD
-            
-        })
-=======
         }).catch(err => console.log(err))
->>>>>>> dev
     }
     useEffect  (() => {
       console.log('userOrders', userOrders)

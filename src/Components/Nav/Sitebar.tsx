@@ -109,13 +109,9 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
         console.log(userData)
         console.log(newToken)
         props.setUpdateToken(newToken);
-<<<<<<< HEAD
+
 
         console.log(props.updateToken)
-=======
-        // console.log('newToken', newToken)
-        setTimeout(() => console.log(props.updateToken), 1000);
->>>>>>> dev
         setSignedIn(true);
       
         setShowAuth(false)
