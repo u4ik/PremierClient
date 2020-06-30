@@ -8,7 +8,7 @@ const baseURL = 'http://localhost:3000/user';
 interface displayAuthForm {
     showAuth: boolean
     setShowAuth: any
-    updateToken: any
+    updateToken: string
     setUpdateToken: any
     signup: any
     setSignup: any

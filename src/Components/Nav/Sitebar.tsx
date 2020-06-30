@@ -44,7 +44,7 @@ interface siteBarProps{
     // setSignup: any
     // showAuth: any
     // setShowAuth: any
-    updateToken: any
+    updateToken: string
     setUpdateToken: any
 
     enableTestCreate: boolean
@@ -108,6 +108,8 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
         // setCurrentUser(user);
         console.log(userData)
         props.setUpdateToken(newToken);
+        // console.log('newToken', newToken)
+        setTimeout(() => console.log(props.updateToken), 1000);
         setSignedIn(true);
       
         setShowAuth(false)
