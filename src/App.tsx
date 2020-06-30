@@ -13,7 +13,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 const App: React.FunctionComponent = () => {
 
-  const [updateToken, setUpdateToken] = useState<any>('')
+  const [updateToken, setUpdateToken] = useState<string>('')
   const [enableTestCreate, setEnableTestCreate] = useState<boolean>(false)
 
   return (
