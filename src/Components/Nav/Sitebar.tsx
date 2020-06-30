@@ -15,6 +15,7 @@ import Logo from '../../assets/Premier-Commercial-Services-logo.svg';
 
 
 
+
 const logo: React.CSSProperties ={
     // height: '8vh',
     width: '100%',
@@ -25,7 +26,8 @@ const logo: React.CSSProperties ={
 
 const navbar: React.CSSProperties ={
     background: '#177BBD',
-    alignItems: 'center'
+    alignItems: 'center',
+    
     
 }
 
@@ -149,8 +151,8 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
 
 
         return (
-            <div style={{}} >
-                <Navbar color="faded" light expand='lg' style={navbar}>
+            
+                <Navbar color="faded" light expand='lg' fixed='top' style={navbar}>
 
                     <div style={{
                         display: 'flex',
@@ -245,7 +247,7 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                     </Collapse>
                         
                 </Navbar>
-            </div>
+            
 
     )
 }
