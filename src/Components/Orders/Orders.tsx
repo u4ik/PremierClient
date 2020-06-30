@@ -23,15 +23,15 @@ const [userOrders, setUserOrders] =useState<any>([])
             }
         }).then(res => res.json())
         .then(noteData => {
-          
+          console.log(noteData);
             setUserOrders(noteData.YourOrders);
             console.log(userOrders)
-        })
+        }).catch(err => console.log(err))
     }
     useEffect  (() => {
-
-        if(userOrders !== undefined ){
-        
+      console.log('userOrders', userOrders)
+        if(userOrders && userOrders.length === 0 ){
+          console.log('fecthing')
         fetchOrders();
         }
 
@@ -52,7 +52,7 @@ const [userOrders, setUserOrders] =useState<any>([])
           },
           {
             label: 'Service Requested',
-            field: "serviceRe",
+            field: "serviceReq",
             sort: 'asc',
             width: 150
           },
@@ -70,8 +70,11 @@ const [userOrders, setUserOrders] =useState<any>([])
           },
         ],
         rows: 
-        userOrders
-      };
+        userOrders ? userOrders.map((order: any) => ({
+          
+          ...order,
+          serviceReq: Object.entries(order.serviceReq).toString()})
+        )  : []};
     return(
         <div style={{backgroundColor:'#009FE4',color:'white' ,textShadow:'.4px .4px 1px black'}}>
 
