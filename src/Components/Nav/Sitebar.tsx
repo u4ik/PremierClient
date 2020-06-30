@@ -107,7 +107,10 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
         localStorage.setItem('user', user);
         // setCurrentUser(user);
         console.log(userData)
+        console.log(newToken)
         props.setUpdateToken(newToken);
+
+        console.log(props.updateToken)
         setSignedIn(true);
       
         setShowAuth(false)
