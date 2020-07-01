@@ -6,7 +6,7 @@ import { MDBDataTable,MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
 import './Orders.css'
 
 interface orderProps  {
-    updateToken: any
+    updateToken: string
 }
 
 const Orders:React.FunctionComponent<orderProps> = (props:orderProps) => {
