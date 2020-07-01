@@ -1,4 +1,112 @@
 
+@media (min-width: 1250px) {
+    #titleId{
+        margin-top: 5.1vw
+    }
+}
+
+@media (min-width: 1500px) {
+    #titleId{
+        margin-top: 5.1vw
+    }
+}
+
+@media (min-width: 1750px) {
+    #titleId{
+        margin-top: 5.1vw
+    }
+}
+
+@media (min-width: 1920px) {
+    #titleId{
+        margin-top: 5.1vw
+    }
+}
+
+
+
+@media screen and (min-device-width : 1025px) {
+    #titleId{
+        margin-top: 5.1vw
+    }
+}
+
+/* iPad Pro PORTRAIT */
+@media screen and (max-width: 1024px) {
+    #titleId{
+        margin-top: 7.6vw
+    }
+}
+/* iPad Pro LANDSCAPE*/
+@media only screen and (min-device-width : 1024px) and (max-device-width : 1366px) and (orientation : landscape) {
+}
+/* iPad PORTRAIT*/
+@media screen and (max-width: 769px) {
+    #titleId{
+        margin-top: 10.1vw
+    }
+}
+/* iPad LANDSCAPE*/
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+}
+/* iPhone 6/7/8 Plus PORTRAIT */
+@media screen and (max-width: 414px) {
+    #titleId{
+        margin-top: 18.7vw
+    }
+}
+/* iPhone 6/7/8 Plus LANDSCAPE */
+@media only screen and (min-device-width : 411px) and (max-device-width : 736px) and (orientation : landscape) {
+}
+/* Pixel 2 & Pixel 2 XL PORTRAIT */
+@media screen and (max-width: 412px) {
+    #titleId{
+        margin-top: 18.85vw
+    }
+}
+/* Pixel 2 LANDSCAPE */
+@media only screen and (min-device-width : 411px) and (max-device-width : 731px) and (orientation : landscape) {
+}
+/* Pixel 2 XL LANDSCAPE */
+@media only screen and (min-device-width : 411px) and (max-device-width : 823px) and (orientation : landscape) {
+}
+/* iPhone 6/7/8 & iPhone X PORTRAIT */
+@media screen and (max-width: 400px) and (min-height: 667px) {
+    #titleId{
+        margin-top: 40vw
+    }
+}
+/* iPhone 6/7/8 LANDSCAPE */
+@media only screen and (min-device-width : 411px) and (max-device-width : 667px) and (orientation : landscape) {
+}
+/* Iphone X LANDSCAPE */
+@media only screen and (min-device-width : 411px) and (max-device-width : 822px) and (orientation : landscape) {
+}
+/* Galaxy S5 PORTRAIT */
+@media screen and (max-width: 375px) {
+    #titleId{
+        margin-top: 32.5vw
+    }
+}
+/* Galaxy S5 LANDSCAPE */
+@media only screen and (min-device-width : 411px) and (max-device-width : 640px) and (orientation : landscape) {
+}
+/* iPhone 5/SE PORTRAIT */
+@media screen and (max-width: 330px) {
+    #titleId{
+        margin-top: 36vw
+    }
+}
+/* iPhone 5/SE LANDSCAPE */
+@media only screen and (min-device-width : 411px) and (max-device-width : 568px) and (orientation : landscape) {
+}
+
+
+
+
+
+
+/* 
 
 
 @media (max-width: 375px){
@@ -19,7 +127,7 @@
     }
 }
 
-@media (min-width: 360px){
+@media (min-width: 360px) and (min-height: 640px){
     #titleId{
         margin-top: 18.3vh
     }
@@ -41,7 +149,7 @@
     #titleId{
         margin-top: 17.5vh
     }
-}
+} */
 
 /* @media (min-width: 411px){
     #titleId{
@@ -54,18 +162,20 @@
         margin-top: 10.6vh
     }
 } */
-
-/* @media (min-width: 411px), (min-height: 823px){
-    #titleId{
-        margin-top: 9.42vh
-    }
-} */
-
-/* @media (min-width: 411px), (min-height: 731px){
+/* 
+@media (min-width: 411px) and (min-height: 731px){
     #titleId{
         margin-top: 10.5vh
     }
-} */
+}
+
+@media (min-width: 411px) and (min-height: 823px){
+    #titleId{
+        margin-top: 9.42vh
+    }
+}  */
+
+
 
 
 
