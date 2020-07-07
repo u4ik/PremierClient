@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {Col, Container, Row} from 'reactstrap'
 
 import ServicesHome from '../Services/ServicesHome' ;
-import TestimonialsHome from '../Testimonials/TestimonialsHome' ;
+import TestimonialsHome from '../Testimonials/TestimonialsHome';
+import HomeBackground from '../../assets/Home/home-background.jpg';
 
 import './Home.css'
 
@@ -11,12 +12,12 @@ import LogoLayer from '../../assets/logoLayer.png'
 class Home extends React.Component {
     render() {
         return (
-            <div style={{height:"auto", backgroundColor:'#009FE4'}}>
+            <div style={{height:"auto", backgroundImage: `url(${HomeBackground})`, backgroundRepeat: '', backgroundPosition: 'center', backgroundSize: 'cover'}}>
                 <h3 id="titleId" style={{fontSize:'1.7rem',paddingTop:'1%', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', paddingBottom: '1%', backgroundColor: '#177BBD', borderTop: 'solid 1px white', borderBottom: 'solid 1px white', marginBottom:'0'}}>About</h3>
                 <div style={{ display: 'flex', flexDirection:'row', justifyContent:'center', paddingBottom:'3%',paddingTop:'3%'}} >
                     <div style={{display:'flex',flexDirection: 'column',width:'70%',}}>
              
-                        <div className="welcomeText" style={{backgroundColor:'white', filter:'drop-shadow(2px 2px 2px black', borderRadius:'10px', padding:'2%', textAlign:'center'}}>
+                        <div className="welcomeText" style={{backgroundColor:'white', opacity: '0.75',  filter:'drop-shadow(2px 2px 2px black', borderRadius:'10px', padding:'2%', textAlign:'center'}}>
 
                             <Container>
 
