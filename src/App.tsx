@@ -5,6 +5,7 @@ import Home from './Components/Home/Home';
 import Footer from './Components/Footer/Footer';
 import Orders from './Components/Orders/Orders'
 import TestimonialsPage from './Components/Testimonials/TestimonialsPage'
+import ServicesPage from './Components/Services/ServicesPage'
 
 
 // import {Switch, Route, BrowserRouter} from 'react-router-dom';
@@ -17,18 +18,20 @@ const App: React.FunctionComponent = () => {
   const [enableTestCreate, setEnableTestCreate] = useState<boolean>(false)
 
   return (
-    <div className="App" style={{}}  >
+    <div className="App" style={{ }}  >
 
       
       <Router>
         <Sitebar setEnableTestCreate={setEnableTestCreate}  enableTestCreate={enableTestCreate} updateToken = {updateToken} setUpdateToken={setUpdateToken}  />
 
-
-    <Switch>
-        <Route path="/" exact component={Home}  />
-        <Route path ="/orders" exact render={(props) => (< Orders updateToken = {updateToken}/>)} />
-        <Route path ="/testimonials" exact render={(props) => (<TestimonialsPage  enableTestCreate={enableTestCreate}/>)}/>
-    </Switch>
+    <div style={{ minHeight: '80vh', backgroundColor: '#009FE4'}}>
+      <Switch>
+          <Route path="/" exact component={Home}  />
+          <Route path ="/orders" exact render={(props) => (< Orders updateToken = {updateToken}/>)} />
+          <Route path ="/testimonials" exact render={(props) => (<TestimonialsPage  enableTestCreate={enableTestCreate}/>)}/>
+          <Route path ="/services" exact component= {ServicesPage}/>
+      </Switch>
+    </div>
 
         <Footer />
       </Router>  
