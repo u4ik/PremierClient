@@ -1,6 +1,6 @@
 @media screen and (min-device-width: 1025px) {
     #titleId {
-        margin-top: 5.1vw
+        margin-bottom: 4.1vw
     }
 }
 
@@ -9,13 +9,13 @@
 
 @media screen and (max-width: 1024px) {
     #titleId {
-        margin-top: 7.6vw
+        margin-bottom: 6.6vw
     }
 }
 
 @media screen and (min-width: 1024px) {
     #titleId {
-        margin-top: 7.4vw
+        margin-bottom: 6.4vw
     }
 }
 
@@ -24,7 +24,16 @@
 
 @media screen and (min-device-width: 1440px) {
     #titleId {
-        margin-top: 5.4vw
+        margin-bottom: 5.1vw
+    }
+}
+
+
+/* 1600 */
+
+@media screen and (min-device-width: 1600px) {
+    #titleId {
+        margin-bottom: 4.9vw
     }
 }
 
@@ -33,7 +42,7 @@
 
 @media screen and (min-device-width: 1920px) {
     #titleId {
-        margin-top: 4.0vw
+        margin-bottom: 4.0vw
     }
 }
 
@@ -42,7 +51,7 @@
 
 @media screen and (min-device-width: 2560px) {
     #titleId {
-        margin-top: 3vw
+        margin-bottom: 2vw
     }
 }
 
@@ -51,7 +60,7 @@
 
 @media screen and (min-device-width: 2736px) {
     #titleId {
-        margin-top: 2.8vw
+        margin-bottom: 2.8vw
     }
 }
 
@@ -63,7 +72,7 @@
 
 /* @media screen and (min-width: 790px) {
     #titleId {
-        margin-top: 8.9vw
+        margin-bottom: 8.9vw
     }
 } */
 
@@ -72,7 +81,7 @@
 
 @media screen and (max-width: 769px) {
     #titleId {
-        margin-top: 10.1vw
+        margin-bottom: 12.1vw
     }
 }
 
@@ -86,7 +95,7 @@
 
 @media screen and (max-width: 414px) {
     #titleId {
-        margin-top: 18.7vw
+        margin-bottom: 18.7vw
     }
 }
 
@@ -100,7 +109,7 @@
 
 @media screen and (max-width: 412px) {
     #titleId {
-        margin-top: 18.85vw
+        margin-bottom: 18.85vw
     }
 }
 
@@ -129,7 +138,7 @@
 
 @media screen and (max-width: 360px) {
     #titleId {
-        margin-top: 32.5vw
+        margin-bottom: 32.5vw
     }
 }
 
@@ -140,7 +149,7 @@
 
 @media screen and (max-width: 375px) {
     #titleId {
-        margin-top: 31.3vw
+        margin-bottom: 31.3vw
     }
 }
 
@@ -149,7 +158,7 @@
 
 @media screen and (max-width: 330px) {
     #titleId {
-        margin-top: 36vw
+        margin-bottom: 36vw
     }
 }
 

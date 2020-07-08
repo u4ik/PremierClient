@@ -113,7 +113,7 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
     )});
   return (
     <div style={{backgroundColor:'#009FE4'}}>
-       <h3 id="titleId" style={{fontSize:'1.7rem',paddingTop:'1%', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '1%', backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}>All Testimonials</h3>
+       <h3 style={{fontSize:'1.7rem',paddingTop:'1%', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '1%', backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}>All Testimonials</h3>
         {props.enableTestCreate === true ? <p style={createTestTextStyle}>Create a Testimonial!</p>
         :<p style={createTestTextStyle}>Complete a service with us to leave a testimonial!</p>}
        <Container style={{display:'flex', flexDirection:'row', justifyContent:'center', flexWrap:'wrap'}}>

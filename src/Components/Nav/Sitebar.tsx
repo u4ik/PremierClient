@@ -153,7 +153,7 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
 
 
         return (
-            
+            <div id="titleId" >
                 <Navbar color="faded" light expand='lg' fixed='top' style={navbar}>
 
                     <div style={{
@@ -185,7 +185,7 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                 flexDirection: flexType,
                                 justifyContent: 'center',
                                 float: 'right',
-                                textAlign: 'right'
+                                textAlign: 'right',
                             }} >
 
 
@@ -247,9 +247,9 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                             </Nav>
         
                     </Collapse>
-                        
+                     
                 </Navbar>
-            
+            </div>
 
     )
 }
