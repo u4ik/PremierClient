@@ -22,6 +22,8 @@ interface displayAuthForm {
     isServiceComplete(arg0:any):any
     userData:any
     setUserData:any
+    setIsAdmin: any
+    isAdmin:any
 
     // setCurrentUser: any
     // currentUser: string
@@ -109,7 +111,14 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
                     }else if(userdata.ServiceComplete ==='no'){
                         props.setEnableTestCreate(false)
                     }
+                    if(userdata.ADMIN !== undefined){
+                        props.setIsAdmin(true)
+                    }else{
+                        props.setIsAdmin(false)
+                    }
                     console.log('Logged In!')
+
+                    
              }
 
             //  setCurrentUser(userdata.user.username);
