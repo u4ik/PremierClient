@@ -51,7 +51,8 @@ interface siteBarProps{
 
     enableTestCreate: boolean
     setEnableTestCreate: any
-    // setIsAdmin: any
+    isAdmin: any
+    setIsAdmin: any
 }
 
 
@@ -73,7 +74,7 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
     const [showAuth, setShowAuth] = useState<boolean>(false);
     const [signup, setSignup] = useState<boolean>(false);
     const [signedIn, setSignedIn] = useState<any>(false);
-    const [isAdmin, setIsAdmin] = useState<boolean>(false);
+
 
 
     const [userData, setUserData] = useState<any>()
@@ -193,7 +194,7 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                 <Contact setShowContact={setShowContact} showContact ={showContact} />   
 
                             {/* AUTHFORM COMPONENT/MODAL */}
-                                <AuthForm userData={userData} setUserData={setUserData} isServiceComplete={isServiceComplete} setCurrentUserId={setCurrentUserId} currentUserId={currentUserId} enableTestCreate={props.enableTestCreate}  setEnableTestCreate={props.setEnableTestCreate} updateTheToken={updateTheToken} signedIn = {signedIn}  setSignedIn = {setSignedIn}  updateToken={props.updateToken} setUpdateToken={props.setUpdateToken}  showAuth={showAuth} setShowAuth={setShowAuth} signup={signup} setSignup={setSignup}/>    
+                                <AuthForm isAdmin={props.isAdmin} setIsAdmin={props.setIsAdmin} userData={userData} setUserData={setUserData} isServiceComplete={isServiceComplete} setCurrentUserId={setCurrentUserId} currentUserId={currentUserId} enableTestCreate={props.enableTestCreate}  setEnableTestCreate={props.setEnableTestCreate} updateTheToken={updateTheToken} signedIn = {signedIn}  setSignedIn = {setSignedIn}  updateToken={props.updateToken} setUpdateToken={props.setUpdateToken}  showAuth={showAuth} setShowAuth={setShowAuth} signup={signup} setSignup={setSignup}/>    
 
                                 <NavItem >
                                     <Link  className="nav-links" to ="/">
@@ -222,7 +223,7 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                     </Link>
                                 </NavItem>
                            
-                                {signedIn === true ? 
+                                {signedIn === true && props.isAdmin === false ? 
                                 
                                 <NavItem>
                                     <Link  className="nav-links" to ="/orders">
@@ -237,9 +238,11 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                 :    <NavItem>
                                 <NavLink href="/" className="nav-links" onClick={(e: any) => showThatAuth(e)}>Signup/Login</NavLink>
                                 </NavItem>}
-                                {isAdmin === true ? 
+                                {props.isAdmin === true ? 
                                 <NavItem>
-                                <NavLink href="/" className="nav-links">All Orders</NavLink>
+                                    <Link className="nav-links" to= "/orders">
+                                <NavLink href="" className="nav-links">All Orders</NavLink>
+                                </Link>
                                  </NavItem> : null}
 
 

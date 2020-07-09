@@ -24,7 +24,13 @@ const [userOrders, setUserOrders] =useState<any>([])
         }).then(res => res.json())
         .then(noteData => {
           console.log(noteData);
+
+          if(noteData.YourOrders !== undefined){
             setUserOrders(noteData.YourOrders);
+          } else{
+            setUserOrders(noteData.AllOrders)
+          }
+        
             console.log(userOrders)
         }).catch(err => console.log(err))
     }
@@ -76,6 +82,7 @@ const [userOrders, setUserOrders] =useState<any>([])
           
           
           ...order,
+
           
           serviceReq:   Object.keys(order.serviceReq)[0] + "-  " + JSON.stringify(order.serviceReq.Restaurant).replace(`{`, '').replace(`}`, '').replace(`"`, ``)
 

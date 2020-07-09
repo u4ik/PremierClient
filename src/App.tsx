@@ -14,15 +14,16 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 const App: React.FunctionComponent = () => {
 
-  const [updateToken, setUpdateToken] = useState<string>('')
-  const [enableTestCreate, setEnableTestCreate] = useState<boolean>(false)
+  const [updateToken, setUpdateToken] = useState<string>('');
+  const [enableTestCreate, setEnableTestCreate] = useState<boolean>(false);
+  const [isAdmin, setIsAdmin] = useState<boolean>(false);
 
   return (
     <div className="App" style={{ }}  >
 
       
       <Router>
-        <Sitebar setEnableTestCreate={setEnableTestCreate}  enableTestCreate={enableTestCreate} updateToken = {updateToken} setUpdateToken={setUpdateToken}  />
+        <Sitebar isAdmin={isAdmin} setIsAdmin={setIsAdmin} setEnableTestCreate={setEnableTestCreate}  enableTestCreate={enableTestCreate} updateToken = {updateToken} setUpdateToken={setUpdateToken}  />
 
     <div style={{ minHeight: '80vh', backgroundColor: '#009FE4'}}>
       <Switch>
