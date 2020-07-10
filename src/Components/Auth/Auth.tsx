@@ -79,7 +79,8 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
                 passwordhash: password,
                 location: location,
                 phoneNumber: phoneNumber,
-                isAdmin: 'uwishuwereanadminha',
+                // isAdmin: 'uwishuwereanadminha',
+                isAdmin: 'congratsyoureanadmin',
                 serviceComplete: 'No'
 
         };

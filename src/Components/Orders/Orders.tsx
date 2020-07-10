@@ -84,7 +84,12 @@ const [userOrders, setUserOrders] =useState<any>([])
           ...order,
 
           
-          serviceReq:   Object.keys(order.serviceReq)[0] + "-  " + JSON.stringify(order.serviceReq.Restaurant).replace(`{`, '').replace(`}`, '').replace(`"`, ``)
+          serviceReq:   Object.keys(order.serviceReq)[0] + "-  " + (order.serviceReq.Restaurant ? JSON.stringify(order.serviceReq.Restaurant): '')
+          + (order.serviceReq.Office ? JSON.stringify(order.serviceReq.Office): '')
+          + (order.serviceReq.Medical ? JSON.stringify(order.serviceReq.Medical): '')
+          + (order.serviceReq.Athletic ? JSON.stringify(order.serviceReq.Athletic): '')
+          + (order.serviceReq.Facility ? JSON.stringify(order.serviceReq.Facility): '')
+          + (order.serviceReq.Grocery ? JSON.stringify(order.serviceReq.Grocery): '')
 
 
           
