@@ -18,17 +18,21 @@ const App: React.FunctionComponent = () => {
   const [enableTestCreate, setEnableTestCreate] = useState<boolean>(false);
   const [isAdmin, setIsAdmin] = useState<boolean>(false);
 
+  const [signedIn, setSignedIn] = useState<any>(false);
+
+
+
   return (
     <div className="App" style={{ }}  >
 
       
       <Router>
-        <Sitebar isAdmin={isAdmin} setIsAdmin={setIsAdmin} setEnableTestCreate={setEnableTestCreate}  enableTestCreate={enableTestCreate} updateToken = {updateToken} setUpdateToken={setUpdateToken}  />
+        <Sitebar signedIn={signedIn} setSignedIn={setSignedIn} isAdmin={isAdmin} setIsAdmin={setIsAdmin} setEnableTestCreate={setEnableTestCreate}  enableTestCreate={enableTestCreate} updateToken = {updateToken} setUpdateToken={setUpdateToken}  />
 
     <div style={{ minHeight: '80vh', backgroundColor: '#009FE4'}}>
       <Switch>
           <Route path="/" exact component={Home}  />
-          <Route path ="/orders" exact render={(props) => (< Orders updateToken = {updateToken}/>)} />
+          <Route path ="/orders" exact render={(props) => (< Orders signedIn={signedIn} setSignedIn={setSignedIn} updateToken = {updateToken}/>)} />
           <Route path ="/testimonials" exact render={(props) => (<TestimonialsPage  enableTestCreate={enableTestCreate}/>)}/>
           <Route path ="/services" exact component= {ServicesPage}/>
       </Switch>

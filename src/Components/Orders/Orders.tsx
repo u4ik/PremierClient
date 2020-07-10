@@ -1,12 +1,14 @@
 import React, {useEffect, useState} from 'react'
 
 import {Col, Row, Container} from 'reactstrap'
-import { MDBDataTable,MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
+import { MDBDataTable,MDBTable, MDBTableBody, MDBTableHead, MDBBtn } from 'mdbreact';
 
 import './Orders.css'
 
 interface orderProps  {
     updateToken: string
+    signedIn: any
+    setSignedIn: any
 }
 
 const Orders:React.FunctionComponent<orderProps> = (props:orderProps) => {
@@ -83,14 +85,12 @@ const [userOrders, setUserOrders] =useState<any>([])
           
           ...order,
 
-          
-          serviceReq:   Object.keys(order.serviceReq)[0] + "-  " + JSON.stringify(order.serviceReq.Restaurant).replace(`{`, '').replace(`}`, '').replace(`"`, ``)
-
-
-          
-
-          
-          
+          serviceReq:   Object.keys(order.serviceReq) + "-" + (order.serviceReq.Restaurant ? JSON.stringify(order.serviceReq.Restaurant): '')
+          +  (order.serviceReq.Office ? JSON.stringify(order.serviceReq.Office): '')
+          +  (order.serviceReq.Medical ? JSON.stringify(order.serviceReq.Medical): '')
+          +  (order.serviceReq.Athletic ? JSON.stringify(order.serviceReq.Athletic): '')
+          +  (order.serviceReq.Facilities ? JSON.stringify(order.serviceReq.Facilities): '')
+          +  (order.serviceReq.Grocery ? JSON.stringify(order.serviceReq.Grocery): '')
         })
 
         )  : []};
@@ -101,6 +101,16 @@ const [userOrders, setUserOrders] =useState<any>([])
 
         <h3  style={{fontSize:'1.7rem',paddingTop:'1%', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', paddingBottom: '1%', backgroundColor: '#177BBD', borderTop: 'solid 1px white', borderBottom: 'solid 1px white', marginBottom:'0'}}>Orders</h3>
 <Container>
+<div style={{marginTop: '5%'}}>
+
+  {props.signedIn ? 
+  <MDBBtn style={{color:'white'}}>Create an Order!</MDBBtn>
+  : null }
+</div>
+
+
+
+
 
 
 <MDBDataTable style={{color: '', textShadow: ''}}
