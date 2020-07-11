@@ -31,17 +31,17 @@ const navbar: React.CSSProperties ={
     
 }
 
-const logoTitleStyle:React.CSSProperties={
-    fontSize: '2.2rem',
-    lineHeight:'1.2',
-    color:'#E8C10D',
-    textShadow:'2px 2px 1px black',
-    fontWeight: 400
-}
+// const logoTitleStyle:React.CSSProperties={
+//     fontSize: '2.2rem',
+//     lineHeight:'1.2',
+//     color:'#E8C10D',
+//     textShadow:'2px 2px 1px black',
+//     fontWeight: 400
+// }
 
 interface siteBarProps{
-    // signedIn: any
-    // setSignedIn: any
+    signedIn: any
+    setSignedIn: any
     // signup: boolean
     // setSignup: any
     // showAuth: any
@@ -73,7 +73,7 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
  
     const [showAuth, setShowAuth] = useState<boolean>(false);
     const [signup, setSignup] = useState<boolean>(false);
-    const [signedIn, setSignedIn] = useState<any>(false);
+
 
 
 
@@ -115,13 +115,13 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
 
 
         console.log(props.updateToken)
-        setSignedIn(true);
+        props.setSignedIn(true);
       
         setShowAuth(false)
       };
     
       const logOut = () => {
-        setSignedIn(false);
+        props.setSignedIn(false);
         props.setUpdateToken('');
         localStorage.removeItem('token')
     
@@ -194,7 +194,7 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                 <Contact setShowContact={setShowContact} showContact ={showContact} />   
 
                             {/* AUTHFORM COMPONENT/MODAL */}
-                                <AuthForm isAdmin={props.isAdmin} setIsAdmin={props.setIsAdmin} userData={userData} setUserData={setUserData} isServiceComplete={isServiceComplete} setCurrentUserId={setCurrentUserId} currentUserId={currentUserId} enableTestCreate={props.enableTestCreate}  setEnableTestCreate={props.setEnableTestCreate} updateTheToken={updateTheToken} signedIn = {signedIn}  setSignedIn = {setSignedIn}  updateToken={props.updateToken} setUpdateToken={props.setUpdateToken}  showAuth={showAuth} setShowAuth={setShowAuth} signup={signup} setSignup={setSignup}/>    
+                                <AuthForm isAdmin={props.isAdmin} setIsAdmin={props.setIsAdmin} userData={userData} setUserData={setUserData} isServiceComplete={isServiceComplete} setCurrentUserId={setCurrentUserId} currentUserId={currentUserId} enableTestCreate={props.enableTestCreate}  setEnableTestCreate={props.setEnableTestCreate} updateTheToken={updateTheToken} signedIn = {props.signedIn}  setSignedIn = {props.setSignedIn}  updateToken={props.updateToken} setUpdateToken={props.setUpdateToken}  showAuth={showAuth} setShowAuth={setShowAuth} signup={signup} setSignup={setSignup}/>    
 
                                 <NavItem >
                                     <Link  className="nav-links" to ="/">
@@ -223,7 +223,7 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                     </Link>
                                 </NavItem>
                            
-                                {signedIn === true && props.isAdmin === false ? 
+                                {props.signedIn === true && props.isAdmin === false ? 
                                 
                                 <NavItem>
                                     <Link  className="nav-links" to ="/orders">
@@ -231,7 +231,7 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                 </Link>
                                 </NavItem>
                                 : null}
-                                {signedIn === true ? 
+                                {props.signedIn === true ? 
                                 <NavItem>
                                     <NavLink href="/" className="nav-links" onClick={(e: any) => {logOut()}}>Logout</NavLink>
                                 </NavItem>

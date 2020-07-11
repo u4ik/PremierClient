@@ -5,14 +5,11 @@ import './TestimonialsHome.css'
 import Rater from 'react-rater'
 import 'react-rater/lib/react-rater.css'
 
-import IconBackground from '../../assets/IconBackground.png'
-
 import {
   Carousel,
   CarouselItem,
   CarouselControl,
   CarouselIndicators,
-  CarouselCaption
 } from 'reactstrap';
 
 const TestimonialsHome: React.FunctionComponent = (props) => {
@@ -52,7 +49,7 @@ useEffect (() => {
         
 
         <div className="carousel-caption d-none d-md-block" style={{
-          backgroundColor:'white',
+          backgroundColor:'#177BBD',
           borderRadius:'1rem',
           paddingLeft:'.5rem',
           paddingRight:'.5rem',
@@ -60,21 +57,21 @@ useEffect (() => {
           userSelect:'none',
           marginBottom:'.5rem',
           width:'auto',
-          filter: 'drop-shadow(2px 2px 2px black)',
+          filter: 'drop-shadow(1px 1px 1px black)',
           marginLeft:'20%',
           marginRight:'20%'}}>
 
 
 
-          <h3 style={{fontSize:'1.4rem', textShadow:'.1px .1px .1px grey', color:'black', userSelect:'none'}}>{ `"` + `${item.userQuote}` + `"`}</h3>
+          <h3 style={{fontSize:'1.4rem', textShadow:'.1px .1px .1px grey', color:'white', userSelect:'none'}}>{ `"` + `${item.userQuote}` + `"`}</h3>
           <Rater  total={5} rating={item.userRating} interactive={false}  />
         </div>
         <div>
-            <h4 style= {{fontSize: '1.1rem', textShadow:'1px 1px 1px black', color:'#E8D47B',  userSelect:'none'}}>{"- " + `${item.userFirstName}` + " " + `${item.userLastName}`}</h4>
-            <h5 style={{fontSize:'.8rem', color:'white', textShadow:'1px 1px 1px black', userSelect:'none'}}>{item.userLocationType}</h5>
-            <h5 style={{fontSize:'.8rem', color:'white', textShadow:'1px 1px 1px black', userSelect:'none'}}>{item.userLocation}</h5>
-            <p style={{fontSize:'.7rem', color:' white', textShadow:'1px 1px 1px black', userSelect:'none'}}>{item.serviceCompletionDate}</p>
-          </div>
+            <h4 style= {{fontSize: '1.1rem', color:'#177BBD',  userSelect:'none'}}>{"- " + `${item.userFirstName}` + " " + `${item.userLastName}`}</h4>
+            <h5 style={{fontSize:'.8rem', color:'grey', userSelect:'none'}}>{item.userLocationType}</h5>
+            <h5 style={{fontSize:'.8rem', color:'grey', userSelect:'none'}}>{item.userLocation}</h5>
+            <p style={{fontSize:'.7rem', color:'grey', userSelect:'none'}}>{item.serviceCompletionDate}</p>
+        </div>
         
     
         </div>
@@ -99,8 +96,8 @@ useEffect (() => {
 
 
   return (
-    <div style={{width:'auto', backgroundColor:'#009FE4'}}>
-        <h3 style={{fontSize:'1.7rem',paddingTop:'1%', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', backgroundColor: '#177BBD', borderBottom: 'solid 1px white'}}>Testimonials</h3>
+    <div style={{width:'auto', backgroundColor:'#f9f9f9'}}>
+        <h3 style={{fontSize:'2.2rem',paddingTop:'1%', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>Testimonials</h3>
         <Carousel
           activeIndex={activeIndex}
           next={next} 

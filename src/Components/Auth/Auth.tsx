@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
 import './Auth.css';
 import Logo from '../../assets/Premier-Commercial-Services-icon.svg';
@@ -79,8 +79,8 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
                 passwordhash: password,
                 location: location,
                 phoneNumber: phoneNumber,
-                // isAdmin: 'uwishuwereanadminha',
-                isAdmin: 'congratsyoureanadmin',
+                // isAdmin: 'congratsyoureanadmin',
+                isAdmin: 'uwishuwereanadminha',
                 serviceComplete: 'No'
 
         };

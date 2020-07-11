@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { MDBListGroup, MDBListGroupItem, MDBContainer, MDBBadge, MDBCollapse } from "mdbreact";
 import Athletics from '../../assets/services/athletics.jpg';
 import Offices from '../../assets/services/offices.jpg';
@@ -30,16 +30,16 @@ class ServicesPage extends React.Component <unknown, MyState> {
             color: 'white', 
             fontWeight: 'bold', 
             fontSize: '1.2rem',
-            textShadow: '2px 2px 2px black',
+            textShadow: '1px 1px 1px black',
             borderColor: 'transparent'
         }
 
         return (
             <div>
-                <h3 style={{fontSize:'1.7rem', paddingTop:'1%', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '1%', backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}>All Services</h3>
-                <div style={{ marginTop: '5%', marginBottom: '5%' }}>
-                    <h4> Welcome to our services </h4>
-                    <p style={{ marginLeft: '25%', marginRight: '25%'}}> some placeholder texts here some placeholder texts heresome placeholder texts heresome placeholder texts heresome placeholder texts here</p>
+                {/* <h3 style={{fontSize:'1.9rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px #024160', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>All Services</h3> */}
+                <div>
+                    <h3 style={{fontSize:'1.9rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px #024160', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}> Welcome To Our Services </h3>
+                    <p style={{ marginLeft: '25%', marginRight: '25%'}}> some placeholder texts here some placeholder texts here some placeholder texts here some placeholder texts here some placeholder texts here</p>
                     
                 </div>
                 <div>
