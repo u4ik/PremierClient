@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import RestaurantImg from  '../../assets/locationIcons/restaurant.svg'
 import AthleticImg from  '../../assets/locationIcons/athletic.svg'
@@ -7,7 +7,7 @@ import MedicalImg from  '../../assets/locationIcons/medical2.svg'
 import OfficeImg from  '../../assets/locationIcons/office.svg'
 import ServicesImg from  '../../assets/locationIcons/services.svg'
 
-import {Container,Col, Row, UncontrolledPopover, PopoverHeader, PopoverBody, Button} from 'reactstrap'
+import {Container,Col, Row} from 'reactstrap'
 import { MDBPopover, MDBPopoverBody, MDBPopoverHeader, MDBBtn, MDBContainer } from "mdbreact";
 
 import './Services.css'
@@ -21,9 +21,9 @@ const iconStyle:React.CSSProperties={
 
 const iconText:React.CSSProperties={
     fontSize:'1rem',
-    color:'#E8C10D',
+    color:'#177BBD',
     fontWeight: 'bold',
-    textShadow:'.1rem .1rem .1rem #024160',
+    // textShadow:'.1rem .1rem .1rem #024160',
     userSelect:'none'
 }
 //Popover Descriptions
@@ -38,15 +38,15 @@ let ServicesInfo = 'Something about Services'
 class ServicesHome extends React.Component {
     render() {
         return (
-            <div style={{backgroundColor:'#009FE4', height: 'auto'}}>
-                <h3 style={{fontSize:'1.7rem',paddingTop:'1%', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', backgroundColor: '#177BBD', borderBottom: 'solid 1px white',borderTop: 'solid 1px white'}}>Service Locations</h3>
-                
+            <div style={{backgroundColor:'#f9f9f9', height: 'auto'}}>
+                <h3 style={{fontSize:'1.9rem', paddingTop:'3%', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>Service Locations</h3>
+                {/* <hr style={{ marginLeft: '15%', marginRight: '15%' }} /> */}
                 <div style={{display:'flex',  flexDirection:'row'}}>
                     <Container style={{display:'flex',  flexDirection:'column'}}>
                      <Row>
                         <Col>
                             <MDBContainer>
-                    <div style={{ }} className="">
+                    <div>
                                 <MDBPopover
                                 placement="top"
                                 popover
@@ -199,6 +199,7 @@ class ServicesHome extends React.Component {
                     </Row>      
                     </Container>
                 </div>
+                {/* <hr style={{ marginLeft: '15%', marginRight: '15%' }} /> */}
             </div>
         );
     }
