@@ -31,13 +31,13 @@ const navbar: React.CSSProperties ={
     
 }
 
-const logoTitleStyle:React.CSSProperties={
-    fontSize: '2.2rem',
-    lineHeight:'1.2',
-    color:'#E8C10D',
-    textShadow:'2px 2px 1px black',
-    fontWeight: 400
-}
+// const logoTitleStyle:React.CSSProperties={
+//     fontSize: '2.2rem',
+//     lineHeight:'1.2',
+//     color:'#E8C10D',
+//     textShadow:'2px 2px 1px black',
+//     fontWeight: 400
+// }
 
 interface siteBarProps{
     signedIn: any

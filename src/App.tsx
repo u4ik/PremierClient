@@ -29,7 +29,7 @@ const App: React.FunctionComponent = () => {
       <Router>
         <Sitebar signedIn={signedIn} setSignedIn={setSignedIn} isAdmin={isAdmin} setIsAdmin={setIsAdmin} setEnableTestCreate={setEnableTestCreate}  enableTestCreate={enableTestCreate} updateToken = {updateToken} setUpdateToken={setUpdateToken}  />
 
-    <div style={{ minHeight: '80vh', backgroundColor: '#009FE4'}}>
+    <div style={{ minHeight: '80vh', backgroundColor: '#f9f9f9'}}>
       <Switch>
           <Route path="/" exact component={Home}  />
           <Route path ="/orders" exact render={(props) => (< Orders signedIn={signedIn} setSignedIn={setSignedIn} updateToken = {updateToken}/>)} />

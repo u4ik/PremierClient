@@ -1,8 +1,8 @@
 @media(min-width:1025px) {
-    .navlinkWrap {
+    .navlinkwrap {
         flex-direction: row !important;
     }
-    #navLinkWrap {
+    #navlinkwrap {
         flex-direction: row !important;
     }
 }
