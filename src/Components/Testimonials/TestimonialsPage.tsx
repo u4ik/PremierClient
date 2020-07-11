@@ -1,6 +1,6 @@
-import React,{useEffect, useState, useReducer}  from "react";
-import { MDBCarousel, MDBCard, MDBCardBody,MDBCardImage, MDBCardTitle,MDBCardText,MDBBtn, MDBCarouselInner, MDBCarouselItem, MDBContainer, MDBRow, MDBCol, MDBIcon } from "mdbreact";
-import {Container,Col, Row, UncontrolledPopover, PopoverHeader, PopoverBody, Button} from 'reactstrap'
+import React,{useEffect, useState}  from "react";
+import { MDBCard, MDBCardBody,MDBCardImage, MDBCardTitle,MDBCardText} from "mdbreact";
+import {Container} from 'reactstrap'
 import Rater from 'react-rater'
 import 'react-rater/lib/react-rater.css'
 import './TestimonialsPage.css'
@@ -27,12 +27,12 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
   filter: 'drop-shadow(3px 3px 3px black)'
   } 
   const cardImgStyle={
-    backgroundColor:'',
+    backgroundColor:'#E8C10D',
     borderRadius:'20px 20px 0px 0px',
     width:'',
     padding:'30%',
     marginTop:'1%',
-    filter: 'drop-shadow(3px 3px 3px black)'
+    filter: 'drop-shadow(1px 1px 1px black)'
   }
   const cardBodyStyle={
     backgroundColor:'white',
@@ -53,10 +53,10 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
     fontSize:'.6rem'
   }
   const createTestTextStyle={
-    color: 'white',
+    color: '#177BBD',
     fontSize: '1.3rem',
     marginTop:'2%',
-    textShadow: '1px 1px 1px black'
+    // textShadow: '1px 1px 1px black'
   }
   const getTestimonials = () => {
     const APIURL:string = 'http://localhost:3000/testimonial/all'
@@ -112,8 +112,8 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
       </div>
     )});
   return (
-    <div style={{backgroundColor:'#009FE4'}}>
-       <h3 style={{fontSize:'1.7rem',paddingTop:'1%', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '1%', backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}>All Testimonials</h3>
+    <div style={{backgroundColor:'#f9f9f9'}}>
+       <h3 style={{fontSize:'1.9rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px #024160', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>All Testimonials</h3>
         {props.enableTestCreate === true ? <p style={createTestTextStyle}>Create a Testimonial!</p>
         :<p style={createTestTextStyle}>Complete a service with us to leave a testimonial!</p>}
        <Container style={{display:'flex', flexDirection:'row', justifyContent:'center', flexWrap:'wrap'}}>

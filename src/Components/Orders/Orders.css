@@ -1,7 +1,7 @@
 .table.dataTable.table-sm.table-bordered.table-striped {
-    color: white;
-    /* text-shadow: '1.5px 1.5px 1px black'; */
-    font-weight: 700;
+    color: #444343;
+    text-shadow: '0px 0px 0px white' !important;
+    font-weight: 300;
 }
 
 .dataTable_scrollBody {
@@ -34,5 +34,17 @@
 .disabled.page-item {
     text-shadow: 'black 0px 0px 0px' !important;
     color: 'white' !important
+}
+
+Style Attribute {
+    background-color: rgb(0, 159, 228);
+    color: black !important;
+    text-shadow: black 0.4px 0.4px 1px;
+}
+
+th{
+    color: #177BBD;
+    text-shadow: black 0px 0px 0px !important;
+    font-weight: 600 !important;
 }
 
