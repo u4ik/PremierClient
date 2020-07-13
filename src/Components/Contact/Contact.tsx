@@ -1,20 +1,17 @@
-import React, {useState} from 'react'
-
-
+import React, {useState} from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import Logo from '../../assets/Premier-Commercial-Services-icon.svg';
-
-import './Contact.css'
-interface somethingfornow {
+import './Contact.css';
 
 
+interface contactPage {
     showContact: boolean
     setShowContact: React.Dispatch<React.SetStateAction<boolean>> 
 }
 
 
 
-const Contact: React.FunctionComponent<somethingfornow> = (props:somethingfornow) => {
+const Contact: React.FunctionComponent<contactPage> = (props:contactPage) => {
 
 
     const [modal, setModal] = useState(true);
@@ -78,7 +75,7 @@ const Contact: React.FunctionComponent<somethingfornow> = (props:somethingfornow
                 <img src = {Logo} style={{width:'20%'}} />
                 </ModalHeader>
                 <ModalBody style={{backgroundColor: '#009FE4'}}>
-                <form className="fs-frm" id="myForm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/insighteuphoric@gmail.com" method="post">
+                <form className="fs-frm" id="myForm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/matthewoladele@gmail.com" method="post">
 
                     <fieldset id="fs-frm-inputs">
 
