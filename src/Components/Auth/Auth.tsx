@@ -16,7 +16,7 @@ interface displayAuthForm {
     signedIn: boolean
     setEnableTestCreate: any
     enableTestCreate: boolean
-    updateTheToken(arg0:any, arg1:any): any
+    updateTheToken(arg0:any, arg1:any, arg2:any, arg3:any): any
     currentUserId: any
     setCurrentUserId: any
     isServiceComplete(arg0:any):any
@@ -53,8 +53,6 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
     
     const toggle = () => props.setShowAuth(!props.showAuth);
 
-
-
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -67,8 +65,6 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
 
 
   
-
-
     const submit = (e: any) => {
         e.preventDefault();
         const url = props.signup ? baseURL + '/create' : baseURL + '/login';
@@ -82,7 +78,6 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
                 // isAdmin: 'congratsyoureanadmin',
                 isAdmin: 'uwishuwereanadminha',
                 serviceComplete: 'No'
-
         };
 
         fetch(url, {
@@ -103,36 +98,33 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
                     props.setUserData(userdata)
                     
                     props.setCurrentUserId(userdata.ID)
-                    props.updateTheToken(userdata.sessionToken, userdata.email)
+                    props.updateTheToken(userdata.sessionToken, userdata.Email, userdata.ADMIN, userdata.ServiceComplete)
                     // props.isServiceComplete(userdata)
 
+
+                    //Previous Service Complete Shit
                     console.log(props.currentUserId)
                     if(userdata.ServiceComplete === 'yes'){
                         props.setEnableTestCreate(true)
                     }else if(userdata.ServiceComplete ==='no'){
                         props.setEnableTestCreate(false)
                     }
-                    if(userdata.ADMIN !== undefined){
-                        props.setIsAdmin(true)
-                    }else{
-                        props.setIsAdmin(false)
-                    }
+
+                    //Previous Admin Shit
+                    // if(userdata.ADMIN !== undefined){
+                    //     props.setIsAdmin(true)
+                    // }else{
+                    //     props.setIsAdmin(false)
+                    // }
                     console.log('Logged In!')
-
-                    
              }
-
             //  setCurrentUser(userdata.user.username);
             //  setUserId(userdata.user.id)
-        
-
             })
         .catch(err => console.log(err.message))
     }
-
     return (
             <div>
-
                 <Modal style={{borderRadius:'20px'}} isOpen={props.showAuth}  className=''>
                     <ModalHeader toggle={toggle} style={modalHeaderStyle}>
                     
@@ -147,30 +139,24 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
                                 <Label htmlFor="email">Email</Label>
                                 <Input name="email" value={email} onChange={e => setEmail(e.target.value)} required />
                             </FormGroup>
-
                             <FormGroup>
                                 <Label htmlFor="password">Password</Label>
                                 <Input type="password" name="password" value={password} onChange={e => setPassword(e.target.value)} required />
                             </FormGroup>
-
                             {props.signup ? 
                             <div>
                             <FormGroup>
                                 <Label htmlFor="firstName">First Name</Label>
                                 <Input name="firstName" value={firstName} onChange={e => setFirstName(e.target.value)} required />
                             </FormGroup>
-                            
-
                             <FormGroup>
                                 <Label htmlFor="lastName">Last Name</Label>
                                 <Input name="lastName" value={lastName} onChange={e => setLastName(e.target.value)} required />
                             </FormGroup>
-
                             <FormGroup>
                                 <Label htmlFor="location">Location</Label>
                                 <Input type="text" name="location" value={location} onChange={e => setLocation(e.target.value)} required />
                             </FormGroup>
-
                             <FormGroup>
                                 <Label htmlFor="phoneNumber">Phone Number</Label>
                                 <Input type="number" name="phoneNumber" value={phoneNumber} onChange={e => setPhoneNumber(e.target.value)} required />
@@ -178,20 +164,14 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
                             </div>
                             : null}
                             </Form>
-                        
                     </ModalBody>
                     <ModalFooter style={modalFooterStyle}>
                         <Button type="button" onClick={() => props.setSignup(!props.signup)}>{props.signup ? 'Have an account? Signin' : 'Need an account? Signup!'}</Button>
                         <Button color="primary" onClick={(e) => {
                                 // toggle()
                                 submit(e)}}>Submit</Button>{' '}
-                        
                     </ModalFooter>
-                    
             </Modal>
-
-                
-                
             </div>
         );
 }
