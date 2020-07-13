@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react'
 
-import {Container} from 'reactstrap'
+import {Container, Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap'
 import { MDBDataTable, MDBBtn } from 'mdbreact';
-
+import Logo from '../../assets/Premier-Commercial-Services-icon.svg';
 import './Orders.css'
 
 interface orderProps  {
@@ -12,6 +12,45 @@ interface orderProps  {
 }
 
 const Orders:React.FunctionComponent<orderProps> = (props:orderProps) => {
+
+  const modalHeaderStyle:React.CSSProperties= {
+    backgroundColor:'#177BBD',
+    color: 'white',
+    textShadow: '.1rem .1rem .1rem black',
+    borderColor:'transparent',
+    borderRadius: '20px 20px 0px 0px',
+
+} 
+
+const modalFooterStyle:React.CSSProperties= {
+    backgroundColor:'#177BBD',
+    color: 'white',
+    textShadow: '.1rem .1rem .1rem black',
+    borderColor:'transparent',
+    borderRadius: '0px 0px 20px 20px'
+} 
+
+
+const inputStyles:React.CSSProperties= {
+    textAlign: 'center',
+    borderRadius:'5px',
+    outline:'none',
+    borderColor:'transparent'
+}
+const labelStyles:React.CSSProperties= {
+    textShadow: '.1rem .1rem .1rem black',
+    color:'white',
+    marginTop: '.5rem'
+
+}
+
+const textBoxStyle:React.CSSProperties={
+    textAlign: 'center',
+    resize:'none',
+    borderRadius:'5px',
+    outline:'none',
+    borderColor:'transparent'
+}
 
 const [userOrders, setUserOrders] =useState<any>([])
 
@@ -98,41 +137,65 @@ const [userOrders, setUserOrders] =useState<any>([])
     return(
         <div style={{backgroundColor:'white', color:'#009FE4' , textShadow:'.4px .4px 1px black'}}>
 
+          <h3 style={{fontSize:'1.9rem', paddingTop:'3%', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>Orders</h3>
+          <Container>
+          <div style={{marginTop: '5%'}}>
 
-        <h3 style={{fontSize:'1.9rem', paddingTop:'3%', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>Orders</h3>
-<Container>
-<div style={{marginTop: '5%'}}>
+          {props.signedIn ? 
+          <MDBBtn style={{fontSize: '1.2rem', color:'#009FE4', textShadow:'.4px .4px 1px black'}}>Create an Order!
 
-  {props.signedIn ? 
-  <MDBBtn style={{fontSize: '1.2rem', color:'#009FE4', textShadow:'.4px .4px 1px black'}}>Create an Order!</MDBBtn>
-  : null }
-</div>
+          <Modal style={{borderRadius:'20px'}}isOpen={props.showContact} toggle={toggle} className=''>
+          <ModalHeader toggle={toggle} style={modalHeaderStyle}>
+          
+          <img src = {Logo} style={{width:'20%'}} />
+          </ModalHeader>
+          <ModalBody style={{backgroundColor: '#009FE4'}}>
+          <form className="fs-frm" id="myForm" name="simple-contact-form" accept-charset="utf-8">
 
+              <fieldset id="fs-frm-inputs">
 
+                  <div style = {{display: 'flex', flexDirection: 'column', textAlign:'center'}}>
+                  <label style={labelStyles} id="labelName" htmlFor="full-name">Name:</label>
+                  <input style = {inputStyles} type="text" name="name" id="full-name" placeholder="First and Last" required= {true}></input>
 
+                  <label style={labelStyles} htmlFor="email-address">E-mail:</label>
+                  <input style = {inputStyles} type="email" name="_replyto" id="email-address" placeholder="Type email here" required= {true}></input>
+                  <label style={labelStyles} htmlFor="message">Message:</label>
+                 <textarea style = {textBoxStyle} rows = {3} cols={50} name="message" id="message" placeholder="Type message here" required= {true}></textarea>
+            
+                  <input style = {inputStyles} type="hidden" name="_subject" id="email-subject" value="Contact Form Submission"></input>
 
+                  </div>
+              </fieldset>
+              
+              <div id="sendButton" style={{textAlign:'center', marginTop:'3%'}}> 
+              <Button color="primary" type="submit" id="subm" value="Submit" className="btn btn-primary" >Send</Button>
+              <Button color="secondary" onClick={toggle}>Cancel</Button>
+              
+              </div>
+          </form>
+        
+          </ModalBody>
+          <ModalFooter style={modalFooterStyle}>
+        
+          </ModalFooter>
+          </Modal>
+          </MDBBtn>
+          
+          : null }
+          </div>
 
-
-<MDBDataTable style={{color: '', textShadow: ''}}
-      scrollY
-      maxHeight="200px"
-      striped
-      bordered
-      small
-      data={data}
-    />
-
-
-</Container>
+          <MDBDataTable style={{color: '', textShadow: ''}}
+            scrollY
+            maxHeight="200px"
+            striped
+            bordered
+            small
+            data={data} />
+          </Container>
 
         </div>
-
-
-
     )
-
-
-
 }
 
 export default Orders;
