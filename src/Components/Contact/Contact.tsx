@@ -91,12 +91,18 @@ const Contact: React.FunctionComponent<somethingfornow> = (props:somethingfornow
                         </div>
                     </fieldset>
                     
-               
+
+
+                    <div id="sendButton" style={{textAlign:'center', marginTop:'3%'}}> 
+                    <Button color="primary" type="submit" id="subm" value="Submit" className="btn btn-primary" >Send</Button>
+                    <Button color="secondary" onClick={toggle}>Cancel</Button>
+                    
+                    </div>
                 </form>
+              
                 </ModalBody>
                 <ModalFooter style={modalFooterStyle}>
-                    <Button color="primary" onClick={toggle}>Do Something</Button>{' '}
-                    <Button color="secondary" onClick={toggle}>Cancel</Button>
+              
                 </ModalFooter>
             </Modal>
         </div>
