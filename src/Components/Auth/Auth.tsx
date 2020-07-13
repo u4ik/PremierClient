@@ -46,6 +46,24 @@ const modalFooterStyle:React.CSSProperties= {
     borderRadius: '0px 0px 20px 20px'
 } 
 
+const inputStyles:React.CSSProperties= {
+    textAlign: 'center',
+    borderRadius:'5px',
+    outline:'none',
+    borderColor:'white',
+    backgroundColor:'white',
+    fontSize:'17px'
+}
+
+const labelStyles:React.CSSProperties= {
+    textShadow: '.1rem .1rem .1rem black',
+    color:'white',
+    marginTop: '.5rem',
+    fontSize:'22px',
+    
+
+}
+
 
 const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) => {
 
@@ -144,36 +162,36 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
                           <p style={{color:'red'}}>{errorMessage}</p>
                           <p style={{color:'red'}}>{passwordError}</p>
                             <FormGroup>
-                                <Label htmlFor="email">Email</Label>
-                                <Input name="email" value={email} onChange={e => setEmail(e.target.value)} required />
+                                <Label style={labelStyles} htmlFor="email">Email</Label>
+                                <Input style = {inputStyles} name="email" placeholder="johnsmith@email.com" value={email} onChange={e => setEmail(e.target.value)} required />
                             </FormGroup>
 
                             <FormGroup>
-                                <Label htmlFor="password">Password</Label>
-                                <Input type="password" name="password" value={password} onChange={e => setPassword(e.target.value)} required />
+                                <Label style={labelStyles} htmlFor="password">Password</Label>
+                                <Input style = {inputStyles} type="password" name="password" value={password} onChange={e => setPassword(e.target.value)} required />
                             </FormGroup>
 
                             {props.signup ? 
                             <div>
                             <FormGroup>
-                                <Label htmlFor="firstName">First Name</Label>
-                                <Input name="firstName" value={firstName} onChange={e => setFirstName(e.target.value)} required />
+                                <Label style={labelStyles} htmlFor="firstName">First Name</Label>
+                                <Input style = {inputStyles} name="firstName" placeholder="John" value={firstName} onChange={e => setFirstName(e.target.value)} required />
                             </FormGroup>
                             
 
                             <FormGroup>
-                                <Label htmlFor="lastName">Last Name</Label>
-                                <Input name="lastName" value={lastName} onChange={e => setLastName(e.target.value)} required />
+                                <Label style={labelStyles} htmlFor="lastName">Last Name</Label>
+                                <Input style = {inputStyles} name="lastName" placeholder="Smith" value={lastName} onChange={e => setLastName(e.target.value)} required />
                             </FormGroup>
 
                             <FormGroup>
-                                <Label htmlFor="location">Location</Label>
-                                <Input type="text" name="location" value={location} onChange={e => setLocation(e.target.value)} required />
+                                <Label style={labelStyles} htmlFor="location">Location</Label>
+                                <Input style = {inputStyles} type="text" name="location" value={location} onChange={e => setLocation(e.target.value)} required />
                             </FormGroup>
 
                             <FormGroup>
-                                <Label htmlFor="phoneNumber">Phone Number</Label>
-                                <Input type="number" name="phoneNumber" value={phoneNumber} onChange={e => setPhoneNumber(e.target.value)} required />
+                                <Label style={labelStyles} htmlFor="phoneNumber">Phone Number</Label>
+                                <Input style = {inputStyles} type="number" name="phoneNumber" placeholder="5555555555" value={phoneNumber} onChange={e => setPhoneNumber(e.target.value)} required />
                             </FormGroup>
                             </div>
                             : null}
