@@ -105,16 +105,24 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
     //     })
 
 
-    const updateTheToken = (newToken:any, user:any) =>{
+    const updateTheToken = (newToken:any, user:any, admin:any,  serviceComplete:any) =>{
         localStorage.setItem('token', newToken);
         localStorage.setItem('user', user);
+        localStorage.setItem('admin', admin);
+        localStorage.setItem('serviceComplete', serviceComplete);
         // setCurrentUser(user);
-        console.log(userData)
-        console.log(newToken)
+        // console.log(userData)
+        // console.log(newToken)
         props.setUpdateToken(newToken);
 
+        if(localStorage.getItem('admin') === 'Account is Admin'){
+            props.setIsAdmin(true)
+        } else if (localStorage.getItem('admin') === 'Negative'){
+            props.setIsAdmin(false)
+        }
 
-        console.log(props.updateToken)
+
+   
         props.setSignedIn(true);
       
         setShowAuth(false)
@@ -130,9 +138,10 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
       useEffect(() => {
         
         if(localStorage.getItem('token')){
-          updateTheToken(localStorage.getItem('token'),localStorage.getItem('user'));
+          updateTheToken(localStorage.getItem('token'),localStorage.getItem('user'),localStorage.getItem('admin'),localStorage.getItem('service'));
 
         }
+
 
         
       },[])
