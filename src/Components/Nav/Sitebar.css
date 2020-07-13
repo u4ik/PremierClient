@@ -1,11 +1,7 @@
-<<<<<<< HEAD
-@media(min-device-width:1025px) {
-=======
 @media(min-width:1025px) {
     .navlinkwrap {
         flex-direction: row !important;
     }
->>>>>>> 8a5f7f7c87ea726d24c3c9b0102aaad5976bfb77
     #navlinkwrap {
         flex-direction: row !important;
     }
