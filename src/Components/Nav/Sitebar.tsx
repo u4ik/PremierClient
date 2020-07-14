@@ -121,6 +121,8 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
             props.setIsAdmin(false)
         }
 
+        
+
 
    
         props.setSignedIn(true);
