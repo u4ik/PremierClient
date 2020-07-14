@@ -41,21 +41,29 @@ const Contact: React.FunctionComponent<contactPage> = (props:contactPage) => {
         textAlign: 'center',
         borderRadius:'5px',
         outline:'none',
-        borderColor:'transparent'
+        borderColor:'white',
+        backgroundColor:'white',
+        fontSize:'17px'
     }
+
     const labelStyles:React.CSSProperties= {
         textShadow: '.1rem .1rem .1rem black',
         color:'white',
-        marginTop: '.5rem'
+        marginTop: '.5rem',
+        fontSize:'22px',
+        
     
     }
 
     const textBoxStyle:React.CSSProperties={
         textAlign: 'center',
-        resize:'none',
         borderRadius:'5px',
         outline:'none',
-        borderColor:'transparent'
+        resize: 'none',
+        borderColor:'white',
+        backgroundColor:'white',
+        fontSize:'17px'
+        
     }
     return (
     <div className="" >

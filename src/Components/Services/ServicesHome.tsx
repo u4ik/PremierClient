@@ -27,12 +27,12 @@ const iconText:React.CSSProperties={
     userSelect:'none'
 }
 //Popover Descriptions
-let RestaurantInfo = 'Something about Restaurants'
-let AthleticInfo = 'Something about Athletics'
-let MedicalInfo = 'Something about Medical'
-let OfficeInfo = 'Something about Offices'
-let GroceryInfo = 'Something about Grocery'
-let ServicesInfo = 'Something about Services'
+let RestaurantInfo = 'There are many different services offered for our restaurant clients. Including, but not limited to, back kitchen cleaning, dining area, restroom mantinence and window care. '
+let AthleticInfo = 'For our Athletic facilities, we offer a wide range of cleaning, such as sweeping courts, cleaning concessions, bleacher cleanup, restroom cleaning, and also deep cleaning.'
+let MedicalInfo = 'Offering services for medical facilities is a new branch of our company we are so excited to share, helping with treatment room cleaning, as well as disinfectant services!'
+let OfficeInfo = 'Our office cleaning is offered on a case by case bases, and includes sanitization, restroom cleaning, and floor cleaning.'
+let GroceryInfo = 'For our grocery store clients we offer cleaning of the dairy, and frozen sections, including vaccuuming, cleaning doors, trays, and troughs.'
+let ServicesInfo = 'We pride ourselves on the services we offer to make each experience amazing, some of those services being: Cleaning Chemical procurement & storage, Snow removal management, Landscaping management, Facility cleaning, Off site storage/daily delivery service, RFP management '
 
 
 class ServicesHome extends React.Component {
