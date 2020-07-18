@@ -13,7 +13,7 @@ interface createOrder{
 
 const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) => {
 
-    const [modal, setModal] = useState(true);
+    // const [modal, setModal] = useState(true);
     
     const toggle = () => props.setShowOrder(!props.showOrder);
     const [startDate, setStartDate] = useState(new Date());
@@ -80,7 +80,7 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
 
                   <label style={labelStyles} htmlFor="email-address">Service Required:</label>
                   
-                  <select style = {inputStyles} name="name" id="full-name" placeholder="Select service required" value={serviceReq} required onChange={(e) => setServiceReq(e.target.value)}>
+                  <select style = {inputStyles} name="name" id="" placeholder="Select service required" value={serviceReq} required onChange={(e) => setServiceReq(e.target.value)}>
                       <option></option>
                       <option value="Athletics">Athletics</option>
                       <option value="Grocery">Grocery</option>
