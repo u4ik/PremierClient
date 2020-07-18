@@ -96,7 +96,7 @@ const showThatOrder= (e:any) => {
           serviceReq:   Object.keys(order.serviceReq) + "-" + (order.serviceReq.Restaurant ? JSON.stringify(order.serviceReq.Restaurant): '')
           +  (order.serviceReq.Office ? JSON.stringify(order.serviceReq.Office): '')
           +  (order.serviceReq.Medical ? JSON.stringify(order.serviceReq.Medical): '')
-          +  (order.serviceReq.Athletic ? JSON.stringify(order.serviceReq.Athletic): '')
+          +  (order.serviceReq.Athletics ? JSON.stringify(order.serviceReq.Athletics): '')
           +  (order.serviceReq.Facilities ? JSON.stringify(order.serviceReq.Facilities): '')
           +  (order.serviceReq.Grocery ? JSON.stringify(order.serviceReq.Grocery): '')
         })
@@ -118,7 +118,7 @@ const showThatOrder= (e:any) => {
           >Create an Order!</MDBBtn>
           : null }
           </div>
-          <CreateOrder setShowOrder={setShowOrder} showOrder ={showOrder} />
+          <CreateOrder updateToken={props.updateToken} setShowOrder={setShowOrder} showOrder ={showOrder} />
           
             
           <MDBDataTable style={{color: '', textShadow: ''}}
