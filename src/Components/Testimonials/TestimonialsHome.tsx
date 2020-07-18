@@ -34,6 +34,7 @@ const TestimonialsHome: React.FunctionComponent = (props) => {
 }
 useEffect (() => {
     getTestimonials();
+    
  },[])
   const slides = testimonialData.map((item:any) => {
     return (

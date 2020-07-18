@@ -20,10 +20,10 @@ interface Athletics{
 }
 
 interface ServiceReq{
-    Athletics?: Athletics;
-    Grocery?: Grocery;
-    Medical?: Medical;
-    Office?: Office;
+    Athletics?: Athletics
+    Grocery?: Grocery
+    Medical?: Medical
+    Office?: Office
 }
 
 interface Grocery{
