@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
-import { MDBContainer, MDBInput } from "mdbreact";
+import { MDBContainer} from "mdbreact";
 import Logo from '../../assets/Premier-Commercial-Services-icon.svg';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -9,23 +9,85 @@ import "react-datepicker/dist/react-datepicker.css";
 interface createOrder{
     showOrder: boolean
     setShowOrder: React.Dispatch<React.SetStateAction<any>> 
+    updateToken: string
 }
 
-const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) => {
+interface Athletics{
+    BasketballCourtCare?: string
+    ConcessionsCleaning?: string
+    LargeRestroomCleaning?: string
+    BleacherCleanup?: string
+}
 
-    const [modal, setModal] = useState(true);
-    
+interface ServiceReq{
+    Athletics?: Athletics;
+    Grocery?: Grocery;
+    Medical?: Medical;
+    Office?: Office;
+}
+
+interface Grocery{
+    DairySection?: string
+    FrozenFoodSection?: string
+}
+
+interface Medical{
+    TreatmentRoomCleaning?: string
+    DisinfectingServices?: string
+}
+
+interface Office{
+    Sanitization?: string
+    FloorCleaning?: string
+    Restrooms?: string
+}
+
+
+
+const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) => {
+ 
     const toggle = () => props.setShowOrder(!props.showOrder);
     const [startDate, setStartDate] = useState(new Date());
-    const [serviceReq, setServiceReq] = useState('None');
+    const [serviceReq, setServiceReq] = useState({} as ServiceReq);
     const [ serviceInput1, setServiceInput1 ] = useState('None');
     const [ serviceInput2, setServiceInput2 ] = useState('None');
     const [ serviceInput3, setServiceInput3 ] = useState('None');
     const [ serviceInput4, setServiceInput4 ] = useState('None');
+    const [ userLocation, setUserLocation ] = useState('');
+    const [ isComplete, setIsComplete ] = useState(false);
+    const [ reqDateTime, setReqDateTime ] = useState('');
+    const [ serviceReqCategory, setServiceReqCategory ] = useState('')
+
 
     const handleChange = (date: any) => {
-        setStartDate(date);
+        setReqDateTime(date)
       };
+
+      const handleLocationChange = (e: any) => {
+        setUserLocation(e.target.value);
+      };
+
+      const handleServiceChange = (e: any) => {
+        setServiceReq(e.target.value);
+      };
+
+      fetch('http://localhost:3000/orders/create' ,{
+        method: 'POST',
+        headers: {
+            'Content-Type' : 'application/json',
+            'Authorization': props.updateToken
+        },
+        body: JSON.stringify({
+            userLocation: userLocation,
+            serviceReq: serviceReq,
+            reqDateTime: reqDateTime.toString().substring(0, 10),
+            isComplete: 'No'
+        })
+    }).then(res => res.json())
+    .then(noteData => {
+      console.log(noteData);
+    }).catch(err => console.log(err))
+
 
     const modalHeaderStyle:React.CSSProperties= {
         backgroundColor:'#177BBD',
@@ -76,11 +138,11 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
 
                   <div style = {{display: 'flex', flexDirection: 'column', textAlign:'center'}}>
                   <label style={labelStyles} id="labelName" htmlFor="full-name">User Location:</label>
-                  <input style = {inputStyles} type="text" name="name" id="full-name" placeholder="First and Last" required= {true}></input>
+                  <input onChange={handleLocationChange} style = {inputStyles} type="text" name="name" id="full-name" placeholder="Enter your address here!" required= {true}></input>
 
-                  <label style={labelStyles} htmlFor="email-address">Service Required:</label>
+                  <label onChange={handleServiceChange} style={labelStyles} htmlFor="email-address">Service Required:</label>
                   
-                  <select style = {inputStyles} name="name" id="full-name" placeholder="Select service required" value={serviceReq} required onChange={(e) => setServiceReq(e.target.value)}>
+                  <select style = {inputStyles} name="name" id="full-name" placeholder="Select service required"  required onChange={(e) => {setServiceReqCategory(e.target.value); setServiceReq({[e.target.value]: {}})}}>
                       <option></option>
                       <option value="Athletics">Athletics</option>
                       <option value="Grocery">Grocery</option>
@@ -90,19 +152,19 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
                       <option value="Services">Services</option>
                   </select>
 
-                  {serviceReq === 'Athletics' ?
+                  { serviceReqCategory === 'Athletics' ?
                   
                     <MDBContainer className="mt-5" id= "choices">
                         <div>
                             <label style={labelStyles} id="labelName" htmlFor="full-name">Basketball Court Care</label>
                             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                                 <div className="custom-control custom-radio" style={{ marginRight: '10px' }}>
-                                <input type="radio" className="custom-control-input" id="defaultGroupExample1a" name="groupOfDefaultRadios" value={serviceInput1} onChange={(e) => setServiceInput1(e.target.value)}/>
+                                <input onClick={() => setServiceReq({Athletics: {...serviceReq.Athletics, BasketballCourtCare: 'true'}})} type="radio" className="custom-control-input" id="defaultGroupExample1a" name="groupOfDefaultRadios" value={serviceInput1} onChange={(e) => setServiceInput1(e.target.value)}/>
                                 <label className="custom-control-label" htmlFor="defaultGroupExample1a">True</label>
                                 </div>
 
                                 <div className="custom-control custom-radio">
-                                <input type="radio" className="custom-control-input" id="defaultGroupExample1b" name="groupOfDefaultRadios" value={serviceInput1} onChange={(e) => setServiceInput1(e.target.value)}/>
+                                <input onClick={() => setServiceReq({Athletics: {...serviceReq.Athletics, BasketballCourtCare: 'false'}})} type="radio" className="custom-control-input" id="defaultGroupExample1b" name="groupOfDefaultRadios" value={serviceInput1} onChange={(e) => setServiceInput1(e.target.value)}/>
                                 <label className="custom-control-label" htmlFor="defaultGroupExample1b">False</label>
                                 </div>
                             </div>
@@ -112,12 +174,12 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
                             <label style={labelStyles} id="labelName" htmlFor="full-name">Concessions cleaning</label>
                             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                                 <div className="custom-control custom-radio" style={{ marginRight: '10px' }}>
-                                <input type="radio" className="custom-control-input" id="defaultGroupExample2a" name="groupOfDefaultRadios2" value={serviceInput2} onChange={(e) => {console.log (e.target); setServiceInput2(e.target.value)}}/>
+                                <input onClick={() => setServiceReq({Athletics: {...serviceReq.Athletics, ConcessionsCleaning: 'true'}})} type="radio" className="custom-control-input" id="defaultGroupExample2a" name="groupOfDefaultRadios2" value={serviceInput2} onChange={(e) => {console.log (e.target); setServiceInput2(e.target.value)}}/>
                                 <label className="custom-control-label" htmlFor="defaultGroupExample2a">True</label>
                                 </div>
 
                                 <div className="custom-control custom-radio">
-                                <input type="radio" className="custom-control-input" id="defaultGroupExample2b" name="groupOfDefaultRadios2" value={serviceInput2} onChange={(e) => setServiceInput2(e.target.value)}/>
+                                <input onClick={() => setServiceReq({Athletics: {...serviceReq.Athletics, ConcessionsCleaning: 'false'}})} type="radio" className="custom-control-input" id="defaultGroupExample2b" name="groupOfDefaultRadios2" value={serviceInput2} onChange={(e) => setServiceInput2(e.target.value)}/>
                                 <label className="custom-control-label" htmlFor="defaultGroupExample2b">False</label>
                                 </div>
                             </div>
@@ -127,12 +189,12 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
                             <label style={labelStyles} id="labelName" htmlFor="full-name">Large restroom cleaning</label>
                             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                                 <div className="custom-control custom-radio" style={{ marginRight: '10px' }}>
-                                <input type="radio" className="custom-control-input" id="defaultGroupExample3a" name="groupOfDefaultRadios3" value={serviceInput3} onChange={(e) => setServiceInput3(e.target.value)}/>
+                                <input onClick={() => setServiceReq({Athletics: {...serviceReq.Athletics, LargeRestroomCleaning: 'true'}})} type="radio" className="custom-control-input" id="defaultGroupExample3a" name="groupOfDefaultRadios3" value={serviceInput3} onChange={(e) => setServiceInput3(e.target.value)}/>
                                 <label className="custom-control-label" htmlFor="defaultGroupExample3a">True</label>
                                 </div>
 
                                 <div className="custom-control custom-radio">
-                                <input type="radio" className="custom-control-input" id="defaultGroupExample3b" name="groupOfDefaultRadios3" value={serviceInput3} onChange={(e) => setServiceInput3(e.target.value)}/>
+                                <input onClick={() => setServiceReq({Athletics: {...serviceReq.Athletics, LargeRestroomCleaning: 'false'}})} type="radio" className="custom-control-input" id="defaultGroupExample3b" name="groupOfDefaultRadios3" value={serviceInput3} onChange={(e) => setServiceInput3(e.target.value)}/>
                                 <label className="custom-control-label" htmlFor="defaultGroupExample3b">False</label>
                                 </div>
                             </div>
@@ -142,12 +204,12 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
                             <label style={labelStyles} id="labelName" htmlFor="full-name">Bleacher cleanup</label>
                             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                                 <div className="custom-control custom-radio" style={{ marginRight: '10px' }}>
-                                <input type="radio" className="custom-control-input" id="defaultGroupExample4a" name="groupOfDefaultRadios4" value={serviceInput4} onChange={(e) => setServiceInput4(e.target.value)}/>
+                                <input onClick={() => setServiceReq({Athletics: {...serviceReq.Athletics, BleacherCleanup: 'true'}})} type="radio" className="custom-control-input" id="defaultGroupExample4a" name="groupOfDefaultRadios4" value={serviceInput4} onChange={(e) => setServiceInput4(e.target.value)}/>
                                 <label className="custom-control-label" htmlFor="defaultGroupExample4a">True</label>
                                 </div>
 
                                 <div className="custom-control custom-radio">
-                                <input type="radio" className="custom-control-input" id="defaultGroupExample4b" name="groupOfDefaultRadios4" value={serviceInput4} onChange={(e) => setServiceInput4(e.target.value)}/>
+                                <input onClick={() => setServiceReq({Athletics: {...serviceReq.Athletics, BleacherCleanup: 'false'}})} type="radio" className="custom-control-input" id="defaultGroupExample4b" name="groupOfDefaultRadios4" value={serviceInput4} onChange={(e) => setServiceInput4(e.target.value)}/>
                                 <label className="custom-control-label" htmlFor="defaultGroupExample4b">False</label>
                                 </div>
                             </div>
@@ -157,18 +219,18 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
                    : null }
 
 
-                {serviceReq === 'Grocery' ?
+                {serviceReqCategory === 'Grocery'  ?
                 <MDBContainer className="mt-5" id= "choices">
                     <div>
                         <label style={labelStyles} id="labelName" htmlFor="full-name">Dairy section</label>
                         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                             <div className="custom-control custom-radio" style={{ marginRight: '10px' }}>
-                            <input type="radio" className="custom-control-input" id="defaultGroupExample5a" name="groupOfDefaultRadios" value={serviceInput1} onChange={(e) => setServiceInput1(e.target.value)}/>
+                            <input onClick={() => setServiceReq({Grocery: {...serviceReq.Grocery, DairySection: 'true'}})} type="radio" className="custom-control-input" id="defaultGroupExample5a" name="groupOfDefaultRadios" value={serviceInput1} onChange={(e) => setServiceInput1(e.target.value)}/>
                             <label className="custom-control-label" htmlFor="defaultGroupExample5a">True</label>
                             </div>
 
                             <div className="custom-control custom-radio">
-                            <input type="radio" className="custom-control-input" id="defaultGroupExample5b" name="groupOfDefaultRadios" value={serviceInput1} onChange={(e) => setServiceInput1(e.target.value)}/>
+                            <input onClick={() => setServiceReq({Grocery: {...serviceReq.Grocery, DairySection: 'false'}})} type="radio" className="custom-control-input" id="defaultGroupExample5b" name="groupOfDefaultRadios" value={serviceInput1} onChange={(e) => setServiceInput1(e.target.value)}/>
                             <label className="custom-control-label" htmlFor="defaultGroupExample5b">False</label>
                             </div>
                         </div>
@@ -178,12 +240,12 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
                         <label style={labelStyles} id="labelName" htmlFor="full-name">Frozen food section</label>
                         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                             <div className="custom-control custom-radio" style={{ marginRight: '10px' }}>
-                            <input type="radio" className="custom-control-input" id="defaultGroupExample6a" name="groupOfDefaultRadios2" value={serviceInput2} onChange={(e) => {console.log (e.target); setServiceInput2(e.target.value)}}/>
+                            <input onClick={() => setServiceReq({Grocery: {...serviceReq.Grocery, FrozenFoodSection: 'true'}})} type="radio" className="custom-control-input" id="defaultGroupExample6a" name="groupOfDefaultRadios2" value={serviceInput2} onChange={(e) => {console.log (e.target); setServiceInput2(e.target.value)}}/>
                             <label className="custom-control-label" htmlFor="defaultGroupExample6a">True</label>
                             </div>
 
                             <div className="custom-control custom-radio">
-                            <input type="radio" className="custom-control-input" id="defaultGroupExample6b" name="groupOfDefaultRadios2" value={serviceInput2} onChange={(e) => setServiceInput2(e.target.value)}/>
+                            <input onClick={() => setServiceReq({Grocery: {...serviceReq.Grocery, FrozenFoodSection: 'false'}})} type="radio" className="custom-control-input" id="defaultGroupExample6b" name="groupOfDefaultRadios2" value={serviceInput2} onChange={(e) => setServiceInput2(e.target.value)}/>
                             <label className="custom-control-label" htmlFor="defaultGroupExample6b">False</label>
                             </div>
                         </div>
@@ -193,19 +255,19 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
 
                 : null}
 
-                {serviceReq === 'Medical' ?
+                {serviceReqCategory === 'Medical'  ?
                   
                   <MDBContainer className="mt-5" id= "choices">
                       <div>
                           <label style={labelStyles} id="labelName" htmlFor="full-name">Treatment room cleaning</label>
                           <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                               <div className="custom-control custom-radio" style={{ marginRight: '10px' }}>
-                              <input type="radio" className="custom-control-input" id="defaultGroupExample7a" name="groupOfDefaultRadios" value={serviceInput1} onChange={(e) => setServiceInput1(e.target.value)}/>
+                              <input onClick={() => setServiceReq({Medical: {...serviceReq.Medical, TreatmentRoomCleaning: 'true'}})} type="radio" className="custom-control-input" id="defaultGroupExample7a" name="groupOfDefaultRadios" value={serviceInput1} onChange={(e) => setServiceInput1(e.target.value)}/>
                               <label className="custom-control-label" htmlFor="defaultGroupExample7a">True</label>
                               </div>
 
                               <div className="custom-control custom-radio">
-                              <input type="radio" className="custom-control-input" id="defaultGroupExample7b" name="groupOfDefaultRadios" value={serviceInput1} onChange={(e) => setServiceInput1(e.target.value)}/>
+                              <input onClick={() => setServiceReq({Medical: {...serviceReq.Medical, TreatmentRoomCleaning: 'false'}})} type="radio" className="custom-control-input" id="defaultGroupExample7b" name="groupOfDefaultRadios" value={serviceInput1} onChange={(e) => setServiceInput1(e.target.value)}/>
                               <label className="custom-control-label" htmlFor="defaultGroupExample7b">False</label>
                               </div>
                           </div>
@@ -215,12 +277,12 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
                           <label style={labelStyles} id="labelName" htmlFor="full-name">Disinfecting services</label>
                           <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                               <div className="custom-control custom-radio" style={{ marginRight: '10px' }}>
-                              <input type="radio" className="custom-control-input" id="defaultGroupExample8a" name="groupOfDefaultRadios2" value={serviceInput2} onChange={(e) => {console.log (e.target); setServiceInput2(e.target.value)}}/>
+                              <input onClick={() => setServiceReq({Medical: {...serviceReq.Medical, DisinfectingServices: 'true'}})} type="radio" className="custom-control-input" id="defaultGroupExample8a" name="groupOfDefaultRadios2" value={serviceInput2} onChange={(e) => {console.log (e.target); setServiceInput2(e.target.value)}}/>
                               <label className="custom-control-label" htmlFor="defaultGroupExample8a">True</label>
                               </div>
 
                               <div className="custom-control custom-radio">
-                              <input type="radio" className="custom-control-input" id="defaultGroupExample8b" name="groupOfDefaultRadios2" value={serviceInput2} onChange={(e) => setServiceInput2(e.target.value)}/>
+                              <input onClick={() => setServiceReq({Medical: {...serviceReq.Medical, DisinfectingServices: 'false'}})} type="radio" className="custom-control-input" id="defaultGroupExample8b" name="groupOfDefaultRadios2" value={serviceInput2} onChange={(e) => setServiceInput2(e.target.value)}/>
                               <label className="custom-control-label" htmlFor="defaultGroupExample8b">False</label>
                               </div>
                           </div>
@@ -230,19 +292,19 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
 
                  : null }
 
-                {serviceReq === 'Office' ?
+                {serviceReqCategory === 'Office'  ?
                   
                     <MDBContainer className="mt-5" id= "choices">
                       <div>
                           <label style={labelStyles} id="labelName" htmlFor="full-name">Sanitization</label>
                           <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                               <div className="custom-control custom-radio" style={{ marginRight: '10px' }}>
-                              <input type="radio" className="custom-control-input" id="defaultGroupExample9a" name="groupOfDefaultRadios" value={serviceInput1} onChange={(e) => setServiceInput1(e.target.value)}/>
+                              <input onClick={() => setServiceReq({Office: {...serviceReq.Office, Sanitization: 'true'}})} type="radio" className="custom-control-input" id="defaultGroupExample9a" name="groupOfDefaultRadios" value={serviceInput1} onChange={(e) => setServiceInput1(e.target.value)}/>
                               <label className="custom-control-label" htmlFor="defaultGroupExample9a">True</label>
                               </div>
 
                               <div className="custom-control custom-radio">
-                              <input type="radio" className="custom-control-input" id="defaultGroupExample9b" name="groupOfDefaultRadios" value={serviceInput1} onChange={(e) => setServiceInput1(e.target.value)}/>
+                              <input onClick={() => setServiceReq({Office: {...serviceReq.Office, Sanitization: 'false'}})} type="radio" className="custom-control-input" id="defaultGroupExample9b" name="groupOfDefaultRadios" value={serviceInput1} onChange={(e) => setServiceInput1(e.target.value)}/>
                               <label className="custom-control-label" htmlFor="defaultGroupExample9b">False</label>
                               </div>
                           </div>
@@ -252,12 +314,12 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
                           <label style={labelStyles} id="labelName" htmlFor="full-name">Floor cleaning</label>
                           <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                               <div className="custom-control custom-radio" style={{ marginRight: '10px' }}>
-                              <input type="radio" className="custom-control-input" id="defaultGroupExample10a" name="groupOfDefaultRadios2" value={serviceInput2} onChange={(e) => {console.log (e.target); setServiceInput2(e.target.value)}}/>
+                              <input onClick={() => setServiceReq({Office: {...serviceReq.Office, FloorCleaning: 'true'}})} type="radio" className="custom-control-input" id="defaultGroupExample10a" name="groupOfDefaultRadios2" value={serviceInput2} onChange={(e) => {console.log (e.target); setServiceInput2(e.target.value)}}/>
                               <label className="custom-control-label" htmlFor="defaultGroupExample10a">True</label>
                               </div>
 
                               <div className="custom-control custom-radio">
-                              <input type="radio" className="custom-control-input" id="defaultGroupExample10b" name="groupOfDefaultRadios2" value={serviceInput2} onChange={(e) => setServiceInput2(e.target.value)}/>
+                              <input onClick={() => setServiceReq({Office: {...serviceReq.Office, FloorCleaning: 'false'}})} type="radio" className="custom-control-input" id="defaultGroupExample10b" name="groupOfDefaultRadios2" value={serviceInput2} onChange={(e) => setServiceInput2(e.target.value)}/>
                               <label className="custom-control-label" htmlFor="defaultGroupExample10b">False</label>
                               </div>
                           </div>
@@ -267,12 +329,12 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
                           <label style={labelStyles} id="labelName" htmlFor="full-name">Restrooms</label>
                           <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                               <div className="custom-control custom-radio" style={{ marginRight: '10px' }}>
-                              <input type="radio" className="custom-control-input" id="defaultGroupExample11a" name="groupOfDefaultRadios3" value={serviceInput2} onChange={(e) => {console.log (e.target); setServiceInput2(e.target.value)}}/>
+                              <input onClick={() => setServiceReq({Office: {...serviceReq.Office, Restrooms: 'true'}})} type="radio" className="custom-control-input" id="defaultGroupExample11a" name="groupOfDefaultRadios3" value={serviceInput2} onChange={(e) => {console.log (e.target); setServiceInput2(e.target.value)}}/>
                               <label className="custom-control-label" htmlFor="defaultGroupExample11a">True</label>
                               </div>
 
                               <div className="custom-control custom-radio">
-                              <input type="radio" className="custom-control-input" id="defaultGroupExample11b" name="groupOfDefaultRadios3" value={serviceInput2} onChange={(e) => setServiceInput2(e.target.value)}/>
+                              <input onClick={() => setServiceReq({Office: {...serviceReq.Office, Restrooms: 'false'}})} type="radio" className="custom-control-input" id="defaultGroupExample11b" name="groupOfDefaultRadios3" value={serviceInput2} onChange={(e) => setServiceInput2(e.target.value)}/>
                               <label className="custom-control-label" htmlFor="defaultGroupExample11b">False</label>
                               </div>
                           </div>
@@ -444,8 +506,8 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
 
                  : null }
                 
-                <label style={labelStyles} htmlFor="date">Date Required:</label>
-                <DatePicker selected={startDate} onChange={handleChange} className="datePicker"/>
+                <label style={labelStyles} htmlFor="date">Requested Date</label>
+                <DatePicker selected={startDate}  onChange={handleChange} className="datePicker"/>
                   
                 
 
@@ -466,6 +528,8 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
           </Modal>
         );
     }
+
+
 
 
 export default CreateOrder;
