@@ -1,22 +1,26 @@
 import React,{useEffect, useState}  from "react";
-import { MDBCard, MDBCardBody,MDBCardImage, MDBCardTitle,MDBCardText} from "mdbreact";
+import { MDBCard, MDBCardBody,MDBCardImage, MDBCardTitle,MDBCardText, MDBBtn} from "mdbreact";
 import {Container} from 'reactstrap'
 import Rater from 'react-rater'
 import 'react-rater/lib/react-rater.css'
 import './TestimonialsPage.css'
+
 import RestaurantImg from  '../../assets/locationIcons/restaurant.svg'
 import AthleticImg from  '../../assets/locationIcons/athletic.svg'
 import GroceryImg from  '../../assets/locationIcons/grocery.svg'
 import MedicalImg from  '../../assets/locationIcons/medical2.svg'
 import OfficeImg from  '../../assets/locationIcons/office.svg'
 import ServicesImg from  '../../assets/locationIcons/services.svg'
+import CreateTest from "./CreateTestimonial";
 interface testProps {
-    enableTestCreate: boolean
+    enableTestCreate: boolean,
+    updateToken: string
 }
 const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) => {
   const [testimonialData, setTestimonialData] = useState<any>([])
   const [testUserData, setTestUserData] = useState<any>()
   const [newImg, setNewImg] = useState<any>()
+  const [showTestCreate, setShowTestCreate] = useState<any>()
   const cardStyle ={
   width: "13rem", 
   marginBottom:'10%',
@@ -78,6 +82,9 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
  const slides = testimonialData.map((item:any) => {
     return (
       <div  className="cardStyle" style={{margin:'2%'}}>
+
+     
+
         <MDBCard  id="cardStyle2"  style={cardStyle}>
             {item.userLocationType === 'Restaurant' ? 
           <MDBCardImage style={cardImgStyle} className="img-fluid" src= {RestaurantImg} waves />
@@ -98,7 +105,9 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
           <MDBCardImage style={cardImgStyle} className="img-fluid" src= {ServicesImg} waves />
           : null}
           <MDBCardBody style={cardBodyStyle}>
+            <div style={{transform: 'scale(1.5)'}}>
             <Rater  total={5} rating={item.userRating} interactive={false}  />
+            </div>
             <MDBCardTitle style={cardNameStyle}>{``+`${item.userFirstName}` + " " + `${item.userLastName}`}</MDBCardTitle>
             <div style={{overflowY:'auto', height: 'auto', minHeight:'4rem', maxHeight:'4rem'}}>
               <MDBCardText style={cardQuoteStyle}>
@@ -114,8 +123,11 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
   return (
     <div style={{backgroundColor:'#f9f9f9'}}>
        <h3 style={{fontSize:'1.9rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px #024160', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>All Testimonials</h3>
-        {props.enableTestCreate === true ? <p style={createTestTextStyle}>Create a Testimonial!</p>
+        {props.enableTestCreate === true ? <MDBBtn style={createTestTextStyle}  onClick={(e:any) => {
+            setShowTestCreate(e);
+        }} >Create a Testimonial!</MDBBtn>
         :<p style={createTestTextStyle}>Complete a service with us to leave a testimonial!</p>}
+         <CreateTest updateToken={props.updateToken} setShowTestCreate ={setShowTestCreate} showTestCreate= {showTestCreate} />
        <Container style={{display:'flex', flexDirection:'row', justifyContent:'center', flexWrap:'wrap'}}>
         {slides}
         </Container>
