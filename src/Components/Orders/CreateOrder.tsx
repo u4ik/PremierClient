@@ -92,7 +92,7 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
 
                   {serviceReq === 'Athletics' ?
                   
-                    <MDBContainer className="mt-5">
+                    <MDBContainer className="mt-5" id= "choices">
                         <div>
                             <label style={labelStyles} id="labelName" htmlFor="full-name">Basketball Court Care</label>
                             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
@@ -158,7 +158,7 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
 
 
                 {serviceReq === 'Grocery' ?
-                    <MDBContainer className="mt-5">
+                <MDBContainer className="mt-5" id= "choices">
                     <div>
                         <label style={labelStyles} id="labelName" htmlFor="full-name">Dairy section</label>
                         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
@@ -195,7 +195,7 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
 
                 {serviceReq === 'Medical' ?
                   
-                  <MDBContainer className="mt-5">
+                  <MDBContainer className="mt-5" id= "choices">
                       <div>
                           <label style={labelStyles} id="labelName" htmlFor="full-name">Treatment room cleaning</label>
                           <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
@@ -232,7 +232,7 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
 
                 {serviceReq === 'Office' ?
                   
-                  <MDBContainer className="mt-5">
+                    <MDBContainer className="mt-5" id= "choices">
                       <div>
                           <label style={labelStyles} id="labelName" htmlFor="full-name">Sanitization</label>
                           <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
@@ -284,7 +284,7 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
 
                 {serviceReq === 'Restaurant' ?
                   
-                  <MDBContainer className="mt-5">
+                    <MDBContainer className="mt-5" id= "choices">
                   <div>
                       <label style={labelStyles} id="labelName" htmlFor="full-name">Back Kitchen</label>
                       <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
@@ -350,7 +350,7 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
 
                 {serviceReq === 'Services' ?
                   
-                  <MDBContainer className="mt-5">
+                    <MDBContainer className="mt-5" id= "choices">
                   <div>
                       <label style={labelStyles} id="labelName" htmlFor="full-name">Cleaning Chemical procurement & storage</label>
                       <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>

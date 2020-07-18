@@ -69,3 +69,8 @@
 ::-webkit-scrollbar-track-piece {
     background: transparent;
 }
+
+.datePicker {
+    border-radius: 5px;
+    border: none;
+}
