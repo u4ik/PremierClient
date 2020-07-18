@@ -114,6 +114,9 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
   return (
     <div style={{backgroundColor:'#f9f9f9'}}>
        <h3 style={{fontSize:'1.9rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px #024160', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>All Testimonials</h3>
+        
+        {/* "Complete a service with us" should be a link to the form or sum */}
+
         {props.enableTestCreate === true ? <p style={createTestTextStyle}>Create a Testimonial!</p>
         :<p style={createTestTextStyle}>Complete a service with us to leave a testimonial!</p>}
        <Container style={{display:'flex', flexDirection:'row', justifyContent:'center', flexWrap:'wrap'}}>
