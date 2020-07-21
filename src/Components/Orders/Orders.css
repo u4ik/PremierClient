@@ -8,6 +8,18 @@
     margin-right: 1%
 }
 
+.mt-5.my-5 {
+    margin-top: 0rem !important
+}
+
+.container {
+    margin-top: 0rem !important
+}
+
+#choices {
+    margin-top: 0rem !important
+}
+
 
 /* {
     color: '';
@@ -42,9 +54,12 @@ Style Attribute {
     text-shadow: black 0.4px 0.4px 1px;
 }
 
-th{
+th {
     color: #177BBD;
     text-shadow: black 0px 0px 0px !important;
     font-weight: 600 !important;
 }
 
+.datePicker {
+    text-align: center;
+}

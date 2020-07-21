@@ -121,7 +121,11 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
             props.setIsAdmin(false)
         }
 
-        
+        if(localStorage.getItem('serviceComplete') === 'yes'){
+            props.setEnableTestCreate(true)
+        } else if (localStorage.getItem('serviceComplete') === 'no'){
+            props.setEnableTestCreate(false)
+        }
 
 
    
@@ -140,7 +144,7 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
       useEffect(() => {
         
         if(localStorage.getItem('token')){
-          updateTheToken(localStorage.getItem('token'),localStorage.getItem('user'),localStorage.getItem('admin'),localStorage.getItem('service'));
+          updateTheToken(localStorage.getItem('token'),localStorage.getItem('user'),localStorage.getItem('admin'),localStorage.getItem('serviceComplete'));
 
         }
 

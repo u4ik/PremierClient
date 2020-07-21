@@ -120,20 +120,8 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
                     // props.isServiceComplete(userdata)
 
 
-                    //Previous Service Complete Shit
                     console.log(props.currentUserId)
-                    if(userdata.ServiceComplete === 'yes'){
-                        props.setEnableTestCreate(true)
-                    }else if(userdata.ServiceComplete ==='no'){
-                        props.setEnableTestCreate(false)
-                    }
-
-                    //Previous Admin Shit
-                    // if(userdata.ADMIN !== undefined){
-                    //     props.setIsAdmin(true)
-                    // }else{
-                    //     props.setIsAdmin(false)
-                    // }
+  
                     console.log('Logged In!')
              }
             //  setCurrentUser(userdata.user.username);
