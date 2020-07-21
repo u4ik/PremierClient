@@ -5,12 +5,12 @@ import Rater from 'react-rater'
 import 'react-rater/lib/react-rater.css'
 import './TestimonialsPage.css'
 
-import RestaurantImg from  '../../assets/locationIcons/restaurant.svg'
-import AthleticImg from  '../../assets/locationIcons/athletic.svg'
-import GroceryImg from  '../../assets/locationIcons/grocery.svg'
-import MedicalImg from  '../../assets/locationIcons/medical2.svg'
-import OfficeImg from  '../../assets/locationIcons/office.svg'
-import ServicesImg from  '../../assets/locationIcons/services.svg'
+import RestaurantImg from  '../../assets/locationIcons/restaurantyellow.svg'
+import AthleticImg from  '../../assets/locationIcons/athleticyellow.svg'
+import GroceryImg from  '../../assets/locationIcons/groceryyellow.svg'
+import MedicalImg from  '../../assets/locationIcons/medical2yellow.svg'
+import OfficeImg from  '../../assets/locationIcons/officeyellow.svg'
+import ServicesImg from  '../../assets/locationIcons/servicesyellow.svg'
 
 import Edit from '../../assets/testimonialPage/edit.svg'
 import Delete from '../../assets/testimonialPage/delete.svg'
@@ -22,7 +22,7 @@ import DeleteTes from "./DeleteTestimonial";
 interface testProps {
     enableTestCreate: boolean,
     updateToken: string,
-    isAdmin: boolean
+    isAdmin: any
 }
 const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) => {
   const [testimonialData, setTestimonialData] = useState<any>([])
@@ -107,7 +107,7 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
           // console.log(localStorage.getItem('id'))
           setTestId(item.id)
    
-          if(localStorage.getItem('id') === item.userId.toString()){
+          if(localStorage.getItem('id') === item.userId.toString() || props.isAdmin === true){
             setDeleteImg(Delete)
             setEditImg(Edit)
          
@@ -165,6 +165,11 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
             <img style= {{width: '10%', marginLeft: '15%'}}src = {deleteImg} onClick={(e) => setShowDelete(true)}></img>
             </div>
             : <div style={{paddingBottom:'14%'}}></div>}
+                 {props.isAdmin ?
+            <div>
+            <img style= {{width: '10%', marginLeft: ''}}src = {deleteImg} onClick={(e) => setShowDelete(true)}></img>
+            </div>
+            : <div style={{paddingBottom:''}}></div>}
         </MDBCardBody>
    
         </MDBCard>
