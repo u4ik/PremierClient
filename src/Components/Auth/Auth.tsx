@@ -16,17 +16,15 @@ interface displayAuthForm {
     signedIn: boolean
     setEnableTestCreate: any
     enableTestCreate: boolean
-    updateTheToken(arg0:any, arg1:any, arg2:any, arg3:any): any
+    updateTheToken(arg0:any, arg1:any, arg2:any, arg3:any, arg4:any, arg5:any, arg6:any): any
     currentUserId: any
     setCurrentUserId: any
-    isServiceComplete(arg0:any):any
+ 
     userData:any
     setUserData:any
     setIsAdmin: any
     isAdmin:any
 
-    // setCurrentUser: any
-    // currentUser: string
 }
 
 const modalHeaderStyle:React.CSSProperties= {
@@ -81,8 +79,6 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
     const [errorMessage, setErrorMessage] = useState('')
     const [passwordError, setPasswordError] = useState('')
 
-
-  
     const submit = (e: any) => {
         e.preventDefault();
         const url = props.signup ? baseURL + '/create' : baseURL + '/login';
@@ -94,10 +90,9 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
                 location: location,
                 phoneNumber: phoneNumber,
                 // isAdmin: 'congratsyoureanadmin',
-                isAdmin: 'uwishuwereanadminha',
+                isAdmin: 'uwishuwereanadminha1',
                 serviceComplete: 'No'
         };
-
         fetch(url, {
             method: 'POST',
             headers: {
@@ -107,25 +102,14 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
         }).then(response => response.json())
             .then(userdata =>{
              console.log(userdata)
-     
              setErrorMessage(userdata.message)
-            
-            //  if(userdata.Status !== undefined){
-
                 if(userdata.ID && userdata.Status !== undefined){
+                    let userFirstName =  userdata.Greeting.replace(`Hello,!♥  Welcome :)`, '')
                     props.setUserData(userdata)
-                    
                     props.setCurrentUserId(userdata.ID)
-                    props.updateTheToken(userdata.sessionToken, userdata.Email, userdata.ADMIN, userdata.ServiceComplete)
-                    // props.isServiceComplete(userdata)
-
-
-                    console.log(props.currentUserId)
-  
+                    props.updateTheToken(userdata.sessionToken, userdata.Email, userdata.ADMIN, userdata.ServiceComplete, userdata.ID, userdata.FirstName, userdata.LastName)
                     console.log('Logged In!')
              }
-            //  setCurrentUser(userdata.user.username);
-            //  setUserId(userdata.user.id)
             })
         .catch(err => console.log(err.message))
     }

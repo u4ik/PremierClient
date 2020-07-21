@@ -63,20 +63,16 @@ interface Services{
     RFPManagement?: string
 }
 
-
 const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) => {
-
-
-    const monthNames = ["1", "2", "3", "4", "5", "6",
-        "7", "8", "9", "10", "11", "12"
-    ];
-    let dateObj = new Date();
-    let month = monthNames[dateObj.getMonth()];
-    let day = String(dateObj.getDate()).padStart(2, '0');
-    let year = dateObj.getFullYear();
-    let output = month + '\\' + day + '\\' + year;
-    console.log(output)
   
+    const monthNames = ["1", "2", "3", "4", "5", "6",
+    "7", "8", "9", "10", "11", "12"
+];
+let dateObj = new Date();
+let month = monthNames[dateObj.getMonth()];
+let day = String(dateObj.getDate()).padStart(2, '0');
+let year = dateObj.getFullYear();
+let output = month + '/' + day + '/' + year;
 
     const toggle = () => props.setShowOrder(!props.showOrder);
     const [startDate, setStartDate] = useState(new Date());
@@ -92,6 +88,11 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
     let today = new Date()
     const [ reqDateTime, setReqDateTime ] = useState(output);
     const [ serviceReqCategory, setServiceReqCategory ] = useState('')
+
+
+
+
+
 
 
     const handleChange = (date: any) => {
@@ -150,12 +151,8 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
             default: break
 
         }
-
         fullDate = fullDate + '/' + date.toString().substring(8, 10) + '/' + date.toString().substring(11, 16)
-        // let fullDate: any = monthToNum[tempString]
-        console.log(date.toString().substring(4, 7))
         setReqDateTime(fullDate)
-        console.log(date)
       };
 
       const handleLocationChange = (e: any) => {
@@ -182,13 +179,12 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
             reqDateTime: reqDateTime.toString().substring(0, 15),
             isComplete: 'No'
         })
-    }).then(res => res.json())
-    .then(noteData => {
-      console.log(noteData);
-      props.fetchOrders();
-    }).catch(err => console.log(err))
-    
-}
+        }).then(res => res.json())
+        .then(noteData => {
+        props.fetchOrders();
+        }).catch(err => console.log(err))
+        
+    }
 
 
 
@@ -245,7 +241,7 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
 
                   <label onChange={handleServiceChange} style={labelStyles} htmlFor="email-address">Service Required:</label>
                   
-                  <select style = {inputStyles} name="name" id="full-name" placeholder="Select service required"  required onChange={(e) => {setServiceReqCategory(e.target.value); setServiceReq({[e.target.value]: {}})}}>
+                  <select style = {inputStyles} name="name" id="" placeholder="Select service required"  required onChange={(e) => {setServiceReqCategory(e.target.value); setServiceReq({[e.target.value]: {}})}}>
                       <option></option>
                       <option value="Athletics">Athletics</option>
                       <option value="Grocery">Grocery</option>
@@ -277,7 +273,7 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
                             <label style={labelStyles} id="labelName" htmlFor="full-name">Concessions cleaning</label>
                             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                                 <div className="custom-control custom-radio" style={{ marginRight: '10px' }}>
-                                <input onClick={() => setServiceReq({Athletics: {...serviceReq.Athletics, ConcessionsCleaning: 'true'}})} type="radio" className="custom-control-input" id="defaultGroupExample2a" name="groupOfDefaultRadios2" value={serviceInput2} onChange={(e) => {console.log (e.target); setServiceInput2(e.target.value)}}/>
+                                <input onClick={() => setServiceReq({Athletics: {...serviceReq.Athletics, ConcessionsCleaning: 'true'}})} type="radio" className="custom-control-input" id="defaultGroupExample2a" name="groupOfDefaultRadios2" value={serviceInput2} onChange={(e) => {setServiceInput2(e.target.value)}}/>
                                 <label className="custom-control-label" htmlFor="defaultGroupExample2a">True</label>
                                 </div>
 
@@ -343,7 +339,7 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
                         <label style={labelStyles} id="labelName" htmlFor="full-name">Frozen food section</label>
                         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                             <div className="custom-control custom-radio" style={{ marginRight: '10px' }}>
-                            <input onClick={() => setServiceReq({Grocery: {...serviceReq.Grocery, FrozenFoodSection: 'true'}})} type="radio" className="custom-control-input" id="defaultGroupExample6a" name="groupOfDefaultRadios2" value={serviceInput2} onChange={(e) => {console.log (e.target); setServiceInput2(e.target.value)}}/>
+                            <input onClick={() => setServiceReq({Grocery: {...serviceReq.Grocery, FrozenFoodSection: 'true'}})} type="radio" className="custom-control-input" id="defaultGroupExample6a" name="groupOfDefaultRadios2" value={serviceInput2} onChange={(e) => {setServiceInput2(e.target.value)}}/>
                             <label className="custom-control-label" htmlFor="defaultGroupExample6a">True</label>
                             </div>
 
@@ -380,7 +376,7 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
                           <label style={labelStyles} id="labelName" htmlFor="full-name">Disinfecting services</label>
                           <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                               <div className="custom-control custom-radio" style={{ marginRight: '10px' }}>
-                              <input onClick={() => setServiceReq({Medical: {...serviceReq.Medical, DisinfectingServices: 'true'}})} type="radio" className="custom-control-input" id="defaultGroupExample8a" name="groupOfDefaultRadios2" value={serviceInput2} onChange={(e) => {console.log (e.target); setServiceInput2(e.target.value)}}/>
+                              <input onClick={() => setServiceReq({Medical: {...serviceReq.Medical, DisinfectingServices: 'true'}})} type="radio" className="custom-control-input" id="defaultGroupExample8a" name="groupOfDefaultRadios2" value={serviceInput2} onChange={(e) => {setServiceInput2(e.target.value)}}/>
                               <label className="custom-control-label" htmlFor="defaultGroupExample8a">True</label>
                               </div>
 
@@ -417,7 +413,7 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
                           <label style={labelStyles} id="labelName" htmlFor="full-name">Floor cleaning</label>
                           <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                               <div className="custom-control custom-radio" style={{ marginRight: '10px' }}>
-                              <input onClick={() => setServiceReq({Office: {...serviceReq.Office, FloorCleaning: 'true'}})} type="radio" className="custom-control-input" id="defaultGroupExample10a" name="groupOfDefaultRadios2" value={serviceInput2} onChange={(e) => {console.log (e.target); setServiceInput2(e.target.value)}}/>
+                              <input onClick={() => setServiceReq({Office: {...serviceReq.Office, FloorCleaning: 'true'}})} type="radio" className="custom-control-input" id="defaultGroupExample10a" name="groupOfDefaultRadios2" value={serviceInput2} onChange={(e) => {setServiceInput2(e.target.value)}}/>
                               <label className="custom-control-label" htmlFor="defaultGroupExample10a">True</label>
                               </div>
 
@@ -432,7 +428,7 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
                           <label style={labelStyles} id="labelName" htmlFor="full-name">Restrooms</label>
                           <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                               <div className="custom-control custom-radio" style={{ marginRight: '10px' }}>
-                              <input onClick={() => setServiceReq({Office: {...serviceReq.Office, Restrooms: 'true'}})} type="radio" className="custom-control-input" id="defaultGroupExample11a" name="groupOfDefaultRadios3" value={serviceInput2} onChange={(e) => {console.log (e.target); setServiceInput2(e.target.value)}}/>
+                              <input onClick={() => setServiceReq({Office: {...serviceReq.Office, Restrooms: 'true'}})} type="radio" className="custom-control-input" id="defaultGroupExample11a" name="groupOfDefaultRadios3" value={serviceInput2} onChange={(e) => {setServiceInput2(e.target.value)}}/>
                               <label className="custom-control-label" htmlFor="defaultGroupExample11a">True</label>
                               </div>
 
@@ -469,7 +465,7 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
                       <label style={labelStyles} id="labelName" htmlFor="full-name">Dining Area</label>
                       <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                           <div className="custom-control custom-radio" style={{ marginRight: '10px' }}>
-                          <input onClick={() => setServiceReq({Restaurant: {...serviceReq.Restaurant, DiningArea: 'true'}})} type="radio" className="custom-control-input" id="defaultGroupExample13a" name="groupOfDefaultRadios2" value={serviceInput2} onChange={(e) => {console.log (e.target); setServiceInput2(e.target.value)}}/>
+                          <input onClick={() => setServiceReq({Restaurant: {...serviceReq.Restaurant, DiningArea: 'true'}})} type="radio" className="custom-control-input" id="defaultGroupExample13a" name="groupOfDefaultRadios2" value={serviceInput2} onChange={(e) => {setServiceInput2(e.target.value)}}/>
                           <label className="custom-control-label" htmlFor="defaultGroupExample13a">True</label>
                           </div>
 
@@ -535,7 +531,7 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
                       <label style={labelStyles} id="labelName" htmlFor="full-name">Snow removal management</label>
                       <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                           <div className="custom-control custom-radio" style={{ marginRight: '10px' }}>
-                          <input onClick={() => setServiceReq({Services: {...serviceReq.Services, SnowRemovalManagement: 'true'}})} type="radio" className="custom-control-input" id="defaultGroupExample17a" name="groupOfDefaultRadios2" value={serviceInput2} onChange={(e) => {console.log (e.target); setServiceInput2(e.target.value)}}/>
+                          <input onClick={() => setServiceReq({Services: {...serviceReq.Services, SnowRemovalManagement: 'true'}})} type="radio" className="custom-control-input" id="defaultGroupExample17a" name="groupOfDefaultRadios2" value={serviceInput2} onChange={(e) => {setServiceInput2(e.target.value)}}/>
                           <label className="custom-control-label" htmlFor="defaultGroupExample17a">True</label>
                           </div>
 
@@ -619,7 +615,7 @@ const CreateOrder: React.FunctionComponent<createOrder> = (props:createOrder) =>
               
               <div id="sendButton" style={{textAlign:'center', marginTop:'3%'}}> 
               <Button color="primary" type="submit" id="subm" value="Submit" className="btn btn-primary"  onClick={toggle} >Send</Button>
-              <Button color="secondary" onClick={toggle}>Cancel</Button>
+              <Button  style={{marginLeft: '10%'}} color="secondary" onClick={toggle}>Cancel</Button>
               
               </div>
           </form>
