@@ -90,7 +90,7 @@ useEffect (() => {
     if (animating) return;
     const nextIndex = activeIndex === 0 ? testimonialData.length - 1 : activeIndex - 1;
     setActiveIndex(nextIndex);
-    console.log(testUserData)
+  
   }
   const goToIndex = (newIndex:any) => {
     if (animating) return;
@@ -108,7 +108,7 @@ useEffect (() => {
           >
           {slides}
           <div style={{marginTop:'1%', backgroundColor:'#009FE4'}}>
-          <CarouselIndicators items={testimonialData} activeIndex={activeIndex} onClickHandler={goToIndex} />
+          {/* <CarouselIndicators items={testimonialData} activeIndex={activeIndex} onClickHandler={goToIndex} /> */}
           </div>
           <div>
             <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
