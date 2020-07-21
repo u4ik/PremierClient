@@ -5,6 +5,8 @@ import { MDBDataTable, MDBBtn } from 'mdbreact';
 import CreateOrder from '../Orders/CreateOrder';
 import './Orders.css'
 
+import Edit from '../../assets/testimonialPage/edit.svg'
+import Delete from '../../assets/testimonialPage/delete.svg'
 interface orderProps  {
     updateToken: string
     signedIn: any
@@ -89,9 +91,6 @@ const showThatOrder= (e:any) => {
         rows: 
         
         userOrders ? userOrders.map((order: any) => ({
-          
-          
-          
           ...order,
 
           serviceReq:   Object.keys(order.serviceReq) + " " +"-"
@@ -103,14 +102,16 @@ const showThatOrder= (e:any) => {
           +  (order.serviceReq.Grocery ? JSON.stringify(order.serviceReq.Grocery).replace('{', ' ').replace('}', ' ').replace(/,/g, "-").replace(/"/g, " ").replace(/true/g, "Yes").replace(/false/g, "No"): '')
           
         })
+     
 
         )  : []};
+        
         
     return(
         <div style={{backgroundColor:'white', color:'#009FE4' , textShadow:'.4px .4px 1px black'}}>
 
           <h3 style={{fontSize:'1.9rem', paddingTop:'3%', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>
-        
+     
             
             {props.isAdmin === false  ? 
             localStorage.getItem('firstname') + `'s` + " " + "Orders"
@@ -132,9 +133,9 @@ const showThatOrder= (e:any) => {
           <CreateOrder updateToken={props.updateToken} setShowOrder={setShowOrder} showOrder ={showOrder} fetchOrders={fetchOrders}/>
           
             
-          <MDBDataTable style={{color: '', textShadow: ''}}
+          <MDBDataTable  style={{color: '', textShadow: ''}}
             scrollY
-            maxHeight="200px"
+            maxHeight="500px"
             striped
             bordered
             small
