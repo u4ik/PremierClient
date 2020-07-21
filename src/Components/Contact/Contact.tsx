@@ -74,7 +74,10 @@ const Contact: React.FunctionComponent<contactPage> = (props:contactPage) => {
             setLoggedInUserEmail(localStorage.getItem('user'))
             setLoggedInUserFirstName(localStorage.getItem('firstname'))
             setLoggedInUserLastName(localStorage.getItem('lastname'))
+
+  
     })
+
 
 
     return (
@@ -93,7 +96,7 @@ const Contact: React.FunctionComponent<contactPage> = (props:contactPage) => {
 
                         <div style = {{display: 'flex', flexDirection: 'column', textAlign:'center'}}>
                         <label style={labelStyles} id="labelName" htmlFor="full-name">Name:</label>
-                        <input style = {inputStyles} type="text" name="name" id="full-name" placeholder="First and Last" required= {true} value={loggedInUserFirstName + ' ' + loggedInUserLastName}></input>
+                        <input style = {inputStyles} type="text" name="name" id="full-name" placeholder="First and Last" required= {true} value={loggedInUserFirstName !== null ?  loggedInUserFirstName + ' ' + loggedInUserLastName : ''}></input>
 
                         <label style={labelStyles} htmlFor="email-address" >E-mail:</label>
                         <input style = {inputStyles} type="email" name="_replyto" id="email-address" placeholder="Type email here" required= {true} value={loggedInUserEmail} ></input>
