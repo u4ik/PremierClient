@@ -61,14 +61,17 @@ const labelStyles:React.CSSProperties= {
     
 
 }
+const errorStyle:React.CSSProperties ={
+    color: 'white',
+    textShadow: '1px 1px 1px black',
+    fontSize:'1.5rem'
 
+}
 
 const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) => {
 
     const [modal, setModal] = useState(true);
-    
     const toggle = () => props.setShowAuth(!props.showAuth);
-
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -123,8 +126,8 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
                     <ModalBody style={{backgroundColor: '#009FE4'}}>
                         <Form style={{textAlign:'center'}}>
                             <h3 style={{textAlign:'center'}}>{props.signup ? 'Sign Up' : 'Sign In'}</h3>
-                          <p style={{color:'red'}}>{errorMessage}</p>
-                          <p style={{color:'red'}}>{passwordError}</p>
+                          <p style={errorStyle}>{errorMessage}</p>
+                          <p style={errorStyle}>{passwordError}</p>
                             <FormGroup>
                                 <Label style={labelStyles} htmlFor="email">Email</Label>
                                 <Input style = {inputStyles} name="email" placeholder="johnsmith@email.com" value={email} onChange={e => setEmail(e.target.value)} required />
