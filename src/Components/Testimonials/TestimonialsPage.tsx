@@ -16,8 +16,8 @@ import Edit from '../../assets/testimonialPage/edit.svg'
 import Delete from '../../assets/testimonialPage/delete.svg'
 
 import CreateTest from "./CreateTestimonial";
-
-import DeleteTes from "./DeleteTestimonial";
+import EditTest from "./EditTestimonial";
+import DeleteTest from "./DeleteTestimonial";
 
 interface testProps {
     enableTestCreate: boolean,
@@ -30,11 +30,16 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
   const [newImg, setNewImg] = useState<any>()
   const [showTestCreate, setShowTestCreate] = useState<any>()
   const [showDelete, setShowDelete] = useState<any>()
+  const [showEdit, setShowEdit] = useState<any>()
 
   const [deleteImg, setDeleteImg] = useState<any>()
   const [editImg, setEditImg] = useState<any>()
 
   const [testId, setTestId] = useState<any>()
+  const [testLocation, setTestLocation] = useState<any>()
+  const [testLocationType, setTestLocationType] = useState<any>()
+  const [testQuote, setTestQuote] = useState<any>()
+  const [testRating, setTestRating] = useState<any>()
 
   const cardStyle ={
   width: "13rem", 
@@ -119,8 +124,12 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
             setDeleteImg(Delete)
             setEditImg(Edit)
          
-    
+          // console.log(item)
            setTestId(item.id)
+           setTestLocation(item.userLocation)
+           setTestQuote(item.userQuote)
+           setTestRating(item.userRating)
+           setTestLocationType(item.userLocationType)
           }
           else{
        
@@ -169,7 +178,7 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
      
             {localStorage.getItem('id') === item.userId.toString() ?
             <div>
-            <img style= {{width: '10%'}}src = {editImg}></img>
+            <img style= {{width: '10%'}}src = {editImg} onClick={(e) => setShowEdit(true)}></img>
             <img style= {{width: '10%', marginLeft: '15%'}}src = {deleteImg} onClick={(e) => setShowDelete(true)}></img>
             </div>
             : <div style={{paddingBottom:'14%'}}></div>}
@@ -195,7 +204,8 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
         </div>
         : null }
          <CreateTest updateToken={props.updateToken} setShowTestCreate ={setShowTestCreate} showTestCreate= {showTestCreate} getTestimonials={getTestimonials} />
-         <DeleteTes getTestimonials={getTestimonials} testId = { testId} showDelete={showDelete} setShowDelete={setShowDelete} updateToken={props.updateToken}/>
+         <DeleteTest getTestimonials={getTestimonials} testId = { testId} showDelete={showDelete} setShowDelete={setShowDelete} updateToken={props.updateToken}/>
+         <EditTest  getTestimonials={getTestimonials} setTestLocation ={setTestLocation} setTestQuote={setTestQuote} setTestRating={setTestRating} setTestLocationType={setTestLocationType} testLocation ={testLocation} testQuote={testQuote} testRating={testRating} testLocationType={testLocationType} testId = { testId} showEdit={showEdit} setShowEdit={setShowEdit} updateToken={props.updateToken}/>
        <Container style={{display:'flex', flexDirection:'row', justifyContent:'center', flexWrap:'wrap'}}>
         {slides}
         </Container>
