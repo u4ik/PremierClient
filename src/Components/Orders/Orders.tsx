@@ -5,10 +5,13 @@ import { MDBDataTable, MDBBtn } from 'mdbreact';
 import CreateOrder from '../Orders/CreateOrder';
 import './Orders.css'
 
+import Edit from '../../assets/testimonialPage/edit.svg'
+import Delete from '../../assets/testimonialPage/delete.svg'
 interface orderProps  {
     updateToken: string
     signedIn: any
     setSignedIn: any
+    isAdmin: any
 }
 
 const Orders:React.FunctionComponent<orderProps> = (props:orderProps) => {
@@ -23,6 +26,14 @@ const showThatOrder= (e:any) => {
   setShowOrder(!showOrder)
 }
 
+
+const createButton={
+
+  fontSize: '1.6rem',
+  color: '#009FE4',
+  textShadow: '1px 1px 1px black'
+}
+
     const fetchOrders =  ()=> {
 
         fetch('http://localhost:3000/orders/all' ,{
@@ -33,7 +44,7 @@ const showThatOrder= (e:any) => {
             }
         }).then(res => res.json())
         .then(noteData => {
-          console.log(noteData);
+          // console.log(noteData);
 
           if(noteData.YourOrders !== undefined){
             setUserOrders(noteData.YourOrders);
@@ -41,13 +52,13 @@ const showThatOrder= (e:any) => {
             setUserOrders(noteData.AllOrders)
           }
         
-            console.log(userOrders)
+            // console.log(userOrders)
         }).catch(err => console.log(err))
     }
     useEffect  (() => {
-      console.log('userOrders', userOrders)
+      // console.log('userOrders', userOrders)
         if(userOrders && userOrders.length === 0 ){
-          console.log('fecthing')
+          // console.log('fecthing')
         fetchOrders();
         }
 
@@ -64,13 +75,13 @@ const showThatOrder= (e:any) => {
             label: 'Location',
             field: 'userLocation',
             sort: 'asc',
-            width: 270
+            width: 150
           },
           {
             label: 'Service Requested',
             field: "serviceReq",
             sort: 'asc',
-            width: 150
+            width: 450
           },
           {
             label: 'Requested Date',
@@ -88,42 +99,51 @@ const showThatOrder= (e:any) => {
         rows: 
         
         userOrders ? userOrders.map((order: any) => ({
-          
-          
-          
           ...order,
 
-          serviceReq:   Object.keys(order.serviceReq) + "-" + (order.serviceReq.Restaurant ? JSON.stringify(order.serviceReq.Restaurant): '')
-          +  (order.serviceReq.Office ? JSON.stringify(order.serviceReq.Office): '')
-          +  (order.serviceReq.Medical ? JSON.stringify(order.serviceReq.Medical): '')
-          +  (order.serviceReq.Athletic ? JSON.stringify(order.serviceReq.Athletic): '')
-          +  (order.serviceReq.Facilities ? JSON.stringify(order.serviceReq.Facilities): '')
-          +  (order.serviceReq.Grocery ? JSON.stringify(order.serviceReq.Grocery): '')
+          serviceReq:   Object.keys(order.serviceReq) + " " +"-"
+          + (order.serviceReq.Restaurant ? JSON.stringify(order.serviceReq.Restaurant).replace('{', ' ').replace('}', ' ').replace(/,/g, "-").replace(/"/g, " ").replace(/true/g, "Yes").replace(/false/g, "No"): '')
+          +  (order.serviceReq.Office ? JSON.stringify(order.serviceReq.Office).replace('{', ' ').replace('}', ' ').replace(/,/g, "-").replace(/"/g, " ").replace(/true/g, "Yes").replace(/false/g, "No"): '')
+          +  (order.serviceReq.Medical ? JSON.stringify(order.serviceReq.Medical).replace('{', ' ').replace('}', ' ').replace(/,/g, "-").replace(/"/g, " ").replace(/true/g, "Yes").replace(/false/g, "No"): '')
+          +  (order.serviceReq.Athletics ? JSON.stringify(order.serviceReq.Athletics).replace('{', ' ').replace('}', ' ').replace(/,/g, "-").replace(/"/g, " ").replace(/true/g, "Yes").replace(/false/g, "No"): '')
+          +  (order.serviceReq.Services ? JSON.stringify(order.serviceReq.Services).replace('{', ' ').replace('}', ' ').replace(/,/g, "-").replace(/"/g, " ").replace(/true/g, "Yes").replace(/false/g, "No"): '')
+          +  (order.serviceReq.Grocery ? JSON.stringify(order.serviceReq.Grocery).replace('{', ' ').replace('}', ' ').replace(/,/g, "-").replace(/"/g, " ").replace(/true/g, "Yes").replace(/false/g, "No"): '')
+          
         })
+     
 
         )  : []};
+        
         
     return(
         <div style={{backgroundColor:'white', color:'#009FE4' , textShadow:'.4px .4px 1px black'}}>
 
-          <h3 style={{fontSize:'1.9rem', paddingTop:'3%', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>Orders</h3>
+          <h3 style={{fontSize:'1.9rem', paddingTop:'3%', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>
+     
+            
+            {props.isAdmin === false  ? 
+            localStorage.getItem('firstname') + `'s` + " " + "Orders"
+            : 'All Orders'}</h3>
           <Container>
+            {props.isAdmin === false ?
           <div style={{marginTop: '5%'}}>
 
-          {props.signedIn ? 
-          <MDBBtn style={{fontSize: '1.2rem', color:'#009FE4', textShadow:'.4px .4px 1px black'}}
-          onClick={(e:any) => {
-            showThatOrder(e);
-        }} 
-          >Create an Order!</MDBBtn>
-          : null }
+            {props.signedIn ? 
+            <MDBBtn style={createButton}
+            onClick={(e:any) => {
+              showThatOrder(e);
+          }} 
+            >Create an Order!</MDBBtn>
+            : <p>What are you doing here...?</p> }
           </div>
-          <CreateOrder setShowOrder={setShowOrder} showOrder ={showOrder} />
+          :null
+        }
+          <CreateOrder updateToken={props.updateToken} setShowOrder={setShowOrder} showOrder ={showOrder} fetchOrders={fetchOrders}/>
           
             
-          <MDBDataTable style={{color: '', textShadow: ''}}
+          <MDBDataTable  style={{color: '', textShadow: ''}}
             scrollY
-            maxHeight="200px"
+            maxHeight="500px"
             striped
             bordered
             small

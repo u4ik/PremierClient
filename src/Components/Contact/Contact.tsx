@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import Logo from '../../assets/Premier-Commercial-Services-icon.svg';
 import './Contact.css';
@@ -15,7 +15,10 @@ const Contact: React.FunctionComponent<contactPage> = (props:contactPage) => {
 
 
     const [modal, setModal] = useState(true);
-    
+
+    const [loggedInUserEmail, setLoggedInUserEmail] = useState<any>()
+    const [loggedInUserFirstName, setLoggedInUserFirstName] = useState<any>()
+    const [loggedInUserLastName, setLoggedInUserLastName] = useState<any>()
     const toggle = () => props.setShowContact(!props.showContact);
 
 
@@ -65,6 +68,18 @@ const Contact: React.FunctionComponent<contactPage> = (props:contactPage) => {
         fontSize:'17px'
         
     }
+
+
+    useEffect (() => {
+            setLoggedInUserEmail(localStorage.getItem('user'))
+            setLoggedInUserFirstName(localStorage.getItem('firstname'))
+            setLoggedInUserLastName(localStorage.getItem('lastname'))
+
+  
+    })
+
+
+
     return (
     <div className="" >
         <div>
@@ -81,10 +96,10 @@ const Contact: React.FunctionComponent<contactPage> = (props:contactPage) => {
 
                         <div style = {{display: 'flex', flexDirection: 'column', textAlign:'center'}}>
                         <label style={labelStyles} id="labelName" htmlFor="full-name">Name:</label>
-                        <input style = {inputStyles} type="text" name="name" id="full-name" placeholder="First and Last" required= {true}></input>
+                        <input style = {inputStyles} type="text" name="name" id="full-name" placeholder="First and Last" required= {true} value={loggedInUserFirstName !== null ?  loggedInUserFirstName + ' ' + loggedInUserLastName : ''}></input>
 
-                        <label style={labelStyles} htmlFor="email-address">E-mail:</label>
-                        <input style = {inputStyles} type="email" name="_replyto" id="email-address" placeholder="Type email here" required= {true}></input>
+                        <label style={labelStyles} htmlFor="email-address" >E-mail:</label>
+                        <input style = {inputStyles} type="email" name="_replyto" id="email-address" placeholder="Type email here" required= {true} value={loggedInUserEmail} ></input>
                         <label style={labelStyles} htmlFor="message">Message:</label>
                        <textarea style = {textBoxStyle} rows = {3} cols={50} name="message" id="message" placeholder="Type message here" required= {true}></textarea>
                   
@@ -100,7 +115,7 @@ const Contact: React.FunctionComponent<contactPage> = (props:contactPage) => {
 
                     <div id="sendButton" style={{textAlign:'center', marginTop:'3%'}}> 
                     <Button color="primary" type="submit" id="subm" value="Submit" className="btn btn-primary" >Send</Button>
-                    <Button color="secondary" onClick={toggle}>Cancel</Button>
+                    <Button style={{marginLeft: '10%'}} color="secondary" onClick={toggle}>Cancel</Button>
                     
                     </div>
                 </form>

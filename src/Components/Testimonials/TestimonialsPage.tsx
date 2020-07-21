@@ -5,22 +5,42 @@ import Rater from 'react-rater'
 import 'react-rater/lib/react-rater.css'
 import './TestimonialsPage.css'
 
-import RestaurantImg from  '../../assets/locationIcons/restaurant.svg'
-import AthleticImg from  '../../assets/locationIcons/athletic.svg'
-import GroceryImg from  '../../assets/locationIcons/grocery.svg'
-import MedicalImg from  '../../assets/locationIcons/medical2.svg'
-import OfficeImg from  '../../assets/locationIcons/office.svg'
-import ServicesImg from  '../../assets/locationIcons/services.svg'
+import RestaurantImg from  '../../assets/locationIcons/restaurantyellow.svg'
+import AthleticImg from  '../../assets/locationIcons/athleticyellow.svg'
+import GroceryImg from  '../../assets/locationIcons/groceryyellow.svg'
+import MedicalImg from  '../../assets/locationIcons/medical2yellow.svg'
+import OfficeImg from  '../../assets/locationIcons/officeyellow.svg'
+import ServicesImg from  '../../assets/locationIcons/servicesyellow.svg'
+
+import Edit from '../../assets/testimonialPage/edit.svg'
+import Delete from '../../assets/testimonialPage/delete.svg'
+
 import CreateTest from "./CreateTestimonial";
+import EditTest from "./EditTestimonial";
+import DeleteTest from "./DeleteTestimonial";
+
 interface testProps {
     enableTestCreate: boolean,
-    updateToken: string
+    updateToken: string,
+    isAdmin: any
 }
 const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) => {
   const [testimonialData, setTestimonialData] = useState<any>([])
   const [testUserData, setTestUserData] = useState<any>()
   const [newImg, setNewImg] = useState<any>()
   const [showTestCreate, setShowTestCreate] = useState<any>()
+  const [showDelete, setShowDelete] = useState<any>()
+  const [showEdit, setShowEdit] = useState<any>()
+
+  const [deleteImg, setDeleteImg] = useState<any>()
+  const [editImg, setEditImg] = useState<any>()
+
+  const [testId, setTestId] = useState<any>()
+  const [testLocation, setTestLocation] = useState<any>()
+  const [testLocationType, setTestLocationType] = useState<any>()
+  const [testQuote, setTestQuote] = useState<any>()
+  const [testRating, setTestRating] = useState<any>()
+
   const cardStyle ={
   width: "13rem", 
   marginBottom:'10%',
@@ -31,7 +51,8 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
   filter: 'drop-shadow(3px 3px 3px black)'
   } 
   const cardImgStyle={
-    backgroundColor:'#E8C10D',
+    // backgroundColor:'#E8C10D',
+    backgroundColor:'#177BBD',
     borderRadius:'20px 20px 0px 0px',
     width:'',
     padding:'30%',
@@ -62,6 +83,14 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
     marginTop:'2%',
     // textShadow: '1px 1px 1px black'
   }
+
+  const createButton={
+
+      fontSize: '1.6rem',
+      color: '#009FE4',
+      textShadow: '1px 1px 1px black'
+  }
+  
   const getTestimonials = () => {
     const APIURL:string = 'http://localhost:3000/testimonial/all'
     fetch(APIURL ,{
@@ -78,14 +107,44 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
   }
   useEffect (() => {
       getTestimonials();
+      
   },[])
  const slides = testimonialData.map((item:any) => {
+
+  
     return (
       <div  className="cardStyle" style={{margin:'2%'}}>
 
-     
+        <MDBCard  id="cardStyle2" onMouseEnter={(e:any) => {
+          // console.log(item.userId)
+          // console.log(localStorage.getItem('id'))
+          setTestId(item.id)
+   
+          if(localStorage.getItem('id') === item.userId.toString() || props.isAdmin === true){
+            setDeleteImg(Delete)
+            setEditImg(Edit)
+         
+          // console.log(item)
+           setTestId(item.id)
+           setTestLocation(item.userLocation)
+           setTestQuote(item.userQuote)
+           setTestRating(item.userRating)
+           setTestLocationType(item.userLocationType)
+          }
+          else{
+       
+            setDeleteImg(null)
+            setEditImg(null)
+          } 
+        }} 
+        onMouseLeave={(e:any) => {
 
-        <MDBCard  id="cardStyle2"  style={cardStyle}>
+          setDeleteImg(null)
+          setEditImg(null)
+        }}
+        
+        
+        style={cardStyle}>
             {item.userLocationType === 'Restaurant' ? 
           <MDBCardImage style={cardImgStyle} className="img-fluid" src= {RestaurantImg} waves />
           : null}
@@ -116,18 +175,37 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
             </div>
             <MDBCardTitle style={cardLocationStyle}>{item.userLocation}</MDBCardTitle>
             <MDBCardTitle style={serviceCompletionDateStyle}>{item.serviceCompletionDate}</MDBCardTitle>
+     
+            {localStorage.getItem('id') === item.userId.toString() ?
+            <div>
+            <img style= {{width: '10%'}}src = {editImg} onClick={(e) => setShowEdit(true)}></img>
+            <img style= {{width: '10%', marginLeft: '15%'}}src = {deleteImg} onClick={(e) => setShowDelete(true)}></img>
+            </div>
+            : <div style={{paddingBottom:'14%'}}></div>}
+                 {props.isAdmin ?
+            <div>
+            <img style= {{width: '10%', marginLeft: ''}}src = {deleteImg} onClick={(e) => setShowDelete(true)}></img>
+            </div>
+            : <div style={{paddingBottom:''}}></div>}
         </MDBCardBody>
+   
         </MDBCard>
       </div>
     )});
   return (
     <div style={{backgroundColor:'#f9f9f9'}}>
        <h3 style={{fontSize:'1.9rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px #024160', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>All Testimonials</h3>
-        {props.enableTestCreate === true ? <MDBBtn style={createTestTextStyle}  onClick={(e:any) => {
+        {props.isAdmin === false ?
+        <div>
+        {props.enableTestCreate === true ? <MDBBtn style={createButton }onClick={(e:any) => {
             setShowTestCreate(e);
         }} >Create a Testimonial!</MDBBtn>
-        :<p style={createTestTextStyle}>Complete a service with us to leave a testimonial!</p>}
-         <CreateTest updateToken={props.updateToken} setShowTestCreate ={setShowTestCreate} showTestCreate= {showTestCreate} />
+        :<p style={createButton}>Complete a service with us to leave a testimonial!</p>}
+        </div>
+        : null }
+         <CreateTest updateToken={props.updateToken} setShowTestCreate ={setShowTestCreate} showTestCreate= {showTestCreate} getTestimonials={getTestimonials} />
+         <DeleteTest getTestimonials={getTestimonials} testId = { testId} showDelete={showDelete} setShowDelete={setShowDelete} updateToken={props.updateToken}/>
+         <EditTest  getTestimonials={getTestimonials} setTestLocation ={setTestLocation} setTestQuote={setTestQuote} setTestRating={setTestRating} setTestLocationType={setTestLocationType} testLocation ={testLocation} testQuote={testQuote} testRating={testRating} testLocationType={testLocationType} testId = { testId} showEdit={showEdit} setShowEdit={setShowEdit} updateToken={props.updateToken}/>
        <Container style={{display:'flex', flexDirection:'row', justifyContent:'center', flexWrap:'wrap'}}>
         {slides}
         </Container>
