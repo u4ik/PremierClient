@@ -12,7 +12,8 @@ import DatePicker from "react-datepicker";
 interface createTest{
     showTestCreate: any
     setShowTestCreate: React.Dispatch<React.SetStateAction<any>> 
-    updateToken: any
+    updateToken: any,
+    getTestimonials: any
 }
 
 const CreateTest: React.FunctionComponent<createTest> = (props:createTest) => {
@@ -82,11 +83,11 @@ const CreateTest: React.FunctionComponent<createTest> = (props:createTest) => {
 
     const writeTestimonial = (e:any) => {
         (e).preventDefault();
-        console.log(startDate);
-        console.log(rating);
-        console.log(testimonialQuote);
-        console.log(testimonialLocation);
-        console.log(locationType);
+        // console.log(startDate);
+        // console.log(rating);
+        // console.log(testimonialQuote);
+        // console.log(testimonialLocation);
+        // console.log(locationType);
      
 
         const reqBody = { 
@@ -109,6 +110,7 @@ const CreateTest: React.FunctionComponent<createTest> = (props:createTest) => {
         .then(res => res.json)
         .then(resData => {
             console.log(resData)
+            props.getTestimonials();
         } )
         .catch(err => console.log(err.message))
         
@@ -186,6 +188,7 @@ const CreateTest: React.FunctionComponent<createTest> = (props:createTest) => {
               <div id="sendButton" style={{textAlign:'center', marginTop:'3%'}}> 
               <Button color="primary" type="submit" id="subm" value="Submit" className="btn btn-primary" onClick = {(e) => {
                   writeTestimonial(e);
+             
                   toggle();
                   
                   }} >Send</Button>

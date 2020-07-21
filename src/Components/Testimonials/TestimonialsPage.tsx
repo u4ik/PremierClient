@@ -127,7 +127,7 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
             setShowTestCreate(e);
         }} >Create a Testimonial!</MDBBtn>
         :<p style={createTestTextStyle}>Complete a service with us to leave a testimonial!</p>}
-         <CreateTest updateToken={props.updateToken} setShowTestCreate ={setShowTestCreate} showTestCreate= {showTestCreate} />
+         <CreateTest updateToken={props.updateToken} setShowTestCreate ={setShowTestCreate} showTestCreate= {showTestCreate} getTestimonials={getTestimonials} />
        <Container style={{display:'flex', flexDirection:'row', justifyContent:'center', flexWrap:'wrap'}}>
         {slides}
         </Container>
