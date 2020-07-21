@@ -11,3 +11,9 @@
         line-height: 2rem !important
     }
 }
+
+#createButton {
+    font-size: '1.2rem';
+    color: '#009FE4';
+    text-shadow: '.4px .4px 1px black'
+}

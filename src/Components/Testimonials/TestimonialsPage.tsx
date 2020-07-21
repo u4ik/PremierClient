@@ -78,6 +78,14 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
     marginTop:'2%',
     // textShadow: '1px 1px 1px black'
   }
+
+  const createButton={
+
+      fontSize: '1.6rem',
+      color: '#009FE4',
+      textShadow: '1px 1px 1px black'
+  }
+  
   const getTestimonials = () => {
     const APIURL:string = 'http://localhost:3000/testimonial/all'
     fetch(APIURL ,{
@@ -180,10 +188,10 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
        <h3 style={{fontSize:'1.9rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px #024160', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>All Testimonials</h3>
         {props.isAdmin === false ?
         <div>
-        {props.enableTestCreate === true ? <MDBBtn  style={{fontSize: '1.2rem', color:'#009FE4', textShadow:'.4px .4px 1px black'}} onClick={(e:any) => {
+        {props.enableTestCreate === true ? <MDBBtn style={createButton }onClick={(e:any) => {
             setShowTestCreate(e);
         }} >Create a Testimonial!</MDBBtn>
-        :<p style={createTestTextStyle}>Complete a service with us to leave a testimonial!</p>}
+        :<p style={createButton}>Complete a service with us to leave a testimonial!</p>}
         </div>
         : null }
          <CreateTest updateToken={props.updateToken} setShowTestCreate ={setShowTestCreate} showTestCreate= {showTestCreate} getTestimonials={getTestimonials} />

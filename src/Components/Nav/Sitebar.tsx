@@ -1,20 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom'
-
-
 import AuthForm from '../Auth/Auth';
-
-
 import './Sitebar.css'
-
 import Contact from '../Contact/Contact';
-
 import { Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink } from 'reactstrap';
 import Logo from '../../assets/Premier-Commercial-Services-logo.svg';
-
-
-
-
 
 const logo: React.CSSProperties ={
     // height: '8vh',
@@ -23,14 +13,10 @@ const logo: React.CSSProperties ={
     // cursor: 'pointer',
     filter: 'drop-shadow(1px 1px 1px  #024160)'
 }
-
 const navbar: React.CSSProperties ={
     background: '#177BBD',
-    alignItems: 'center',
-    
-    
+    alignItems: 'center',   
 }
-
 // const logoTitleStyle:React.CSSProperties={
 //     fontSize: '2.2rem',
 //     lineHeight:'1.2',
@@ -52,10 +38,6 @@ interface siteBarProps{
     setCurrentUserId: any
 }
 
-
-
-
-
 const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
     const [collapsed, setCollapsed] = useState<boolean>(true);
     const toggleNavbar = () => setCollapsed(!collapsed);
@@ -65,9 +47,7 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
     const [signup, setSignup] = useState<boolean>(false);
     const [userData, setUserData] = useState<any>()
     const [currentUser, setCurrentUser] = useState('')
-
-
-
+    
     const updateTheToken = (newToken:any, user:any, admin:any,  serviceComplete:any, id:any, firstName:any, lastName:any) =>{
         localStorage.setItem('token', newToken);
         localStorage.setItem('user', user);
@@ -128,19 +108,14 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                         <div>
                             <img alt = 'Premier Commercial Services Logo' src={Logo} style={logo} />
                         </div>
-
                         {/* <div>
                             <h1 style={logoTitleStyle}>Premier Commercial Services</h1>
                         </div> */}
                         <div>
-
-
                         </div>
                     </div>
                     <NavbarToggler onClick={(e) => {
-
                         collapsed===true ? setFlexType('column'): setFlexType('row')
-
                         toggleNavbar()}} className="mr-2" />
                     <Collapse isOpen={!collapsed} navbar>
                         <Nav>
@@ -152,32 +127,25 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                 float: 'right',
                                 textAlign: 'right',
                             }} >
-
-
                             {/* CONTACT COMPONENT/MODAL */}
                                 <Contact setShowContact={setShowContact} showContact ={showContact} />   
-
                             {/* AUTHFORM COMPONENT/MODAL */}
                                 <AuthForm isAdmin={props.isAdmin} setIsAdmin={props.setIsAdmin} userData={userData} setUserData={setUserData}  setCurrentUserId={props.setCurrentUserId} currentUserId={props.currentUserId} enableTestCreate={props.enableTestCreate}  setEnableTestCreate={props.setEnableTestCreate} updateTheToken={updateTheToken} signedIn = {props.signedIn}  setSignedIn = {props.setSignedIn}  updateToken={props.updateToken} setUpdateToken={props.setUpdateToken}  showAuth={showAuth} setShowAuth={setShowAuth} signup={signup} setSignup={setSignup}/>    
-
                                 <NavItem >
                                     <Link  className="nav-links" to ="/">
                                     <NavLink  className="nav-links" href="">Home</NavLink>
                                     </Link>
                                 </NavItem>
-
                                 <NavItem>
                                 <Link  className="nav-links" to ="/services">
                                     <NavLink  className="nav-links" href="">Services</NavLink>
                                     </Link>
                                 </NavItem>
-
                                 <NavItem>
                                 <Link  className="nav-links" to ="/testimonials">
                                     <NavLink  className="nav-links" href="">Testimonials</NavLink>
                                 </Link>
                                 </NavItem>
-
                                 <NavItem>
                                 <Link  className="nav-links" to ="/contact">
                                     <NavLink href="/" className="nav-links" onClick={(e:any) => {
@@ -186,9 +154,7 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                     >Contact Us</NavLink>
                                     </Link>
                                 </NavItem>
-                           
                                 {props.signedIn === true && props.isAdmin === false ? 
-                                
                                 <NavItem>
                                     <Link  className="nav-links" to ="/orders">
                                     <NavLink  className="nav-links" href="">My Orders</NavLink>
@@ -208,16 +174,11 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                 <NavLink href="" className="nav-links">All Orders</NavLink>
                                 </Link>
                                  </NavItem> : null}
-
-
                             </div>
                             </Nav>
-        
                     </Collapse>
-                     
                 </Navbar>
             </div>
-
     )
 }
 
