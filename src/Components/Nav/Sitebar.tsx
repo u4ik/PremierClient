@@ -133,17 +133,17 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                 <AuthForm isAdmin={props.isAdmin} setIsAdmin={props.setIsAdmin} userData={userData} setUserData={setUserData}  setCurrentUserId={props.setCurrentUserId} currentUserId={props.currentUserId} enableTestCreate={props.enableTestCreate}  setEnableTestCreate={props.setEnableTestCreate} updateTheToken={updateTheToken} signedIn = {props.signedIn}  setSignedIn = {props.setSignedIn}  updateToken={props.updateToken} setUpdateToken={props.setUpdateToken}  showAuth={showAuth} setShowAuth={setShowAuth} signup={signup} setSignup={setSignup}/>    
                                 <NavItem >
                                     <Link  className="nav-links" to ="/">
-                                    <NavLink  className="nav-links" href="">Home</NavLink>
+                                    <NavLink  className="nav-links" >Home</NavLink>
                                     </Link>
                                 </NavItem>
                                 <NavItem>
                                 <Link  className="nav-links" to ="/services">
-                                    <NavLink  className="nav-links" href="">Services</NavLink>
+                                    <NavLink  className="nav-links">Services</NavLink>
                                     </Link>
                                 </NavItem>
                                 <NavItem>
                                 <Link  className="nav-links" to ="/testimonials">
-                                    <NavLink  className="nav-links" href="">Testimonials</NavLink>
+                                    <NavLink  className="nav-links">Testimonials</NavLink>
                                 </Link>
                                 </NavItem>
                                 <NavItem>
@@ -157,7 +157,7 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                 {props.signedIn === true && props.isAdmin === false ? 
                                 <NavItem>
                                     <Link  className="nav-links" to ="/orders">
-                                    <NavLink  className="nav-links" href="">My Orders</NavLink>
+                                    <NavLink  className="nav-links">My Orders</NavLink>
                                 </Link>
                                 </NavItem>
                                 : null}
@@ -171,13 +171,13 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                 {props.isAdmin === true ? 
                                 <NavItem>
                                     <Link className="nav-links" to= "/orders">
-                                <NavLink href="" className="nav-links">All Orders</NavLink>
+                                <NavLink className="nav-links">All Orders</NavLink>
                                 </Link>
                                  </NavItem> : null}
                                  {props.isAdmin === true ? 
                                 <NavItem>
                                     <Link className="nav-links" to= "/users">
-                                <NavLink href="" className="nav-links">All Users</NavLink>
+                                <NavLink  className="nav-links">All Users</NavLink>
                                 </Link>
                                  </NavItem> : null}
                             </div>

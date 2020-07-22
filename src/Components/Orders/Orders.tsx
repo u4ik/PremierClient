@@ -39,16 +39,16 @@ const createButton={
 }
 
     const fetchOrders =  ()=> {
-
+        let token = localStorage.getItem('token')
         fetch('http://localhost:3000/orders/all' ,{
             method: 'GET',
             headers: {
                 'Content-Type' : 'application/json',
-                'Authorization': props.updateToken
+                'Authorization': token!
             }
         }).then(res => res.json())
         .then(noteData => {
-          // console.log(noteData);
+          console.log(noteData);
 
           if(noteData.YourOrders !== undefined){
             setUserOrders(noteData.YourOrders);
@@ -60,9 +60,9 @@ const createButton={
         }).catch(err => console.log(err))
     }
     useEffect  (() => {
-      // console.log('userOrders', userOrders)
+ 
         if(userOrders && userOrders.length === 0 ){
-          // console.log('fecthing')
+
         fetchOrders();
         }
 
@@ -75,6 +75,13 @@ const createButton={
             sort: 'asc',
             width: 50
           },
+          {
+            label: 'Name',
+            field: 'userName',
+            sort: 'asc',
+            width: 120
+          },
+    
           {
             label: 'Location',
             field: 'userLocation',
@@ -98,6 +105,7 @@ const createButton={
             field: 'isComplete',
             sort: 'asc',
             width: 120
+            
           },
         ],
         rows: 

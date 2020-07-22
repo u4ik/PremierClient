@@ -152,7 +152,7 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
                             </FormGroup>
                             <FormGroup>
                                 <Label style={labelStyles} htmlFor="phoneNumber">Phone Number</Label>
-                                <Input style = {inputStyles} type="number" name="phoneNumber" placeholder="5555555555" value={phoneNumber} onChange={e => setPhoneNumber(e.target.value)} required />
+                                <Input style = {inputStyles} type="number" name="phoneNumber" placeholder="555-555-5555" value={phoneNumber} onChange={e => setPhoneNumber(e.target.value)} required />
                             </FormGroup>
                             </div>
                             : null}
