@@ -40,14 +40,8 @@ const App: React.FunctionComponent = () => {
           <Route path ="/users" exact render={(props) => (<Users updateToken={updateToken}/>)}/>
       </Switch>
     </div>
-
         <Footer />
       </Router>  
-
-
-
-
- 
     </div>
   );
 }

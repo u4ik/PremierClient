@@ -96,10 +96,10 @@ const Contact: React.FunctionComponent<contactPage> = (props:contactPage) => {
 
                         <div style = {{display: 'flex', flexDirection: 'column', textAlign:'center'}}>
                         <label style={labelStyles} id="labelName" htmlFor="full-name">Name:</label>
-                        <input style = {inputStyles} type="text" name="name" id="full-name" placeholder="First and Last" required= {true} value={loggedInUserFirstName !== null ?  loggedInUserFirstName + ' ' + loggedInUserLastName : ''}></input>
+                        <input style = {inputStyles} type="text" name="name" id="full-name" placeholder="First and Last" required= {true} defaultValue={loggedInUserFirstName !== null ?  loggedInUserFirstName + ' ' + loggedInUserLastName : ''}></input>
 
                         <label style={labelStyles} htmlFor="email-address" >E-mail:</label>
-                        <input style = {inputStyles} type="email" name="_replyto" id="email-address" placeholder="Type email here" required= {true} value={loggedInUserEmail} ></input>
+                        <input style = {inputStyles} type="email" name="_replyto" id="email-address" placeholder="Type email here" required= {true} defaultValue={loggedInUserEmail} ></input>
                         <label style={labelStyles} htmlFor="message">Message:</label>
                        <textarea style = {textBoxStyle} rows = {3} cols={50} name="message" id="message" placeholder="Type message here" required= {true}></textarea>
                   
