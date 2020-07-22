@@ -6,6 +6,7 @@ import Footer from './Components/Footer/Footer';
 import Orders from './Components/Orders/Orders'
 import TestimonialsPage from './Components/Testimonials/TestimonialsPage'
 import ServicesPage from './Components/Services/ServicesPage'
+import Users  from './Components/Users/Users'
 
 
 // import {Switch, Route, BrowserRouter} from 'react-router-dom';
@@ -36,6 +37,7 @@ const App: React.FunctionComponent = () => {
           <Route path ="/orders" exact render={(props) => (< Orders isAdmin ={isAdmin}  signedIn={signedIn} setSignedIn={setSignedIn} updateToken = {updateToken}/>)} />
           <Route path ="/testimonials" exact render={(props) => (<TestimonialsPage isAdmin={isAdmin} enableTestCreate={enableTestCreate} updateToken={updateToken}/>)}/>
           <Route path ="/services" exact component= {ServicesPage}/>
+          <Route path ="/users" exact render={(props) => (<Users updateToken={updateToken}/>)}/>
       </Switch>
     </div>
 

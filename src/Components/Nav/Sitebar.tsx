@@ -174,6 +174,12 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                 <NavLink href="" className="nav-links">All Orders</NavLink>
                                 </Link>
                                  </NavItem> : null}
+                                 {props.isAdmin === true ? 
+                                <NavItem>
+                                    <Link className="nav-links" to= "/users">
+                                <NavLink href="" className="nav-links">All Users</NavLink>
+                                </Link>
+                                 </NavItem> : null}
                             </div>
                             </Nav>
                     </Collapse>
