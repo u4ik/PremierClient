@@ -1,13 +1,9 @@
 import React, {useState, useEffect} from 'react'
 
-import { Table } from 'reactstrap';
-
+import { Table, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 interface UserProps  {
-
     updateToken: string
-
-
 }
 
 const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
@@ -15,9 +11,9 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
     const [userData, setUserData] = useState<any>([])
     const [userId, setUserId] =useState<any>()
     const [serviceComplete, setServiceComplete] = useState<any>()
+    
 
-
-
+    
     const getUsers = () => {
         let token = localStorage.getItem('token')
         fetch('http://localhost:3000/user/all', {
@@ -34,12 +30,25 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
         .catch(err => console.log(err))
     }
 
+    const handleChange = (e:any) => {
+        setServiceComplete(e.target.value);
+        console.log(e.target.value)
+        updateUser(e);
+        getUsers();
 
-    const updateUser = () => {
+    }
+    
+    useEffect (() => {
+        getUsers();
+     },[])
+    
+
+     const updateUser = (e:any) => {
         let token = localStorage.getItem('token')
 
         const reqBody = { 
-            serviceComplete: serviceComplete
+            // serviceComplete: serviceComplete
+             serviceComplete: e.target.value
         }
         fetch('http://localhost:3000/user/edit/' + userId, {
             method: 'PUT',
@@ -50,19 +59,16 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
             body: JSON.stringify(reqBody)
         }).then(res => res.json())
         .then(response => {
+         console.log(response)
+            if(response.UserUpdated !== undefined){
+            
             getUsers();
-            console.log(response)
+            } else {
+                getUsers();
+            }
         })
     }
-
-
-
-    useEffect (() => {
-   
-        getUsers();
-
-     },[])
-    let displayUsers = userData.map((user:any) => {
+     let displayUsers = userData.map((user:any) => {
         return(
                             <tr key={user.id}>
                                 {/* <th scope="row">{user.id}</th> */}
@@ -73,18 +79,22 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
                                 <td>{user.phoneNumber}</td>
                                 <td>   
                                     {/* DropdownMenu Y/N*/}
+                                    <p>{user.serviceComplete}</p>
                                    <select style = {{outline:'none', border:'none'}} name="name" id=""  onClick={() => {
-                                   console.log(user.id)
-                                   setUserId(user.id)
+                                   console.log(user.id);
+                                   setUserId(user.id);
+                                   getUsers();
                                     }} onChange={(e) => {
-                                        setServiceComplete(e.target.value);
-                                        updateUser();
+                                     handleChange(e);
                                         }}>
-                                        <option value={user.serviceComplete}>{user.serviceComplete}</option>
+                                        <option value={user.serviceComplete === 'yes'  ? 'yes' : 'no'}>{user.serviceComplete === 'yes' ? 'yes' : 'no'} </option>
                                         <option value={user.serviceComplete === 'yes'  ? 'no' : 'yes'}>{user.serviceComplete === 'yes' ? 'no' : 'yes'}</option>
+                          
+                                        
                                         {/* <option value='yes'>yes</option>
                                         <option value='no'>no</option> */}
                                     </select>
+                             
                                     {/* <p>{user.serviceComplete}</p> */}
                                 </td>
                             </tr>
@@ -111,7 +121,6 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
                                 <th>Location</th>
                                 <th>Phone #</th>
                                 <th>Service Complete</th>
-                                
                             </tr>
                         </thead>
                         <tbody>
