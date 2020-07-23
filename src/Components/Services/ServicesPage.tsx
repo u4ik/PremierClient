@@ -36,11 +36,9 @@ class ServicesPage extends React.Component <unknown, MyState> {
 
         return (
             <div>
-                {/* <h3 style={{fontSize:'1.9rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px #024160', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>All Services</h3> */}
                 <div>
                     <h3 style={{fontSize:'1.9rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px #024160', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}> Welcome To Our Services </h3>
                     <p style={{ marginLeft: '25%', marginRight: '25%'}}> some placeholder texts here some placeholder texts here some placeholder texts here some placeholder texts here some placeholder texts here</p>
-                    
                 </div>
                 <div>
                     <div>

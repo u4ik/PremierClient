@@ -49,13 +49,14 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
         )
     })
     return (
-        <div style={{backgroundColor:'white', color:'#009FE4' , textShadow:'.4px .4px 1px black'}}>
-
+        <div style={{backgroundColor:'white', color:'#009FE4' }} >
+            <div style={{textShadow:'.4px .4px 1px black'}}>
             <h3 style={{fontSize:'1.9rem', paddingTop:'3%', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}} onClick={(e) => getUsers()}>
             All Users</h3>
+            </div>
 
 
-            <div className="">
+            <div className="" style={{ marginLeft: '10%', marginRight: '10%' }} >
                     <Table>
                         <thead>
                             <tr>
