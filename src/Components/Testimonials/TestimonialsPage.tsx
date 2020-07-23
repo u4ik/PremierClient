@@ -113,7 +113,7 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
 
   
     return (
-      <div  className="cardStyle" style={{margin:'2%'}}>
+      <div key={item.id} className="cardStyle" style={{margin:'2%'}}>
 
         <MDBCard  id="cardStyle2" onMouseEnter={(e:any) => {
           // console.log(item.userId)
@@ -121,10 +121,8 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
           setTestId(item.id)
    
           if(localStorage.getItem('id') === item.userId.toString() || props.isAdmin === true){
-            setDeleteImg(Delete)
-            setEditImg(Edit)
-         
-          // console.log(item)
+           setDeleteImg(Delete)
+           setEditImg(Edit)
            setTestId(item.id)
            setTestLocation(item.userLocation)
            setTestQuote(item.userQuote)
@@ -132,13 +130,11 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
            setTestLocationType(item.userLocationType)
           }
           else{
-       
             setDeleteImg(null)
             setEditImg(null)
           } 
         }} 
         onMouseLeave={(e:any) => {
-
           setDeleteImg(null)
           setEditImg(null)
         }}
