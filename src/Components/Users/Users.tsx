@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { Table, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import {Container, Table, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { MDBDataTable, MDBBtn } from 'mdbreact';
 
 import LoadingGif from '../../assets/Premier-Commercial-Services-icon.svg'
@@ -176,7 +176,8 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
             </div>
 
 
-            <div className="" style={{ marginLeft: '10%', marginRight: '10%' }} >
+            <div className="" style={{ marginLeft: '', marginRight: '' }} >
+                <Container>
                     
             <MDBDataTable  style={{color: '', textShadow: ''}}
             scrollY
@@ -186,7 +187,7 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
             small
             data={data} />
 
-
+                </Container>
             </div>
         </div>
 
