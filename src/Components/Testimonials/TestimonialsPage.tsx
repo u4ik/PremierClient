@@ -113,7 +113,7 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
 
   
     return (
-      <div key={item.id} className="cardStyle" style={{margin:'2%'}}>
+      <div key={item.id} className="cardStyle" style={{margin:'2%', backgroundColor: 'white'}}>
 
         <MDBCard  id="cardStyle2" onMouseEnter={(e:any) => {
           // console.log(item.userId)
@@ -189,7 +189,7 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
       </div>
     )});
   return (
-    <div style={{backgroundColor:'#f9f9f9'}}>
+    <div style={{backgroundColor:'white'}}>
        <h3 style={{fontSize:'1.9rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px #024160', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>All Testimonials</h3>
         {props.isAdmin === false ?
         <div>

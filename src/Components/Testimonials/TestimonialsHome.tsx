@@ -99,8 +99,8 @@ useEffect (() => {
 
 
   return (
-    <div style={{width:'auto', backgroundColor:'#f9f9f9'}}>
-        <h3 style={{fontSize:'2.2rem',paddingTop:'1%', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>Testimonials</h3>
+    <div style={{width:'auto', backgroundColor:'white'}}>
+        <h3 style={{fontSize:'1.9rem',paddingTop:'1%', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>Testimonials</h3>
         <Carousel
           activeIndex={activeIndex}
           next={next} 
