@@ -25,15 +25,15 @@ class Home extends React.Component {
                             <Container>
 
                             <Col className="welcomeText">
-                            <img src={LogoIcon} style={{width: '10vh', marginBottom: '1rem',  filter:'drop-shadow(1px 1px 1px black)'}}></img>
-                            <h4 style={{fontSize:'1.8rem', textShadow:'1px 1px 1px #024160', color:'#E8C10D', userSelect:'none' }}>
+                            <img src={LogoIcon} style={{width: '10vh', marginBottom: '1rem',  filter:'drop-shadow(2px 2px 1px black)'}}></img>
+                            <h4 style={{fontSize:'1.9rem', textShadow:'2px 2px 1px black', color:'#E8C10D', userSelect:'none' }}>
                                 Welcome!</h4>
-                            <p className='welcomeText' style={{ fontSize: '1.1rem', textShadow:'1px 1px 1px black', lineHeight:'3rem', color: 'white'}}>
+                            <p className='welcomeText' style={{ fontSize: '1.1rem', textShadow:'2px 2px 1px black', lineHeight:'3rem', color: 'white'}}>
                                 In simplest terms, Premier Commercial Services provides a refreshingly reliable and unique approach to providing basic facilities management resources. Our foundational services are janitorial/cleaning, light maintenance and grounds keeping.
                         Our approach to customer accountability and collaboration are causing businesses to leave their traditional facilities support services and switch to Premier. In exchange, they partner with a professional and reliable resource that eliminates the headaches often related to this type of service.</p>
-                    <p style={{ marginLeft:'10%', marginRight:'10%',fontSize: '0.9rem', textShadow:'1px 1px 1px black', lineHeight:'1rem', color: 'white'}}>
+                    <p style={{ marginLeft:'10%', marginRight:'10%',fontSize: '1.2rem', textShadow:'2px 2px 1px black', lineHeight:'1rem', color: 'white'}}>
                         -Michael Rootes</p>
-                    <p style={{ marginLeft:'10%', marginRight:'10%',fontSize: '0.9rem', textShadow:'1px 1px 1px black', lineHeight:'1rem', color: 'white'}}>
+                    <p style={{ marginLeft:'10%', marginRight:'10%',fontSize: '0.9rem', textShadow:'2px 2px 1px black', lineHeight:'1rem', color: 'white'}}>
                         Owner at Premier Commercial Services LLC</p>
                     </Col>
                     </Container>

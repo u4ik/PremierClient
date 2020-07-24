@@ -192,7 +192,7 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
     )});
   return (
     <div style={{backgroundColor:'white'}}>
-       <img src={LogoIcon} style={{width: '10vh', marginBottom: '.5rem', marginTop:'2rem', filter:'drop-shadow(1px 1px 1px black)'}}></img>
+       <img src={LogoIcon} style={{width: '10vh', marginBottom: '.5rem', marginTop:'2rem', filter:'drop-shadow(2px 2px 1px black)'}}></img>
        <h3 style={{fontSize:'1.9rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px #024160', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>
          All Testimonials</h3>
         {props.isAdmin === false ?
