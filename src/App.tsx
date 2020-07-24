@@ -37,7 +37,7 @@ const App: React.FunctionComponent = () => {
           <Route path ="/orders" exact render={(props) => (< Orders isAdmin ={isAdmin}  signedIn={signedIn} setSignedIn={setSignedIn} updateToken = {updateToken}/>)} />
           <Route path ="/testimonials" exact render={(props) => (<TestimonialsPage isAdmin={isAdmin} enableTestCreate={enableTestCreate} updateToken={updateToken}/>)}/>
           <Route path ="/services" exact component= {ServicesPage}/>
-          <Route path ="/users" exact render={(props) => (<Users updateToken={updateToken}/>)}/>
+          <Route path ="/users" exact render={(props) => (<Users updateToken={updateToken} isAdmin={isAdmin} signedIn={signedIn}/>)}/>
       </Switch>
     </div>
         <Footer />

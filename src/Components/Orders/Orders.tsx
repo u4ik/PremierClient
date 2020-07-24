@@ -6,10 +6,7 @@ import { MDBDataTable, MDBBtn } from 'mdbreact';
 
 
 
-// $(document).ready(function () {
-//   $('#dtBasicExample').DataTable();
-//   $('.dataTables_length').addClass('bs-select');
-//   });
+
 
 
 
@@ -42,9 +39,7 @@ const showThatOrder= (e:any) => {
   setShowOrder(!showOrder)
 }
 
-
 const createButton={
-
   fontSize: '1.6rem',
   color: '#009FE4',
   textShadow: '1px 1px 1px black'
@@ -178,8 +173,8 @@ const createButton={
              }} onChange={(e) => {
               handleChange(e);
                  }}>
-                 <option value={order.isComplete === 'yes'  ? 'yes' : 'no'}>{order.isComplete === 'yes' ? 'yes' : 'no'} </option>
-                 <option value={order.isComplete === 'yes'  ? 'no' : 'yes'}>{order.isComplete === 'yes' ? 'no' : 'yes'}</option>
+                 <option value={order.isComplete === 'Yes'  ? 'Yes' : 'No'}>{order.isComplete === 'Yes' ? 'Yes' : 'No'} </option>
+                 <option value={order.isComplete === 'Yes'  ? 'No' : 'Yes'}>{order.isComplete === 'Yes' ? 'No' : 'Yes'}</option>
    
                  
                  {/* <option value='yes'>yes</option>
@@ -264,6 +259,8 @@ const createButton={
 
 
     return(
+
+        props.signedIn ? 
         <div style={{backgroundColor:'white', color:'#009FE4' , textShadow:'.4px .4px 1px black'}}>
 
           <h3 style={{fontSize:'1.9rem', paddingTop:'3%', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>
@@ -305,6 +302,7 @@ const createButton={
           </Container>
 
         </div>
+        : <p style={{color:'#009FE4' , textShadow:'.4px .4px 1px black', fontSize:'4rem', marginTop: '3%'}}>?</p>
     )
 }
 
