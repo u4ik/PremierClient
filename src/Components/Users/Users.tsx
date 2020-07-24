@@ -1,8 +1,5 @@
 import React, {useState, useEffect} from 'react'
-
 import { Table, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-
-
 import { MDBDataTable, MDBBtn } from 'mdbreact';
 
 
@@ -17,8 +14,6 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
     const [userData, setUserData] = useState<any>([])
     const [userId, setUserId] =useState<any>()
     const [serviceComplete, setServiceComplete] = useState<any>()
-    
-
     const getUsers = () => {
         let token = localStorage.getItem('token')
         fetch('http://localhost:3000/user/all', {
@@ -151,8 +146,8 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
              }} onChange={(e) => {
               handleChange(e);
                  }}>
-                 <option value={user.serviceComplete === 'yes'  ? 'yes' : 'no'}>{user.serviceComplete === 'yes' ? 'yes' : 'no'} </option>
-                 <option value={user.serviceComplete === 'yes'  ? 'no' : 'yes'}>{user.serviceComplete === 'yes' ? 'no' : 'yes'}</option>
+                 <option value={user.serviceComplete === 'Yes'  ? 'Yes' : 'No'}>{user.serviceComplete === 'Yes' ? 'Yes' : 'No'} </option>
+                 <option value={user.serviceComplete === 'Yes'  ? 'No' : 'Yes'}>{user.serviceComplete === 'Yes' ? 'No' : 'Yes'}</option>
    
                  
                  {/* <option value='yes'>yes</option>

@@ -173,8 +173,8 @@ const createButton={
              }} onChange={(e) => {
               handleChange(e);
                  }}>
-                 <option value={order.isComplete === 'yes'  ? 'yes' : 'no'}>{order.isComplete === 'yes' ? 'yes' : 'no'} </option>
-                 <option value={order.isComplete === 'yes'  ? 'no' : 'yes'}>{order.isComplete === 'yes' ? 'no' : 'yes'}</option>
+                 <option value={order.isComplete === 'Yes'  ? 'Yes' : 'No'}>{order.isComplete === 'Yes' ? 'Yes' : 'No'} </option>
+                 <option value={order.isComplete === 'Yes'  ? 'No' : 'Yes'}>{order.isComplete === 'Yes' ? 'No' : 'Yes'}</option>
    
                  
                  {/* <option value='yes'>yes</option>
