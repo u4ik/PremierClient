@@ -2,7 +2,9 @@ import React, {useState, useEffect} from 'react'
 import { Table, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { MDBDataTable, MDBBtn } from 'mdbreact';
 
-import LoadingGif from '../../assets/premier-icon.png'
+import LoadingGif from '../../assets/Premier-Commercial-Services-icon.svg'
+
+import LogoIcon from '../../assets/Premier-Commercial-Services-icon.svg'
 
 interface UserProps  {
     updateToken: string
@@ -168,6 +170,7 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
         props.isAdmin ? 
         <div style={{backgroundColor:'white', color:'#009FE4' , textShadow:'.4px .4px 1px black'}}>
             <div style={{textShadow:'.4px .4px 1px black'}}>
+            <img src={LogoIcon} style={{width: '10vh', marginBottom: '.5rem', marginTop:'2rem', filter:'drop-shadow(1px 1px 1px black)'}}></img>
             <h3 style={{fontSize:'1.9rem', paddingTop:'3%', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}} onClick={(e) => getUsers()}>
             All Users</h3>
             </div>
@@ -188,7 +191,7 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
         </div>
 
     :   <div>
-        <img style={{marginTop: '28vh', filter: 'drop-shadow(1px 1px 2px black)'}} id = 'loadingImg' src ={LoadingGif}></img>
+        <img style={{ width: '15vh',marginTop: '28vh', filter: 'drop-shadow(1px 1px 2px black)'}} id = 'loadingImg' src ={LoadingGif}></img>
         </div>
     )
 }

@@ -15,7 +15,8 @@ const logo: React.CSSProperties ={
 }
 const navbar: React.CSSProperties ={
     background: '#177BBD',
-    alignItems: 'center',   
+    alignItems: 'center',
+    filter:'drop-shadow(5px 5px 5px #024160)'   
 }
 // const logoTitleStyle:React.CSSProperties={
 //     fontSize: '2.2rem',
@@ -62,9 +63,9 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
         } else if (localStorage.getItem('admin') === 'Negative'){
             props.setIsAdmin(false)
         }
-        if(localStorage.getItem('serviceComplete') === 'yes'){
+        if(localStorage.getItem('serviceComplete') === 'Yes'){
             props.setEnableTestCreate(true)
-        } else if (localStorage.getItem('serviceComplete') === 'no'){
+        } else if (localStorage.getItem('serviceComplete') === 'No'){
             props.setEnableTestCreate(false)
         }
         props.setSignedIn(true);

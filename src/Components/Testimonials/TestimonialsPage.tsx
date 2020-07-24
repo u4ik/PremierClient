@@ -19,6 +19,8 @@ import CreateTest from "./CreateTestimonial";
 import EditTest from "./EditTestimonial";
 import DeleteTest from "./DeleteTestimonial";
 
+import LogoIcon from '../../assets/Premier-Commercial-Services-icon.svg'
+
 interface testProps {
     enableTestCreate: boolean,
     updateToken: string,
@@ -113,7 +115,7 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
 
   
     return (
-      <div key={item.id} className="cardStyle" style={{margin:'2%', backgroundColor: 'white'}}>
+      <div key={item.id} className="cardStyle" style={{margin:'2%', backgroundColor: 'transparent'}}>
 
         <MDBCard  id="cardStyle2" onMouseEnter={(e:any) => {
           // console.log(item.userId)
@@ -177,12 +179,12 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
             <img style= {{width: '10%'}}src = {editImg} onClick={(e) => setShowEdit(true)}></img>
             <img style= {{width: '10%', marginLeft: '15%'}}src = {deleteImg} onClick={(e) => setShowDelete(true)}></img>
             </div>
-            : <div style={{paddingBottom:'14%'}}></div>}
+            : <div style={{paddingBottom:'13%'}}></div>}
                  {props.isAdmin ?
             <div>
             <img style= {{width: '10%', marginLeft: ''}}src = {deleteImg} onClick={(e) => setShowDelete(true)}></img>
             </div>
-            : <div style={{paddingBottom:''}}></div>}
+            : <div style={{paddingBottom:'13%'}}></div>}
         </MDBCardBody>
    
         </MDBCard>
@@ -190,7 +192,9 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
     )});
   return (
     <div style={{backgroundColor:'white'}}>
-       <h3 style={{fontSize:'1.9rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px #024160', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>All Testimonials</h3>
+       <img src={LogoIcon} style={{width: '10vh', marginBottom: '.5rem', marginTop:'2rem', filter:'drop-shadow(1px 1px 1px black)'}}></img>
+       <h3 style={{fontSize:'1.9rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px #024160', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>
+         All Testimonials</h3>
         {props.isAdmin === false ?
         <div>
         {props.enableTestCreate === true ? <MDBBtn style={createButton }onClick={(e:any) => {
