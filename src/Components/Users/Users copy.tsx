@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react'
 import { Table, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 
-import { MDBDataTable, MDBBtn } from 'mdbreact';
+
 
 
 interface UserProps  {
@@ -63,7 +63,6 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
  
      })
 
-     
     
 
      const updateUser = (e:any) => {
@@ -106,7 +105,20 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
                                 <td>   
                                     {/* DropdownMenu Y/N*/}
                                     {/* <p>{user.serviceComplete}</p> */}
-                                  
+                                   <select style = {{outline:'none', border:'none'}} value={user.serviceComplete} name="name" id=""  onClick={() => {
+                                   console.log(user.id);
+                                   setUserId(user.id);
+                                //    getUsers();
+                                    }} onChange={(e) => {
+                                     handleChange(e);
+                                        }}>
+                                        <option value={user.serviceComplete === 'yes'  ? 'yes' : 'no'}>{user.serviceComplete === 'yes' ? 'yes' : 'no'} </option>
+                                        <option value={user.serviceComplete === 'yes'  ? 'no' : 'yes'}>{user.serviceComplete === 'yes' ? 'no' : 'yes'}</option>
+                          
+                                        
+                                        {/* <option value='yes'>yes</option>
+                                        <option value='no'>no</option> */}
+                                    </select>
                              
                                     {/* <p>{user.serviceComplete}</p> */}
                                 </td>
@@ -114,83 +126,11 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
         )
     })
 
-    let data = {
-      
-        columns: [
-          {
-            label: 'First Name',
-            field: 'firstName',
-            sort: 'asc',
-            width: 100
-          },
-          {
-            label: 'Last Name',
-            field: 'lastName',
-            sort: 'asc',
-            width: 100
-          },
-    
-          {
-            label: 'Email',
-            field: 'email',
-            sort: 'asc',
-            width: 200
-          },
-          {
-            label: 'Location',
-            field: "location",
-            sort: 'asc',
-            width: 200
-          },
-          {
-            label: 'Phone #',
-            field: 'phoneNumber',
-            sort: 'asc',
-            width: 100
-          },
-          {
-            label: 'Complete',
-            field: 'serviceComplete',
-            sort: 'asc',
-            width: 80
-            
-          },
-        ],
-        
-        rows: 
-
-        
-        
-        userData ? userData.map((user: any) => ({
-          ...user,
-         
-          serviceComplete:  <select style = {{outline:'none', border:'none', backgroundColor:'transparent'}} value={user.serviceComplete} name="name" id=""  onClick={() => {
-            console.log(user.id);
-            setUserId(user.id);
-         //    getUsers();
-             }} onChange={(e) => {
-              handleChange(e);
-                 }}>
-                 <option value={user.serviceComplete === 'yes'  ? 'yes' : 'no'}>{user.serviceComplete === 'yes' ? 'yes' : 'no'} </option>
-                 <option value={user.serviceComplete === 'yes'  ? 'no' : 'yes'}>{user.serviceComplete === 'yes' ? 'no' : 'yes'}</option>
-   
-                 
-                 {/* <option value='yes'>yes</option>
-                 <option value='no'>no</option> */}
-             </select>
-        })
-        )  : []
-      
-       
-      
-      
-      };
-
 
 
     return (
         props.isAdmin ? 
-        <div style={{backgroundColor:'white', color:'#009FE4' , textShadow:'.4px .4px 1px black'}}>
+        <div style={{backgroundColor:'white', color:'#009FE4' }} >
             <div style={{textShadow:'.4px .4px 1px black'}}>
             <h3 style={{fontSize:'1.9rem', paddingTop:'3%', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}} onClick={(e) => getUsers()}>
             All Users</h3>
@@ -199,13 +139,22 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
 
             <div className="" style={{ marginLeft: '10%', marginRight: '10%' }} >
                     
-            <MDBDataTable  style={{color: '', textShadow: ''}}
-            scrollY
-            maxHeight="500px"
-            striped
-            bordered
-            small
-            data={data} />
+                    <Table>
+                        <thead>
+                            <tr>
+                                {/* <th>#</th> */}
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Location</th>
+                                <th>Phone #</th>
+                                <th>Service Complete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {displayUsers}
+                        </tbody>
+                    </Table>
 
 
             </div>

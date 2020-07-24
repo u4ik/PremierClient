@@ -6,10 +6,7 @@ import { MDBDataTable, MDBBtn } from 'mdbreact';
 
 
 
-// $(document).ready(function () {
-//   $('#dtBasicExample').DataTable();
-//   $('.dataTables_length').addClass('bs-select');
-//   });
+
 
 
 
@@ -42,9 +39,7 @@ const showThatOrder= (e:any) => {
   setShowOrder(!showOrder)
 }
 
-
 const createButton={
-
   fontSize: '1.6rem',
   color: '#009FE4',
   textShadow: '1px 1px 1px black'
