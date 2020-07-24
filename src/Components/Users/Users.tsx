@@ -93,26 +93,6 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
     }
   
 
-    
-     let displayUsers = userData.map((user:any) => {
-        return(
-                            <tr key={user.id}>
-                                {/* <th scope="row">{user.id}</th> */}
-                                <td>{user.firstName}</td>
-                                <td>{user.lastName}</td>
-                                <td>{user.email}</td>
-                                <td>{user.location}</td>
-                                <td>{user.phoneNumber}</td>
-                                <td>   
-                                    {/* DropdownMenu Y/N*/}
-                                    {/* <p>{user.serviceComplete}</p> */}
-                                  
-                             
-                                    {/* <p>{user.serviceComplete}</p> */}
-                                </td>
-                            </tr>
-        )
-    })
 
     let data = {
       
