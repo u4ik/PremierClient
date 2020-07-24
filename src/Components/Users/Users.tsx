@@ -4,6 +4,8 @@ import { Table, Button, Form, FormGroup, Label, Input, FormText } from 'reactstr
 
 interface UserProps  {
     updateToken: string
+    isAdmin: any
+    signedIn: any
 }
 
 const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
@@ -13,7 +15,6 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
     const [serviceComplete, setServiceComplete] = useState<any>()
     
 
-    
     const getUsers = () => {
         let token = localStorage.getItem('token')
         fetch('http://localhost:3000/user/all', {
@@ -24,11 +25,20 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
             }
         }).then(res => res.json())
         .then(userStuff => {
-           
+            
+           if(localStorage.getItem('admin') !== 'Negative' || null || undefined && props.isAdmin === true){
             setUserData(userStuff.mapStuff)
+           }else {
+               setUserData([])
+           }
         })
         .catch(err => console.log(err))
     }
+
+
+    if(localStorage.getItem('admin') === 'Negative' || null || undefined){
+        setUserData([])
+       }
 
     const handleChange = (e:any) => {
         setServiceComplete(e.target.value);
@@ -39,7 +49,9 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
     }
     
     useEffect (() => {
-        getUsers();
+        if (localStorage.getItem('admin') !== 'Negative' && props.signedIn === true &&  props.isAdmin === true){ 
+        getUsers()
+        }
      },[])
     
 
@@ -68,6 +80,9 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
             }
         })
     }
+  
+
+    
      let displayUsers = userData.map((user:any) => {
         return(
                             <tr key={user.id}>
@@ -100,8 +115,11 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
                             </tr>
         )
     })
-    return (
 
+
+
+    return (
+        props.isAdmin ? 
         <div style={{backgroundColor:'white', color:'#009FE4' }} >
             <div style={{textShadow:'.4px .4px 1px black'}}>
             <h3 style={{fontSize:'1.9rem', paddingTop:'3%', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}} onClick={(e) => getUsers()}>
@@ -110,7 +128,7 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
 
 
             <div className="" style={{ marginLeft: '10%', marginRight: '10%' }} >
-
+                    
                     <Table>
                         <thead>
                             <tr>
@@ -127,8 +145,12 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
                         {displayUsers}
                         </tbody>
                     </Table>
+
+
             </div>
         </div>
+
+    : <p style={{color:'#009FE4' , textShadow:'.4px .4px 1px black', fontSize:'4rem', marginTop: '3%'}}>?</p>
     )
 }
 

@@ -264,6 +264,8 @@ const createButton={
 
 
     return(
+
+        props.signedIn ? 
         <div style={{backgroundColor:'white', color:'#009FE4' , textShadow:'.4px .4px 1px black'}}>
 
           <h3 style={{fontSize:'1.9rem', paddingTop:'3%', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>
@@ -305,6 +307,7 @@ const createButton={
           </Container>
 
         </div>
+        : <p style={{color:'#009FE4' , textShadow:'.4px .4px 1px black', fontSize:'4rem', marginTop: '3%'}}>?</p>
     )
 }
 
