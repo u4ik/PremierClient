@@ -79,11 +79,11 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
                                 <td>{user.phoneNumber}</td>
                                 <td>   
                                     {/* DropdownMenu Y/N*/}
-                                    <p>{user.serviceComplete}</p>
-                                   <select style = {{outline:'none', border:'none'}} name="name" id=""  onClick={() => {
+                                    {/* <p>{user.serviceComplete}</p> */}
+                                   <select style = {{outline:'none', border:'none'}} value={user.serviceComplete} name="name" id=""  onClick={() => {
                                    console.log(user.id);
                                    setUserId(user.id);
-                                   getUsers();
+                                //    getUsers();
                                     }} onChange={(e) => {
                                      handleChange(e);
                                         }}>
