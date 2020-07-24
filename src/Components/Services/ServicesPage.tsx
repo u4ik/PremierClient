@@ -7,6 +7,16 @@ import Food from '../../assets/services/food.jpg';
 import Facilities from '../../assets/services/facility.jpg';
 import Groceries from '../../assets/services/grocery.jpg';
 
+
+import FoodIcon from '../../assets/locationIcons/restaurantyellow.svg'
+import AthleticIcon from '../../assets/locationIcons/athleticyellow.svg'
+import OfficeIcon from '../../assets/locationIcons/officeyellow.svg'
+import MedicalIcon from '../../assets/locationIcons/medical2yellow.svg'
+import GroceryIcon from '../../assets/locationIcons/groceryyellow.svg'
+import FacilitiesIcon from '../../assets/locationIcons/servicesyellow.svg'
+
+import ServiceLogo from '../../assets/logoLayer2.png'
+
 type MyState = {
     collapseID: string
 }
@@ -34,17 +44,34 @@ class ServicesPage extends React.Component <unknown, MyState> {
             borderColor: 'transparent'
         }
 
+        const iconStyles = {
+
+            width:'2%',
+            filter: 'drop-shadow(.5px .5px .5px #024160)'
+        }
+
+
         return (
             <div>
+           
+                    <img src={ServiceLogo} style={{marginTop: '5vh',width: '10%',filter:'drop-shadow(2px 2px 2px black)'}}></img>
+        
+
+
                 <div>
                     <h3 style={{fontSize:'1.9rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px #024160', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}> Welcome To Our Services </h3>
                     <p style={{ marginLeft: '25%', marginRight: '25%'}}> some placeholder texts here some placeholder texts here some placeholder texts here some placeholder texts here some placeholder texts here</p>
                 </div>
                 <div>
-                    <div>
-                        <h3 style={{fontSize:'1.7rem', cursor: 'pointer', paddingTop:'1%', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '1%', backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}
-                        onClick={this.toggleCollapse("basicCollapse1")}
-                        >Food</h3>
+                    <div >
+              
+                        <div style={{ cursor: 'pointer', paddingTop: '1%',backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}  onClick={this.toggleCollapse("basicCollapse1")}>
+                            <img src={FoodIcon} style={iconStyles}></img>
+                            <h3 style={{fontSize:'1.7rem', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '1%',}}
+                        
+                            >Food</h3>
+                        
+                        </div>
                         <MDBCollapse id="basicCollapse1" isOpen={this.state.collapseID} style={{ backgroundImage: `url(${Food})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
                             <MDBContainer>
                                 <MDBListGroup style={{ marginLeft: '25%', marginRight: '25%', marginBottom: '5px' }}>
@@ -66,9 +93,13 @@ class ServicesPage extends React.Component <unknown, MyState> {
                     </div>
 
                     <div>
-                        <h3 style={{fontSize:'1.7rem', cursor: 'pointer', paddingTop:'1%', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '1%', backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}
-                        onClick={this.toggleCollapse("basicCollapse2")}
-                        >Athletics</h3>
+                        <div style={{ cursor: 'pointer', paddingTop: '1%',backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}  onClick={this.toggleCollapse("basicCollapse2")}>
+                            <img src={AthleticIcon} style={iconStyles}></img>
+                            <h3 style={{fontSize:'1.7rem', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '1%',}}
+                        
+                            >Athletics</h3>
+                        
+                        </div>
                         <MDBCollapse id="basicCollapse2" isOpen={this.state.collapseID} style={{ backgroundImage: `url(${Athletics})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
                             <MDBContainer>
                                 <MDBListGroup style={{ marginLeft: '25%', marginRight: '25%', marginBottom: '5px' }}>
@@ -90,9 +121,13 @@ class ServicesPage extends React.Component <unknown, MyState> {
                     </div>
 
                     <div>
-                        <h3 style={{fontSize:'1.7rem', cursor: 'pointer', paddingTop:'1%', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '1%', backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}
-                        onClick={this.toggleCollapse("basicCollapse3")}
-                        >Medical</h3>
+                        <div style={{ cursor: 'pointer', paddingTop: '1%',backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}  onClick={this.toggleCollapse("basicCollapse3")}>
+                            <img src={MedicalIcon} style={iconStyles}></img>
+                            <h3 style={{fontSize:'1.7rem', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '1%',}}
+                        
+                            >Medical</h3>
+                        
+                        </div>
                         <MDBCollapse id="basicCollapse3" isOpen={this.state.collapseID} style={{ backgroundImage: `url(${Medical})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
                             <MDBContainer>
                                 <MDBListGroup style={{ marginLeft: '25%', marginRight: '25%', marginBottom: '5px' }}>
@@ -108,9 +143,13 @@ class ServicesPage extends React.Component <unknown, MyState> {
                     </div>
 
                     <div>
-                        <h3 style={{fontSize:'1.7rem', cursor: 'pointer', paddingTop:'1%', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '1%', backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}
-                        onClick={this.toggleCollapse("basicCollapse4")}
-                        >Facilities</h3>
+                        <div style={{ cursor: 'pointer', paddingTop: '1%',backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}  onClick={this.toggleCollapse("basicCollapse4")}>
+                            <img src={FacilitiesIcon} style={iconStyles}></img>
+                            <h3 style={{fontSize:'1.7rem', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '1%',}}
+                        
+                            >Facilities</h3>
+                        
+                        </div>
                         <MDBCollapse id="basicCollapse4" isOpen={this.state.collapseID} style={{ backgroundImage: `url(${Facilities})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
                             <MDBContainer>
                                 <MDBListGroup style={{ marginLeft: '25%', marginRight: '25%', marginBottom: '5px' }}>
@@ -138,9 +177,13 @@ class ServicesPage extends React.Component <unknown, MyState> {
                     </div>
 
                     <div>
-                        <h3 style={{fontSize:'1.7rem', cursor: 'pointer', paddingTop:'1%', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '1%', backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}
-                        onClick={this.toggleCollapse("basicCollapse5")}
-                        >Groceries</h3>
+                        <div style={{ cursor: 'pointer', paddingTop: '1%',backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}  onClick={this.toggleCollapse("basicCollapse5")}>
+                            <img src={GroceryIcon} style={iconStyles}></img>
+                            <h3 style={{fontSize:'1.7rem', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '1%',}}
+                        
+                            >Groceries</h3>
+                        
+                        </div>
                         <MDBCollapse id="basicCollapse5" isOpen={this.state.collapseID} style={{ backgroundImage: `url(${Groceries})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
                             <MDBContainer>
                                 <MDBListGroup style={{ marginLeft: '25%', marginRight: '25%', marginBottom: '5px' }}>
@@ -156,9 +199,13 @@ class ServicesPage extends React.Component <unknown, MyState> {
                     </div>
 
                     <div>
-                        <h3 style={{fontSize:'1.7rem', cursor: 'pointer', paddingTop:'1%', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '1%', backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}
-                        onClick={this.toggleCollapse("basicCollapse6")}
-                        >Offices</h3>
+                        <div style={{ cursor: 'pointer', paddingTop: '1%',backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}  onClick={this.toggleCollapse("basicCollapse6")}>
+                            <img src={OfficeIcon} style={iconStyles}></img>
+                            <h3 style={{fontSize:'1.7rem', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '1%',}}
+                        
+                            >Offices</h3>
+                        
+                        </div>
                         <MDBCollapse id="basicCollapse6" isOpen={this.state.collapseID} style={{ backgroundImage: `url(${Offices})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
                             <MDBContainer>
                                 <MDBListGroup style={{ marginLeft: '25%', marginRight: '25%', marginBottom: '5px' }}>

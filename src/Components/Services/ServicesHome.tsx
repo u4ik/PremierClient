@@ -38,7 +38,7 @@ let ServicesInfo = 'We pride ourselves on the services we offer to make each exp
 class ServicesHome extends React.Component {
     render() {
         return (
-            <div style={{backgroundColor:'#f9f9f9', height: 'auto'}}>
+            <div style={{backgroundColor:'white', height: 'auto'}}>
                 <h3 style={{fontSize:'1.9rem', paddingTop:'3%', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>Service Locations</h3>
                 {/* <hr style={{ marginLeft: '15%', marginRight: '15%' }} /> */}
                 <div style={{display:'flex',  flexDirection:'row'}}>

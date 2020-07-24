@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { Table, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { MDBDataTable, MDBBtn } from 'mdbreact';
 
+import LoadingGif from '../../assets/premier-icon.png'
 
 interface UserProps  {
     updateToken: string
@@ -186,7 +187,9 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
             </div>
         </div>
 
-    : <p style={{color:'#009FE4' , textShadow:'.4px .4px 1px black', fontSize:'4rem', marginTop: '3%'}}>?</p>
+    :   <div>
+        <img style={{marginTop: '28vh', filter: 'drop-shadow(1px 1px 2px black)'}} id = 'loadingImg' src ={LoadingGif}></img>
+        </div>
     )
 }
 

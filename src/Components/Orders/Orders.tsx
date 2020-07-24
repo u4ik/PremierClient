@@ -4,6 +4,8 @@ import {Container, Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'rea
 import { MDBDataTable, MDBBtn } from 'mdbreact';
 
 
+import LoadingGif from '../../assets/premier-icon.png'
+
 
 
 
@@ -116,7 +118,7 @@ const createButton={
             label: 'Order #',
             field: 'id',
             sort: 'asc',
-            width: 50
+            width: 70
           },
           {
             label: 'Name',
@@ -141,7 +143,7 @@ const createButton={
             label: 'Requested Date',
             field: 'reqDateTime',
             sort: 'asc',
-            width: 100
+            width: 120
           },
           {
             label: 'Complete',
@@ -191,46 +193,46 @@ const createButton={
         
     let data2 = {
       
-        columns: [
-          {
-            label: 'Order #',
-            field: 'id',
-            sort: 'asc',
-            width: 50
-          },
-          {
-            label: 'Name',
-            field: 'userName',
-            sort: 'asc',
-            width: 120
-          },
-    
-          {
-            label: 'Location',
-            field: 'userLocation',
-            sort: 'asc',
-            width: 150
-          },
-          {
-            label: 'Service Requested',
-            field: "serviceReq",
-            sort: 'asc',
-            width: 450
-          },
-          {
-            label: 'Requested Date',
-            field: 'reqDateTime',
-            sort: 'asc',
-            width: 100
-          },
-          {
-            label: 'Complete',
-            field: 'isComplete',
-            sort: 'asc',
-            width: 120
-            
-          },
-        ],
+      columns: [
+        {
+          label: 'Order #',
+          field: 'id',
+          sort: 'asc',
+          width: 70
+        },
+        {
+          label: 'Name',
+          field: 'userName',
+          sort: 'asc',
+          width: 120
+        },
+  
+        {
+          label: 'Location',
+          field: 'userLocation',
+          sort: 'asc',
+          width: 150
+        },
+        {
+          label: 'Service Requested',
+          field: "serviceReq",
+          sort: 'asc',
+          width: 450
+        },
+        {
+          label: 'Requested Date',
+          field: 'reqDateTime',
+          sort: 'asc',
+          width: 120
+        },
+        {
+          label: 'Complete',
+          field: 'isComplete',
+          sort: 'asc',
+          width: 120
+          
+        },
+      ],
         
         rows: 
 
@@ -302,8 +304,11 @@ const createButton={
           </Container>
 
         </div>
-        : <p style={{color:'#009FE4' , textShadow:'.4px .4px 1px black', fontSize:'4rem', marginTop: '3%'}}>?</p>
-    )
+        : <div>
+          <img style={{marginTop: '28vh', filter: 'drop-shadow(1px 1px 2px black)'}} id = 'loadingImg' src ={LoadingGif}></img>
+          </div>
+   
+          )
 }
 
 export default Orders;
