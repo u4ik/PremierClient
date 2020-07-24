@@ -15,7 +15,7 @@ import './Services.css'
 
 const iconStyle:React.CSSProperties={
     width: '50%',
-    filter:'drop-shadow(1px 1px 1px #024160)',
+    filter:'drop-shadow(2px 2px 1px black)',
     userSelect:'none',
 }
 
@@ -23,7 +23,7 @@ const iconText:React.CSSProperties={
     fontSize:'1rem',
     color:'white',
     fontWeight: 'bold',
-    // textShadow:'.1rem .1rem .1rem #024160',
+    textShadow:'.1rem .1rem .1rem black',
     userSelect:'none'
 }
 //Popover Descriptions
@@ -39,7 +39,7 @@ class ServicesHome extends React.Component {
     render() {
         return (
             <div style={{backgroundColor:'', height: 'auto'}}>
-                <h3 style={{fontSize:'1.9rem', paddingTop:'1%', color:'white', userSelect:'none',paddingLeft:'1%', paddingRight:'1%', marginLeft:'25%' , marginRight:'25%', borderRadius:'25px' ,marginBottom: '1%', paddingBottom: '1%', backgroundColor: 'transparent'}}>Service Locations</h3>
+                <h3 style={{fontSize:'1.9rem', paddingTop:'1%', color:'white', userSelect:'none',paddingLeft:'1%', paddingRight:'1%', marginLeft:'25%' , marginRight:'25%', borderRadius:'25px' ,marginBottom: '1%', paddingBottom: '1%', backgroundColor: 'transparent', filter:'drop-shadow(2px 2px 1px black)'}}>Service Locations</h3>
                 {/* <hr style={{ marginLeft: '15%', marginRight: '15%' }} /> */}
                 <div style={{display:'flex',  flexDirection:'row'}}>
                     <Container style={{display:'flex',  flexDirection:'column'}}>

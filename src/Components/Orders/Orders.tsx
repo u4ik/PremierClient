@@ -266,7 +266,7 @@ const createButton={
 
         props.signedIn ? 
         <div style={{backgroundColor:'white', color:'#009FE4' , textShadow:'.4px .4px 1px black'}}>
-               <img src={LogoIcon} style={{width: '10vh', marginBottom: '.5rem', marginTop:'2rem', filter:'drop-shadow(1px 1px 1px black)'}}></img>
+               <img src={LogoIcon} style={{width: '10vh', marginBottom: '.5rem', marginTop:'2rem', filter:'drop-shadow(2px 2px 1px black)'}}></img>
           <h3 style={{fontSize:'1.9rem', paddingTop:'3%', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>
 
             {props.isAdmin === false  ? 
@@ -307,7 +307,7 @@ const createButton={
 
         </div>
         : <div>
-           <img style={{ width: '15vh',marginTop: '28vh', filter: 'drop-shadow(1px 1px 2px black)'}} id = 'loadingImg' src ={LoadingGif}></img>
+           <img style={{ width: '15vh',marginTop: '28vh', filter: 'drop-shadow(2px 2px 2px black)'}} id = 'loadingImg' src ={LoadingGif}></img>
           </div>
    
           )
