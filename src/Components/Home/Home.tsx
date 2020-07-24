@@ -25,7 +25,7 @@ class Home extends React.Component {
                             <Container>
 
                             <Col className="welcomeText">
-                                <img src={LogoIcon} style={{width: '10vh', marginBottom: '1rem'}}></img>
+                            <img src={LogoIcon} style={{width: '10vh', marginBottom: '1rem',  filter:'drop-shadow(1px 1px 1px black)'}}></img>
                             <h4 style={{fontSize:'1.8rem', textShadow:'1px 1px 1px #024160', color:'#E8C10D', userSelect:'none' }}>
                                 Welcome!</h4>
                             <p className='welcomeText' style={{ fontSize: '1.1rem', textShadow:'1px 1px 1px black', lineHeight:'3rem', color: 'white'}}>
