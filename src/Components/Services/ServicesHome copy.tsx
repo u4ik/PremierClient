@@ -1,11 +1,11 @@
 import React from 'react';
 
-import RestaurantImg from  '../../assets/locationIcons/restaurantyellow.svg'
-import AthleticImg from  '../../assets/locationIcons/athleticyellow.svg'
-import GroceryImg from  '../../assets/locationIcons/groceryyellow.svg'
-import MedicalImg from  '../../assets/locationIcons/medical2yellow.svg'
-import OfficeImg from  '../../assets/locationIcons/officeyellow.svg'
-import ServicesImg from  '../../assets/locationIcons/servicesyellow.svg'
+import RestaurantImg from  '../../assets/locationIcons/restaurant.svg'
+import AthleticImg from  '../../assets/locationIcons/athletic.svg'
+import GroceryImg from  '../../assets/locationIcons/grocery.svg'
+import MedicalImg from  '../../assets/locationIcons/medical2.svg'
+import OfficeImg from  '../../assets/locationIcons/office.svg'
+import ServicesImg from  '../../assets/locationIcons/services.svg'
 
 import {Container,Col, Row} from 'reactstrap'
 import { MDBPopover, MDBPopoverBody, MDBPopoverHeader, MDBBtn, MDBContainer } from "mdbreact";
@@ -21,7 +21,7 @@ const iconStyle:React.CSSProperties={
 
 const iconText:React.CSSProperties={
     fontSize:'1rem',
-    color:'white',
+    color:'#177BBD',
     fontWeight: 'bold',
     // textShadow:'.1rem .1rem .1rem #024160',
     userSelect:'none'
@@ -38,8 +38,8 @@ let ServicesInfo = 'We pride ourselves on the services we offer to make each exp
 class ServicesHome extends React.Component {
     render() {
         return (
-            <div style={{backgroundColor:'', height: 'auto'}}>
-                <h3 style={{fontSize:'1.9rem', paddingTop:'1%', color:'white', userSelect:'none',paddingLeft:'1%', paddingRight:'1%', marginLeft:'25%' , marginRight:'25%', borderRadius:'25px' ,marginBottom: '1%', paddingBottom: '1%', backgroundColor: 'transparent'}}>Service Locations</h3>
+            <div style={{backgroundColor:'white', height: 'auto'}}>
+                <h3 style={{fontSize:'1.9rem', paddingTop:'3%', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>Service Locations</h3>
                 {/* <hr style={{ marginLeft: '15%', marginRight: '15%' }} /> */}
                 <div style={{display:'flex',  flexDirection:'row'}}>
                     <Container style={{display:'flex',  flexDirection:'column'}}>
