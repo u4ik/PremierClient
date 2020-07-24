@@ -46,7 +46,7 @@ class ServicesPage extends React.Component <unknown, MyState> {
 
         const iconStyles = {
 
-            width:'2%',
+            width:'4vh',
             filter: 'drop-shadow(.5px .5px .5px #024160)'
         }
 
@@ -54,20 +54,20 @@ class ServicesPage extends React.Component <unknown, MyState> {
         return (
             <div>
            
-                    <img src={ServiceLogo} style={{marginTop: '5vh',width: '10%',filter:'drop-shadow(2px 2px 2px black)'}}></img>
+                    <img src={ServiceLogo} style={{marginTop: '5vh',width: '10%',filter:'drop-shadow(.1rem .1rem .1rem #024160)'}}></img>
         
 
 
                 <div>
-                    <h3 style={{fontSize:'1.9rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px #024160', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}> Welcome To Our Services </h3>
+                    <h3 style={{fontSize:'1.9rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px #024160', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '.5vh', borderBottom: 'solid 1px white', backgroundColor: 'white'}}> Welcome To Our Services </h3>
                     <p style={{ marginLeft: '25%', marginRight: '25%'}}> some placeholder texts here some placeholder texts here some placeholder texts here some placeholder texts here some placeholder texts here</p>
                 </div>
                 <div>
                     <div >
               
-                        <div style={{ cursor: 'pointer', paddingTop: '1%',backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}  onClick={this.toggleCollapse("basicCollapse1")}>
+                        <div style={{ cursor: 'pointer', paddingTop: '2vh',backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}  onClick={this.toggleCollapse("basicCollapse1")}>
                             <img src={FoodIcon} style={iconStyles}></img>
-                            <h3 style={{fontSize:'1.7rem', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '1%',}}
+                            <h3 style={{fontSize:'1.7rem', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '.5vh',}}
                         
                             >Food</h3>
                         
@@ -93,9 +93,9 @@ class ServicesPage extends React.Component <unknown, MyState> {
                     </div>
 
                     <div>
-                        <div style={{ cursor: 'pointer', paddingTop: '1%',backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}  onClick={this.toggleCollapse("basicCollapse2")}>
+                        <div style={{ cursor: 'pointer', paddingTop: '2vh',backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}  onClick={this.toggleCollapse("basicCollapse2")}>
                             <img src={AthleticIcon} style={iconStyles}></img>
-                            <h3 style={{fontSize:'1.7rem', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '1%',}}
+                            <h3 style={{fontSize:'1.7rem', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '.5vh',}}
                         
                             >Athletics</h3>
                         
@@ -121,9 +121,9 @@ class ServicesPage extends React.Component <unknown, MyState> {
                     </div>
 
                     <div>
-                        <div style={{ cursor: 'pointer', paddingTop: '1%',backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}  onClick={this.toggleCollapse("basicCollapse3")}>
+                        <div style={{ cursor: 'pointer', paddingTop: '2vh',backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}  onClick={this.toggleCollapse("basicCollapse3")}>
                             <img src={MedicalIcon} style={iconStyles}></img>
-                            <h3 style={{fontSize:'1.7rem', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '1%',}}
+                            <h3 style={{fontSize:'1.7rem', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '.5vh',}}
                         
                             >Medical</h3>
                         
@@ -143,9 +143,9 @@ class ServicesPage extends React.Component <unknown, MyState> {
                     </div>
 
                     <div>
-                        <div style={{ cursor: 'pointer', paddingTop: '1%',backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}  onClick={this.toggleCollapse("basicCollapse4")}>
+                        <div style={{ cursor: 'pointer', paddingTop: '2vh',backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}  onClick={this.toggleCollapse("basicCollapse4")}>
                             <img src={FacilitiesIcon} style={iconStyles}></img>
-                            <h3 style={{fontSize:'1.7rem', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '1%',}}
+                            <h3 style={{fontSize:'1.7rem', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '.5vh',}}
                         
                             >Facilities</h3>
                         
@@ -177,9 +177,9 @@ class ServicesPage extends React.Component <unknown, MyState> {
                     </div>
 
                     <div>
-                        <div style={{ cursor: 'pointer', paddingTop: '1%',backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}  onClick={this.toggleCollapse("basicCollapse5")}>
+                        <div style={{ cursor: 'pointer', paddingTop: '2vh',backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}  onClick={this.toggleCollapse("basicCollapse5")}>
                             <img src={GroceryIcon} style={iconStyles}></img>
-                            <h3 style={{fontSize:'1.7rem', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '1%',}}
+                            <h3 style={{fontSize:'1.7rem', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '.5vh',}}
                         
                             >Groceries</h3>
                         
@@ -199,9 +199,9 @@ class ServicesPage extends React.Component <unknown, MyState> {
                     </div>
 
                     <div>
-                        <div style={{ cursor: 'pointer', paddingTop: '1%',backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}  onClick={this.toggleCollapse("basicCollapse6")}>
+                        <div style={{ cursor: 'pointer', paddingTop: '2vh',backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}  onClick={this.toggleCollapse("basicCollapse6")}>
                             <img src={OfficeIcon} style={iconStyles}></img>
-                            <h3 style={{fontSize:'1.7rem', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '1%',}}
+                            <h3 style={{fontSize:'1.7rem', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '.5vh',}}
                         
                             >Offices</h3>
                         

@@ -33,7 +33,7 @@
 
 @media screen and (min-device-width: 1600px) {
     #titleId {
-        margin-bottom: 4.9vw
+        margin-bottom: 3.9vw
     }
 }
 
@@ -43,6 +43,15 @@
 @media screen and (min-device-width: 1920px) {
     #titleId {
         margin-bottom: 4.0vw
+    }
+}
+
+
+/* 1921x1080 */
+
+@media screen and (min-device-width: 1921px) {
+    #titleId {
+        margin-bottom: 3.0vw
     }
 }
 
@@ -60,7 +69,7 @@
 
 @media screen and (min-device-width: 2736px) {
     #titleId {
-        margin-bottom: 2.8vw
+        margin-bottom: 1vw
     }
 }
 
@@ -81,7 +90,13 @@
 
 @media screen and (max-width: 769px) {
     #titleId {
-        margin-bottom: 12.1vw
+        margin-bottom: 11.1vw
+    }
+}
+
+@media screen and (max-width: 456px) {
+    #titleId {
+        margin-bottom: 15.1vw
     }
 }
 
