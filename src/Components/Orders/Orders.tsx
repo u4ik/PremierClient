@@ -308,7 +308,7 @@ const createButton={
 
         </div>
         : <div>
-           <img style={{ width: '15vh',marginTop: '28vh', filter: 'drop-shadow(2px 2px 2px black)'}} id = 'loadingImg' src ={LoadingGif}></img>
+           <img style={{ width: '15vh',marginTop: '28vh',marginBottom: '50vh', filter: 'drop-shadow(2px 2px 2px black)'}} id = 'loadingImg' src ={LoadingGif}></img>
           </div>
    
           )
