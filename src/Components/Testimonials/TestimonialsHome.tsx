@@ -38,6 +38,31 @@ useEffect (() => {
     
  },[])
   const slides = testimonialData.map((item:any) => {
+
+    const TestimonialInfoText:React.CSSProperties ={
+
+      fontSize: '1.1rem',
+      color:'#E8C10D',
+      userSelect:'none',
+      textShadow: ('1px 1px 1px black')
+
+    }
+    const TestimonialInfoText2:React.CSSProperties ={
+
+      fontSize: '.8rem',
+      color:'white',
+      userSelect:'none',
+      textShadow: ('1px 1px 1px black')
+
+    }
+    const TestimonialInfoText3:React.CSSProperties ={
+
+      fontSize: '.69rem',
+      color:'white',
+      userSelect:'none',
+      textShadow: ('1px 1px 1px black')
+
+    }
     return (
       <CarouselItem 
         onExiting={() => setAnimating(true)}
@@ -51,7 +76,10 @@ useEffect (() => {
         
 
         <div className="carousel-caption d-none d-md-block" style={{
-          backgroundColor:'#177BBD',
+          // backgroundColor:'#177BBD',
+          background: 'rgba(34,111,153, .1)',
+          border: '1px #E8C10D',
+          borderStyle:'solid',
           borderRadius:'1rem',
           paddingLeft:'.5rem',
           paddingRight:'.5rem',
@@ -65,16 +93,16 @@ useEffect (() => {
 
 
 
-          <h3 style={{fontSize:'1.4rem', textShadow:'1px 1px 1px black', color:'white', userSelect:'none'}}>{ `"` + `${item.userQuote}` + `"`}</h3>
-          <div style={{transform: 'scale(2)'}}>
+          <h3  style={{fontSize:'1.4rem', textShadow:'1px 1px 1px black', color:'white', userSelect:'none'}}>{ `"` + `${item.userQuote}` + `"`}</h3>
+          <div className="stars" style={{transform: 'scale(2)'}}>
           <Rater  total={5} rating={item.userRating} interactive={false}  />
           </div>
         </div>
         <div>
-            <h4 style= {{fontSize: '1.1rem', color:'#177BBD',  userSelect:'none'}}>{"- " + `${item.userFirstName}` + " " + `${item.userLastName}`}</h4>
-            <h5 style={{fontSize:'.8rem', color:'#177BBD', userSelect:'none'}}>{item.userLocationType}</h5>
-            <h5 style={{fontSize:'.8rem', color:'#177BBD', userSelect:'none'}}>{item.userLocation}</h5>
-            <p style={{fontSize:'.7rem', color:'#177BBD', userSelect:'none'}}>{item.serviceCompletionDate}</p>
+            <h4 className='nameTextTestimonialHome' style= {TestimonialInfoText}>{"- " + `${item.userFirstName}` + " " + `${item.userLastName}`}</h4>
+            <h5 className='locationTextTestimonialHome' style= {TestimonialInfoText2}>{item.userLocationType}</h5>
+            <h5 className='locationTextTestimonialHome'style= {TestimonialInfoText2}>{item.userLocation}</h5>
+            <p  className='dateTestimonialHome' style= {TestimonialInfoText3}>{item.serviceCompletionDate}</p>
         </div>
         
     
@@ -100,8 +128,8 @@ useEffect (() => {
 
 
   return (
-    <div style={{height:"auto", backgroundImage: `url(${TestimonialHomeBcg})`, backgroundPosition: 'center', backgroundSize: 'cover', marginBottom: '-1%'}}>
-        <h3 style={{fontSize:'2.2rem',paddingTop:'1%', color:'white', userSelect:'none', backgroundColor: 'transparent', textShadow: '2px 2px 2px black'}}>Testimonials</h3>
+    <div style={{height:"auto", backgroundImage: `url(${TestimonialHomeBcg})`, backgroundPosition: 'center', backgroundSize: 'cover', marginBottom: '-1%', marginLeft:'10%', marginRight:'10%', borderRadius:'20px',     background: 'rgba(26, 35, 64, 0.5)'}}>
+        <h3  className="headerText"  style={{fontSize:'2.2rem',paddingTop:'1%', color:'white', userSelect:'none', backgroundColor: 'transparent', textShadow: '2px 2px 2px black'}}>Testimonials</h3>
         <Carousel
           activeIndex={activeIndex}
           next={next} 

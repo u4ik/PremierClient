@@ -38,169 +38,172 @@ let ServicesInfo = 'We pride ourselves on the services we offer to make each exp
 class ServicesHome extends React.Component {
     render() {
         return (
-            <div style={{backgroundColor:'', height: 'auto'}}>
-                <h3 style={{fontSize:'2.2rem', paddingTop:'1%', color:'white', userSelect:'none',paddingLeft:'1%', paddingRight:'1%', marginLeft:'25%' , marginRight:'25%', borderRadius:'25px' ,marginBottom: '1%', paddingBottom: '1%', backgroundColor: 'transparent', textShadow: '2px 2px 2px black'}}>Service Locations</h3>
-                <div style={{display:'flex',  flexDirection:'row'}}>
-                    <Container style={{display:'flex',  flexDirection:'column'}}>
+
+            <div style={{display:'flex',flexDirection: 'column',width:'',marginLeft:'15%',marginRight:'15%',marginBottom:'3%',   background: 'rgba(26, 35, 64, 0.5)', borderRadius:'20px'}}>
+                <h3 className="headerText" style={{fontSize:'2.2rem', paddingTop:'1%', color:'white', userSelect:'none',paddingLeft:'1%', paddingRight:'1%', marginLeft:'15%' , marginRight:'15%', borderRadius:'25px' ,marginBottom: '1%', paddingBottom: '1%', backgroundColor: 'transparent', textShadow: '2px 2px 2px black'}}>Service Locations</h3>
+                <div style={{display:'flex',  flexDirection:'row', justifyContent:'center', flexWrap:'wrap'}}>
+               
                      <Row>
-                        <Col>
-                            <MDBContainer>
-                    <div>
-                                <MDBPopover
-                                placement="top"
-                                popover
-                                clickable
-                                id="popper1"
-                                >
-                                <MDBBtn>    
-                                    <img id="PopoverFocus"  draggable = 'false' className='locationIcon' style ={iconStyle} src={RestaurantImg}/>
-                                    <p style={iconText}>Food</p>
-                                </MDBBtn>
-                                <div>
-                                    <MDBPopoverHeader>Restaurants</MDBPopoverHeader>
-                                    <MDBPopoverBody>
-                                    {RestaurantInfo}
-                                    </MDBPopoverBody>
-                                </div>
-                                </MDBPopover>
-                    </div>
-                            </MDBContainer>
-                        </Col>
-                        <Col>
-                            <MDBContainer>
-                    <div style={{ }} className="">
-                                <MDBPopover
-                                placement="top"
-                                popover
-                                clickable
-                                id="popper1"
-                                >
-                                <MDBBtn>    
-                                    <img id="PopoverFocus"  draggable = 'false' className='locationIcon' style ={iconStyle} src={AthleticImg}/>
-                                    <p style={iconText}>Athletics</p>
-                                </MDBBtn>
-                                <div>
-                                    <MDBPopoverHeader>Athletics</MDBPopoverHeader>
-                                    <MDBPopoverBody>
-                                    {AthleticInfo}
-                                    </MDBPopoverBody>
-                                </div>
-                                </MDBPopover>
-
+                            <Col>
                             
-
-                    </div>
-                            </MDBContainer>
-                        </Col>
-                        <Col>
-                            <MDBContainer>
-                    <div style={{ }} className="">
-                                <MDBPopover
-                                placement="top"
-                                popover
-                                clickable
-                                id="popper1"
-                                >
-                                <MDBBtn>    
-                                    <img id="PopoverFocus"  draggable = 'false' className='locationIcon' style ={iconStyle} src={MedicalImg}/>
-                                    <p style={iconText}>Medical</p>
-                                </MDBBtn>
-                                <div>
-                                    <MDBPopoverHeader>Medical</MDBPopoverHeader>
-                                    <MDBPopoverBody>
-                                    {MedicalInfo}
-                                    </MDBPopoverBody>
-                                </div>
-                                </MDBPopover>
-
+                        <div>
+                                    <MDBPopover
+                                    placement="top"
+                                    popover
+                                    clickable
+                                    id="popper1"
+                                    >
+                                    <MDBBtn>    
+                                        <img id="PopoverFocus"  draggable = 'false' className='locationIcon' style ={iconStyle} src={RestaurantImg}/>
+                                        <p style={iconText} className="iconText">Food</p>
+                                    </MDBBtn>
+                                    <div>
+                                        <MDBPopoverHeader>Restaurants</MDBPopoverHeader>
+                                        <MDBPopoverBody>
+                                        {RestaurantInfo}
+                                        </MDBPopoverBody>
+                                    </div>
+                                    </MDBPopover>
+                        </div>
+                                
+                            </Col>
+                            <Col>
                             
+                        <div style={{ }} className="">
+                                    <MDBPopover
+                                    placement="top"
+                                    popover
+                                    clickable
+                                    id="popper1"
+                                    >
+                                    <MDBBtn>    
+                                        <img id="PopoverFocus"  draggable = 'false' className='locationIcon' style ={iconStyle} src={AthleticImg}/>
+                                        <p style={iconText} className="iconText">Athletics</p>
+                                    </MDBBtn>
+                                    <div>
+                                        <MDBPopoverHeader>Athletics</MDBPopoverHeader>
+                                        <MDBPopoverBody>
+                                        {AthleticInfo}
+                                        </MDBPopoverBody>
+                                    </div>
+                                    </MDBPopover>
 
-                    </div>
-                            </MDBContainer>
-                        </Col>  
-                    </Row>  
-                    <Row>       
-                        <Col>
-                            <MDBContainer>
-                    <div style={{ }} className="">
-                                <MDBPopover
-                                placement="top"
-                                popover
-                                clickable
-                                id="popper1"
-                                >
-                                <MDBBtn>    
-                                    <img id="PopoverFocus"  draggable = 'false' className='locationIcon' style ={iconStyle} src={OfficeImg}/>
-                                    <p style={iconText}>Office</p>
-                                </MDBBtn>
-                                <div>
-                                    <MDBPopoverHeader>Office</MDBPopoverHeader>
-                                    <MDBPopoverBody>
-                                    {OfficeInfo}
-                                    </MDBPopoverBody>
-                                </div>
-                                </MDBPopover>
+                                
 
+                        </div>
+                                
+                            </Col>
+                            <Col>
                             
+                        <div style={{ }} className="">
+                                    <MDBPopover
+                                    placement="top"
+                                    popover
+                                    clickable
+                                    id="popper1"
+                                    >
+                                    <MDBBtn>    
+                                        <img id="PopoverFocus"  draggable = 'false' className='locationIcon' style ={iconStyle} src={MedicalImg}/>
+                                        <p style={iconText} className="iconText">Medical</p>
+                                    </MDBBtn>
+                                    <div>
+                                        <MDBPopoverHeader>Medical</MDBPopoverHeader>
+                                        <MDBPopoverBody>
+                                        {MedicalInfo}
+                                        </MDBPopoverBody>
+                                    </div>
+                                    </MDBPopover>
 
-                    </div>
-                            </MDBContainer>
-                        </Col>     
-                        <Col>
-                            <MDBContainer>
-                    <div style={{}} className="">
-                                <MDBPopover
-                                placement="top"
-                                popover
-                                clickable
-                                id="popper1"
-                                >
-                                <MDBBtn>    
-                                    <img id="PopoverFocus"  draggable = 'false' className='locationIcon' style ={iconStyle} src={GroceryImg}/>
-                                    <p style={iconText}>Grocery</p>
-                                </MDBBtn>
-                                <div>
-                                    <MDBPopoverHeader>Grocery</MDBPopoverHeader>
-                                    <MDBPopoverBody>
-                                    {GroceryInfo}
-                                    </MDBPopoverBody>
-                                </div>
-                                </MDBPopover>
+                                
 
+                        </div>
+                                
+                            </Col>  
+                        </Row>  
+                        <Row>       
+                            <Col>
                             
+                        <div style={{ }} className="">
+                                    <MDBPopover
+                                    placement="top"
+                                    popover
+                                    clickable
+                                    id="popper1"
+                                    >
+                                    <MDBBtn>    
+                                        <img id="PopoverFocus"  draggable = 'false' className='locationIcon' style ={iconStyle} src={OfficeImg}/>
+                                        <p style={iconText} className="iconText">Office</p>
+                                    </MDBBtn>
+                                    <div>
+                                        <MDBPopoverHeader>Office</MDBPopoverHeader>
+                                        <MDBPopoverBody>
+                                        {OfficeInfo}
+                                        </MDBPopoverBody>
+                                    </div>
+                                    </MDBPopover>
 
-                    </div>
-                            </MDBContainer>
-                            </Col> 
-                        <Col>                
-                            <MDBContainer>
-                    <div style={{ }} className="">
-                                            <MDBPopover
-                                            placement="top"
-                                            popover
-                                            clickable
-                                            id="popper1"
-                                            >
-                                            <MDBBtn>    
-                                                <img id="PopoverFocus"  draggable = 'false' className='locationIcon' style ={iconStyle} src={ServicesImg}/>
-                                                <p style={iconText}>Services</p>
-                                            </MDBBtn>
-                                            <div>
-                                                <MDBPopoverHeader>Services</MDBPopoverHeader>
-                                                <MDBPopoverBody>
-                                            {ServicesInfo}
-                                                </MDBPopoverBody>
-                                            </div>
-                                            </MDBPopover>
-                                </div>
-                            </MDBContainer>
-                        </Col>
-                    </Row>      
-                    </Container>
+                                
+
+                        </div>
+                                
+                            </Col>     
+                            <Col>
+                            
+                        <div style={{}} className="">
+                                    <MDBPopover
+                                    placement="top"
+                                    popover
+                                    clickable
+                                    id="popper1"
+                                    >
+                                    <MDBBtn>    
+                                        <img id="PopoverFocus"  draggable = 'false' className='locationIcon' style ={iconStyle} src={GroceryImg}/>
+                                        <p style={iconText} className="iconText">Grocery</p>
+                                    </MDBBtn>
+                                    <div>
+                                        <MDBPopoverHeader>Grocery</MDBPopoverHeader>
+                                        <MDBPopoverBody>
+                                        {GroceryInfo}
+                                        </MDBPopoverBody>
+                                    </div>
+                                    </MDBPopover>
+
+                                
+
+                        </div>
+                                
+                                </Col> 
+                            <Col>                
+                            
+                        <div style={{ }} className="">
+                                                <MDBPopover
+                                                placement="top"
+                                                popover
+                                                clickable
+                                                id="popper1"
+                                                >
+                                                <MDBBtn>    
+                                                    <img id="PopoverFocus"  draggable = 'false' className='locationIcon' style ={iconStyle} src={ServicesImg}/>
+                                                    <p style={iconText} className="iconText">Services</p>
+                                                </MDBBtn>
+                                                <div>
+                                                    <MDBPopoverHeader>Services</MDBPopoverHeader>
+                                                    <MDBPopoverBody>
+                                                {ServicesInfo}
+                                                    </MDBPopoverBody>
+                                                </div>
+                                                </MDBPopover>
+                                    </div>
+                                
+                            </Col>
+                        </Row>      
+               
                 </div>
                 {/* <hr style={{ marginLeft: '15%', marginRight: '15%' }} /> */}
             </div>
-        );
+   
+
+            );
     }
 }
 

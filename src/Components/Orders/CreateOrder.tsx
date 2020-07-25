@@ -401,7 +401,7 @@ let output = month + '/' + day + '/' + year;
                   
                     <MDBContainer className="mt-5" id= "choices">
                       <div>
-                          <label style={labelStyles} id="labelName" htmlFor="full-name">['Sanitization']</label>
+                          <label style={labelStyles} id="labelName" htmlFor="full-name">Sanitization</label>
                           <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                               <div className="custom-control custom-radio" style={{ marginRight: '10px' }}>
                               <input onClick={() => setServiceReq({Office: {...serviceReq.Office, ['Sanitization']: 'true'}})} type="radio" className="custom-control-input" id="defaultGroupExample9a" name="groupOfDefaultRadios" value={serviceInput1} onChange={(e) => setServiceInput1(e.target.value)}/>

@@ -22,10 +22,10 @@ type HomeProps = {
 class Home extends React.Component <HomeProps, unknown> {
     render() {
         return (
-            <div style={{height:"auto", backgroundImage: `url(${HomeBackground})`, backgroundRepeat: '', backgroundPosition: 'center', backgroundSize: 'cover'}}>
+            <div style={{height:"auto", backgroundImage: `url(${HomeBackground})`, backgroundRepeat: '', backgroundPosition: 'center', backgroundSize: 'cover',  paddingBottom:'3%'}}>
                 {/* <h3  style={{fontSize:'1.9rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px #024160', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>About</h3> */}
                 <div style={{ display: 'flex', flexDirection:'row', justifyContent:'center', paddingBottom:'3%',paddingTop:'3%'}} >
-                    <div style={{display:'flex',flexDirection: 'column',width:'70%',    background: 'rgba(26, 35, 64, 0.5)', borderRadius:'20px'}}>
+                    <div className="transparentContainer" style={{display:'flex',flexDirection: 'column',width:'70%',    background: 'rgba(26, 35, 64, 0.5)', borderRadius:'20px'}}>
              
                         <div className="welcomeText" style={{padding:'2%', textAlign:'center'}}>
                         {/* <div className="welcomeText" style={{backgroundColor:'white', opacity: '0.75',  filter:'drop-shadow(2px 2px 2px black', borderRadius:'10px', padding:'2%', textAlign:'center'}}> */}
@@ -33,18 +33,18 @@ class Home extends React.Component <HomeProps, unknown> {
                             <Container>
 
                             <Col className="welcomeText">
-                            <img src={LogoIcon} style={{width: '10vh', marginBottom: '1rem', marginTop: '4%',  filter:'drop-shadow(2px 2px 1px black)'}}></img>
+                            <img className="logoIcon" src={LogoIcon} style={{width: '10vh', marginBottom: '1rem', marginTop: '4%',  filter:'drop-shadow(2px 2px 1px black)'}}></img>
                             {this.props.signedIn ? 
-                            <h4 style={{fontSize:'1.9rem', textShadow:'2px 2px 1px black', color:'#E8C10D', userSelect:'none' }}>
+                            <h4 className="headerText"  style={{fontSize:'1.9rem', textShadow:'2px 2px 1px black', color:'#E8C10D', userSelect:'none' }}>
                                 Welcome&nbsp;{localStorage.getItem('firstname')}!</h4>
-                            :    <h4 style={{fontSize:'1.9rem', textShadow:'2px 2px 1px black', color:'#E8C10D', userSelect:'none' }}>
+                            :    <h4 className="headerText"  style={{fontSize:'1.9rem', textShadow:'2px 2px 1px black', color:'#E8C10D', userSelect:'none' }}>
                             Welcome!</h4> }
                             <p className='welcomeText' style={{ fontSize: '1.1rem', textShadow:'2px 2px 1px black', lineHeight:'3rem', color: 'white'}}>
                                 In simplest terms, Premier Commercial Services provides a refreshingly reliable and unique approach to providing basic facilities management resources. Our foundational services are janitorial/cleaning, light maintenance and grounds keeping.
                         Our approach to customer accountability and collaboration are causing businesses to leave their traditional facilities support services and switch to Premier. In exchange, they partner with a professional and reliable resource that eliminates the headaches often related to this type of service.</p>
-                    <p style={{ marginLeft:'10%', marginRight:'10%',fontSize: '1.2rem', textShadow:'2px 2px 1px black', lineHeight:'1rem', color: 'white'}}>
+                    <p className='ownerText' style={{ marginLeft:'10%', marginRight:'10%',fontSize: '1.2rem', textShadow:'2px 2px 1px black', lineHeight:'1rem', color: 'white'}}>
                         -Michael Rootes</p>
-                    <p style={{ marginLeft:'10%', marginRight:'10%',fontSize: '0.9rem', textShadow:'2px 2px 1px black', lineHeight:'1rem', color: 'white'}}>
+                    <p className='ownerText' style={{ marginLeft:'10%', marginRight:'10%',fontSize: '0.9rem', textShadow:'2px 2px 1px black', lineHeight:'1rem', color: 'white'}}>
                         Owner at Premier Commercial Services LLC</p>
                     </Col>
                     </Container>
