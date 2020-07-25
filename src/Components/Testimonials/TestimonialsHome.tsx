@@ -11,6 +11,7 @@ import {
   CarouselControl,
   CarouselIndicators,
 } from 'reactstrap';
+import TestimonialHomeBcg from '../../assets/testimonial-bcg.jpg'
 
 const TestimonialsHome: React.FunctionComponent = (props) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -58,22 +59,22 @@ useEffect (() => {
           userSelect:'none',
           marginBottom:'.5rem',
           width:'auto',
-          filter: 'drop-shadow(1px 1px 1px black)',
+          filter: 'drop-shadow(2px 2px 2px navy)',
           marginLeft:'20%',
           marginRight:'20%'}}>
 
 
 
-          <h3 style={{fontSize:'1.4rem', textShadow:'.1px .1px .1px grey', color:'white', userSelect:'none'}}>{ `"` + `${item.userQuote}` + `"`}</h3>
+          <h3 style={{fontSize:'1.4rem', textShadow:'1px 1px 1px black', color:'white', userSelect:'none'}}>{ `"` + `${item.userQuote}` + `"`}</h3>
           <div style={{transform: 'scale(2)'}}>
           <Rater  total={5} rating={item.userRating} interactive={false}  />
           </div>
         </div>
         <div>
             <h4 style= {{fontSize: '1.1rem', color:'#177BBD',  userSelect:'none'}}>{"- " + `${item.userFirstName}` + " " + `${item.userLastName}`}</h4>
-            <h5 style={{fontSize:'.8rem', color:'grey', userSelect:'none'}}>{item.userLocationType}</h5>
-            <h5 style={{fontSize:'.8rem', color:'grey', userSelect:'none'}}>{item.userLocation}</h5>
-            <p style={{fontSize:'.7rem', color:'grey', userSelect:'none'}}>{item.serviceCompletionDate}</p>
+            <h5 style={{fontSize:'.8rem', color:'#177BBD', userSelect:'none'}}>{item.userLocationType}</h5>
+            <h5 style={{fontSize:'.8rem', color:'#177BBD', userSelect:'none'}}>{item.userLocation}</h5>
+            <p style={{fontSize:'.7rem', color:'#177BBD', userSelect:'none'}}>{item.serviceCompletionDate}</p>
         </div>
         
     
@@ -99,8 +100,8 @@ useEffect (() => {
 
 
   return (
-    <div style={{width:'auto', backgroundColor:'white'}}>
-        <h3 style={{fontSize:'1.9rem',paddingTop:'1%', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>Testimonials</h3>
+    <div style={{height:"auto", backgroundImage: `url(${TestimonialHomeBcg})`, backgroundPosition: 'center', backgroundSize: 'cover', marginBottom: '-1%'}}>
+        <h3 style={{fontSize:'2.2rem',paddingTop:'1%', color:'white', userSelect:'none', backgroundColor: 'transparent', textShadow: '2px 2px 2px black'}}>Testimonials</h3>
         <Carousel
           activeIndex={activeIndex}
           next={next} 
@@ -108,7 +109,6 @@ useEffect (() => {
           >
           {slides}
           <div style={{marginTop:'1%', backgroundColor:'#009FE4'}}>
-          {/* <CarouselIndicators items={testimonialData} activeIndex={activeIndex} onClickHandler={goToIndex} /> */}
           </div>
           <div>
             <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />

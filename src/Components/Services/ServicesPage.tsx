@@ -15,7 +15,7 @@ import MedicalIcon from '../../assets/locationIcons/medical2yellow.svg'
 import GroceryIcon from '../../assets/locationIcons/groceryyellow.svg'
 import FacilitiesIcon from '../../assets/locationIcons/servicesyellow.svg'
 
-import ServiceLogo from '../../assets/logoLayer2.png'
+import ServiceLogo from '../../assets/spray-bottle.svg'
 
 type MyState = {
     collapseID: string,
@@ -61,12 +61,12 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
         return (
             <div>
            
-                    <img src={ServiceLogo} style={{marginTop: '5vh',width: '10%',filter:'drop-shadow(.1rem .1rem .1rem #024160)'}}></img>
+                    <img src={ServiceLogo} style={{marginTop: '7%',width: '10%',filter:'drop-shadow(.1rem .1rem .1rem #024160)'}}></img>
         
 
 
                 <div>
-                    <h3 style={{fontSize:'1.9rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px #024160', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '.5vh', borderBottom: 'solid 1px white', backgroundColor: 'white'}}> Welcome To Our Services </h3>
+                    <h3 style={{fontSize:'2.2rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px black', color:'#177BBD', userSelect:'none', marginBottom: '1%', paddingBottom: '.5vh', borderBottom: 'solid 1px white', backgroundColor: 'white'}}> Welcome To Our Services </h3>
                     
                     
                     <p style={{    textShadow: 'black .2px .2px 1px', marginLeft: '25%', marginRight: '25%'}}> 

@@ -25,7 +25,7 @@ class Home extends React.Component <HomeProps, unknown> {
             <div style={{height:"auto", backgroundImage: `url(${HomeBackground})`, backgroundRepeat: '', backgroundPosition: 'center', backgroundSize: 'cover'}}>
                 {/* <h3  style={{fontSize:'1.9rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px #024160', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>About</h3> */}
                 <div style={{ display: 'flex', flexDirection:'row', justifyContent:'center', paddingBottom:'3%',paddingTop:'3%'}} >
-                    <div style={{display:'flex',flexDirection: 'column',width:'70%',}}>
+                    <div style={{display:'flex',flexDirection: 'column',width:'70%',    background: 'rgba(26, 35, 64, 0.5)', borderRadius:'20px'}}>
              
                         <div className="welcomeText" style={{padding:'2%', textAlign:'center'}}>
                         {/* <div className="welcomeText" style={{backgroundColor:'white', opacity: '0.75',  filter:'drop-shadow(2px 2px 2px black', borderRadius:'10px', padding:'2%', textAlign:'center'}}> */}
@@ -33,7 +33,7 @@ class Home extends React.Component <HomeProps, unknown> {
                             <Container>
 
                             <Col className="welcomeText">
-                            <img src={LogoIcon} style={{width: '10vh', marginBottom: '1rem',  filter:'drop-shadow(2px 2px 1px black)'}}></img>
+                            <img src={LogoIcon} style={{width: '10vh', marginBottom: '1rem', marginTop: '4%',  filter:'drop-shadow(2px 2px 1px black)'}}></img>
                             {this.props.signedIn ? 
                             <h4 style={{fontSize:'1.9rem', textShadow:'2px 2px 1px black', color:'#E8C10D', userSelect:'none' }}>
                                 Welcome&nbsp;{localStorage.getItem('firstname')}!</h4>
@@ -62,10 +62,10 @@ class Home extends React.Component <HomeProps, unknown> {
 
 
 
-                <div style={{borderBottom:'solid 1px white'}}>
+                <div>
                     <ServicesHome/>
                 </div>
-                <div style={{borderBottom:'solid 1px white', backgroundColor: '#f9f9f9'}}>
+                <div >
                     <TestimonialsHome/>
                 </div>
 
