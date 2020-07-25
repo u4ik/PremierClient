@@ -80,3 +80,7 @@
     color: '#009FE4';
     text-shadow: '.4px .4px 1px black'
 }
+
+.img-fluid {
+    background-color: transparent !important;
+}
