@@ -31,16 +31,17 @@ const App: React.FunctionComponent = () => {
       <Router>
         <Sitebar currentUserId={currentUserId} setCurrentUserId={setCurrentUserId} signedIn={signedIn} setSignedIn={setSignedIn} isAdmin={isAdmin} setIsAdmin={setIsAdmin} setEnableTestCreate={setEnableTestCreate}  enableTestCreate={enableTestCreate} updateToken = {updateToken} setUpdateToken={setUpdateToken}  />
 
-    <div style={{ minHeight: '100vh', backgroundColor: 'white'}}>
-      <Switch>
-          <Route path="/" exact render={(props) => ( <Home signedIn={signedIn}/>)}/>
-          <Route path ="/orders" exact render={(props) => (< Orders isAdmin ={isAdmin}  signedIn={signedIn} setSignedIn={setSignedIn} updateToken = {updateToken}/>)} />
-          <Route path ="/testimonials" exact render={(props) => (<TestimonialsPage isAdmin={isAdmin} enableTestCreate={enableTestCreate} updateToken={updateToken}/>)}/>
-          <Route path ="/services" exact render={(props) => ( <ServicesPage signedIn={signedIn}/>)}/>
-          <Route path ="/users" exact render={(props) => (<Users updateToken={updateToken} isAdmin={isAdmin} signedIn={signedIn}/>)}/>
-      </Switch>
-    </div>
-      <Footer />
+        <div style={{ minHeight: '100vh', backgroundColor: 'white'}}>
+          <Switch>
+              <Route path="/" exact render={(props) => ( <Home signedIn={signedIn}/>)}/>
+              <Route path ="/orders" exact render={(props) => (< Orders isAdmin ={isAdmin}  signedIn={signedIn} setSignedIn={setSignedIn} updateToken = {updateToken}/>)} />
+              <Route path ="/testimonials" exact render={(props) => (<TestimonialsPage isAdmin={isAdmin} enableTestCreate={enableTestCreate} updateToken={updateToken}/>)}/>
+              <Route path ="/services" exact render={(props) => ( <ServicesPage signedIn={signedIn}/>)}/>
+              <Route path ="/users" exact render={(props) => (<Users updateToken={updateToken} isAdmin={isAdmin} signedIn={signedIn}/>)}/>
+          </Switch>
+          <Footer />
+        </div>
+    
     </Router>  
    
     </div>
