@@ -169,6 +169,30 @@
 }
 
 
+/* Iphone X Portrait */
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (orientation: portrait) {
+    .container {
+        font-size: .5rem;
+    }
+    .dataTables_scrollHeadInner {
+        padding-right: 0px !important;
+    }
+    .dataTable_scrollBody {
+        margin-right: 0px !important
+    }
+}
+
+@media only screen and (min-device-width: 375px) and (orientation: portrait) {
+    .container {
+        font-size: .5rem;
+    }
+    .dataTables_scrollHeadInner {
+        padding-right: 0px !important;
+    }
+}
+
+
 /* iPhone 5/SE PORTRAIT */
 
 @media screen and (max-width: 330px) {

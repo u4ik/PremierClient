@@ -76,6 +76,7 @@ const createButton={
       let token = localStorage.getItem('token')
       const reqBody = { 
            isComplete: e.target.value
+
       }
     
       fetch('http://localhost:3000/orders/edit/' + orderId, {
@@ -87,7 +88,7 @@ const createButton={
           body: JSON.stringify(reqBody)
       }).then(res => res.json())
       .then(response => {
-       console.log(response)
+       console.log(response.data)
          fetchOrders();
          
       })
@@ -139,13 +140,13 @@ const createButton={
             label: 'Service Requested',
             field: "serviceReq",
             sort: 'asc',
-            width: 450
+            width: 430
           },
           {
             label: 'Requested Date',
             field: 'reqDateTime',
             sort: 'asc',
-            width: 120
+            width: 130
           },
           {
             label: 'Complete',

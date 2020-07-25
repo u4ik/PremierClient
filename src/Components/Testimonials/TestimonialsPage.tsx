@@ -67,7 +67,8 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
     border: 'solid 2px white'
   }
   const cardNameStyle={
-    fontSize:'1rem'
+    fontSize:'1rem',
+    marginTop:'5%'
   }
   const cardQuoteStyle={
     fontSize:'.8rem',
@@ -166,7 +167,7 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
             <Rater  total={5} rating={item.userRating} interactive={false}  />
             </div>
             <MDBCardTitle style={cardNameStyle}>{``+`${item.userFirstName}` + " " + `${item.userLastName}`}</MDBCardTitle>
-            <div style={{overflowY:'auto', height: 'auto', minHeight:'4rem', maxHeight:'4rem'}}>
+            <div style={{overflowY:'auto', height: 'auto', minHeight:'2.5rem', maxHeight:'4rem'}}>
               <MDBCardText style={cardQuoteStyle}>
               {`"` + item.userQuote + `"`}
               </MDBCardText>

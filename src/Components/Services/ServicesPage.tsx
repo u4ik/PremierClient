@@ -18,10 +18,17 @@ import FacilitiesIcon from '../../assets/locationIcons/servicesyellow.svg'
 import ServiceLogo from '../../assets/logoLayer2.png'
 
 type MyState = {
-    collapseID: string
+    collapseID: string,
+ 
+  
 }
 
-class ServicesPage extends React.Component <unknown, MyState> {
+
+type ServiceProps = {
+    signedIn: any
+}
+
+class ServicesPage extends React.Component <ServiceProps, MyState> {
 
     state: MyState = {
         collapseID: ""
@@ -60,7 +67,16 @@ class ServicesPage extends React.Component <unknown, MyState> {
 
                 <div>
                     <h3 style={{fontSize:'1.9rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px #024160', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '.5vh', borderBottom: 'solid 1px white', backgroundColor: 'white'}}> Welcome To Our Services </h3>
-                    <p style={{ marginLeft: '25%', marginRight: '25%'}}> some placeholder texts here some placeholder texts here some placeholder texts here some placeholder texts here some placeholder texts here</p>
+                    
+                    
+                    <p style={{    textShadow: 'black .2px .2px 1px', marginLeft: '25%', marginRight: '25%'}}> 
+                    Feel free to browse through the services that we provide based on the location type.
+                    Below each category you can find the specific services that we offer, along with the rates.
+                    </p>
+
+                    {this.props.signedIn ?
+                        <p style={{    textShadow: 'black .2px .2px 1px', marginLeft: '25%', marginRight: '25%'}}>Then you may head over to 'My Orders' to create an order!</p>
+                    :null}
                 </div>
                 <div>
                     <div >
