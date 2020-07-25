@@ -72,10 +72,11 @@ const createButton={
     }
 
 
-    const updateOrder = (e:any) => {
+    const updateOrder = (e:any, userId:number) => {
       let token = localStorage.getItem('token')
       const reqBody = { 
-           isComplete: e.target.value
+           isComplete: e.target.value,
+           userId: userId
 
       }
     
@@ -94,10 +95,10 @@ const createButton={
       })
   }
 
-    const handleChange = (e:any) => {
+    const handleChange = (e:any, userId:number) => {
       // setServiceComplete(e.target.value);
       // console.log(e.target.value)
-      updateOrder(e);
+      updateOrder(e, userId);
       fetchOrders();
   }
   
@@ -176,7 +177,7 @@ const createButton={
             setOrderId(order.id);
        
              }} onChange={(e) => {
-              handleChange(e);
+              handleChange(e, order.userId);
                  }}>
                  <option value={order.isComplete === 'Yes'  ? 'Yes' : 'No'}>{order.isComplete === 'Yes' ? 'Yes' : 'No'} </option>
                  <option value={order.isComplete === 'Yes'  ? 'No' : 'Yes'}>{order.isComplete === 'Yes' ? 'No' : 'Yes'}</option>

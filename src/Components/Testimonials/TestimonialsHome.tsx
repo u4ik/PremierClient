@@ -65,7 +65,7 @@ useEffect (() => {
 
 
 
-          <h3 style={{fontSize:'1.4rem', textShadow:'.1px .1px .1px grey', color:'white', userSelect:'none'}}>{ `"` + `${item.userQuote}` + `"`}</h3>
+          <h3 style={{fontSize:'1.4rem', textShadow:'1px 1px 1px black', color:'white', userSelect:'none'}}>{ `"` + `${item.userQuote}` + `"`}</h3>
           <div style={{transform: 'scale(2)'}}>
           <Rater  total={5} rating={item.userRating} interactive={false}  />
           </div>
