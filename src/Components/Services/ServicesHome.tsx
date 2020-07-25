@@ -39,8 +39,7 @@ class ServicesHome extends React.Component {
     render() {
         return (
             <div style={{backgroundColor:'', height: 'auto'}}>
-                <h3 style={{fontSize:'1.9rem', paddingTop:'1%', color:'white', userSelect:'none',paddingLeft:'1%', paddingRight:'1%', marginLeft:'25%' , marginRight:'25%', borderRadius:'25px' ,marginBottom: '1%', paddingBottom: '1%', backgroundColor: 'transparent', filter:'drop-shadow(2px 2px 1px black)'}}>Service Locations</h3>
-                {/* <hr style={{ marginLeft: '15%', marginRight: '15%' }} /> */}
+                <h3 style={{fontSize:'2.2rem', paddingTop:'1%', color:'white', userSelect:'none',paddingLeft:'1%', paddingRight:'1%', marginLeft:'25%' , marginRight:'25%', borderRadius:'25px' ,marginBottom: '1%', paddingBottom: '1%', backgroundColor: 'transparent', textShadow: '2px 2px 2px black'}}>Service Locations</h3>
                 <div style={{display:'flex',  flexDirection:'row'}}>
                     <Container style={{display:'flex',  flexDirection:'column'}}>
                      <Row>

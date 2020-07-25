@@ -33,7 +33,7 @@ class Home extends React.Component <HomeProps, unknown> {
                             <Container>
 
                             <Col className="welcomeText">
-                            <img src={LogoIcon} style={{width: '10vh', marginBottom: '1rem',  filter:'drop-shadow(2px 2px 1px black)'}}></img>
+                            <img src={LogoIcon} style={{width: '10vh', marginBottom: '1rem', marginTop: '4%',  filter:'drop-shadow(2px 2px 1px black)'}}></img>
                             {this.props.signedIn ? 
                             <h4 style={{fontSize:'1.9rem', textShadow:'2px 2px 1px black', color:'#E8C10D', userSelect:'none' }}>
                                 Welcome&nbsp;{localStorage.getItem('firstname')}!</h4>
@@ -62,10 +62,10 @@ class Home extends React.Component <HomeProps, unknown> {
 
 
 
-                <div style={{borderBottom:'solid 1px white'}}>
+                <div>
                     <ServicesHome/>
                 </div>
-                <div style={{borderBottom:'solid 1px white', backgroundColor: '#f9f9f9'}}>
+                <div >
                     <TestimonialsHome/>
                 </div>
 
