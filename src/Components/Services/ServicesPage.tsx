@@ -245,7 +245,7 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
                                     editImg3: ''
                                 })
                             }}>
-                                <textarea  defaultValue={this.state.servicesText2} style={{fontSize: '1.1rem',  lineHeight:'1.4rem',marginLeft:'20%',marginRight:'20%',marginTop: '1%',textAlign:'center',fontSize:'2.2rem', paddingTop:'3%', color:''}}
+                                <textarea  defaultValue={this.state.servicesText2} style={{fontSize: '1.1rem', marginLeft:'20%',marginRight:'20%',marginTop: '1%',textAlign:'center',fontSize:'2.2rem', paddingTop:'3%', color:''}}
                                 onChange={(e) => {
                                     this.setState({
                                         setServicesText2: e.target.value
