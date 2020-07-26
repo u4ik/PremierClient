@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Rater from 'react-rater'
 import 'react-rater/lib/react-rater.css'
 import { MDBContainer, MDBInput } from "mdbreact";
-import {Button, Modal, ModalHeader, ModalBody, ModalFooter, Dropdown} from 'reactstrap';
+import {Form,Button, Modal, ModalHeader, ModalBody, ModalFooter, Dropdown} from 'reactstrap';
 import Logo from '../../assets/Premier-Commercial-Services-icon.svg';
 import DatePicker from "react-datepicker";
 
@@ -23,6 +23,10 @@ const CreateTest: React.FunctionComponent<createTest> = (props:createTest) => {
     const [testimonialQuote, setTestimonialQuote] = useState<string>();
     const [startDate, setStartDate] = useState(new Date());
     const [rating, setRating] = useState<any>();
+
+    const [showSubmit, setShowSubmit] = useState<boolean>(true);
+
+    const [charCount, setCharCount] = useState<any>();
 
 
     const toggle = () => props.setShowTestCreate(!props.showTestCreate);
@@ -54,6 +58,14 @@ const CreateTest: React.FunctionComponent<createTest> = (props:createTest) => {
         marginTop: '.5rem',
         alignItems: 'center',
         textAlign: 'center'
+    }
+    const warningStyle:React.CSSProperties= {
+        textShadow: '.05rem .05rem .05rem black',
+        color:'red',
+        marginTop: '.5rem',
+        alignItems: 'center',
+        textAlign: 'center',
+        fontWeight: 'bolder'
     }
     const textBoxStyle:React.CSSProperties={
         textAlign: 'center',
@@ -92,6 +104,7 @@ const CreateTest: React.FunctionComponent<createTest> = (props:createTest) => {
     }
     const getRating = (e:any) => {
         setRating(e.rating)
+       
     }
     const dropDownSelect = (e:any) => {
         setLocationType(e)
@@ -111,7 +124,13 @@ const CreateTest: React.FunctionComponent<createTest> = (props:createTest) => {
           <img src = {Logo} style={{width:'20%'}} />
           </ModalHeader>
           <ModalBody style={{backgroundColor: '#009FE4'}}>
-          <form className="fs-frm" id="myForm" name="simple-contact-form" accept-charset="utf-8">
+          <Form onSubmit={(e)=>{
+            writeTestimonial(e);
+                    
+            toggle();
+            
+    
+          }} className="fs-frm" id="myForm" name="simple-contact-form" accept-charset="utf-8">
               <fieldset id="fs-frm-inputs">
                   <div style = {{display: 'flex', flexDirection: 'column', textAlign:'center'}}>
                   <label style={labelStyles} id="labelName" htmlFor="full-name">User Location:</label>
@@ -129,28 +148,56 @@ const CreateTest: React.FunctionComponent<createTest> = (props:createTest) => {
 
                   <label style={labelStyles} htmlFor="email-address">Your Testimonial:</label>
 
-                  <textarea style = {textBoxStyle} rows = {3} cols={50} name="message" id="message" placeholder="Type message here" required= {true} value={testimonialQuote} onChange={(e) => setTestimonialQuote(e.target.value)}></textarea>
+                  <textarea style = {textBoxStyle} rows = {3} cols={50} name="message" id="message" placeholder="Type message here" required value={testimonialQuote} onChange={(e) => {
+                      setCharCount(e.target.value.length)
+                      setTestimonialQuote(e.target.value)
+                      console.log(charCount)
+                      if(e.target.value.length < 141  ) {
+                          setShowSubmit(false)
+                      }
+                      else{
+                          setShowSubmit(true);
+                      }
+                      if(e.target.value.length === 0)  {
+                        setShowSubmit(true)
+                    }
+                    
+                    
+                    }}
+                 
+                      ></textarea>
                 {/* <label style={labelStyles} htmlFor="date">Date of Service:</label>
                 <DatePicker   selected={startDate} onChange={handleChange} className="datePicker"/> */}
-                  
+                {charCount < 1 || undefined ?
+                        null
+                     :
+                     <div>
+                        {charCount > 0 && charCount <= 140  ?
+                        // <p style= {labelStyles}>{`Characters: ${charCount}`}</p>
+                        <p style={labelStyles}>{`Characters Remaining: ${140-charCount}`}</p>
+                        :null}
+                        {charCount > 140  ?
+                        // <p style= {labelStyles}>{`Characters: ${charCount}`}</p>
+                        <p style={warningStyle}>{`Please shorten your message!`}</p>
+                        :null}
+                    </div>}  
+                       
                   <label style={labelStyles} htmlFor="">Rating:</label>
-                  <div style= {{transform: 'scale(2)'}}>
-                  <Rater  total={5} rating={rating}  interactive={true} onRate={getRating}  />
-                  </div>                
+                  <div style= {{transform: 'scale(2)'}} >
+                  <Rater   total={5} rating={rating}  interactive={true} onRate={getRating}  />
+                  </div>  
+                            
                   </div>
+             
               </fieldset>
               
               <div id="sendButton" style={{textAlign:'center', marginTop:'3%'}}> 
-              <Button color="primary" type="submit" id="subm" value="Submit" className="btn btn-primary" onClick = {(e) => {
-                  writeTestimonial(e);
-             
-                  toggle();
-                  
-                  }} >Send</Button>
-              <Button  style={{marginLeft: '10%'}} color="secondary" onClick={toggle}>Cancel</Button>
+              <Button  disabled={showSubmit}  color="primary" type="submit" id="subm" value="Submit" className="btn btn-primary" 
+              >Send</Button>
+              <Button style={{marginLeft: '10%'}} color="secondary" onClick={toggle}>Cancel</Button>
               
               </div>
-          </form>
+          </Form>
         
           </ModalBody>
           <ModalFooter style={modalFooterStyle}>
