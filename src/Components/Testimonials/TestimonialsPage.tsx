@@ -47,7 +47,7 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
   width: "13rem", 
   marginBottom:'10%',
   marginTop:'2%', 
-  height:'435px', 
+  height:'455px', 
   borderRadius:'20px',
   border:'solid 2px white',
   filter: 'drop-shadow(3px 3px 3px black)'
@@ -168,7 +168,7 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
             <Rater  total={5} rating={item.userRating} interactive={false}  />
             </div>
             <MDBCardTitle style={cardNameStyle}>{``+`${item.userFirstName}` + " " + `${item.userLastName}`}</MDBCardTitle>
-            <div style={{overflowY:'auto', height: 'auto', minHeight:'2.5rem', maxHeight:'4rem'}}>
+            <div style={{overflowY:'auto', height: '3.05rem', minHeight:'2.5rem', maxHeight:'4rem'}}>
               <MDBCardText style={cardQuoteStyle}>
               {`"` + item.userQuote + `"`}
               </MDBCardText>
@@ -181,12 +181,12 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
             <img style= {{width: '10%'}}src = {editImg} onClick={(e) => setShowEdit(true)}></img>
             <img style= {{width: '10%', marginLeft: '15%'}}src = {deleteImg} onClick={(e) => setShowDelete(true)}></img>
             </div>
-            : <div style={{paddingBottom:'13%'}}></div>}
+            : null}
                  {props.isAdmin ?
             <div>
             <img style= {{width: '10%', marginLeft: ''}}src = {deleteImg} onClick={(e) => setShowDelete(true)}></img>
             </div>
-            : <div style={{paddingBottom:'13%'}}></div>}
+            : null}
         </MDBCardBody>
    
         </MDBCard>
