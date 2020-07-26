@@ -12,7 +12,9 @@ const footerWrap: React.CSSProperties ={
     flexDirection: 'row',
     justifyContent: 'center',
     color:'white',
-    minHeight:'120px'
+    minHeight:'120px',
+    paddingBottom:' 25px',
+    paddingTop: '25px'
     
 }
 
