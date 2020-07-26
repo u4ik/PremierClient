@@ -32,15 +32,15 @@ const App: React.FunctionComponent = () => {
         <Sitebar currentUserId={currentUserId} setCurrentUserId={setCurrentUserId} signedIn={signedIn} setSignedIn={setSignedIn} isAdmin={isAdmin} setIsAdmin={setIsAdmin} setEnableTestCreate={setEnableTestCreate}  enableTestCreate={enableTestCreate} updateToken = {updateToken} setUpdateToken={setUpdateToken}  />
         <div style={{ minHeight: '88.5vh'}}>
           <Switch>
-              <Route path="/" exact render={(props) => ( <Home signedIn={signedIn}/>)}/>
+              <Route path="/" exact render={(props) => ( <Home isAdmin ={isAdmin} signedIn={signedIn}/>)}/>
               <Route path ="/orders" exact render={(props) => (< Orders isAdmin ={isAdmin}  signedIn={signedIn} setSignedIn={setSignedIn} updateToken = {updateToken}/>)} />
               <Route path ="/testimonials" exact render={(props) => (<TestimonialsPage isAdmin={isAdmin} enableTestCreate={enableTestCreate} updateToken={updateToken}/>)}/>
-              <Route path ="/services" exact render={(props) => ( <ServicesPage signedIn={signedIn}/>)}/>
+              <Route path ="/services" exact render={(props) => ( <ServicesPage isAdmin ={isAdmin} signedIn={signedIn}/>)}/>
               <Route path ="/users" exact render={(props) => (<Users updateToken={updateToken} isAdmin={isAdmin} signedIn={signedIn}/>)}/>
           </Switch>
         </div>
     </Router>  
-    <Footer />
+    <Footer isAdmin = {isAdmin}/>
     </div>
 
    

@@ -175,11 +175,23 @@
     .container {
         font-size: .5rem;
     }
+    .iconText {
+        font-size: .6rem !important
+    }
+    .ownerText {
+        font-size: .8rem !important
+    }
+    .headerText {
+        font-size: 1.2rem !important;
+    }
     .dataTables_scrollHeadInner {
         padding-right: 0px !important;
     }
     .dataTable_scrollBody {
         margin-right: 0px !important
+    }
+    .transparentContainer {
+        margin-top: 5%
     }
 }
 

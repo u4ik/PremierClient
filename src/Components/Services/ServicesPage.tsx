@@ -8,6 +8,7 @@ import Facilities from '../../assets/services/facility.jpg';
 import Groceries from '../../assets/services/grocery.jpg';
 
 
+
 import FoodIcon from '../../assets/locationIcons/restaurantyellow.svg'
 import AthleticIcon from '../../assets/locationIcons/athleticyellow.svg'
 import OfficeIcon from '../../assets/locationIcons/officeyellow.svg'
@@ -17,8 +18,29 @@ import FacilitiesIcon from '../../assets/locationIcons/servicesyellow.svg'
 
 import ServiceLogo from '../../assets/spray-bottle.svg'
 
+import Edit from '../../assets/edit/delete/editwhite.svg'
+import { timers } from 'jquery';
+
 type MyState = {
     collapseID: string,
+
+    siteData:any
+    siteId: any
+    servicesText:string
+    servicesTextTitle:string
+    servicesText2:string
+ 
+ 
+    setServicesText:string
+    setServicesText2: string
+    setServicesTextTitle:string
+
+    editImg : any,
+    editImg2: any,
+    editImg3: any,
+    editText1: boolean
+    editText2: boolean
+    editText3: boolean
  
   
 }
@@ -26,19 +48,97 @@ type MyState = {
 
 type ServiceProps = {
     signedIn: any
+    isAdmin: boolean
 }
 
 class ServicesPage extends React.Component <ServiceProps, MyState> {
 
     state: MyState = {
-        collapseID: ""
+        collapseID: "",
+        siteData: [],
+        siteId: '',
+        servicesTextTitle: '',
+        servicesText2:'',
+        servicesText: '',
+     
+        setServicesText: '',
+        setServicesText2: '',
+        setServicesTextTitle: '',
+        editImg: '',
+        editImg2: '',
+        editImg3: '',
+        editText1: false,
+        editText2: false,
+        editText3: false
       }
+
+
+
+
+
+
+      fetchSite = () => {
+        fetch('http://localhost:3000/site/all',  {
+            method: 'GET',
+            headers: {
+                'Content-Type' : 'application/json',
+            }
+        }).then(res => res.json())
+        .then(site => {
+                this.setState({
+                    siteId: site.SiteInfo[0].id,
+                    servicesText : site.SiteInfo[0].servicesText,
+                    servicesTextTitle: site.SiteInfo[0].servicesTextTitle,
+                    servicesText2: site.SiteInfo[0].servicesText2,
+                    
+
+                    setServicesText : site.SiteInfo[0].servicesText,
+                    setServicesTextTitle: site.SiteInfo[0].servicesTextTitle,
+                    setServicesText2: site.SiteInfo[0].servicesText2,
+                
+                })
+               
+        })
+    }
+
+    updateSite = () => {
+        let token = localStorage.getItem('token')
+        const reqBody = { 
+            servicesText: this.state.setServicesText,
+            servicesTextTitle: this.state.setServicesTextTitle,
+            servicesText2: this.state.setServicesText2
+       
+        }
+        fetch('http://localhost:3000/site/edit/' + this.state.siteId,  {
+            method: 'PUT',
+            headers: {
+                'Content-Type' : 'application/json',
+                'Authorization' : token!
+            },
+            body: JSON.stringify(reqBody)
+        }).then(res => res.json())
+        .then(site => {
+            this.fetchSite();
+            this.setState({
+                editText1: false,
+                editText2: false,
+                editText3: false,
+                editImg: '',
+                editImg2: '',
+                editImg3: ''
+            })
+        })
+    }
       
       toggleCollapse = (collapseID: string) => () => {
         this.setState(prevState => ({
           collapseID: prevState.collapseID !== collapseID ? collapseID : ""
         }));
       }
+
+      componentDidMount = () =>{
+        this.fetchSite();
+    }
 
 
     render() {
@@ -56,6 +156,11 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
             width:'4vh',
             filter: 'drop-shadow(.5px .5px .5px #024160)'
         }
+        const editIcon = {
+            width:'3%',
+            marginTop:'3%',
+            marginBottom:'3%'
+        }
 
 
         return (
@@ -64,20 +169,119 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
                     <img src={ServiceLogo} style={{marginTop: '7%',width: '10%',filter:'drop-shadow(.1rem .1rem .1rem #024160)'}}></img>
         
 
-
+                {this.props.isAdmin ?
                 <div>
-                    <h3 style={{fontSize:'2.2rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px black', color:'#177BBD', userSelect:'none', marginBottom: '1%', paddingBottom: '.5vh', borderBottom: 'solid 1px white', backgroundColor: 'white'}}> Welcome To Our Services </h3>
-                    
-                    
-                    <p style={{    textShadow: 'black .2px .2px 1px', marginLeft: '25%', marginRight: '25%'}}> 
-                    Feel free to browse through the services that we provide based on the location type.
-                    Below each category you can find the specific services that we offer, along with the rates.
-                    </p>
+                    <div style= {{minHeight:'25px'}}onClick ={() => {
+                        this.setState({
+                            editText1: true,
+                            editImg: Edit
+                        })
+
+                    }}>
+                        {this.state.editText1 ?
+                        <div style={{display: 'flex', flexDirection:'column', justifyContent:'center'}} onMouseLeave={() => {
+                            this.setState({
+                                editText1: false,
+                                editImg: ''
+                            })
+                        }}>
+                            <input defaultValue={this.state.servicesTextTitle} style={{marginLeft:'20%',marginRight:'20%',marginTop: '1%',textAlign:'center',fontSize:'2.2rem', paddingTop:'3%', color:''}}
+                            onChange={(e) => {
+                                this.setState({
+                                    setServicesTextTitle: e.target.value
+                                })
+                            }}
+                            ></input>
+                            <div style={{display:'flex', flexDirection:'row', justifyContent:'center'}}>
+                                <img style={editIcon} src={this.state.editImg} onClick={() => this.updateSite()}></img>
+                            </div>
+                        </div>
+
+                        : <h3 style={{fontSize:'2.2rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px black', color:'#177BBD', userSelect:'none', marginBottom: '1%', paddingBottom: '.5vh', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>{this.state.servicesTextTitle} </h3>
+                        }
+                    </div>
+
+                    <div style= {{minHeight:'25px'}}onClick ={() => {
+                        this.setState({
+                            editText2: true,
+                            editImg2: Edit
+                        })
+
+                    }}>
+                        {this.state.editText2 ? 
+                           <div style={{display: 'flex', flexDirection:'column', justifyContent:'center'}} onMouseLeave={() => {
+                            this.setState({
+                                editText2: false,
+                                editImg2: ''
+                            })
+                        }}>
+                            <textarea  defaultValue={this.state.servicesText} style={{fontSize:'1rem',marginLeft:'20%',marginRight:'20%',marginTop: '1%',textAlign:'center',fontSize:'2.2rem', paddingTop:'3%', color:''}}
+                            onChange={(e) => {
+                                this.setState({
+                                    setServicesText: e.target.value
+                                })
+                            }}
+                            ></textarea>
+                            <div style={{display:'flex', flexDirection:'row', justifyContent:'center'}}>
+                                <img style={editIcon} src={this.state.editImg2} onClick={() => this.updateSite()}></img>
+                            </div>
+                        </div>
+                        :<p style={{    textShadow: 'black .2px .2px 1px', marginLeft: '25%', marginRight: '25%'}}> 
+                        {this.state.servicesText}
+                        </p> }
+                    </div>
 
                     {this.props.signedIn ?
-                        <p style={{    textShadow: 'black .2px .2px 1px', marginLeft: '25%', marginRight: '25%'}}>Then you may head over to 'My Orders' to create an order!</p>
+                        <div style= {{minHeight:'25px', marginBottom: '2%'}}onClick ={() => {
+                            this.setState({
+                                editText3: true,
+                                editImg3: Edit
+                            })
+                        }}>
+                            {this.state.editText3 ? 
+                               <div style={{display: 'flex', flexDirection:'column', justifyContent:'center'}} onMouseLeave={() => {
+                                this.setState({
+                                    editText3: false,
+                                    editImg3: ''
+                                })
+                            }}>
+                                <textarea  defaultValue={this.state.servicesText2} style={{fontSize: '1.1rem',  lineHeight:'1.4rem',marginLeft:'20%',marginRight:'20%',marginTop: '1%',textAlign:'center',fontSize:'2.2rem', paddingTop:'3%', color:''}}
+                                onChange={(e) => {
+                                    this.setState({
+                                        setServicesText2: e.target.value
+                                    })
+                                }}
+                                ></textarea>
+                                <div style={{display:'flex', flexDirection:'row', justifyContent:'center'}}>
+                                    <img style={editIcon} src={this.state.editImg3} onClick={() => this.updateSite()}></img>
+                                </div>
+                            </div>
+                            :<p style={{    textShadow: 'black .2px .2px 1px', marginLeft: '25%', marginRight: '25%'}}> 
+                            {this.state.servicesText2}
+                            </p> }
+                        </div>
+    
                     :null}
                 </div>
+
+                : 
+                
+                <div>
+                        <h3 style={{fontSize:'2.2rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px black', color:'#177BBD', userSelect:'none', marginBottom: '1%', paddingBottom: '.5vh', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>{this.state.servicesTextTitle} </h3>
+                        
+                        
+                        <p style={{    textShadow: 'black .2px .2px 1px', marginLeft: '25%', marginRight: '25%'}}> 
+                        {this.state.servicesText}
+                        </p>
+
+                    {this.props.signedIn ?
+                        <p style={{    textShadow: 'black .2px .2px 1px', marginLeft: '25%', marginRight: '25%'}}>{this.state.servicesText2}</p>
+                    :null}
+                </div>
+                }
+
+
+
                 <div>
                     <div >
               

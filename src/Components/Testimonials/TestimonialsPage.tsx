@@ -12,8 +12,8 @@ import MedicalImg from  '../../assets/locationIcons/medical2yellow.svg'
 import OfficeImg from  '../../assets/locationIcons/officeyellow.svg'
 import ServicesImg from  '../../assets/locationIcons/servicesyellow.svg'
 
-import Edit from '../../assets/testimonialPage/edit.svg'
-import Delete from '../../assets/testimonialPage/delete.svg'
+import Edit from '../../assets/edit/delete/edit.svg'
+import Delete from '../../assets/edit/delete/delete.svg'
 
 import CreateTest from "./CreateTestimonial";
 import EditTest from "./EditTestimonial";
@@ -47,7 +47,7 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
   width: "13rem", 
   marginBottom:'10%',
   marginTop:'2%', 
-  height:'fit-content', 
+  height:'435px', 
   borderRadius:'20px',
   border:'solid 2px white',
   filter: 'drop-shadow(3px 3px 3px black)'
@@ -72,10 +72,11 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
   }
   const cardQuoteStyle={
     fontSize:'.8rem',
-    lineHeight: '0.9rem'
+    lineHeight: '1rem'
   }
   const cardLocationStyle={
-    fontSize:'.6rem'
+    fontSize:'.6rem',
+    marginTop:'1rem'
   }
   const serviceCompletionDateStyle={
     fontSize:'.6rem'
