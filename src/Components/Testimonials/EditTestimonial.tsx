@@ -57,11 +57,7 @@ const labelStyles:React.CSSProperties= {
 const EditTestimonial:React.FunctionComponent<Edit>   = (props:Edit) => {
     
     
-        const [testimonialLocation, setTestimonialLocation] = useState<string>();
-        const [locationType, setLocationType] = useState<any>();
-        const [testimonialQuote, setTestimonialQuote] = useState<string>();
-        const [startDate, setStartDate] = useState(new Date());
-        const [rating, setRating] = useState<any>();
+
         const toggle = () => props.setShowEdit(!props.showEdit);
 
         const getRating = (e:any) => {

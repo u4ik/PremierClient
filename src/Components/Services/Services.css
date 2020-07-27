@@ -8,6 +8,10 @@
     }
 }
 
+.collapse.show {
+    padding-bottom: 1px;
+}
+
 .btn-default.btn.Ripple-parent {
     outline: transparent;
     padding: none !important

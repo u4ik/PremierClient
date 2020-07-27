@@ -29,11 +29,9 @@
 .carousel-control-prev-icon {
     filter: drop-shadow(2px 2px 2px black);
     background-image: url('../../assets/arrow-prev.svg') !important
-    
 }
 
 .carousel-control-next-icon {
     filter: drop-shadow(2px 2px 2px black);
     background-image: url('../../assets/arrow-next.svg') !important
 }
-

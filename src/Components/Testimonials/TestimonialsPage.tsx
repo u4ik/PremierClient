@@ -12,12 +12,14 @@ import MedicalImg from  '../../assets/locationIcons/medical2yellow.svg'
 import OfficeImg from  '../../assets/locationIcons/officeyellow.svg'
 import ServicesImg from  '../../assets/locationIcons/servicesyellow.svg'
 
-import Edit from '../../assets/testimonialPage/edit.svg'
-import Delete from '../../assets/testimonialPage/delete.svg'
+import Edit from '../../assets/edit/delete/edit.svg'
+import Delete from '../../assets/edit/delete/delete.svg'
 
 import CreateTest from "./CreateTestimonial";
 import EditTest from "./EditTestimonial";
 import DeleteTest from "./DeleteTestimonial";
+
+import LogoIcon from '../../assets/Premier-Commercial-Services-icon.svg'
 
 interface testProps {
     enableTestCreate: boolean,
@@ -45,7 +47,7 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
   width: "13rem", 
   marginBottom:'10%',
   marginTop:'2%', 
-  height:'fit-content', 
+  height:'455px', 
   borderRadius:'20px',
   border:'solid 2px white',
   filter: 'drop-shadow(3px 3px 3px black)'
@@ -65,14 +67,16 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
     border: 'solid 2px white'
   }
   const cardNameStyle={
-    fontSize:'1rem'
+    fontSize:'1rem',
+    marginTop:'5%'
   }
   const cardQuoteStyle={
     fontSize:'.8rem',
-    lineHeight: '0.9rem'
+    lineHeight: '1rem'
   }
   const cardLocationStyle={
-    fontSize:'.6rem'
+    fontSize:'.6rem',
+    marginTop:'1rem'
   }
   const serviceCompletionDateStyle={
     fontSize:'.6rem'
@@ -113,7 +117,7 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
 
   
     return (
-      <div  className="cardStyle" style={{margin:'2%'}}>
+      <div key={item.id} className="cardStyle" style={{margin:'2%', backgroundColor: 'transparent'}}>
 
         <MDBCard  id="cardStyle2" onMouseEnter={(e:any) => {
           // console.log(item.userId)
@@ -121,10 +125,8 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
           setTestId(item.id)
    
           if(localStorage.getItem('id') === item.userId.toString() || props.isAdmin === true){
-            setDeleteImg(Delete)
-            setEditImg(Edit)
-         
-          // console.log(item)
+           setDeleteImg(Delete)
+           setEditImg(Edit)
            setTestId(item.id)
            setTestLocation(item.userLocation)
            setTestQuote(item.userQuote)
@@ -132,13 +134,11 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
            setTestLocationType(item.userLocationType)
           }
           else{
-       
             setDeleteImg(null)
             setEditImg(null)
           } 
         }} 
         onMouseLeave={(e:any) => {
-
           setDeleteImg(null)
           setEditImg(null)
         }}
@@ -168,7 +168,7 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
             <Rater  total={5} rating={item.userRating} interactive={false}  />
             </div>
             <MDBCardTitle style={cardNameStyle}>{``+`${item.userFirstName}` + " " + `${item.userLastName}`}</MDBCardTitle>
-            <div style={{overflowY:'auto', height: 'auto', minHeight:'4rem', maxHeight:'4rem'}}>
+            <div style={{overflowY:'auto', height: '3.05rem', minHeight:'2.5rem', maxHeight:'4rem'}}>
               <MDBCardText style={cardQuoteStyle}>
               {`"` + item.userQuote + `"`}
               </MDBCardText>
@@ -181,20 +181,22 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
             <img style= {{width: '10%'}}src = {editImg} onClick={(e) => setShowEdit(true)}></img>
             <img style= {{width: '10%', marginLeft: '15%'}}src = {deleteImg} onClick={(e) => setShowDelete(true)}></img>
             </div>
-            : <div style={{paddingBottom:'14%'}}></div>}
+            : null}
                  {props.isAdmin ?
             <div>
             <img style= {{width: '10%', marginLeft: ''}}src = {deleteImg} onClick={(e) => setShowDelete(true)}></img>
             </div>
-            : <div style={{paddingBottom:''}}></div>}
+            : null}
         </MDBCardBody>
    
         </MDBCard>
       </div>
     )});
   return (
-    <div style={{backgroundColor:'#f9f9f9'}}>
-       <h3 style={{fontSize:'1.9rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px #024160', color:'#444343', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>All Testimonials</h3>
+    <div style={{backgroundColor:'white'}}>
+       <img src={LogoIcon} style={{width: '10vh', marginBottom: '.5rem', marginTop:'7%', filter:'drop-shadow(2px 2px 1px black)'}}></img>
+       <h3 style={{fontSize:'2.2rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px black', color:'#177BBD', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>
+         All Testimonials</h3>
         {props.isAdmin === false ?
         <div>
         {props.enableTestCreate === true ? <MDBBtn style={createButton }onClick={(e:any) => {

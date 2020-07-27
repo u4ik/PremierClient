@@ -5,7 +5,7 @@
 }
 
 .dataTable_scrollBody {
-    margin-right: 1%
+    margin-right: 15px
 }
 
 .mt-5.my-5 {
@@ -18,6 +18,19 @@
 
 #choices {
     margin-top: 0rem !important
+}
+
+#loadingImg {
+    animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
 }
 
 

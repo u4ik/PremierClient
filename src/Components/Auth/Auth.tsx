@@ -80,7 +80,8 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
     const [phoneNumber, setPhoneNumber] = useState('');
 
     const [errorMessage, setErrorMessage] = useState('')
-    const [passwordError, setPasswordError] = useState('')
+    const [emailError, setEmailError] = useState('')
+    const [passwordLengthError, setPasswordLengthError] = useState('')
 
     const submit = (e: any) => {
         e.preventDefault();
@@ -105,6 +106,8 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
         }).then(response => response.json())
             .then(userdata =>{
              console.log(userdata)
+             setPasswordLengthError(userdata.PasswordError)
+             setEmailError(userdata.EmailError)
              setErrorMessage(userdata.message)
                 if(userdata.ID && userdata.Status !== undefined){
                     let userFirstName =  userdata.Greeting.replace(`Hello,!♥  Welcome :)`, '')
@@ -127,7 +130,8 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
                         <Form style={{textAlign:'center'}}>
                             <h3 style={{textAlign:'center'}}>{props.signup ? 'Sign Up' : 'Sign In'}</h3>
                           <p style={errorStyle}>{errorMessage}</p>
-                          <p style={errorStyle}>{passwordError}</p>
+                          <p style={errorStyle}>{emailError}</p>
+                          <p style={errorStyle}>{passwordLengthError}</p>
                             <FormGroup>
                                 <Label style={labelStyles} htmlFor="email">Email</Label>
                                 <Input style = {inputStyles} name="email" placeholder="johnsmith@email.com" value={email} onChange={e => setEmail(e.target.value)} required />
@@ -152,7 +156,7 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
                             </FormGroup>
                             <FormGroup>
                                 <Label style={labelStyles} htmlFor="phoneNumber">Phone Number</Label>
-                                <Input style = {inputStyles} type="number" name="phoneNumber" placeholder="5555555555" value={phoneNumber} onChange={e => setPhoneNumber(e.target.value)} required />
+                                <Input style = {inputStyles} type="number" name="phoneNumber" placeholder="555-555-5555" value={phoneNumber} onChange={e => setPhoneNumber(e.target.value)} required />
                             </FormGroup>
                             </div>
                             : null}

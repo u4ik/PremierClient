@@ -7,6 +7,10 @@
     }
 }
 
+.navbar {
+    padding-bottom: 1rem !important
+}
+
 a:link {
     color: red;
 }
