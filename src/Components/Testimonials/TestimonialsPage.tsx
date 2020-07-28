@@ -99,8 +99,8 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
   }
   
   const getTestimonials = () => {
-    const APIURL:string = `${APIURL}/testimonial/all`
-    fetch(APIURL ,{
+    // const APIURL:string = `${APIURL}/testimonial/all`
+    fetch(`${APIURL}/testimonial/all`  ,{
         method: 'GET',
         headers: {
             'Content-Type' : 'application/json'
