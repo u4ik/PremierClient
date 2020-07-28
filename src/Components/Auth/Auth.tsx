@@ -139,7 +139,7 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
                           <p style={errorStyle}>{passwordLengthError}</p>
                             <FormGroup>
                                 <Label style={labelStyles} htmlFor="email">Email</Label>
-                                <Input style = {inputStyles} name="email" placeholder="johnsmith@email.com" value={email} onChange={e => setEmail(e.target.value)} required />
+                                <Input style = {inputStyles} type= "email" name="email" placeholder="johnsmith@email.com" value={email} onChange={e => setEmail(e.target.value)} required />
                             </FormGroup>
                             <FormGroup>
                                 <Label style={labelStyles} htmlFor="password">Password</Label>
