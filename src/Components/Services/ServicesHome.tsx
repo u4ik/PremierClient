@@ -57,7 +57,7 @@ class ServicesHome extends React.Component {
                                     >
                                     <MDBBtn>    
                                         <img id="PopoverFocus"  draggable = 'false' className='locationIcon' style ={iconStyle} src={RestaurantImg}/>
-                                        <p style={iconText} className="iconText">Food</p>
+                                        <p style={iconText} className="iconText">Restaurant</p>
                                     </MDBBtn>
                                     <div>
                                         <MDBPopoverHeader>Restaurants</MDBPopoverHeader>

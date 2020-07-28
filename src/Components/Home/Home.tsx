@@ -51,7 +51,10 @@ type HomeTypes = {
 
 
 class Home extends React.Component <HomeProps, HomeTypes> {
-
+    componentDidMount = () =>{
+        this.fetchSite();
+        
+    }
   
 
         constructor(props: HomeProps) {
@@ -75,10 +78,7 @@ class Home extends React.Component <HomeProps, HomeTypes> {
 
           
       }
-      componentDidMount = () =>{
-        this.fetchSite();
-        
-    }
+  
      fetchSite = () => {
         fetch(`${APIURL}/site/all`,  {
             method: 'GET',
@@ -99,12 +99,7 @@ class Home extends React.Component <HomeProps, HomeTypes> {
                     setWelcomeTextOwnerCompany: site.SiteInfo[0].welcomeTextOwnerCompany,
                 })
             }
-            //    console.log(this.state.siteData)
-            //    console.log(site.SiteInfo)
-            // console.log(site.SiteInfo[0].id)
-            // console.log(site.SiteInfo[0].welcomeText)
-            // console.log(site.SiteInfo[0].welcomeTextOwner)
-            // console.log(site.SiteInfo[0].welcomeTextOwnerCompany)
+
         })
     }
     updateSite = () => {
@@ -244,7 +239,7 @@ class Home extends React.Component <HomeProps, HomeTypes> {
 
 
                          </div>
-                         :<p className='ownerText' style={{ marginLeft:'10%', marginRight:'10%',fontSize: '1.2rem', textShadow:'2px 2px 1px black', lineHeight:'1rem', color: 'white'}}>
+                         :<p className='ownerText' style={{ marginLeft:'10%', marginRight:'10%',fontSize: '1.2rem', textShadow:'2px 2px 1px black', lineHeight:'1rem', color: '#E8C10D'}}>
                             {this.state.welcomeTextOwner}</p>}
                             </div>
                             <div style={{minHeight:'50px'}}  onClick ={()=> {
@@ -316,7 +311,7 @@ class Home extends React.Component <HomeProps, HomeTypes> {
                 </div>
                 <div >
                 <Spring
-                            config={{duration: 600, delay: 1300}} 
+                            config={{duration: 600, delay: 1000}} 
                             native
                             from={{ o: 0 }}
                             to={{ o: 1}} >
