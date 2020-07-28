@@ -8,7 +8,7 @@ import LoadingGif from '../../assets/premier-icon.png'
 
 import LogoIcon from '../../assets/Premier-Commercial-Services-icon.svg'
 
-
+import {Spring, animated} from 'react-spring/renderprops'
 
 
 import APIURL from '../../helpers/environment';
@@ -268,17 +268,53 @@ const createButton={
 
         props.signedIn ? 
         <div style={{backgroundColor:'white', color:'#009FE4' , textShadow:'.4px .4px 1px black'}}>
+              
+              <Spring
+                            config={{duration: 600}} 
+                            native
+                            from={{ o: 0, marginT: '' }}
+                            to={{ o: 1, marginT: ''  }} 
+                            >
+                            {({ o, marginT }) => (
+                            <animated.div style={{
+                                    opacity: o,
+                                    marginTop: marginT
+                                    
+                            }}>
                <img src={LogoIcon} style={{width: '10vh', marginBottom: '.5rem', marginTop:'7%', filter:'drop-shadow(2px 2px 1px black)'}}></img>
-          <h3 style={{fontSize:'2.2rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px black', color:'#177BBD', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>
+               </animated.div>
+                            )}
+                    </Spring>
+         
+                    <Spring
+                            config={{duration: 600, delay: 400}} 
+                            native
+                            from={{ o: 0, marginT: '' }}
+                            to={{ o: 1, marginT: ''  }} 
+                            >
+                            {({ o, marginT }) => (
+                            <animated.div style={{
+                                    opacity: o,
+                                    marginTop: marginT
+                                    
+                            }}>
+                            <h3 style={{fontSize:'2.2rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px black', color:'#177BBD', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>
 
-            {props.isAdmin === false  ? 
-            localStorage.getItem('firstname') + `'s` + " " + "Orders"
-            : 'All Orders'}</h3>
+                              {props.isAdmin === false  ? 
+                              localStorage.getItem('firstname') + `'s` + " " + "Orders"
+                              : 'All Orders'}</h3>
+
+                          </animated.div>
+                            )}
+                            </Spring>
+
           <Container>
-            {props.isAdmin === false ?
+
+
+          {props.isAdmin === false ?
           <div style={{marginTop: '5%'}}>
 
-            {props.signedIn ? 
+          {props.signedIn ? 
             <MDBBtn style={createButton}
             onClick={(e:any) => {
               showThatOrder(e);
@@ -287,9 +323,22 @@ const createButton={
             : <p>What are you doing here...?</p> }
           </div>
           :null
-        }
+          }
           <CreateOrder updateToken={props.updateToken} setShowOrder={setShowOrder} showOrder ={showOrder} fetchOrders={fetchOrders}/>
           
+
+          <Spring
+                          config={{duration: 600, delay:600}} 
+                          native
+                          from={{ o: 0, marginT: '' }}
+                          to={{ o: 1, marginT: ''  }} 
+                          >
+                          {({ o, marginT }) => (
+                          <animated.div style={{
+                                  opacity: o,
+                                  marginTop: marginT
+                                  
+                          }}>
         {props.isAdmin ?
           <MDBDataTable  style={{color: '', textShadow: ''}}
             scrollY
@@ -305,6 +354,12 @@ const createButton={
           bordered
           small
           data={data2} /> }
+
+
+         </animated.div>
+                            )}
+                            </Spring> 
+
           </Container>
 
         </div>

@@ -94,7 +94,6 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
                 passwordhash: password,
                 location: location,
                 phoneNumber: phoneNumber,
-                // isAdmin: 'congratsyoureanadmin',
                 isAdmin: 'uwishuwereanadminha1',
                 serviceComplete: 'No'
         };
@@ -165,9 +164,17 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
                     </ModalBody>
                     <ModalFooter style={modalFooterStyle}>
                         <Button type="button" onClick={() => props.setSignup(!props.signup)}>{props.signup ? 'Have an account? Signin' : 'Need an account? Signup!'}</Button>
+                        { props.signup ?
+                        <Button color="primary" onClick={(e) => {
+                               
+                                submit(e)
+                                props.setSignup(false)
+                            }}>Signup</Button>:
                         <Button color="primary" onClick={(e) => {
                                 // toggle()
-                                submit(e)}}>Submit</Button>{' '}
+                                submit(e)}}>Login</Button>
+                        }
+                    
                     </ModalFooter>
             </Modal>
             </div>

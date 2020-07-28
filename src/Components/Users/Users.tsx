@@ -6,6 +6,8 @@ import LoadingGif from '../../assets/Premier-Commercial-Services-icon.svg'
 import APIURL from '../../helpers/environment';
 import LogoIcon from '../../assets/Premier-Commercial-Services-icon.svg'
 
+import {Spring, animated} from 'react-spring/renderprops'
+
 interface UserProps  {
     updateToken: string
     isAdmin: any
@@ -170,15 +172,61 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
         props.isAdmin ? 
         <div style={{backgroundColor:'white', color:'#009FE4' , textShadow:'.4px .4px 1px black'}}>
             <div style={{textShadow:'.4px .4px 1px black'}}>
+            <Spring
+                            config={{duration: 600}} 
+                            native
+                            from={{ o: 0, }}
+                            to={{ o: 1 }} 
+                            >
+                            {({ o }) => (
+                            <animated.div style={{
+                                    opacity: o,
+                                  
+                                    
+                            }}>
+            
             <img src={LogoIcon} style={{width: '10vh', marginBottom: '.5rem', marginTop:'7%', filter:'drop-shadow(2px 2px 1px black)'}}></img>
+            </animated.div>
+                            )}
+                    </Spring>
+         
+                    <Spring
+                            config={{duration: 600, delay: 400}} 
+                            native
+                            from={{ o: 0, marginT: '' }}
+                            to={{ o: 1, marginT: ''  }} 
+                            >
+                            {({ o, marginT }) => (
+                            <animated.div style={{
+                                    opacity: o,
+                                    marginTop: marginT
+                                    
+                            }}>
             <h3 style={{fontSize:'2.2rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px black', color:'#177BBD', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}} onClick={(e) => getUsers()}>
             All Users</h3>
+
+            </animated.div>
+                            )}
+                    </Spring>
+
             </div>
 
 
             <div className="" style={{ marginLeft: '', marginRight: '' }} >
                 <Container>
                     
+          <Spring
+                          config={{duration: 600, delay:600}} 
+                          native
+                          from={{ o: 0, marginT: '' }}
+                          to={{ o: 1, marginT: ''  }} 
+                          >
+                          {({ o, marginT }) => (
+                          <animated.div style={{
+                                  opacity: o,
+                                  marginTop: marginT
+                                  
+                          }}>
             <MDBDataTable  style={{color: '', textShadow: ''}}
             scrollY
             maxHeight="500px"
@@ -186,7 +234,9 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
             bordered
             small
             data={data} />
-
+            </animated.div>
+            )}
+            </Spring> 
                 </Container>
             </div>
         </div>

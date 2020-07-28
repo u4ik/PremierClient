@@ -15,7 +15,7 @@ import APIURL from '../../helpers/environment';
 
 import {Spring, animated} from 'react-spring/renderprops'
 
-import {useTransition} from 'react-spring'
+
 
 
 
@@ -148,7 +148,7 @@ class Home extends React.Component <HomeProps, HomeTypes> {
                 <div style={{ display: 'flex', flexDirection:'row', justifyContent:'center', paddingBottom:'3%',paddingTop:'5vh'}} >
                     
                 <Spring
-                            config={{duration: 1000}} 
+                            config={{duration: 800}} 
                             native
                             from={{ o: 0, marginT: '-1500px' }}
                             to={{ o: 1, marginT: '0px'  }} 
@@ -160,7 +160,7 @@ class Home extends React.Component <HomeProps, HomeTypes> {
                                     
                             }}>
                     
-                    <div className="transparentContainer" style={{display:'flex',flexDirection: 'column',width:'',    background: 'rgba(26, 35, 64, 0.5)', borderRadius:'20px'}}>
+                    <div className="transparentContainer" style={{display:'flex',flexDirection: 'column',minWidth:'800px',    background: 'rgba(26, 35, 64, 0.5)', borderRadius:'20px'}}>
                         <div className="welcomeText" style={{padding:'2%', textAlign:'center'}} >
 
                        
@@ -190,7 +190,7 @@ class Home extends React.Component <HomeProps, HomeTypes> {
                                         })
                                 }}}
                                 >
-                                <textarea  style={{ width:'100%', fontSize: '1.1rem',  lineHeight:'1.4rem', height:'142px' }} defaultValue={this.state.welcomeText}
+                                <textarea  style={{ width:'100%', fontSize: '1.1rem',  lineHeight:'1.4rem', height:'142px', paddingLeft:'5%', paddingRight:'5%' }} defaultValue={this.state.welcomeText}
                                 onChange={(e) => {
                                     this.setState({
                                         setWelcomeText: e.target.value
@@ -299,7 +299,7 @@ class Home extends React.Component <HomeProps, HomeTypes> {
                 <div>
                     
                 <Spring
-                config={{duration: 1000, delay: 1000}} 
+                config={{duration: 600, delay: 800}} 
                             native
                             from={{ o: 0 }}
                             to={{ o: 1}} >
@@ -316,7 +316,7 @@ class Home extends React.Component <HomeProps, HomeTypes> {
                 </div>
                 <div >
                 <Spring
-                            config={{duration: 1000, delay: 1500}} 
+                            config={{duration: 600, delay: 1300}} 
                             native
                             from={{ o: 0 }}
                             to={{ o: 1}} >

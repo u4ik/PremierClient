@@ -9,6 +9,8 @@ import Groceries from '../../assets/services/grocery.jpg';
 
 import APIURL from '../../helpers/environment';
 
+import {Spring, animated} from 'react-spring/renderprops'
+
 import FoodIcon from '../../assets/locationIcons/restaurantyellow.svg'
 import AthleticIcon from '../../assets/locationIcons/athleticyellow.svg'
 import OfficeIcon from '../../assets/locationIcons/officeyellow.svg'
@@ -169,10 +171,35 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
 
         return (
             <div>
-           
-                    <img src={ServiceLogo} style={{marginTop: '7%',width: '10%',filter:'drop-shadow(.1rem .1rem .1rem #024160)'}}></img>
-        
+                    <Spring
+                            config={{duration:  600}} 
+                            native
+                            from={{ o: 0, marginT: '' }}
+                            to={{ o: 1, marginT: ''  }} 
+                            >
+                            {({ o, marginT }) => (
+                            <animated.div style={{
+                                    opacity: o,
+                                    marginTop: marginT
+                                    
+                            }}>
+                            <img src={ServiceLogo} style={{marginTop: '7%',width: '10%',filter:'drop-shadow(.1rem .1rem .1rem #024160)'}}></img>
+                            </animated.div>
+                            )}
+                    </Spring>
 
+                    <Spring
+                            config={{duration: 600, delay: 400}} 
+                            native
+                            from={{ o: 0, marginT: '' }}
+                            to={{ o: 1, marginT: ''  }} 
+                            >
+                            {({ o, marginT }) => (
+                            <animated.div style={{
+                                    opacity: o,
+                                    marginTop: marginT
+                                    
+                            }}>
                 {this.props.isAdmin ?
                 <div>
                     <div style= {{minHeight:'25px'}}onClick ={() => {
@@ -283,10 +310,25 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
                     :null}
                 </div>
                 }
-
+                </animated.div>
+                            )}
+                </Spring>
 
 
                 <div>
+
+                <Spring
+                            config={{ delay: 800}} 
+                            native
+                            from={{ o: 0, marginT: '' }}
+                            to={{ o: 1, marginT: ''  }} 
+                            >
+                            {({ o, marginT }) => (
+                            <animated.div style={{
+                                    opacity: o,
+                                    marginTop: marginT
+                                    
+                            }}>
                     <div >
               
                         <div style={{ cursor: 'pointer', paddingTop: '2vh',backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}  onClick={this.toggleCollapse("basicCollapse1")}>
@@ -319,7 +361,21 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
                             </MDBContainer>
                         </MDBCollapse>
                     </div>
-
+                            </animated.div>
+                            )}
+                            </Spring>
+                <Spring
+                            config={{ delay: 900}} 
+                            native
+                            from={{ o: 0, marginT: '' }}
+                            to={{ o: 1, marginT: ''  }} 
+                            >
+                            {({ o, marginT }) => (
+                            <animated.div style={{
+                                    opacity: o,
+                                    marginTop: marginT
+                                    
+                            }}>
                     <div>
                         <div style={{ cursor: 'pointer', paddingTop: '2vh',backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}  onClick={this.toggleCollapse("basicCollapse2")}>
                             <img src={AthleticIcon} style={iconStyles}></img>
@@ -351,7 +407,21 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
                             </MDBContainer>
                         </MDBCollapse>
                     </div>
-
+                            </animated.div>
+                            )}
+                            </Spring>
+                <Spring
+                            config={{ delay: 1000}} 
+                            native
+                            from={{ o: 0, marginT: '' }}
+                            to={{ o: 1, marginT: ''  }} 
+                            >
+                            {({ o, marginT }) => (
+                            <animated.div style={{
+                                    opacity: o,
+                                    marginTop: marginT
+                                    
+                            }}>    
                     <div>
                         <div style={{ cursor: 'pointer', paddingTop: '2vh',backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}  onClick={this.toggleCollapse("basicCollapse3")}>
                             <img src={MedicalIcon} style={iconStyles}></img>
@@ -378,7 +448,21 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
                             </MDBContainer>
                         </MDBCollapse>
                     </div>
-
+                </animated.div>
+                            )}
+                </Spring>
+                <Spring
+                            config={{ delay: 1100}} 
+                            native
+                            from={{ o: 0, marginT: '' }}
+                            to={{ o: 1, marginT: ''  }} 
+                            >
+                            {({ o, marginT }) => (
+                            <animated.div style={{
+                                    opacity: o,
+                                    marginTop: marginT
+                                    
+                            }}>
                     <div>
                         <div style={{ cursor: 'pointer', paddingTop: '2vh',backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}  onClick={this.toggleCollapse("basicCollapse4")}>
                             <img src={FacilitiesIcon} style={iconStyles}></img>
@@ -415,7 +499,21 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
                             </MDBContainer>
                         </MDBCollapse>
                     </div>
-
+                    </animated.div>   
+                            )}
+                    </Spring>
+                <Spring
+                            config={{delay: 1200}} 
+                            native
+                            from={{ o: 0, marginT: '' }}
+                            to={{ o: 1, marginT: ''  }} 
+                            >
+                            {({ o, marginT }) => (
+                            <animated.div style={{
+                                    opacity: o,
+                                    marginTop: marginT
+                                    
+                            }}>
                     <div>
                         <div style={{ cursor: 'pointer', paddingTop: '2vh',backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}  onClick={this.toggleCollapse("basicCollapse5")}>
                             <img src={GroceryIcon} style={iconStyles}></img>
@@ -443,7 +541,22 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
                             </MDBContainer>
                         </MDBCollapse>
                     </div>
-
+                            </animated.div>
+                            )}
+                            </Spring>
+                <Spring
+                            config={{ delay: 1300}} 
+                            native
+                            from={{ o: 0, marginT: '' }}
+                            to={{ o: 1, marginT: ''  }} 
+                            >
+                            {({ o, marginT }) => (
+                            <animated.div style={{
+                                    opacity: o,
+                                    marginTop: marginT
+                                    
+                            }}>   
+                   
                     <div>
                         <div style={{ cursor: 'pointer', paddingTop: '2vh',backgroundColor: '#177BBD', borderBottom: 'solid 1px white', borderTop:'solid 1px white'}}  onClick={this.toggleCollapse("basicCollapse6")}>
                             <img src={OfficeIcon} style={iconStyles}></img>
@@ -472,7 +585,9 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
                             </MDBContainer>
                         </MDBCollapse>
                     </div>
-
+                            </animated.div>
+                            )}
+                </Spring>
                </div>
                 
             </div>

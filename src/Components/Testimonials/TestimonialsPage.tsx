@@ -5,7 +5,7 @@ import Rater from 'react-rater'
 import 'react-rater/lib/react-rater.css'
 import './TestimonialsPage.css'
 
-
+import {Spring, animated} from 'react-spring/renderprops'
 import APIURL from '../../helpers/environment';
 
 import RestaurantImg from  '../../assets/locationIcons/restaurantyellow.svg'
@@ -121,7 +121,18 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
   
     return (
       <div key={item.id} className="cardStyle" style={{margin:'2%', backgroundColor: 'transparent'}}>
-
+                  <Spring
+                          config={{duration: 600, delay:600}} 
+                          native
+                          from={{ o: 0, marginT: '' }}
+                          to={{ o: 1, marginT: ''  }} 
+                          >
+                          {({ o, marginT }) => (
+                          <animated.div style={{
+                                  opacity: o,
+                                  marginTop: marginT
+                                  
+                          }}>
         <MDBCard  id="cardStyle2" onMouseEnter={(e:any) => {
           // console.log(item.userId)
           // console.log(localStorage.getItem('id'))
@@ -193,25 +204,96 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
         </MDBCardBody>
    
         </MDBCard>
+                                  </animated.div>
+                                  )}
+                          </Spring>
+      
+      
       </div>
     )});
   return (
     <div style={{backgroundColor:'white'}}>
-       <img src={LogoIcon} style={{width: '10vh', marginBottom: '.5rem', marginTop:'7%', filter:'drop-shadow(2px 2px 1px black)'}}></img>
+       <Spring
+                            config={{duration: 600}} 
+                            native
+                            from={{ o: 0, marginT: '' }}
+                            to={{ o: 1, marginT: ''  }} 
+                            >
+                            {({ o, marginT }) => (
+                            <animated.div style={{
+                                    opacity: o,
+                                    marginTop: marginT
+                                    
+                            }}>
+                           <img src={LogoIcon} style={{width: '10vh', marginBottom: '.5rem', marginTop:'7%', filter:'drop-shadow(2px 2px 1px black)'}}></img>
+                            </animated.div>
+                            )}
+                    </Spring>
+       
+                    <Spring
+                            config={{duration: 600, delay: 400}} 
+                            native
+                            from={{ o: 0, marginT: '' }}
+                            to={{ o: 1, marginT: ''  }} 
+                            >
+                            {({ o, marginT }) => (
+                            <animated.div style={{
+                                    opacity: o,
+                                    marginTop: marginT
+                                    
+                            }}>
        <h3 style={{fontSize:'2.2rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px black', color:'#177BBD', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>
          All Testimonials</h3>
-        {props.isAdmin === false ?
-        <div>
-        {props.enableTestCreate === true ? <MDBBtn style={createButton }onClick={(e:any) => {
-            setShowTestCreate(e);
-        }} >Create a Testimonial!</MDBBtn>
-        :<p style={createButton}>Complete a service with us to leave a testimonial!</p>}
-        </div>
-        : null }
+       
+       </animated.div>
+                            )}
+                            </Spring>
+            <Spring
+                          config={{duration: 600, delay:800}} 
+                          native
+                          from={{ o: 0, marginT: '' }}
+                          to={{ o: 1, marginT: ''  }} 
+                          >
+                          {({ o, marginT }) => (
+                          <animated.div style={{
+                                  opacity: o,
+                                  marginTop: marginT
+                                  
+                          }}>
+         {props.isAdmin === false ?
+          <div>
+
+
+          
+
+
+            {props.enableTestCreate === true ?
+                         
+            
+            <MDBBtn style={createButton }onClick={(e:any) => {
+                setShowTestCreate(e);
+            }} >Create a Testimonial!</MDBBtn>
+    
+            :
+            
+            
+            <p style={createButton}>Complete a service with us to leave a testimonial!</p>}
+            
+            
+            
+            
+          </div>
+          : null }
+          </animated.div>
+          )}
+          </Spring>
          <CreateTest updateToken={props.updateToken} setShowTestCreate ={setShowTestCreate} showTestCreate= {showTestCreate} getTestimonials={getTestimonials} />
          <DeleteTest getTestimonials={getTestimonials} testId = { testId} showDelete={showDelete} setShowDelete={setShowDelete} updateToken={props.updateToken}/>
          <EditTest  getTestimonials={getTestimonials} setTestLocation ={setTestLocation} setTestQuote={setTestQuote} setTestRating={setTestRating} setTestLocationType={setTestLocationType} testLocation ={testLocation} testQuote={testQuote} testRating={testRating} testLocationType={testLocationType} testId = { testId} showEdit={showEdit} setShowEdit={setShowEdit} updateToken={props.updateToken}/>
        <Container style={{display:'flex', flexDirection:'row', justifyContent:'center', flexWrap:'wrap'}}>
+        
+        
+        
         {slides}
         </Container>
       </div>
