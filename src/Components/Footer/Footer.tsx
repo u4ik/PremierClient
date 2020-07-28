@@ -71,7 +71,7 @@ const Footer: React.FunctionComponent<FooterProps> = (props: FooterProps) => {
 
 
     const fetchSite = () => {
-        fetch('http://0/site/all',  {
+        fetch(`${APIURL}/site/all`,  {
             method: 'GET',
             headers: {
                 'Content-Type' : 'application/json',
