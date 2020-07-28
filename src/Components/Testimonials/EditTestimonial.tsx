@@ -5,6 +5,9 @@ import Rater from 'react-rater'
 import 'react-rater/lib/react-rater.css'
 import DatePicker from "react-datepicker";
 
+
+import APIURL from '../../helpers/environment';
+
 interface Edit {
     updateToken:string
     setShowEdit: any
@@ -123,7 +126,7 @@ const EditTestimonial:React.FunctionComponent<Edit>   = (props:Edit) => {
                 serviceCompletionDate: output,
                 userRating: props.testRating
             }
-            fetch('http://localhost:3000/testimonial/edit/' + props.testId,{
+            fetch(`${APIURL}/testimonial/edit/` + props.testId,{
                 method: 'PUT',
                 headers: {
                     'Content-Type' : 'application/json',

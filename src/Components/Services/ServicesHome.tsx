@@ -10,6 +10,8 @@ import ServicesImg from  '../../assets/locationIcons/servicesyellow.svg'
 import {Container,Col, Row} from 'reactstrap'
 import { MDBPopover, MDBPopoverBody, MDBPopoverHeader, MDBBtn, MDBContainer } from "mdbreact";
 
+import APIURL from '../../helpers/environment';
+
 import './Services.css'
 
 

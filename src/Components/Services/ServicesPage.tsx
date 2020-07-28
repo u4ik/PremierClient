@@ -7,7 +7,7 @@ import Food from '../../assets/services/food.jpg';
 import Facilities from '../../assets/services/facility.jpg';
 import Groceries from '../../assets/services/grocery.jpg';
 
-
+import APIURL from '../../helpers/environment';
 
 import FoodIcon from '../../assets/locationIcons/restaurantyellow.svg'
 import AthleticIcon from '../../assets/locationIcons/athleticyellow.svg'

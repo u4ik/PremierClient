@@ -2,6 +2,7 @@ import React from 'react'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import Logo from '../../assets/Premier-Commercial-Services-icon.svg';
 
+import APIURL from '../../helpers/environment';
 
 interface Delete {
     updateToken:string

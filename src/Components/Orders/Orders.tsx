@@ -11,7 +11,7 @@ import LogoIcon from '../../assets/Premier-Commercial-Services-icon.svg'
 
 
 
-
+import APIURL from '../../helpers/environment';
 
 
 
@@ -80,7 +80,7 @@ const createButton={
 
       }
     
-      fetch('http://localhost:3000/orders/edit/' + orderId, {
+      fetch(`${APIURL}/orders/edit/` + orderId, {
           method: 'PUT',
           headers: {
               'Content-Type' : 'application/json',

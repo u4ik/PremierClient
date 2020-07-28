@@ -5,6 +5,9 @@ import './TestimonialsHome.css'
 import Rater from 'react-rater'
 import 'react-rater/lib/react-rater.css'
 
+
+import APIURL from '../../helpers/environment';
+
 import {
   Carousel,
   CarouselItem,

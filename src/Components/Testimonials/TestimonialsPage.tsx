@@ -5,6 +5,9 @@ import Rater from 'react-rater'
 import 'react-rater/lib/react-rater.css'
 import './TestimonialsPage.css'
 
+
+import APIURL from '../../helpers/environment';
+
 import RestaurantImg from  '../../assets/locationIcons/restaurantyellow.svg'
 import AthleticImg from  '../../assets/locationIcons/athleticyellow.svg'
 import GroceryImg from  '../../assets/locationIcons/groceryyellow.svg'
