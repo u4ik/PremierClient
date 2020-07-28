@@ -84,6 +84,8 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
     const [emailError, setEmailError] = useState('')
     const [passwordLengthError, setPasswordLengthError] = useState('')
 
+    const [showSubmit, setShowSubmit] = useState(true); 
+
     const submit = (e: any) => {
         e.preventDefault();
         const url = props.signup ? baseURL + '/create' : baseURL + '/login';
@@ -126,8 +128,11 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
                     
                     <img src = {Logo} style={{width:'20%'}} />
                     </ModalHeader>
-                    <ModalBody style={{backgroundColor: '#009FE4'}}>
-                        <Form style={{textAlign:'center'}}>
+                    <ModalBody style={{backgroundColor: '#009FE4', borderRadius: '0px 0px 20px 20px'}}>
+                        <Form onSubmit={(e) => {
+                                 submit(e)
+                                 props.setSignup(false)
+                        }} style={{textAlign:'center'}}>
                             <h3 style={{textAlign:'center'}}>{props.signup ? 'Sign Up' : 'Sign In'}</h3>
                           <p style={errorStyle}>{errorMessage}</p>
                           <p style={errorStyle}>{emailError}</p>
@@ -138,7 +143,16 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
                             </FormGroup>
                             <FormGroup>
                                 <Label style={labelStyles} htmlFor="password">Password</Label>
-                                <Input style = {inputStyles} type="password" name="password" value={password} onChange={e => setPassword(e.target.value)} required />
+                                <Input style = {inputStyles} type="password" name="password" value={password} onChange={(e) => {
+                                    
+                                    
+                                    setPassword(e.target.value)
+                          
+                                
+                                }} required
+                                    
+                                    
+                                    />
                             </FormGroup>
                             {props.signup ? 
                             <div>
@@ -156,27 +170,37 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
                             </FormGroup>
                             <FormGroup>
                                 <Label style={labelStyles} htmlFor="phoneNumber">Phone Number</Label>
-                                <Input style = {inputStyles} type="number" name="phoneNumber" placeholder="555-555-5555" value={phoneNumber} onChange={e => setPhoneNumber(e.target.value)} required />
+                                <Input style = {inputStyles} type="number" name="phoneNumber" placeholder="555-555-5555" value={phoneNumber} onChange={e => {
+                                    
+                                    
+                              
+                                    
+                                    
+                                    setPhoneNumber(e.target.value)}} required />
                             </FormGroup>
                             </div>
                             : null}
-                            </Form>
-                    </ModalBody>
-                    <ModalFooter style={modalFooterStyle}>
-                        <Button type="button" onClick={() => props.setSignup(!props.signup)}>{props.signup ? 'Have an account? Signin' : 'Need an account? Signup!'}</Button>
+                                             
+                 
+                        <Button  type="button" onClick={() => props.setSignup(!props.signup)}>{props.signup ? 'Have an account? Signin' : 'Need an account? Signup!'}</Button>
                         { props.signup ?
-                        <Button color="primary" onClick={(e) => {
+                        <Button type='submit'   color="primary" onClick={(e) => {
                                
-                                submit(e)
-                                props.setSignup(false)
+                                // submit(e)
+                           
                             }}>Signup</Button>:
-                        <Button color="primary" onClick={(e) => {
+                        <Button type='submit'  color="primary" onClick={(e) => {
                                 // toggle()
-                                submit(e)}}>Login</Button>
+                                // submit(e)
+                            }}>Login</Button>
                         }
                     
-                    </ModalFooter>
+                
+                         
+                    </Form>
+                    </ModalBody>
             </Modal>
+            
             </div>
         );
 }
