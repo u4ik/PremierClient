@@ -17,7 +17,7 @@ const logo: React.CSSProperties ={
 const navbar: React.CSSProperties ={
     background: '#177BBD',
     alignItems: 'center',
-    filter:'drop-shadow(5px 5px 5px #024160)'   
+    filter:'drop-shadow(0px 5px 5px #024160)'   
 }
 // const logoTitleStyle:React.CSSProperties={
 //     fontSize: '2.2rem',

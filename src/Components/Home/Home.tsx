@@ -13,6 +13,10 @@ import Edit from '../../assets/edit/delete/editwhite.svg'
 import './Home.css'
 import APIURL from '../../helpers/environment';
 
+import {Spring, animated} from 'react-spring/renderprops'
+
+import {useTransition} from 'react-spring'
+
 
 
 
@@ -48,6 +52,7 @@ type HomeTypes = {
 
 class Home extends React.Component <HomeProps, HomeTypes> {
 
+  
 
         constructor(props: HomeProps) {
           super(props);
@@ -67,9 +72,12 @@ class Home extends React.Component <HomeProps, HomeTypes> {
               editText2: false,
               editText3: false
           }
+
+          
       }
       componentDidMount = () =>{
         this.fetchSite();
+        
     }
      fetchSite = () => {
         fetch(`${APIURL}/site/all`,  {
@@ -132,13 +140,32 @@ class Home extends React.Component <HomeProps, HomeTypes> {
           marginTop:'3%',
           marginBottom:'3%'
       }
+
+  
         return (
-            <div style={{height:"auto", backgroundImage: `url(${HomeBackground})`, backgroundRepeat: '', backgroundPosition: 'center', backgroundSize: 'cover',  paddingBottom:'3%'}}>
-                <div style={{ display: 'flex', flexDirection:'row', justifyContent:'center', paddingBottom:'3%',paddingTop:'3%'}} >
-                    <div className="transparentContainer" style={{display:'flex',flexDirection: 'column',width:'70%',    background: 'rgba(26, 35, 64, 0.5)', borderRadius:'20px'}}>
+            
+            <div style={{height:"auto", minHeight:'inherit', backgroundImage: `url(${HomeBackground})`, backgroundRepeat: '', backgroundPosition: 'center', backgroundSize: 'cover',  paddingBottom:'3%'}}>
+                <div style={{ display: 'flex', flexDirection:'row', justifyContent:'center', paddingBottom:'3%',paddingTop:'5vh'}} >
+                    
+                <Spring
+                            config={{duration: 1000}} 
+                            native
+                            from={{ o: 0, marginT: '-1500px' }}
+                            to={{ o: 1, marginT: '0px'  }} 
+                            >
+                            {({ o, marginT }) => (
+                            <animated.div style={{
+                                    opacity: o,
+                                    marginTop: marginT
+                                    
+                            }}>
+                    
+                    <div className="transparentContainer" style={{display:'flex',flexDirection: 'column',width:'',    background: 'rgba(26, 35, 64, 0.5)', borderRadius:'20px'}}>
                         <div className="welcomeText" style={{padding:'2%', textAlign:'center'}} >
+
+                       
                             <Container>
-                            <Col className="welcomeText">
+                                <Col className="welcomeText">
                             <img className="logoIcon" src={LogoIcon} style={{width: '10vh', marginBottom: '1rem', marginTop: '4%',  filter:'drop-shadow(2px 2px 1px black)'}}></img>
                             {this.props.signedIn ? 
                             <h4  className="headerText"  style={{fontSize:'1.9rem', textShadow:'2px 2px 1px black', color:'#E8C10D', userSelect:'none' }}>
@@ -260,17 +287,48 @@ class Home extends React.Component <HomeProps, HomeTypes> {
                                 </div>
             
                     </Col>
-                    </Container>
+                            </Container>
+                 
                         </div>
                     </div>
+                    </animated.div>
+                            )}
+                        </Spring>
                 </div>
+           
                 <div>
-                </div>
-                <div>
+                    
+                <Spring
+                config={{duration: 1000, delay: 1000}} 
+                            native
+                            from={{ o: 0 }}
+                            to={{ o: 1}} >
+                            {({ o }) => (
+                      
+                <animated.div style={{
+                                    opacity: o,
+
+                                }}>
                     <ServicesHome/>
+                </animated.div>
+                    )}
+                </Spring>
                 </div>
                 <div >
+                <Spring
+                            config={{duration: 1000, delay: 1500}} 
+                            native
+                            from={{ o: 0 }}
+                            to={{ o: 1}} >
+                            {({ o }) => (
+                      
+                <animated.div style={{
+                                    opacity: o
+                                }}>
                     <TestimonialsHome/>
+                    </animated.div>
+                    )}
+                </Spring>
                 </div>
             </div>
         );

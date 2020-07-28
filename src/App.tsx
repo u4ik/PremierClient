@@ -8,12 +8,16 @@ import TestimonialsPage from './Components/Testimonials/TestimonialsPage'
 import ServicesPage from './Components/Services/ServicesPage'
 import Users  from './Components/Users/Users'
 
+import {useSpring, animated} from 'react-spring'
+
 
 // import {Switch, Route, BrowserRouter} from 'react-router-dom';
 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 const App: React.FunctionComponent = () => {
+
+  const opacityChange = useSpring({opacity: 1, from : {opacity: 0}})
 
   const [updateToken, setUpdateToken] = useState<string>('');
   const [enableTestCreate, setEnableTestCreate] = useState<boolean>(false);
@@ -29,14 +33,23 @@ const App: React.FunctionComponent = () => {
 
       
     <Router>
-        <Sitebar currentUserId={currentUserId} setCurrentUserId={setCurrentUserId} signedIn={signedIn} setSignedIn={setSignedIn} isAdmin={isAdmin} setIsAdmin={setIsAdmin} setEnableTestCreate={setEnableTestCreate}  enableTestCreate={enableTestCreate} updateToken = {updateToken} setUpdateToken={setUpdateToken}  />
+      
+          <Sitebar currentUserId={currentUserId} setCurrentUserId={setCurrentUserId} signedIn={signedIn} setSignedIn={setSignedIn} isAdmin={isAdmin} setIsAdmin={setIsAdmin} setEnableTestCreate={setEnableTestCreate}  enableTestCreate={enableTestCreate} updateToken = {updateToken} setUpdateToken={setUpdateToken}  />
+ 
         <div style={{ minHeight: '88.5vh'}}>
           <Switch>
+        
               <Route path="/" exact render={(props) => ( <Home isAdmin ={isAdmin} signedIn={signedIn}/>)}/>
+              <animated.div style={opacityChange}>
               <Route path ="/orders" exact render={(props) => (< Orders isAdmin ={isAdmin}  signedIn={signedIn} setSignedIn={setSignedIn} updateToken = {updateToken}/>)} />
-              <Route path ="/testimonials" exact render={(props) => (<TestimonialsPage isAdmin={isAdmin} enableTestCreate={enableTestCreate} updateToken={updateToken}/>)}/>
-              <Route path ="/services" exact render={(props) => ( <ServicesPage isAdmin ={isAdmin} signedIn={signedIn}/>)}/>
+           
+                <Route path ="/testimonials" exact render={(props) => (<TestimonialsPage isAdmin={isAdmin} enableTestCreate={enableTestCreate} updateToken={updateToken}/>)}/>
+ 
+         
+                <Route path ="/services" exact render={(props) => ( <ServicesPage isAdmin ={isAdmin} signedIn={signedIn}/>)}/>
+            
               <Route path ="/users" exact render={(props) => (<Users updateToken={updateToken} isAdmin={isAdmin} signedIn={signedIn}/>)}/>
+              </animated.div>
           </Switch>
         </div>
     </Router>  
