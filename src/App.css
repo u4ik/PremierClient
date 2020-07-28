@@ -252,7 +252,8 @@
 }
 
 .react-rater-star.is-active {
-    color: #E8C10D !important
+    color: #E8C10D !important;
+    /* filter: drop-shadow(.6px .6px .5px black) !important; */
 }
 
 .react-rater-star.is-active-half:before {
@@ -271,3 +272,14 @@
 html {
     width: 100%
 }
+
+
+/* 
+
+
+
+/* // Show number picker on focus 
+input[type=number]:focus, 
+input[type=number]:hover { 
+    -moz-appearance:number-input; 
+}  */

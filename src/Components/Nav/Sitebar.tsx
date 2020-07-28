@@ -134,22 +134,42 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                             {/* AUTHFORM COMPONENT/MODAL */}
                                 <AuthForm isAdmin={props.isAdmin} setIsAdmin={props.setIsAdmin} userData={userData} setUserData={setUserData}  setCurrentUserId={props.setCurrentUserId} currentUserId={props.currentUserId} enableTestCreate={props.enableTestCreate}  setEnableTestCreate={props.setEnableTestCreate} updateTheToken={updateTheToken} signedIn = {props.signedIn}  setSignedIn = {props.setSignedIn}  updateToken={props.updateToken} setUpdateToken={props.setUpdateToken}  showAuth={showAuth} setShowAuth={setShowAuth} signup={signup} setSignup={setSignup}/>    
                                 <NavItem >
-                                    <Link  className="nav-links" to ="/">
+                                    <Link  className="nav-links" to ="/"  onClick={(e) => {
+                                        if(collapsed === false){
+                                        setCollapsed(true)
+                                        }
+                                        
+                                    }}>
                                     <NavLink  className="nav-links" >Home</NavLink>
                                     </Link>
                                 </NavItem>
                                 <NavItem>
-                                <Link  className="nav-links" to ="/services">
+                                <Link  className="nav-links" to ="/services"  onClick={(e) => {
+                                        if(collapsed === false){
+                                        setCollapsed(true)
+                                        }
+                                        
+                                    }}>
                                     <NavLink  className="nav-links">Services</NavLink>
                                     </Link>
                                 </NavItem>
                                 <NavItem>
-                                <Link  className="nav-links" to ="/testimonials">
+                                <Link  className="nav-links" to ="/testimonials"  onClick={(e) => {
+                                        if(collapsed === false){
+                                        setCollapsed(true)
+                                        }
+                                        
+                                    }}>
                                     <NavLink  className="nav-links">Testimonials</NavLink>
                                 </Link>
                                 </NavItem>
                                 <NavItem>
-                                <Link  className="nav-links" to ="/contact">
+                                <Link  className="nav-links" to ="/contact"  onClick={(e) => {
+                                        if(collapsed === false){
+                                        setCollapsed(true)
+                                        }
+                                        
+                                    }}>
                                     <NavLink href="/" className="nav-links" onClick={(e:any) => {
                                         showThatContact(e);
                                     }} 
@@ -158,7 +178,12 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                 </NavItem>
                                 {props.signedIn === true && props.isAdmin === false ? 
                                 <NavItem>
-                                    <Link  className="nav-links" to ="/orders">
+                                    <Link  className="nav-links" to ="/orders"  onClick={(e) => {
+                                        if(collapsed === false){
+                                        setCollapsed(true)
+                                        }
+                                        
+                                    }}>
                                     <NavLink  className="nav-links">My Orders</NavLink>
                                 </Link>
                                 </NavItem>
@@ -168,17 +193,34 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                     <NavLink href="/" className="nav-links" onClick={(e: any) => {logOut()}}>Logout</NavLink>
                                 </NavItem>
                                 :    <NavItem>
-                                <NavLink href="/" className="nav-links" onClick={(e: any) => showThatAuth(e)}>Signup/Login</NavLink>
+                                <NavLink href="/" className="nav-links" onClick={(e: any) => {
+                                    
+                                    if(collapsed === false){
+                                        setCollapsed(true)
+                                        }
+                                    
+                                    
+                                    showThatAuth(e)}}>Signup/Login</NavLink>
                                 </NavItem>}
                                 {props.isAdmin === true ? 
                                 <NavItem>
-                                    <Link className="nav-links" to= "/orders">
+                                    <Link className="nav-links" to= "/orders"  onClick={(e) => {
+                                        if(collapsed === false){
+                                        setCollapsed(true)
+                                        }
+                                        
+                                    }}>
                                 <NavLink className="nav-links">All Orders</NavLink>
                                 </Link>
                                  </NavItem> : null}
                                  {props.isAdmin === true ? 
                                 <NavItem>
-                                    <Link className="nav-links" to= "/users">
+                                    <Link className="nav-links" to= "/users"  onClick={(e) => {
+                                        if(collapsed === false){
+                                        setCollapsed(true)
+                                        }
+                                        
+                                    }}>
                                 <NavLink  className="nav-links">All Users</NavLink>
                                 </Link>
                                  </NavItem> : null}
