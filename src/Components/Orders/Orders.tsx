@@ -310,7 +310,18 @@ const createButton={
 
           <Container>
 
-
+          <Spring
+                            config={{duration: 600, delay: 500}} 
+                            native
+                            from={{ o: 0, marginT: '' }}
+                            to={{ o: 1, marginT: ''  }} 
+                            >
+                            {({ o, marginT }) => (
+                            <animated.div style={{
+                                    opacity: o,
+                                    marginTop: marginT
+                                    
+                            }}>
           {props.isAdmin === false ?
           <div style={{marginTop: '5%'}}>
 
@@ -324,6 +335,10 @@ const createButton={
           </div>
           :null
           }
+             </animated.div>
+                            )}
+                            </Spring>
+
           <CreateOrder updateToken={props.updateToken} setShowOrder={setShowOrder} showOrder ={showOrder} fetchOrders={fetchOrders}/>
           
 

@@ -231,7 +231,7 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
                     </Spring>
        
                     <Spring
-                            config={{duration: 600, delay: 400}} 
+                            config={{duration: 600, delay: 500}} 
                             native
                             from={{ o: 0, marginT: '' }}
                             to={{ o: 1, marginT: ''  }} 
@@ -249,7 +249,7 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
                             )}
                             </Spring>
             <Spring
-                          config={{duration: 600, delay:800}} 
+                          config={{duration: 600, delay:600}} 
                           native
                           from={{ o: 0, marginT: '' }}
                           to={{ o: 1, marginT: ''  }} 
