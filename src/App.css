@@ -231,32 +231,42 @@
     text-align: center;
 }
 
-
-/* .App-logo {
-    height: 40vmin;
-    pointer-events: none;
+.react-rater {
+    display: inline-block;
+    line-height: normal;
+    filter: drop-shadow(.6px .6px .5px black) !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+.react-rater>* {
+    display: inline-block;
 }
 
-.App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+.react-rater-star {
+    cursor: pointer;
+    color: #ccc !important;
+    position: relative;
 }
 
-.App-link {
-    color: #61dafb;
-} */
+.react-rater-star.will-be-active {
+    color: #E8C10D !important;
+}
+
+.react-rater-star.is-active {
+    color: #E8C10D !important
+}
+
+.react-rater-star.is-active-half:before {
+    color: #E8C10D !important;
+    content: '\2605';
+    position: absolute;
+    left: 0;
+    width: 50%;
+    overflow: hidden;
+}
+
+.react-rater-star.is-disabled {
+    cursor: default;
+}
 
 html {
     width: 100%
