@@ -161,8 +161,10 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
         }
         const editIcon = {
             width:'3%',
-            marginTop:'3%',
-            marginBottom:'3%'
+            marginTop:'',
+            marginBottom:'3%',
+            transform:'scale(.6)',
+            filter:'drop-shadow(.05rem .05rem .05rem black)'
         }
         const collapse ={
             maxHeight: '50%'
@@ -183,7 +185,7 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
                                     marginTop: marginT
                                     
                             }}>
-                            <img src={ServiceLogo} style={{marginTop: '7%',width: '10%',filter:'drop-shadow(.1rem .1rem .1rem #024160)'}}></img>
+                            <img src={ServiceLogo} style={{marginTop: '7%',width: '10%',filter:'drop-shadow(.1rem .1rem .1rem black)'}}></img>
                             </animated.div>
                             )}
                     </Spring>
@@ -216,7 +218,7 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
                                 editImg: ''
                             })
                         }}>
-                            <input defaultValue={this.state.servicesTextTitle} style={{marginLeft:'20%',marginRight:'20%',marginTop: '1%',textAlign:'center',fontSize:'2.2rem', paddingTop:'3%', color:''}}
+                            <input defaultValue={this.state.servicesTextTitle} style={{transform:'scale(.6)',marginLeft:'20%',marginRight:'20%',marginTop: '1%',textAlign:'center',fontSize:'2.2rem', paddingTop:'3%', color:''}}
                             onChange={(e) => {
                                 this.setState({
                                     setServicesTextTitle: e.target.value
@@ -246,7 +248,7 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
                                 editImg2: ''
                             })
                         }}>
-                            <textarea  defaultValue={this.state.servicesText} style={{marginLeft:'20%',marginRight:'20%',marginTop: '1%',textAlign:'center',fontSize:'2.2rem', paddingTop:'3%', color:''}}
+                            <textarea  defaultValue={this.state.servicesText} style={{transform:'scale(.6)',marginLeft:'20%',marginRight:'20%',marginTop: '1%',textAlign:'center',fontSize:'2.2rem', paddingTop:'3%', color:''}}
                             onChange={(e) => {
                                 this.setState({
                                     setServicesText: e.target.value
@@ -276,7 +278,7 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
                                     editImg3: ''
                                 })
                             }}>
-                                <textarea  defaultValue={this.state.servicesText2} style={{marginLeft:'20%',marginRight:'20%',marginTop: '1%',textAlign:'center',fontSize:'2.2rem', paddingTop:'3%', color:''}}
+                                <textarea  defaultValue={this.state.servicesText2} style={{transform:'scale(.6)',marginLeft:'20%',marginRight:'20%',marginTop: '1%',textAlign:'center',fontSize:'2.2rem', paddingTop:'3%', color:''}}
                                 onChange={(e) => {
                                     this.setState({
                                         setServicesText2: e.target.value

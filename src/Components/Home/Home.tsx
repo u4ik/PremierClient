@@ -133,7 +133,8 @@ class Home extends React.Component <HomeProps, HomeTypes> {
       const editIcon = {
           width:'3%',
           marginTop:'3%',
-          marginBottom:'3%'
+          marginBottom:'3%',
+          filter:'drop-shadow(.05rem .05rem .05rem black)'
       }
 
   
@@ -143,7 +144,7 @@ class Home extends React.Component <HomeProps, HomeTypes> {
                 <div style={{ display: 'flex', flexDirection:'row', justifyContent:'center', paddingBottom:'3%',paddingTop:'5vh'}} >
                     
                 <Spring
-                            config={{duration: 800}} 
+                            config={{duration: 700}} 
                             native
                             from={{ o: 0, marginT: '-1500px' }}
                             to={{ o: 1, marginT: '0px'  }} 
@@ -176,7 +177,7 @@ class Home extends React.Component <HomeProps, HomeTypes> {
                                 }
                                 }}>
                                 {this.state.editText1 ?
-                            <div style={{display:'flex', flexDirection:'column', justifyContent:'center'}}
+                            <div style={{display:'flex', flexDirection:'column', justifyContent:'center',}}
                                 onMouseLeave={()=> {
                                     if(this.props.isAdmin){
                                         this.setState({
