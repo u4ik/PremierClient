@@ -3,29 +3,52 @@ import './App.css';
 import Sitebar from './Components/Nav/Sitebar';
 import Home from './Components/Home/Home';
 import Footer from './Components/Footer/Footer';
-import AuthForm from './Components/Auth/Auth'
+import Orders from './Components/Orders/Orders'
+import TestimonialsPage from './Components/Testimonials/TestimonialsPage'
+import ServicesPage from './Components/Services/ServicesPage'
+import Users  from './Components/Users/Users'
 
+
+// import {Switch, Route, BrowserRouter} from 'react-router-dom';
+
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 const App: React.FunctionComponent = () => {
 
-  const [updateToken, setUpdateToken] = useState<string>('')
-  const [showAuth, setShowAuth] = useState<boolean>(false);
-  const [signup, setSignup] = useState<boolean>(false);
-  const [signedIn, setSignedIn] = useState<boolean>(true);
-  const [isAdmin, setIsAdmin] = useState(true);
+  const [updateToken, setUpdateToken] = useState<string>('');
+  const [enableTestCreate, setEnableTestCreate] = useState<boolean>(false);
+
+  const [currentUserId, setCurrentUserId] = useState()
+  const [isAdmin, setIsAdmin] = useState<boolean>(false);
+  const [signedIn, setSignedIn] = useState<any>(false);
+
+
 
   return (
-    <div className="App" >
- 
-      <Sitebar signedIn={signedIn} setSignedIn={setSignedIn} showAuth={showAuth} setShowAuth={setShowAuth} 
-      updateToken={updateToken} setUpdateToken={setUpdateToken}  signup={signup} setSignup={setSignup} isAdmin={isAdmin} setIsAdmin={setIsAdmin}/>
-      <Home />
+    <div className="App" style={{ }}  >
 
-      <Footer />
       
- 
+    <Router>
+        <Sitebar currentUserId={currentUserId} setCurrentUserId={setCurrentUserId} signedIn={signedIn} setSignedIn={setSignedIn} isAdmin={isAdmin} setIsAdmin={setIsAdmin} setEnableTestCreate={setEnableTestCreate}  enableTestCreate={enableTestCreate} updateToken = {updateToken} setUpdateToken={setUpdateToken}  />
+        <div style={{ minHeight: '88.5vh'}}>
+          <Switch>
+              <Route path="/" exact render={(props) => ( <Home isAdmin ={isAdmin} signedIn={signedIn}/>)}/>
+              <Route path ="/orders" exact render={(props) => (< Orders isAdmin ={isAdmin}  signedIn={signedIn} setSignedIn={setSignedIn} updateToken = {updateToken}/>)} />
+              <Route path ="/testimonials" exact render={(props) => (<TestimonialsPage isAdmin={isAdmin} enableTestCreate={enableTestCreate} updateToken={updateToken}/>)}/>
+              <Route path ="/services" exact render={(props) => ( <ServicesPage isAdmin ={isAdmin} signedIn={signedIn}/>)}/>
+              <Route path ="/users" exact render={(props) => (<Users updateToken={updateToken} isAdmin={isAdmin} signedIn={signedIn}/>)}/>
+          </Switch>
+        </div>
+    </Router>  
+    <Footer isAdmin = {isAdmin}/>
     </div>
+
+   
+
   );
 }
+
+
+
 
 export default App;

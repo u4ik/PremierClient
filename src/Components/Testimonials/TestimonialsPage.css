@@ -1,0 +1,86 @@
+.cardStyle:hover {
+    transform: scale(1.1);
+    opacity: 1;
+    transition: .2s ease-in-out;
+}
+
+.cardStyle {
+    opacity: .8
+}
+
+#cardStyle2 {
+    background-color: #177BBD
+}
+
+#cardStyle2:hover {
+    background-color: #177BBD
+}
+
+.react-rater-link {
+    color: 'white'
+}
+
+.react-rater-hover {
+    color: 'white'
+}
+
+.react-rater-active {
+    color: 'white'
+}
+
+.react-rater-start.is-active {
+    color: yellow !default
+}
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 5px;
+    border-radius: '10px';
+    position: absolute;
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: '50px';
+}
+
+
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 20px;
+    height: 5px;
+}
+
+
+/* Handle on hover */
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    color: 'pink';
+}
+
+::-webkit-scrollbar-track-piece {
+    background: transparent;
+}
+
+.datePicker {
+    border-radius: 5px;
+    border: none;
+}
+
+.createButton {
+    font-size: '1.5rem';
+    color: '#009FE4';
+    text-shadow: '.4px .4px 1px black'
+}
+
+.img-fluid {
+    background-color: transparent !important;
+}

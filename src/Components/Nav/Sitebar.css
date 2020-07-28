@@ -1,10 +1,14 @@
 @media(min-width:1025px) {
-    .navlinkWrap {
+    .navlinkwrap {
         flex-direction: row !important;
     }
-    #navLinkWrap {
+    #navlinkwrap {
         flex-direction: row !important;
     }
+}
+
+.navbar {
+    padding-bottom: 1rem !important
 }
 
 a:link {

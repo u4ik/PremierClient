@@ -1,1 +1,1 @@
-The front end for Premier Commercial Services!
+The front end client for Premier Commercial Services

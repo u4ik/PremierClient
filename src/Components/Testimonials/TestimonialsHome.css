@@ -10,7 +10,7 @@
 
 .carousel-caption,
 .d-none.d-md-block {
-    color: black;
+    color: #177BBD;
     text-shadow: .5px .5px .5px #177BBD;
     display: block !important;
     padding: none !important
@@ -24,4 +24,14 @@
 
 .carousel-indicators {
     bottom: -25px !important
+}
+
+.carousel-control-prev-icon {
+    filter: drop-shadow(2px 2px 2px black);
+    background-image: url('../../assets/arrow-prev.svg') !important
+}
+
+.carousel-control-next-icon {
+    filter: drop-shadow(2px 2px 2px black);
+    background-image: url('../../assets/arrow-next.svg') !important
 }

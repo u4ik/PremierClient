@@ -2,16 +2,16 @@
 import React, { useState, useEffect } from 'react';
 
 import './TestimonialsHome.css'
-
-import IconBackground from '../../assets/IconBackground.png'
+import Rater from 'react-rater'
+import 'react-rater/lib/react-rater.css'
 
 import {
   Carousel,
   CarouselItem,
   CarouselControl,
   CarouselIndicators,
-  CarouselCaption
 } from 'reactstrap';
+import TestimonialHomeBcg from '../../assets/testimonial-bcg.jpg'
 
 const TestimonialsHome: React.FunctionComponent = (props) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -35,8 +35,34 @@ const TestimonialsHome: React.FunctionComponent = (props) => {
 }
 useEffect (() => {
     getTestimonials();
+    
  },[])
   const slides = testimonialData.map((item:any) => {
+
+    const TestimonialInfoText:React.CSSProperties ={
+
+      fontSize: '1.1rem',
+      color:'#E8C10D',
+      userSelect:'none',
+      textShadow: ('1px 1px 1px black')
+
+    }
+    const TestimonialInfoText2:React.CSSProperties ={
+
+      fontSize: '.8rem',
+      color:'white',
+      userSelect:'none',
+      textShadow: ('1px 1px 1px black')
+
+    }
+    const TestimonialInfoText3:React.CSSProperties ={
+
+      fontSize: '.69rem',
+      color:'white',
+      userSelect:'none',
+      textShadow: ('1px 1px 1px black')
+
+    }
     return (
       <CarouselItem 
         onExiting={() => setAnimating(true)}
@@ -50,28 +76,35 @@ useEffect (() => {
         
 
         <div className="carousel-caption d-none d-md-block" style={{
-          backgroundColor:'white',
+          // backgroundColor:'#177BBD',
+          background: 'rgba(34,111,153, .1)',
+          border: '1px #E8C10D',
+          borderStyle:'solid',
           borderRadius:'1rem',
           paddingLeft:'.5rem',
           paddingRight:'.5rem',
           marginTop:'.5rem',
           userSelect:'none',
-          marginBottom:'.5rem',
+          marginBottom:'5%',
           width:'auto',
-          filter: 'drop-shadow(2px 2px 2px black)',
-          marginLeft:'20%',
-          marginRight:'20%'}}>
+          filter: 'drop-shadow(2px 2px 2px navy)',
+          marginLeft:'10%',
+          marginRight:'10%'}}>
 
 
-
-          <h3 style={{fontSize:'1.4rem', textShadow:'.1px .1px .1px grey', color:'black', userSelect:'none'}}>{ `"` + `${item.userQuote}` + `"`}</h3>
-         
-        </div>
-        <div>
-            <h4 style= {{fontSize: '1.1rem', textShadow:'1px 1px 1px black', color:'#E8D47B',  userSelect:'none'}}>{"- " + `${item.userFirstName}` + " " + `${item.userLastName}`}</h4>
-            <h5 style={{fontSize:'.8rem', color:'white', textShadow:'1px 1px 1px black', userSelect:'none'}}>{item.userLocation}</h5>
-            <p style={{fontSize:'.7rem', color:' white', textShadow:'1px 1px 1px black', userSelect:'none'}}>{item.serviceCompletionDate}</p>
+          <div style={{overflowWrap:'break-word'}} >
+          <h3 className='testHomeQuote' style={{fontSize:'1.4rem', textShadow:'1px 1px 1px black', color:'white', userSelect:'none'}}>{ `"` + `${item.userQuote}` + `"`}</h3>
           </div>
+          <div className="stars" style={{transform: 'scale(2)'}}>
+          <Rater  total={5} rating={item.userRating} interactive={false}  />
+          </div>
+        </div>
+        <div className= "testHomeText">
+            <h4 className='nameTextTestimonialHome' style= {TestimonialInfoText}>{"- " + `${item.userFirstName}` + " " + `${item.userLastName}`}</h4>
+            <h5 className='locationTextTestimonialHome' style= {TestimonialInfoText2}>{item.userLocationType}</h5>
+            <h5 className='locationTextTestimonialHome'style= {TestimonialInfoText2}>{item.userLocation}</h5>
+            <p  className='dateTestimonialHome' style= {TestimonialInfoText3}>{item.serviceCompletionDate}</p>
+        </div>
         
     
         </div>
@@ -87,7 +120,7 @@ useEffect (() => {
     if (animating) return;
     const nextIndex = activeIndex === 0 ? testimonialData.length - 1 : activeIndex - 1;
     setActiveIndex(nextIndex);
-    console.log(testUserData)
+  
   }
   const goToIndex = (newIndex:any) => {
     if (animating) return;
@@ -96,8 +129,8 @@ useEffect (() => {
 
 
   return (
-    <div style={{width:'auto', backgroundColor:'#009FE4'}}>
-        <h3 style={{fontSize:'1.7rem',paddingTop:'1%', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', backgroundColor: '#177BBD', borderBottom: 'solid 1px white'}}>Testimonials</h3>
+    <div style={{height:"auto", backgroundImage: `url(${TestimonialHomeBcg})`, backgroundPosition: 'center', backgroundSize: 'cover', marginBottom: '-1%', marginLeft:'10%', marginRight:'10%', borderRadius:'20px',     background: 'rgba(26, 35, 64, 0.5)'}}>
+        <h3  className="headerText"  style={{fontSize:'2.2rem',paddingTop:'1%', color:'white', userSelect:'none', backgroundColor: 'transparent', textShadow: '2px 2px 2px black'}}>Testimonials</h3>
         <Carousel
           activeIndex={activeIndex}
           next={next} 
@@ -105,7 +138,6 @@ useEffect (() => {
           >
           {slides}
           <div style={{marginTop:'1%', backgroundColor:'#009FE4'}}>
-          <CarouselIndicators items={testimonialData} activeIndex={activeIndex} onClickHandler={goToIndex} />
           </div>
           <div>
             <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
