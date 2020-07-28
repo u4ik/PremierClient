@@ -167,7 +167,7 @@ let output = month + '/' + day + '/' + year;
         e.preventDefault();
     
 
-      fetch('http://localhost:3000/orders/create' ,{
+      fetch(`${APIURL}/orders/create` ,{
         method: 'POST',
         headers: {
             'Content-Type' : 'application/json',

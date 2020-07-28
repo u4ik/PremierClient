@@ -1,6 +1,7 @@
 import React, {useState, useEffect } from 'react';
 
 import Edit from '../../assets/edit/delete/editwhite.svg'
+import APIURL from '../../helpers/environment';
 
 
 
@@ -70,7 +71,7 @@ const Footer: React.FunctionComponent<FooterProps> = (props: FooterProps) => {
 
 
     const fetchSite = () => {
-        fetch('http://localhost:3000/site/all',  {
+        fetch('http://0/site/all',  {
             method: 'GET',
             headers: {
                 'Content-Type' : 'application/json',
@@ -105,7 +106,7 @@ const Footer: React.FunctionComponent<FooterProps> = (props: FooterProps) => {
             footerTextAddressStreet: editFooterTextAddressStreet,
             footerTextAddressTown: editFooterTextAddressTown
         }
-        fetch('http://localhost:3000/site/edit/' + siteId,  {
+        fetch(`${APIURL}/site/edit/` + siteId,  {
             method: 'PUT',
             headers: {
                 'Content-Type' : 'application/json',

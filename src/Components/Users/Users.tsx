@@ -19,7 +19,7 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
     const [serviceComplete, setServiceComplete] = useState<any>()
     const getUsers = () => {
         let token = localStorage.getItem('token')
-        fetch('http://localhost:3000/user/all', {
+        fetch(`${APIURL}/user/all`, {
             method: 'GET',
             headers: {
                 'Content-Type' : 'application/json',
@@ -71,7 +71,7 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
             // serviceComplete: serviceComplete
              serviceComplete: e.target.value
         }
-        fetch('http://localhost:3000/user/edit/' + userId, {
+        fetch(`${APIURL}/user/edit/` + userId, {
             method: 'PUT',
             headers: {
                 'Content-Type' : 'application/json',

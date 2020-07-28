@@ -96,7 +96,7 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
   }
   
   const getTestimonials = () => {
-    const APIURL:string = 'http://localhost:3000/testimonial/all'
+    const APIURL:string = `${APIURL}/testimonial/all`
     fetch(APIURL ,{
         method: 'GET',
         headers: {

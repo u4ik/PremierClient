@@ -79,7 +79,7 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
 
 
       fetchSite = () => {
-        fetch('http://localhost:3000/site/all',  {
+        fetch(`${APIURL}/site/all`,  {
             method: 'GET',
             headers: {
                 'Content-Type' : 'application/json',
@@ -110,7 +110,7 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
             servicesText2: this.state.setServicesText2
        
         }
-        fetch('http://localhost:3000/site/edit/' + this.state.siteId,  {
+        fetch(`${APIURL}/site/edit/` + this.state.siteId,  {
             method: 'PUT',
             headers: {
                 'Content-Type' : 'application/json',

@@ -47,7 +47,7 @@ class DeleteTestimonial extends React.Component <Delete> {
         const toggle = () => this.props.setShowDelete(!this.props.showDelete);
         const deleteTestimonial = () => {
 
-            fetch('http://localhost:3000/testimonial/delete/' + this.props.testId,{
+            fetch(`${APIURL}/testimonial/delete/` + this.props.testId,{
                 method: 'DELETE',
                 headers: {
                     'Content-Type' : 'application/json',

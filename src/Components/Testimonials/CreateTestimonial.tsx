@@ -88,7 +88,7 @@ const CreateTest: React.FunctionComponent<createTest> = (props:createTest) => {
             serviceCompletionDate: output,
             userRating: rating
         }
-        fetch('http://localhost:3000/testimonial/create', {
+        fetch(`${APIURL}/testimonial/create`, {
              method: 'POST',
              headers: new Headers ({
             'Content-Type': 'application/json',

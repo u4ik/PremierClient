@@ -11,6 +11,7 @@ import Edit from '../../assets/edit/delete/editwhite.svg'
 
 
 import './Home.css'
+import APIURL from '../../helpers/environment';
 
 
 
@@ -71,7 +72,7 @@ class Home extends React.Component <HomeProps, HomeTypes> {
         this.fetchSite();
     }
      fetchSite = () => {
-        fetch('http://localhost:3000/site/all',  {
+        fetch(`${APIURL}/site/all`,  {
             method: 'GET',
             headers: {
                 'Content-Type' : 'application/json',
@@ -105,7 +106,7 @@ class Home extends React.Component <HomeProps, HomeTypes> {
             welcomeTextOwner: this.state.setWelcomeTextOwner,
             welcomeTextOwnerCompany: this.state.setWelcomeTextOwnerCompany,
         }
-        fetch('http://localhost:3000/site/edit/' + this.state.siteId,  {
+        fetch(`${APIURL}/site/edit/` + this.state.siteId,  {
             method: 'PUT',
             headers: {
                 'Content-Type' : 'application/json',

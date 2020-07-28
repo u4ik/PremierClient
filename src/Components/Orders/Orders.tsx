@@ -51,7 +51,7 @@ const createButton={
 
     const fetchOrders =  ()=> {
         let token = localStorage.getItem('token')
-        fetch('http://localhost:3000/orders/all' ,{
+        fetch(`${APIURL}/orders/all` ,{
             method: 'GET',
             headers: {
                 'Content-Type' : 'application/json',

@@ -2,8 +2,9 @@ import React, { useState} from 'react';
 import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
 import './Auth.css';
 import Logo from '../../assets/Premier-Commercial-Services-icon.svg';
+import APIURL from '../../helpers/environment';
 
-const baseURL = 'http://localhost:3000/user';
+const baseURL = `${APIURL}/user`;
 
 interface displayAuthForm {
     showAuth: boolean
