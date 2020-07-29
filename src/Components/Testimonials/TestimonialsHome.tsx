@@ -74,13 +74,13 @@ useEffect (() => {
       >
         
         {/* <img src={IconBackground} alt= "TestimonialBacker" /> */}
-        <div style={{display:'flex', flexDirection:'column', justifyContent:'center', minHeight:'2vh'}}>
+        <div style={{display:'flex', flexDirection:'column', justifyContent:'center', minHeight:''}}>
         {/* <CarouselCaption style = {{lineHeight: '1rem', marginTop:''}}  captionText={"-" + item.userFirstName + " " + item.userLastName}  captionHeader={`"${item.userQuote}"`}/> */}
         
 
         <div className="carousel-caption d-none d-md-block" style={{
           // backgroundColor:'#177BBD',
-          minHeight: ' 100px',
+          minHeight: ' 12rem',
           // background: 'rgba(34,111,153, .1)',
           // border: '1px #177BBD',
           // borderStyle:'solid',
@@ -96,14 +96,14 @@ useEffect (() => {
           marginRight:'10%'}}>
 
 
-          <div style={{overflowWrap:'break-word'}} >
+          <div style={{ minHeight: '3.8rem',overflowWrap:'break-word'}} >
           <h3 className='testHomeQuote' style={{fontSize:'1.4rem', textShadow:'1px 1px 1px black', color:'white', userSelect:'none'}}>{ `"` + `${item.userQuote}` + `"`}</h3>
           </div>
           <div className="stars" style={{transform: 'scale(2)', marginLeft:'30%', marginRight:'30%', marginTop:'2%'}}>
           <Rater  total={5} rating={item.userRating} interactive={false}  />
           </div>
         </div>
-        <div id="testimonialUserTextContainer" style={{marginTop: '-5%', marginLeft:'20%', marginRight:'20%'}} className= "testHomeText">
+        <div id="testimonialUserTextContainer" style={{marginTop: '-10%', marginLeft:'20%', marginRight:'20%'}} className= "testHomeText">
             <h4 className='nameTextTestimonialHome' style= {TestimonialInfoText}>{"- " + `${item.userFirstName}` + " " + `${item.userLastName}`}</h4>
             <h5 className='locationTextTestimonialHome' style= {TestimonialInfoText2}>{item.userLocationType}</h5>
             <h5 className='locationTextTestimonialHome'style= {TestimonialInfoText2}>{item.userLocation}</h5>
@@ -133,7 +133,7 @@ useEffect (() => {
 
 
   return (
-    <div id = "testimonialHomeContainer" style={{height:"auto", backgroundImage: `url(${TestimonialHomeBcg})`, backgroundPosition: 'center', backgroundSize: 'cover', marginBottom: '-1%', marginLeft:'18.5%', marginRight:'18.5%', borderRadius:'20px',     background: 'rgba(26, 35, 64, 0.5)'}}>
+    <div id = "testimonialHomeContainer" style={{minHeight: '', height:"auto", backgroundImage: `url(${TestimonialHomeBcg})`, backgroundPosition: 'center', backgroundSize: 'cover', marginBottom: '-1%', marginLeft:'18.5%', marginRight:'18.5%', borderRadius:'20px',     background: 'rgba(26, 35, 64, 0.5)'}}>
         <h3   id='homeHeaderText'  className="headerText"  style={{fontSize:'2.2rem',paddingTop:'1%', color:'white', userSelect:'none', backgroundColor: 'transparent', textShadow: '2px 2px 2px black', marginBottom: '-.5%'}}>Testimonials</h3>
         <Carousel
           activeIndex={activeIndex}
