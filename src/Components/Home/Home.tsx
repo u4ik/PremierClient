@@ -54,6 +54,7 @@ type HomeTypes = {
 class Home extends React.Component <HomeProps, HomeTypes> {
     componentDidMount = () =>{
         this.fetchSite();
+        window.scrollTo(0, 0);
         
     }
   

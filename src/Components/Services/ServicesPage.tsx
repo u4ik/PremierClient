@@ -337,7 +337,7 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
                             <img src={FoodIcon} style={iconStyles}></img>
                             <h3 style={{fontSize:'1.7rem', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '.5vh',}}
                         
-                            >Restaurant</h3>
+                            >Restaurants</h3>
                         
                         </div>
                         <MDBCollapse id="basicCollapse1" isOpen={this.state.collapseID} style={{ backgroundImage: `url(${Food})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
