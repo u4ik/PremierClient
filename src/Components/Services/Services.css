@@ -111,3 +111,11 @@ button {
     position: absolute;
     left: '25%' !important;
 } */
+
+.locationIcon:hover {
+    transform: scale(1.2);
+}
+
+.iconText {
+    margin-top: 7%;
+}

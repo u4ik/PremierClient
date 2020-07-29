@@ -12,8 +12,16 @@
     }
 }
 
-#createButton {
-    font-size: '1.2rem';
-    color: '#009FE4';
-    text-shadow: '.4px .4px 1px black'
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+.logoIcon {
+    animation: rotation 20s infinite ease-in-out;
+    animation-direction: alternate-reverse;
 }
