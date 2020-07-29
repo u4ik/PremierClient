@@ -320,7 +320,7 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
                 <div>
 
                 <Spring
-                            config={{ delay: 800}} 
+                            config={{ delay: 600}} 
                             native
                             from={{ o: 0, marginT: '' }}
                             to={{ o: 1, marginT: ''  }} 
@@ -337,7 +337,7 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
                             <img src={FoodIcon} style={iconStyles}></img>
                             <h3 style={{fontSize:'1.7rem', textShadow:'1.5px 2px 1px #024160', color:'#E8C10D', userSelect:'none', marginBottom: 'none', paddingBottom: '.5vh',}}
                         
-                            >Food</h3>
+                            >Restaurant</h3>
                         
                         </div>
                         <MDBCollapse id="basicCollapse1" isOpen={this.state.collapseID} style={{ backgroundImage: `url(${Food})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
@@ -367,7 +367,7 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
                             )}
                             </Spring>
                 <Spring
-                            config={{ delay: 900}} 
+                            config={{ delay: 700}} 
                             native
                             from={{ o: 0, marginT: '' }}
                             to={{ o: 1, marginT: ''  }} 
@@ -413,7 +413,7 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
                             )}
                             </Spring>
                 <Spring
-                            config={{ delay: 1000}} 
+                            config={{ delay: 800}} 
                             native
                             from={{ o: 0, marginT: '' }}
                             to={{ o: 1, marginT: ''  }} 
@@ -454,7 +454,7 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
                             )}
                 </Spring>
                 <Spring
-                            config={{ delay: 1100}} 
+                            config={{ delay: 900}} 
                             native
                             from={{ o: 0, marginT: '' }}
                             to={{ o: 1, marginT: ''  }} 
@@ -505,7 +505,7 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
                             )}
                     </Spring>
                 <Spring
-                            config={{delay: 1200}} 
+                            config={{delay: 1000}} 
                             native
                             from={{ o: 0, marginT: '' }}
                             to={{ o: 1, marginT: ''  }} 
@@ -547,7 +547,7 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
                             )}
                             </Spring>
                 <Spring
-                            config={{ delay: 1300}} 
+                            config={{ delay: 1100}} 
                             native
                             from={{ o: 0, marginT: '' }}
                             to={{ o: 1, marginT: ''  }} 
