@@ -141,7 +141,7 @@ class Home extends React.Component <HomeProps, HomeTypes> {
   
         return (
             
-            <div style={{height:"auto", minHeight:'inherit', backgroundImage: `url(${HomeBackground})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover',  paddingBottom:'3%'}}>
+            <div style={{height:"auto", minHeight:'inherit', backgroundImage: `url(${HomeBackground})`, backgroundRepeat: 'no-repeat',backgroundAttachment:'fixed', backgroundPosition: 'center', backgroundSize: 'cover',  paddingBottom:'3%'}}>
                
                {this.state.siteId ?
                 <div>
