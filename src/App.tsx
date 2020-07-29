@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import Sitebar from './Components/Nav/Sitebar';
 import Home from './Components/Home/Home';
@@ -26,6 +26,10 @@ const App: React.FunctionComponent = () => {
   const [isAdmin, setIsAdmin] = useState<boolean>(false);
   const [signedIn, setSignedIn] = useState<any>(false);
 
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  },[])
 
 
   return (

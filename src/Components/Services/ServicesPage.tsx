@@ -140,6 +140,7 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
       }
 
       componentDidMount = () =>{
+        window.scrollTo(0, 0);
         this.fetchSite();
     }
 

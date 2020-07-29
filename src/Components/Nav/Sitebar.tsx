@@ -84,6 +84,7 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
         localStorage.removeItem('lastname')
       }
       useEffect(() => { 
+   
         if(localStorage.getItem('token')){
           updateTheToken(localStorage.getItem('token'),localStorage.getItem('user'),localStorage.getItem('admin'),localStorage.getItem('serviceComplete'), localStorage.getItem('id'), localStorage.getItem('firstname'), localStorage.getItem('lastname'));
         }

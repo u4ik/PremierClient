@@ -113,6 +113,7 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
     .catch(err => console.warn(err))
   }
   useEffect (() => {
+    window.scrollTo(0, 0);
       getTestimonials();
       
   },[])

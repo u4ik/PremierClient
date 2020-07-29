@@ -55,6 +55,7 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
     }
     
     useEffect (() => {
+        window.scrollTo(0, 0)
         if (localStorage.getItem('admin') !== 'Negative' && props.signedIn === true &&  props.isAdmin === true){ 
             if(userData !== undefined && userData.length === 0){
             getUsers()
