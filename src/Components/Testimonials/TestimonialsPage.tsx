@@ -185,7 +185,7 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
           <MDBCardImage style={cardImgStyle} className="img-fluid" src= {ServicesImg} waves />
           : null}
           <MDBCardBody style={cardBodyStyle}>
-            <div style={{transform: 'scale(1.5)'}}>
+            <div id= 'testimonialPageStars'style={{transform: 'scale(1.5)'}}>
             <Rater  total={5} rating={item.userRating} interactive={false}  />
             </div>
             <MDBCardTitle style={cardNameStyle}>{``+`${item.userFirstName}` + " " + `${item.userLastName}`}</MDBCardTitle>

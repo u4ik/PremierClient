@@ -262,6 +262,12 @@
     #welcomeContainer {
         padding-top: 1vh !important
     }
+    #testimonialPageStars {
+        transform: scale(3) !important;
+        padding-bottom: 2% !important;
+        margin-left: 30% !important;
+        margin-right: 30% !important;
+    }
 }
 
 .popover-header {
