@@ -251,6 +251,29 @@
         margin-left: 0 !important;
         margin-right: 0 !important
     }
+    .show.popover {
+        width: 105% !important;
+        text-align: center !important;
+        /* transform: scale(.8) !important; */
+    }
+    .popover-body {
+        font-size: .5rem !important;
+    }
+}
+
+.popover-header {
+    text-align: center;
+}
+
+.popover-body {
+    text-align: center;
+    font-size: .9rem
+}
+
+.show.popover {
+    width: 180%;
+    text-align: center;
+    transform: scale(.8);
 }
 
 @media only screen and (min-device-width: 375px) and (orientation: portrait) {
