@@ -113,14 +113,20 @@ const TestimonialsPage:React.FunctionComponent<testProps> = (props:testProps) =>
     .catch(err => console.warn(err))
   }
   useEffect (() => {
+   
     window.scrollTo(0, 0);
+    // window.onload = () => {(  window.scrollTo(0, 0))}
       getTestimonials();
       
   },[])
+
+
+
  const slides = testimonialData.map((item:any) => {
 
   
     return (
+      
       <div key={item.id} className="cardStyle" style={{margin:'2%', backgroundColor: 'transparent'}}>
                   <Spring
                           config={{duration: 600, delay:600}} 

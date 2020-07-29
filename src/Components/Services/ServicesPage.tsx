@@ -143,9 +143,14 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
         window.scrollTo(0, 0);
         this.fetchSite();
     }
+    componentWillMount = () =>{
+        window.scrollTo(0, 0);
+        // this.fetchSite();
+    }
 
 
     render() {
+        window.scrollTo(0, 0)
         const listItemStyle = {
             backgroundColor: 'transparent', 
             color: 'white', 

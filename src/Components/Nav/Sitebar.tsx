@@ -7,6 +7,9 @@ import { Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink } from 'reactstr
 import Logo from '../../assets/Premier-Commercial-Services-logo.svg';
 import APIURL from '../../helpers/environment';
 
+
+
+
 const logo: React.CSSProperties ={
     // height: '8vh',
     width: '100%',
@@ -84,11 +87,12 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
         localStorage.removeItem('lastname')
       }
       useEffect(() => { 
-   
+        window.scrollTo(0, 0)
         if(localStorage.getItem('token')){
           updateTheToken(localStorage.getItem('token'),localStorage.getItem('user'),localStorage.getItem('admin'),localStorage.getItem('serviceComplete'), localStorage.getItem('id'), localStorage.getItem('firstname'), localStorage.getItem('lastname'));
         }
       },[])
+      
 
     const showThatContact= (e:any) => {
         e.preventDefault();
@@ -159,7 +163,7 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                         if(collapsed === false){
                                         setCollapsed(true)
                                         }
-                                        
+                                        window.scrollTo(0, 0)
                                     }}>
                                     <NavLink  className="nav-links">Testimonials</NavLink>
                                 </Link>
@@ -169,6 +173,7 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                         if(collapsed === false){
                                         setCollapsed(true)
                                         }
+                                         
                                         
                                     }}>
                                     <NavLink href="/" className="nav-links" onClick={(e:any) => {

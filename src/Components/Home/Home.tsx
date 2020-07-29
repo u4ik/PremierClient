@@ -57,6 +57,7 @@ class Home extends React.Component <HomeProps, HomeTypes> {
         window.scrollTo(0, 0);
         
     }
+    
   
 
         constructor(props: HomeProps) {
@@ -132,6 +133,8 @@ class Home extends React.Component <HomeProps, HomeTypes> {
         })
     }
     render() {
+
+             window.scrollTo(0, 0)
       const editIcon = {
           width:'3%',
           marginTop:'3%',
