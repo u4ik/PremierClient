@@ -191,7 +191,9 @@
         margin-right: 0px !important
     }
     .transparentContainer {
-        margin-top: 5%
+        margin-top: 5%;
+        margin-left: 2% !important;
+        margin-right: 2% !important
     }
     .testHomeQuote {
         font-size: 1.2rem !important;
