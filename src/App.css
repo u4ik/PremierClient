@@ -241,7 +241,7 @@
         margin-top: 5% !important
     }
     #titleId {
-        margin-bottom: 13vw !important
+        margin-bottom: 19vw !important
     }
     .btn-default {
         padding: none !important;
@@ -258,6 +258,9 @@
     }
     .popover-body {
         font-size: .5rem !important;
+    }
+    #welcomeContainer {
+        padding-top: 1vh !important
     }
 }
 

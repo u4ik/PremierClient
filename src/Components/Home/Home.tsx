@@ -150,7 +150,7 @@ class Home extends React.Component <HomeProps, HomeTypes> {
                {this.state.siteId ?
                 <div>
                 
-                    <div style={{ display: 'flex', flexDirection:'row', justifyContent:'center', paddingBottom:'3%',paddingTop:'5vh'}} >
+                    <div id="welcomeContainer" style={{ display: 'flex', flexDirection:'row', justifyContent:'center', paddingBottom:'3%',paddingTop:'5vh'}} >
                         
                     <Spring
                                 config={{duration: 700}} 
