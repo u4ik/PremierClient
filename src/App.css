@@ -194,13 +194,60 @@
         margin-top: 5%
     }
     .testHomeQuote {
-        font-size: .8rem !important
+        font-size: 1.2rem !important;
+        min-height: fit-content
     }
     .stars {
         transform: scale(1) !important;
     }
     .testHomeText {
         transform: scale(.8) !important;
+    }
+    #serviceLogo {
+        transform: scale(2.5);
+        margin-bottom: 15%;
+        padding-top: 5%;
+        filter: drop-shadow(.05rem .05rem .05rem black) !important;
+    }
+    #serviceTitle {
+        font-size: 2rem !important
+    }
+    #serviceText {
+        margin-left: 10% !important;
+        margin-right: 10% !important
+    }
+    #serviceHomeContainer {
+        margin-left: 2% !important;
+        margin-right: 2% !important;
+    }
+    #testimonialHomeContainer {
+        margin-left: 2% !important;
+        margin-right: 2% !important;
+        min-height: 29vh !important;
+    }
+    #testimonialUserTextContainer {
+        margin-top: -10% !important;
+    }
+    #homeHeaderText {
+        font-size: 1.7rem !important;
+    }
+    .navbar {
+        padding: 0rem !important
+    }
+    #premierLogoNav {
+        width: 90% !important;
+        margin-top: 5% !important
+    }
+    #titleId {
+        margin-bottom: 13vw !important
+    }
+    .btn-default {
+        padding: none !important;
+        /* width: 5% !important */
+    }
+    .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important
     }
 }
 
@@ -270,7 +317,7 @@
 }
 
 html {
-    width: 100%
+    width: 100%;
 }
 
 

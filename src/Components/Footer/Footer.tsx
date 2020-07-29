@@ -27,7 +27,7 @@ const footerText1: React.CSSProperties ={
     marginBottom: '1%',
     textShadow: '.1rem .1rem .1rem #024160',
     fontSize:'1.2rem',
-    color:'#E8D47B'
+    color:'#E8C10D'
 }
 
 

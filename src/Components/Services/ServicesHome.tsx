@@ -41,14 +41,14 @@ class ServicesHome extends React.Component {
     render() {
         return (
 
-            <div style={{display:'flex',flexDirection: 'column',width:'',marginLeft:'18%',marginRight:'18%',marginBottom:'3%',   background: 'rgba(26, 35, 64, 0.5)', borderRadius:'20px'}}>
-                <h3 className="headerText" style={{fontSize:'2.2rem', paddingTop:'1%', color:'white', userSelect:'none',paddingLeft:'1%', paddingRight:'1%', marginLeft:'15%' , marginRight:'15%', borderRadius:'25px' ,marginBottom: '1%', paddingBottom: '1%', backgroundColor: 'transparent', textShadow: '2px 2px 2px black'}}>Service Locations</h3>
+            <div id='serviceHomeContainer' style={{display:'flex',flexDirection: 'column',width:'',marginLeft:'18.5%',marginRight:'18.5%',marginBottom:'3%',   background: 'rgba(26, 35, 64, 0.5)', borderRadius:'20px'}}>
+                <h3  id='homeHeaderText'  className="headerText" style={{fontSize:'2.2rem', paddingTop:'1%', color:'white', userSelect:'none',paddingLeft:'1%', paddingRight:'1%', marginLeft:'15%' , marginRight:'15%', borderRadius:'25px' ,marginBottom: '1%', paddingBottom: '1%', backgroundColor: 'transparent', textShadow: '2px 2px 2px black'}}>Service Locations</h3>
                 <div style={{display:'flex',  flexDirection:'row', justifyContent:'center', flexWrap:'wrap'}}>
                
                      <Row>
                             <Col>
                             
-                        <div>
+                        <div className = "icon1">
                                     <MDBPopover
                                     placement="top"
                                     popover
@@ -71,7 +71,7 @@ class ServicesHome extends React.Component {
                             </Col>
                             <Col>
                             
-                        <div style={{ }} className="">
+                        <div style={{ }}  className = "icon1">
                                     <MDBPopover
                                     placement="top"
                                     popover
@@ -97,7 +97,7 @@ class ServicesHome extends React.Component {
                             </Col>
                             <Col>
                             
-                        <div style={{ }} className="">
+                        <div style={{ }}  className = "icon1">
                                     <MDBPopover
                                     placement="top"
                                     popover
@@ -125,7 +125,7 @@ class ServicesHome extends React.Component {
                         <Row>       
                             <Col>
                             
-                        <div style={{ }} className="">
+                        <div style={{ }}  className = "icon1">
                                     <MDBPopover
                                     placement="top"
                                     popover
@@ -151,7 +151,7 @@ class ServicesHome extends React.Component {
                             </Col>     
                             <Col>
                             
-                        <div style={{}} className="">
+                        <div style={{}}  className = "icon1">
                                     <MDBPopover
                                     placement="top"
                                     popover
@@ -177,7 +177,7 @@ class ServicesHome extends React.Component {
                                 </Col> 
                             <Col>                
                             
-                        <div style={{ }} className="">
+                        <div style={{ }}  className = "icon1">
                                                 <MDBPopover
                                                 placement="top"
                                                 popover

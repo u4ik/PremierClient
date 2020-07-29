@@ -165,17 +165,17 @@ class Home extends React.Component <HomeProps, HomeTypes> {
                                         
                                 }}>
                         
-                        <div className="transparentContainer" style={{display:'flex',flexDirection: 'column',  marginLeft:'2%',marginRight:'2%',  background: 'rgba(26, 35, 64, 0.5)', borderRadius:'20px'}}>
-                            <div className="welcomeText" style={{padding:'2%', textAlign:'center'}} >
+                        <div className="transparentContainer" style={{ display:'flex',flexDirection: 'column',  marginLeft:'-5%',marginRight:'-5%',  background: 'rgba(26, 35, 64, 0.5)', borderRadius:'20px'}}>
+                            <div  className="welcomeText" style={{padding:'2%', textAlign:'center'}} >
 
                         
                                 <Container>
                                     <Col className="welcomeText">
                                 <img className="logoIcon" src={LogoIcon} style={{width: '10vh', marginBottom: '1rem', marginTop: '4%',  filter:'drop-shadow(2px 2px 1px black)'}}></img>
                                 {this.props.signedIn ? 
-                                <h4  className="headerText"  style={{fontSize:'1.9rem', textShadow:'2px 2px 1px black', color:'#E8C10D', userSelect:'none' }}>
+                                <h4 id='homeHeaderText'  className="headerText"  style={{fontSize:'1.9rem', textShadow:'2px 2px 1px black', color:'#E8C10D', userSelect:'none' }}>
                                     Welcome&nbsp;{localStorage.getItem('firstname')}!</h4>
-                                :    <h4 className="headerText"  style={{fontSize:'1.9rem', textShadow:'2px 2px 1px black', color:'#E8C10D', userSelect:'none' }}>
+                                :    <h4 id='homeHeaderText' className="headerText"  style={{fontSize:'1.9rem', textShadow:'2px 2px 1px black', color:'#E8C10D', userSelect:'none' }}>
                                 Welcome!</h4> }
                                     <div style={{minHeight:'50px'}} onClick ={()=> {
                                     if(this.props.isAdmin){

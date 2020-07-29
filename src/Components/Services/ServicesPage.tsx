@@ -150,7 +150,7 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
 
 
     render() {
-        window.scrollTo(0, 0)
+        
         const listItemStyle = {
             backgroundColor: 'transparent', 
             color: 'white', 
@@ -191,7 +191,7 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
                                     marginTop: marginT
                                     
                             }}>
-                            <img src={ServiceLogo} style={{marginTop: '7%',width: '10%',filter:'drop-shadow(.1rem .1rem .1rem black)'}}></img>
+                            <img id = 'serviceLogo' src={ServiceLogo} style={{marginTop: '7%',width: '10%',filter:'drop-shadow(.1rem .1rem .1rem black)'}}></img>
                             </animated.div>
                             )}
                     </Spring>
@@ -236,7 +236,7 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
                             </div>
                         </div>
 
-                        : <h3 style={{fontSize:'2.2rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px black', color:'#177BBD', userSelect:'none', marginBottom: '1%', paddingBottom: '.5vh', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>{this.state.servicesTextTitle} </h3>
+                        : <h3 id= 'serviceTitle' style={{fontSize:'2.2rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px black', color:'#177BBD', userSelect:'none', marginBottom: '1%', paddingBottom: '.5vh', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>{this.state.servicesTextTitle} </h3>
                         }
                     </div>
 
@@ -306,10 +306,10 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
                 : 
                 
                 <div>
-                        <h3 style={{fontSize:'2.2rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px black', color:'#177BBD', userSelect:'none', marginBottom: '1%', paddingBottom: '.5vh', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>{this.state.servicesTextTitle} </h3>
+                        <h3 id= 'serviceTitle' style={{fontSize:'2.2rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px black', color:'#177BBD', userSelect:'none', marginBottom: '1%', paddingBottom: '.5vh', borderBottom: 'solid 1px white', backgroundColor: 'white'}}>{this.state.servicesTextTitle} </h3>
                         
                         
-                        <p style={{    textShadow: 'black .2px .2px 1px', marginLeft: '25%', marginRight: '25%'}}> 
+                        <p id= 'serviceText' style={{    textShadow: 'black .2px .2px 1px', marginLeft: '25%', marginRight: '25%'}}> 
                         {this.state.servicesText}
                         </p>
 

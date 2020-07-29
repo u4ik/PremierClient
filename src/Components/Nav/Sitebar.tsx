@@ -20,7 +20,8 @@ const logo: React.CSSProperties ={
 const navbar: React.CSSProperties ={
     background: '#177BBD',
     alignItems: 'center',
-    filter:'drop-shadow(0px 5px 5px #024160)'   
+    filter:'drop-shadow(0px 5px 5px #024160)',   
+    width: '100vw'
 }
 // const logoTitleStyle:React.CSSProperties={
 //     fontSize: '2.2rem',
@@ -113,7 +114,7 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                         flexDirection:'row'
                     }}>
                         <div>
-                            <img alt = 'Premier Commercial Services Logo' src={Logo} style={logo} />
+                            <img id='premierLogoNav' alt = 'Premier Commercial Services Logo' src={Logo} style={logo} />
                         </div>
                         {/* <div>
                             <h1 style={logoTitleStyle}>Premier Commercial Services</h1>
@@ -153,6 +154,7 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                         if(collapsed === false){
                                         setCollapsed(true)
                                         }
+                                        window.scrollTo(0, 0);
                                         
                                     }}>
                                     <NavLink  className="nav-links">Services</NavLink>
