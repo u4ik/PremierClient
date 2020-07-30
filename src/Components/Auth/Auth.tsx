@@ -88,6 +88,8 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
 
     const [emailError, setEmailError] = useState('')
     const [passwordLengthError, setPasswordLengthError] = useState('')
+    
+    const [phoneNumberError, setPhoneNumberError] = useState('')
 
     const [showSubmit, setShowSubmit] = useState(true); 
     const [disabledSignupButton, setDisabledSignupButton] = useState(true)
@@ -164,7 +166,7 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
                             <FormGroup>
                                 <Label style={labelStyles} htmlFor="email">Email</Label>
                                 <Input invalid={emailInputError} valid={!emailInputError} style = {inputStyles} type= "email" name="email" placeholder="johnsmith@email.com" value={email} onChange={(e) => {
-                                    
+                                    setEmailError('')
                                     setEmail(e.target.value)
                                         if(e.target.value.includes('@')){
                                             setEmailInputError(false)
@@ -219,20 +221,23 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
                                 <Label style={labelStyles} htmlFor="phoneNumber">Phone Number</Label>
                                 <Input invalid={phoneInputError} valid={!phoneInputError} style = {inputStyles} maxlength = "10" type="tel" name="phoneNumber" placeholder="5555555555"  onChange={e => {
                                    
-                                   
-                                   if(e.target.value.length < 10) {
-                             
+                                   setPhoneNumber(e.target.value)
+                                   if(e.target.value.length < 10   ) {
+                                    setPhoneNumberError('Please input your full number')
                                         setPhoneInputError(true)
                                         setDisabledSignupButton(true)
+                                        if(e.target.value.length < 1){
+                                            setPhoneNumberError('')
+                                        }
                                     }
                                     else{
-                                        setPhoneNumber(e.target.value)
+                                     
                                         setDisabledSignupButton(false)
                                         setPhoneInputError(false)
                                     }
 
                                }} required />
-                               <FormFeedback style={errorStyle}>Please enter your full phone number</FormFeedback>
+                               <FormFeedback style={errorStyle}>{phoneNumberError}</FormFeedback>
                             </FormGroup>
                             </div>
                             : null}
