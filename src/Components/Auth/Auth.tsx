@@ -3,8 +3,8 @@ import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, Mo
 import './Auth.css';
 import Logo from '../../assets/Premier-Commercial-Services-icon.svg';
 import APIURL from '../../helpers/environment';
-import { invalid } from 'moment';
-import {Keyboard} from 'react-native';
+// import { invalid } from 'moment';
+
 
 
 const baseURL = `${APIURL}/user`;
@@ -28,6 +28,8 @@ interface displayAuthForm {
     setUserData:any
     setIsAdmin: any
     isAdmin:any
+
+    // children: any
 
 }
 
@@ -95,6 +97,10 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
 
     const [showSubmit, setShowSubmit] = useState(true); 
     const [disabledSignupButton, setDisabledSignupButton] = useState(true)
+
+    // Keyboard.dismiss()
+
+
 
     const submit = (e: any) => {
         e.preventDefault();
@@ -170,7 +176,7 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
                                 <Input invalid={emailInputError} valid={!emailInputError} style = {inputStyles} type= "email" name="email" placeholder="johnsmith@email.com" value={email} onChange={(e) => {
                                     setEmailError('')
                                     setEmail(e.target.value)
-                                        if(e.target.value.includes('@')){
+                                        if(e.target.value.includes('@') && e.target.value.includes('.')){
                                             setEmailInputError(false)
                                         }
                                         else{
