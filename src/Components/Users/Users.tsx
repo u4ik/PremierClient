@@ -171,7 +171,7 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
 
     return (
         props.isAdmin ? 
-        <div style={{backgroundColor:'white', color:'#009FE4' , textShadow:'.4px .4px 1px black'}}>
+        <div style={{backgroundColor:'white', color:'#009FE4' , textShadow:'.4px .4px 1px black', minHeight:'89vh'}}>
             <div style={{textShadow:'.4px .4px 1px black'}}>
             <Spring
                             config={{duration: 600}} 

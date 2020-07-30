@@ -8,7 +8,7 @@
     }
 } */
 
-@media only screen and (max-device-width: 2736px) and (max-device-height: 1824px) {
+@media only screen and (max-device-width: 2736px) and (max-device-height: 1824px) and (orientation: landscape) {
     #titleId {
         margin-bottom: 5vw
     }
@@ -28,6 +28,113 @@
     }
     #testimonialUserTextContainer {
         margin-top: -7.5% !important;
+    }
+}
+
+
+/* //samsung */
+
+@media only screen and (min-device-width: 412px) and (max-device-height: 930px) and (orientation: portrait) {
+    .container {
+        font-size: .5rem;
+    }
+    .iconText {
+        font-size: .6rem !important
+    }
+    .ownerText {
+        font-size: .8rem !important
+    }
+    .headerText {
+        font-size: 1.2rem !important;
+    }
+    .dataTables_scrollHeadInner {
+        padding-right: 0px !important;
+    }
+    .dataTable_scrollBody {
+        margin-right: 0px !important
+    }
+    .transparentContainer {
+        margin-top: 5%;
+        margin-left: 2% !important;
+        margin-right: 2% !important
+    }
+    .testHomeQuote {
+        font-size: 1rem !important;
+        min-height: fit-content
+    }
+    .stars {
+        transform: scale(1) !important;
+        margin-bottom: -8% !important;
+    }
+    .testHomeText {
+        transform: scale(.8) !important;
+    }
+    #serviceLogo {
+        transform: scale(2.5);
+        margin-bottom: 15%;
+        padding-top: 5%;
+        filter: drop-shadow(.05rem .05rem .05rem black) !important;
+    }
+    #serviceTitle {
+        font-size: 2rem !important
+    }
+    #serviceText {
+        margin-left: 10% !important;
+        margin-right: 10% !important
+    }
+    #serviceHomeContainer {
+        margin-left: 2% !important;
+        margin-right: 2% !important;
+    }
+    #testimonialHomeContainer {
+        margin-left: 2% !important;
+        margin-right: 2% !important;
+        /* min-height: 17vh !important; */
+    }
+    #testimonialUserTextContainer {}
+    #homeHeaderText {
+        font-size: 1.7rem !important;
+    }
+    .navbar {
+        padding: 0rem !important
+    }
+    #premierLogoNav {
+        width: 90% !important;
+        margin-top: 5% !important
+    }
+    #titleId {
+        margin-bottom: 20vw !important
+    }
+    .btn-default {
+        padding: none !important;
+        /* width: 5% !important */
+    }
+    .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important
+    }
+    .show.popover {
+        width: 105% !important;
+        text-align: center !important;
+        /* transform: scale(.8) !important; */
+    }
+    .popover-body {
+        font-size: .5rem !important;
+    }
+    #welcomeContainer {
+        padding-top: 1vh !important
+    }
+    #testimonialPageStars {
+        transform: scale(3) !important;
+        padding-bottom: 2% !important;
+        margin-left: 30% !important;
+        margin-right: 30% !important;
+    }
+    .custom-control-label {
+        font-size: 1rem !important;
+    }
+    .carousel-caption {
+        padding-bottom: none !important;
     }
 }
 
@@ -104,6 +211,7 @@
     }
     .stars {
         transform: scale(1) !important;
+        margin-bottom: -9%;
     }
     .testHomeText {
         transform: scale(.8) !important;
