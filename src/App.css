@@ -13,8 +13,17 @@
         margin-bottom: 5vw
     }
     .transparentContainer {
-        margin-right: -3% !important;
-        margin-left: -3% !important
+        margin-right: -10% !important;
+        margin-left: -10% !important
+    }
+    #serviceHomeContainer {
+        margin-left: 6% !important;
+        margin-right: 6% !important;
+    }
+    #testimonialHomeContainer {
+        margin-left: 6% !important;
+        margin-right: 6% !important;
+        /* min-height: 17vh !important; */
     }
 }
 
@@ -23,11 +32,11 @@
         margin-bottom: 3.1vw
     }
     .transparentContainer {
-        margin-right: -21% !important;
-        margin-left: -21% !important
+        margin-right: -42% !important;
+        margin-left: -42% !important
     }
     #testimonialUserTextContainer {
-        margin-top: -7.5% !important;
+        margin-top: -.1% !important;
     }
 }
 

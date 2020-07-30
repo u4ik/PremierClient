@@ -10,7 +10,7 @@ import ServicesImg from  '../../assets/locationIcons/servicesyellow.svg'
 import {Col, Row} from 'reactstrap'
 import { MDBPopover, MDBPopoverBody, MDBPopoverHeader, MDBBtn } from "mdbreact";
 
-
+import {Spring, animated} from 'react-spring/renderprops'
 
 import './Services.css'
 
@@ -47,7 +47,17 @@ class ServicesHome extends React.Component {
                
                      <Row>
                             <Col>
-                            
+                            <Spring
+                                config={{duration: 200, delay: 800}} 
+                                native
+                                from={{ o: 0 }}
+                                to={{ o: 1  }} 
+                                >
+                                {({ o }) => (
+                                <animated.div style={{
+                                        opacity: o
+                                        
+                                }}> 
                         <div className = "icon1">
                                     <MDBPopover
                                     placement="top"
@@ -67,10 +77,22 @@ class ServicesHome extends React.Component {
                                     </div>
                                     </MDBPopover>
                         </div>
-                                
+                                </animated.div>
+                                )}
+                                </Spring>
                             </Col>
                             <Col>
-                            
+                            <Spring
+                                config={{duration: 200, delay: 900}} 
+                                native
+                                from={{ o: 0 }}
+                                to={{ o: 1  }} 
+                                >
+                                {({ o }) => (
+                                <animated.div style={{
+                                        opacity: o
+                                        
+                                }}> 
                         <div style={{ }}  className = "icon1">
                                     <MDBPopover
                                     placement="top"
@@ -93,10 +115,22 @@ class ServicesHome extends React.Component {
                                 
 
                         </div>
-                                
+                        </animated.div>
+                                )}
+                                </Spring>
                             </Col>
                             <Col>
-                            
+                            <Spring
+                                config={{duration: 200, delay: 1000}} 
+                                native
+                                from={{ o: 0 }}
+                                to={{ o: 1  }} 
+                                >
+                                {({ o }) => (
+                                <animated.div style={{
+                                        opacity: o
+                                        
+                                }}> 
                         <div style={{ }}  className = "icon1">
                                     <MDBPopover
                                     placement="top"
@@ -119,12 +153,24 @@ class ServicesHome extends React.Component {
                                 
 
                         </div>
-                                
+                        </animated.div>
+                                )}
+                                </Spring>
                             </Col>  
                         </Row>  
                         <Row>       
                             <Col>
-                            
+                            <Spring
+                                config={{duration: 200, delay: 1100}} 
+                                native
+                                from={{ o: 0 }}
+                                to={{ o: 1  }} 
+                                >
+                                {({ o }) => (
+                                <animated.div style={{
+                                        opacity: o
+                                        
+                                }}> 
                         <div style={{ }}  className = "icon1">
                                     <MDBPopover
                                     placement="top"
@@ -147,10 +193,23 @@ class ServicesHome extends React.Component {
                                 
 
                         </div>
-                                
+                        </animated.div>
+                                )}
+                                </Spring>
                             </Col>     
-                            <Col>
                             
+                            <Col>
+                            <Spring
+                                config={{duration: 200, delay: 1200}} 
+                                native
+                                from={{ o: 0 }}
+                                to={{ o: 1  }} 
+                                >
+                                {({ o }) => (
+                                <animated.div style={{
+                                        opacity: o
+                                        
+                                }}> 
                         <div style={{}}  className = "icon1">
                                     <MDBPopover
                                     placement="top"
@@ -173,10 +232,22 @@ class ServicesHome extends React.Component {
                                 
 
                         </div>
-                                
-                                </Col> 
+                        </animated.div>
+                                )}
+                                </Spring>
+                            </Col> 
                             <Col>                
-                            
+                            <Spring
+                                config={{duration: 200, delay: 1200}} 
+                                native
+                                from={{ o: 0 }}
+                                to={{ o: 1  }} 
+                                >
+                                {({ o }) => (
+                                <animated.div style={{
+                                        opacity: o
+                                        
+                                }}> 
                         <div style={{ }}  className = "icon1">
                                                 <MDBPopover
                                                 placement="top"
@@ -196,7 +267,9 @@ class ServicesHome extends React.Component {
                                                 </div>
                                                 </MDBPopover>
                                     </div>
-                                
+                                    </animated.div>
+                                )}
+                                </Spring>
                             </Col>
                         </Row>      
                
