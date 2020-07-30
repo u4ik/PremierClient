@@ -92,7 +92,7 @@ const Contact: React.FunctionComponent<contactPage> = (props:contactPage) => {
                 <img src = {Logo} style={{width:'20%'}} />
                 </ModalHeader>
                 <ModalBody style={{backgroundColor: '#009FE4'}}>
-                <form className="fs-frm" id="myForm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/michael@gopremiercommercial.net" method="post">
+                <form className="fs-frm" id="myForm" name="simple-contact-form" acceptCharset="utf-8" action="https://formspree.io/michael@gopremiercommercial.net" method="post">
 
                     <fieldset id="fs-frm-inputs">
 

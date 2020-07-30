@@ -7,10 +7,10 @@ import MedicalImg from  '../../assets/locationIcons/medical2yellow.svg'
 import OfficeImg from  '../../assets/locationIcons/officeyellow.svg'
 import ServicesImg from  '../../assets/locationIcons/servicesyellow.svg'
 
-import {Container,Col, Row} from 'reactstrap'
-import { MDBPopover, MDBPopoverBody, MDBPopoverHeader, MDBBtn, MDBContainer } from "mdbreact";
+import {Col, Row} from 'reactstrap'
+import { MDBPopover, MDBPopoverBody, MDBPopoverHeader, MDBBtn } from "mdbreact";
 
-import APIURL from '../../helpers/environment';
+
 
 import './Services.css'
 

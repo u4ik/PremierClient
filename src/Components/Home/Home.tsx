@@ -171,7 +171,7 @@ class Home extends React.Component <HomeProps, HomeTypes> {
                         
                                 <Container>
                                     <Col className="welcomeText">
-                                <img className="logoIcon" src={LogoIcon} style={{width: '10vh', marginBottom: '1rem', marginTop: '4%',  filter:'drop-shadow(2px 2px 1px black)'}}></img>
+                                <img alt="logo" className="logoIcon" src={LogoIcon} style={{width: '10vh', marginBottom: '1rem', marginTop: '4%',  filter:'drop-shadow(2px 2px 1px black)'}}></img>
                                 {this.props.signedIn ? 
                                 <h4 id='homeHeaderText'  className="headerText"  style={{fontSize:'1.9rem', textShadow:'2px 2px 1px black', color:'#E8C10D', userSelect:'none' }}>
                                     Welcome&nbsp;{localStorage.getItem('firstname')}!</h4>
@@ -203,7 +203,7 @@ class Home extends React.Component <HomeProps, HomeTypes> {
                                     }}
                                     ></textarea>
                                         <div style={{display:'flex',flexDirection:'row', justifyContent:'center'}}>
-                                            <img style={editIcon} src= {this.state.editImg} 
+                                            <img alt ="edit" style={editIcon} src= {this.state.editImg} 
                                             onClick={() => {
                                                 this.updateSite();
                                             }}></img>
@@ -241,7 +241,7 @@ class Home extends React.Component <HomeProps, HomeTypes> {
                                     
                                 ></input>
                                 <div style={{display:'flex',flexDirection:'row', justifyContent:'center'}}>
-                                    <img style={editIcon} src= {this.state.editImg2}
+                                    <img alt= "edit"style={editIcon} src= {this.state.editImg2}
                                     onClick={() => {
                                         this.updateSite();
                                     }}></img>
@@ -280,7 +280,7 @@ class Home extends React.Component <HomeProps, HomeTypes> {
                                             }}
                                         ></input>
                                         <div style={{display:'flex',flexDirection:'row', justifyContent:'center'}}>
-                                            <img style={editIcon} src= {this.state.editImg3}
+                                            <img alt="edit" style={editIcon} src= {this.state.editImg3}
                                             onClick={() => {
                                                 this.updateSite();
                                             }}></img>
@@ -338,7 +338,7 @@ class Home extends React.Component <HomeProps, HomeTypes> {
                 </div>
                 </div>
                : <div>
-               <img style={{ width: '15vh',marginTop: '28vh',marginBottom: '50vh', filter: 'drop-shadow(2px 2px 2px black)'}} id = 'loadingImg' src ={LoadingGif}></img>
+               <img alt="edit" style={{ width: '15vh',marginTop: '28vh',marginBottom: '50vh', filter: 'drop-shadow(2px 2px 2px black)'}} id = 'loadingImg' src ={LoadingGif}></img>
               </div>  }   
             </div>
         );

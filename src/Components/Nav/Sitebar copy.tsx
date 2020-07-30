@@ -3,11 +3,9 @@ import {Link} from 'react-router-dom'
 import AuthForm from '../Auth/Auth';
 import './Sitebar.css'
 import Contact from '../Contact/Contact';
-import { Collapse, Navbar, NavbarToggler, NavItem, NavLink } from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink } from 'reactstrap';
 import Logo from '../../assets/Premier-Commercial-Services-logo.svg';
 import APIURL from '../../helpers/environment';
-
-import {Nav} from 'react-bootstrap'
 
 
 
@@ -141,14 +139,14 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                 <Contact setShowContact={setShowContact} showContact ={showContact} />   
                             {/* AUTHFORM COMPONENT/MODAL */}
                                 <AuthForm isAdmin={props.isAdmin} setIsAdmin={props.setIsAdmin} userData={userData} setUserData={setUserData}  setCurrentUserId={props.setCurrentUserId} currentUserId={props.currentUserId} enableTestCreate={props.enableTestCreate}  setEnableTestCreate={props.setEnableTestCreate} updateTheToken={updateTheToken} signedIn = {props.signedIn}  setSignedIn = {props.setSignedIn}  updateToken={props.updateToken} setUpdateToken={props.setUpdateToken}  showAuth={showAuth} setShowAuth={setShowAuth} signup={signup} setSignup={setSignup}/>    
-                                <NavItem  >
+                                <NavItem >
                                     <Link  className="nav-links" to ="/"  onClick={(e) => {
                                         if(collapsed === false){
                                         setCollapsed(true)
                                         }
                                         
                                     }}>
-                                    <span   style={{padding: '.5rem 1rem', display:'block'}} >Home</span>
+                                    <NavLink   className="nav-links" >Home</NavLink>
                                     </Link>
                                 </NavItem>
                                 <NavItem>
@@ -159,7 +157,7 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                         window.scrollTo(0, 0);
                                         
                                     }}>
-                                   <span   style={{padding: '.5rem 1rem', display:'block'}}>Services</span>
+                                    <NavLink  className="nav-links">Services</NavLink>
                                     </Link>
                                 </NavItem>
                                 <NavItem>
@@ -169,7 +167,7 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                         }
                                         window.scrollTo(0, 0)
                                     }}>
-                                    <span   style={{padding: '.5rem 1rem', display:'block'}} >Testimonials</span>
+                                    <NavLink  className="nav-links">Testimonials</NavLink>
                                 </Link>
                                 </NavItem>
                                 <NavItem>
@@ -177,15 +175,13 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                         if(collapsed === false){
                                         setCollapsed(true)
                                         }
-                                        showThatContact(e);
                                          
                                         
                                     }}>
-                                    <span   style={{padding: '.5rem 1rem', display:'block'}}  onClick={(e:any) => {
-                                      
+                                    <NavLink href="/" className="nav-links" onClick={(e:any) => {
+                                        showThatContact(e);
                                     }} 
-                                    >Contact Us
-                                    </span>
+                                    >Contact Us</NavLink>
                                     </Link>
                                 </NavItem>
                                 {props.signedIn === true && props.isAdmin === false ? 
@@ -196,16 +192,16 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                         }
                                         
                                     }}>
-                                    <span style={{padding: '.5rem 1rem', display:'block'}}  className="nav-links">My Orders</span>
+                                    <NavLink  className="nav-links">My Orders</NavLink>
                                 </Link>
                                 </NavItem>
                                 : null}
                                 {props.signedIn === true ? 
                                 <NavItem>
-                                    <NavLink style={{padding: '.5rem 1rem', display:'block'}} href="/" className="nav-links" onClick={(e: any) => {logOut()}}>Logout</NavLink>
+                                    <NavLink href="/" className="nav-links" onClick={(e: any) => {logOut()}}>Logout</NavLink>
                                 </NavItem>
                                 :    <NavItem>
-                                <NavLink href = "/" className="nav-links" onClick={(e: any) => {
+                                <NavLink href="/" className="nav-links" onClick={(e: any) => {
                                     
                                     if(collapsed === false){
                                         setCollapsed(true)
@@ -222,7 +218,7 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                         }
                                         
                                     }}>
-                                <span style={{padding: '.5rem 1rem', display:'block'}} className="nav-links">All Orders</span>
+                                <NavLink className="nav-links">All Orders</NavLink>
                                 </Link>
                                  </NavItem> : null}
                                  {props.isAdmin === true ? 
@@ -233,7 +229,7 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                         }
                                         
                                     }}>
-                                <span style={{padding: '.5rem 1rem', display:'block'}}  className="nav-links">All Users</span>
+                                <NavLink  className="nav-links">All Users</NavLink>
                                 </Link>
                                  </NavItem> : null}
                             </div>

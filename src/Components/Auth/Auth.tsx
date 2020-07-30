@@ -4,6 +4,8 @@ import './Auth.css';
 import Logo from '../../assets/Premier-Commercial-Services-icon.svg';
 import APIURL from '../../helpers/environment';
 import { invalid } from 'moment';
+import {Keyboard} from 'react-native';
+
 
 const baseURL = `${APIURL}/user`;
 
@@ -239,6 +241,7 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
                                }} required />
                                <FormFeedback style={errorStyle}>{phoneNumberError}</FormFeedback>
                             </FormGroup>
+                            
                             </div>
                             : null}
                                              

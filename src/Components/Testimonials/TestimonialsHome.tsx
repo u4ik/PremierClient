@@ -12,7 +12,7 @@ import {
   Carousel,
   CarouselItem,
   CarouselControl,
-  CarouselIndicators,
+  // CarouselIndicators,
 } from 'reactstrap';
 import TestimonialHomeBcg from '../../assets/testimonial-bcg.jpg'
 

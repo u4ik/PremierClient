@@ -42,7 +42,7 @@ const App: React.FunctionComponent = () => {
  
         <div style={{ minHeight: '88.5vh'}}>
           <Switch>
-        
+        <React.Fragment>
               <Route path="/" exact render={(props) => ( <Home isAdmin ={isAdmin} signedIn={signedIn}/>)}/>
               <animated.div style={opacityChange}>
               <Route path ="/orders" exact render={(props) => (< Orders isAdmin ={isAdmin}  signedIn={signedIn} setSignedIn={setSignedIn} updateToken = {updateToken}/>)} />
@@ -54,6 +54,9 @@ const App: React.FunctionComponent = () => {
             
               <Route path ="/users" exact render={(props) => (<Users updateToken={updateToken} isAdmin={isAdmin} signedIn={signedIn}/>)}/>
               </animated.div>
+
+              </React.Fragment>
+
           </Switch>
         </div>
     </Router>  
