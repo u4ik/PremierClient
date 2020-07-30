@@ -80,7 +80,7 @@ useEffect (() => {
 
         <div className="carousel-caption d-none d-md-block" style={{
           // backgroundColor:'#177BBD',
-          minHeight: ' 12rem',
+          minHeight: ' ',
           // background: 'rgba(34,111,153, .1)',
           // border: '1px #177BBD',
           // borderStyle:'solid',
@@ -89,21 +89,21 @@ useEffect (() => {
           paddingRight:'.5rem',
           marginTop:'.5rem',
           userSelect:'none',
-          marginBottom:'5%',
+          marginBottom:'',
           width:'auto',
           filter: 'drop-shadow(2px 2px 2px navy)',
           marginLeft:'10%',
           marginRight:'10%'}}>
 
 
-          <div style={{ minHeight: '3.8rem',overflowWrap:'break-word'}} >
+          <div style={{ minHeight: '',overflowWrap:'break-word'}} >
           <h3 className='testHomeQuote' style={{fontSize:'1.4rem', textShadow:'1px 1px 1px black', color:'white', userSelect:'none'}}>{ `"` + `${item.userQuote}` + `"`}</h3>
           </div>
           <div className="stars" style={{transform: 'scale(2)', marginLeft:'30%', marginRight:'30%', marginTop:'2%'}}>
           <Rater  total={5} rating={item.userRating} interactive={false}  />
           </div>
         </div>
-        <div id="testimonialUserTextContainer" style={{marginTop: '-10%', marginLeft:'20%', marginRight:'20%'}} className= "testHomeText">
+        <div id="testimonialUserTextContainer" style={{marginTop: '.5%', marginLeft:'20%', marginRight:'20%'}} className= "testHomeText">
             <h4 className='nameTextTestimonialHome' style= {TestimonialInfoText}>{"- " + `${item.userFirstName}` + " " + `${item.userLastName}`}</h4>
             <h5 className='locationTextTestimonialHome' style= {TestimonialInfoText2}>{item.userLocationType}</h5>
             <h5 className='locationTextTestimonialHome'style= {TestimonialInfoText2}>{item.userLocation}</h5>

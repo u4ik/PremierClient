@@ -178,7 +178,7 @@ class ServicesPage extends React.Component <ServiceProps, MyState> {
 
 
         return (
-            <div>
+            <div style={{backgroundColor:'white'}}>
                     <Spring
                             config={{duration:  600}} 
                             native

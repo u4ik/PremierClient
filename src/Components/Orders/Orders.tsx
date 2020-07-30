@@ -267,7 +267,7 @@ const createButton={
     return(
 
         props.signedIn ? 
-        <div style={{backgroundColor:'white', color:'#009FE4' , textShadow:'.4px .4px 1px black'}}>
+        <div style={{backgroundColor:'white', color:'#009FE4' , textShadow:'.4px .4px 1px black', minHeight:'89vh'}}>
               
               <Spring
                             config={{duration: 600}} 

@@ -27,6 +27,9 @@ import LoadingGif from '../../assets/premier-icon.png'
 type HomeProps = {
     signedIn: boolean
     isAdmin: boolean
+
+    collapsed: boolean
+    setCollapsed: any
    
 
 }
@@ -145,7 +148,10 @@ class Home extends React.Component <HomeProps, HomeTypes> {
   
         return (
             
-            <div style={{height:"auto", minHeight:'inherit',backgroundAttachment:'fixed', backgroundImage: `url(${HomeBackground})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover',  paddingBottom:'3%'}}>
+            <div style={{height:"auto", minHeight:'inherit',  paddingBottom:'3%'}} onClick={() => {
+
+                this.props.setCollapsed(true)
+            }}>
                
                {this.state.siteId ?
                 <div>

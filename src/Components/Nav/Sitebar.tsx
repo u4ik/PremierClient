@@ -44,17 +44,22 @@ interface siteBarProps{
     setIsAdmin: any
     currentUserId :any
     setCurrentUserId: any
+    collapsed: boolean
+    setCollapsed:any
 }
 
 const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
-    const [collapsed, setCollapsed] = useState<boolean>(true);
-    const toggleNavbar = () => setCollapsed(!collapsed);
+
+    const toggleNavbar = () => props.setCollapsed(!props.collapsed);
     const [flexType, setFlexType] = useState<any>()
     const [showAuth, setShowAuth] = useState<boolean>(false);
     const [showContact, setShowContact] = useState<boolean>(false);
     const [signup, setSignup] = useState<boolean>(false);
     const [userData, setUserData] = useState<any>()
     const [currentUser, setCurrentUser] = useState('')
+    const [linkOpacity, setLinkOpacity] = useState(1)
+
+    const [flex, setFlex] = useState('')
     
     const updateTheToken = (newToken:any, user:any, admin:any,  serviceComplete:any, id:any, firstName:any, lastName:any) =>{
         localStorage.setItem('token', newToken);
@@ -125,10 +130,23 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                         </div>
                     </div>
                     <NavbarToggler onClick={(e) => {
-                        collapsed===true ? setFlexType('column'): setFlexType('row')
+                    setLinkOpacity(0)
+                        // setFlex('flex')
+                       if(props.collapsed===true) {
+                    
+                        setFlexType('column')
+                        setTimeout(function(){  setLinkOpacity(1) }, 420);
+                    
+                       }
+                       else{
+                        // setFlex('')
+                      
+                        setTimeout(function(){  setLinkOpacity(1)}, 1000 );
+                        setFlexType('row')
+                       }
                         toggleNavbar()}} className="mr-2" />
-                    <Collapse isOpen={!collapsed} navbar>
-                        <Nav>
+                    <Collapse style={{display: flex}} isOpen={!props.collapsed} navbar>
+                        <Nav style={{opacity: linkOpacity}}>
                             <div id = 'navlinkwrap' style={{
 
                                 display: 'flex',
@@ -143,8 +161,8 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                 <AuthForm isAdmin={props.isAdmin} setIsAdmin={props.setIsAdmin} userData={userData} setUserData={setUserData}  setCurrentUserId={props.setCurrentUserId} currentUserId={props.currentUserId} enableTestCreate={props.enableTestCreate}  setEnableTestCreate={props.setEnableTestCreate} updateTheToken={updateTheToken} signedIn = {props.signedIn}  setSignedIn = {props.setSignedIn}  updateToken={props.updateToken} setUpdateToken={props.setUpdateToken}  showAuth={showAuth} setShowAuth={setShowAuth} signup={signup} setSignup={setSignup}/>    
                                 <NavItem  >
                                     <Link  className="nav-links" to ="/"  onClick={(e) => {
-                                        if(collapsed === false){
-                                        setCollapsed(true)
+                                        if(props.collapsed === false){
+                                        props.setCollapsed(true)
                                         }
                                         
                                     }}>
@@ -153,8 +171,8 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                 </NavItem>
                                 <NavItem>
                                 <Link  className="nav-links" to ="/services"  onClick={(e) => {
-                                        if(collapsed === false){
-                                        setCollapsed(true)
+                                        if(props.collapsed === false){
+                                        props.setCollapsed(true)
                                         }
                                         window.scrollTo(0, 0);
                                         
@@ -164,8 +182,8 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                 </NavItem>
                                 <NavItem>
                                 <Link  className="nav-links" to ="/testimonials"  onClick={(e) => {
-                                        if(collapsed === false){
-                                        setCollapsed(true)
+                                        if(props.collapsed === false){
+                                        props.setCollapsed(true)
                                         }
                                         window.scrollTo(0, 0)
                                     }}>
@@ -174,8 +192,8 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                 </NavItem>
                                 <NavItem>
                                 <Link  className="nav-links" to ="/contact"  onClick={(e) => {
-                                        if(collapsed === false){
-                                        setCollapsed(true)
+                                        if(props.collapsed === false){
+                                        props.setCollapsed(true)
                                         }
                                         showThatContact(e);
                                          
@@ -191,8 +209,8 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                 {props.signedIn === true && props.isAdmin === false ? 
                                 <NavItem>
                                     <Link  className="nav-links" to ="/orders"  onClick={(e) => {
-                                        if(collapsed === false){
-                                        setCollapsed(true)
+                                        if(props.collapsed === false){
+                                        props.setCollapsed(true)
                                         }
                                         
                                     }}>
@@ -207,8 +225,8 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                 :    <NavItem>
                                 <NavLink href = "/" className="nav-links" onClick={(e: any) => {
                                     
-                                    if(collapsed === false){
-                                        setCollapsed(true)
+                                    if(props.collapsed === false){
+                                        props.setCollapsed(true)
                                         }
                                     
                                     
@@ -217,8 +235,8 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                 {props.isAdmin === true ? 
                                 <NavItem>
                                     <Link className="nav-links" to= "/orders"  onClick={(e) => {
-                                        if(collapsed === false){
-                                        setCollapsed(true)
+                                        if(props.collapsed === false){
+                                        props.setCollapsed(true)
                                         }
                                         
                                     }}>
@@ -228,8 +246,8 @@ const Sitebar: React.FunctionComponent<siteBarProps> = (props:siteBarProps) => {
                                  {props.isAdmin === true ? 
                                 <NavItem>
                                     <Link className="nav-links" to= "/users"  onClick={(e) => {
-                                        if(collapsed === false){
-                                        setCollapsed(true)
+                                        if(props.collapsed === false){
+                                        props.setCollapsed(true)
                                         }
                                         
                                     }}>

@@ -55,3 +55,11 @@ a.nav-links:hover {
     display: flex;
     justify-content: flex-end;
 }
+
+.navbar-toggler {
+    margin-top: 1%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.collapse.show.navbar-collapse {}
