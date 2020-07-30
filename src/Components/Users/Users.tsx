@@ -5,6 +5,8 @@ import { MDBDataTable, MDBBtn } from 'mdbreact';
 import LoadingGif from '../../assets/Premier-Commercial-Services-icon.svg'
 import APIURL from '../../helpers/environment';
 import LogoIcon from '../../assets/Premier-Commercial-Services-icon.svg'
+import DeleteArrow from '../../assets/deletearrow.svg'
+import DeleteUser from '../Users/DeleteUser'
 
 import {Spring, animated} from 'react-spring/renderprops'
 
@@ -14,11 +16,27 @@ interface UserProps  {
     signedIn: any
 }
 
+
+
 const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
 
     const [userData, setUserData] = useState<any>([])
     const [userId, setUserId] =useState<any>()
     const [serviceComplete, setServiceComplete] = useState<any>()
+
+    const [showDelete, setShowDelete] =useState<boolean>(false)
+    const [userErrorText, setUserErrorText] = useState<string>('')
+    const [userName, setUserName] = useState('')
+
+
+    const deleteArrowStyle={
+        width:'2vw',
+        filter:'drop-shadow(.1px .1px .2px black)',
+        opacity: .7
+      }
+
+
+
     const getUsers = () => {
         let token = localStorage.getItem('token')
         fetch(`${APIURL}/user/all`, {
@@ -29,7 +47,7 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
             }
         }).then(res => res.json())
         .then(userStuff => {
-                console.log(userStuff)
+                // console.log(userStuff)
            if(localStorage.getItem('admin') !== 'Negative' || null || undefined && props.isAdmin === true && userStuff.mapStuff !== undefined){
             
             
@@ -99,43 +117,44 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
       
         columns: [
           {
-            label: 'First Name',
-            field: 'firstName',
+            label: 'Name',
+            field: 'name' ,
             sort: 'asc',
             width: 100
           },
-          {
-            label: 'Last Name',
-            field: 'lastName',
-            sort: 'asc',
-            width: 100
-          },
-    
+      
           {
             label: 'Email',
             field: 'email',
             sort: 'asc',
-            width: 200
+            width: 250
           },
           {
             label: 'Location',
             field: "location",
             sort: 'asc',
-            width: 200
+            width: 150
           },
           {
             label: 'Phone #',
             field: 'phoneNumber',
             sort: 'asc',
-            width: 100
+            width: 120
           },
           {
             label: 'Complete',
             field: 'serviceComplete',
             sort: 'asc',
-            width: 80
+            width: 110
             
           },
+          {
+            label: 'X',
+            field: 'deleteUser',
+            sort: 'asc',
+            width: 60
+            
+          },      
         ],
         
         rows: 
@@ -144,9 +163,16 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
         
         userData ? userData.map((user: any) => ({
           ...user,
-         
+            name: user.firstName + ' '+user.lastName ,
+            deleteUser: <img style={deleteArrowStyle}src={DeleteArrow} onClick={(e) => {
+                // console.log(user.id);
+                setUserId(user.id);
+                setUserName(user.firstName +" "+ user.lastName);
+                setShowDelete(true);
+                setUserErrorText('')
+            }}></img>,
           serviceComplete:  <select style = {{outline:'none', border:'none', backgroundColor:'transparent'}} value={user.serviceComplete} name="name" id=""  onClick={() => {
-            console.log(user.id);
+            // console.log(user.id);
             setUserId(user.id);
          //    getUsers();
              }} onChange={(e) => {
@@ -159,6 +185,7 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
                  {/* <option value='yes'>yes</option>
                  <option value='no'>no</option> */}
              </select>
+           
         })
         )  : []
       
@@ -205,7 +232,7 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
                             }}>
             <h3 style={{fontSize:'2.2rem', paddingTop:'3%', textShadow:'0.5px 0.5px 0.5px black', color:'#177BBD', userSelect:'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white'}} onClick={(e) => getUsers()}>
             All Users</h3>
-
+                        <p>{userErrorText}</p>
             </animated.div>
                             )}
                     </Spring>
@@ -240,6 +267,7 @@ const Users:React.FunctionComponent<UserProps> = (props:UserProps)  => {
             </Spring> 
                 </Container>
             </div>
+            <DeleteUser userName={userName}  userErrorText = {userErrorText} setUserErrorText={setUserErrorText} updateToken={props.updateToken} setShowDelete={setShowDelete} showDelete ={showDelete} userId={userId} getUsers={getUsers} />
         </div>
 
     :   <div>

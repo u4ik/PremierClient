@@ -47,7 +47,7 @@ useEffect (() => {
       fontSize: '1.1rem',
       color:'#E8C10D',
       userSelect:'none',
-      textShadow: ('1px 1px 1px black')
+      textShadow: ('2px 2px 2px black')
 
     }
     const TestimonialInfoText2:React.CSSProperties ={
@@ -55,7 +55,7 @@ useEffect (() => {
       fontSize: '.8rem',
       color:'white',
       userSelect:'none',
-      textShadow: ('1px 1px 1px black')
+      textShadow: ('2px 2px 2px black')
 
     }
     const TestimonialInfoText3:React.CSSProperties ={
@@ -63,7 +63,7 @@ useEffect (() => {
       fontSize: '.69rem',
       color:'white',
       userSelect:'none',
-      textShadow: ('1px 1px 1px black')
+      textShadow: ('2px 2px 2px black')
 
     }
     return (
@@ -91,7 +91,7 @@ useEffect (() => {
           userSelect:'none',
           marginBottom:'',
           width:'auto',
-          filter: 'drop-shadow(2px 2px 2px navy)',
+          filter: 'drop-shadow(2px 2px 1px black)',
           marginLeft:'10%',
           marginRight:'10%'}}>
 

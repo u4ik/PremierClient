@@ -6,6 +6,7 @@ import { MDBDataTable, MDBBtn } from 'mdbreact';
 
 import LoadingGif from '../../assets/premier-icon.png'
 
+import DeleteArrow from '../../assets/deletearrow.svg'
 import LogoIcon from '../../assets/Premier-Commercial-Services-icon.svg'
 
 import {Spring, animated} from 'react-spring/renderprops'
@@ -47,6 +48,12 @@ const createButton={
   fontSize: '1.6rem',
   color: '#009FE4',
   textShadow: '1px 1px 1px black'
+}
+
+const deleteArrowStyle={
+  width:'2vw',
+  filter:'drop-shadow(.1px .1px .2px black)',
+  opacity: .7
 }
 
     const fetchOrders =  ()=> {
@@ -156,6 +163,12 @@ const createButton={
             width: 120
             
           },
+          {
+            label : 'X',
+            field: 'deleteOrder',
+            sort:'asc',
+            width: 90
+          }
         ],
         
         rows: 
@@ -164,6 +177,7 @@ const createButton={
         
         userOrders ? userOrders.map((order: any) => ({
           ...order,
+          deleteOrder: <img style={deleteArrowStyle}src={DeleteArrow}></img>,
           serviceReq:   Object.keys(order.serviceReq) + " " +"-"
           + (order.serviceReq.Restaurant ? JSON.stringify(order.serviceReq.Restaurant).replace('{', ' ').replace('}', ' ').replace(/,/g, "-").replace(/"/g, " ").replace(/true/g, "Yes").replace(/false/g, "No"): '')
           +  (order.serviceReq.Office ? JSON.stringify(order.serviceReq.Office).replace('{', ' ').replace('}', ' ').replace(/,/g, "-").replace(/"/g, " ").replace(/true/g, "Yes").replace(/false/g, "No"): '')
@@ -173,6 +187,7 @@ const createButton={
           +  (order.serviceReq.Grocery ? JSON.stringify(order.serviceReq.Grocery).replace('{', ' ').replace('}', ' ').replace(/,/g, "-").replace(/"/g, " ").replace(/true/g, "Yes").replace(/false/g, "No"): ''),
           isComplete:  <select style = {{outline:'none', border:'none', backgroundColor:'transparent'}} value={order.isComplete} name="name" id=""  onClick={() => {
             // console.log(order.id);
+         
             {}
             setOrderId(order.id);
        
