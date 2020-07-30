@@ -43,7 +43,7 @@ class ServicesHome extends React.Component {
 
             <div id='serviceHomeContainer' style={{display:'flex',flexDirection: 'column',width:'',marginLeft:'18.5%',marginRight:'18.5%',marginBottom:'3%',   background: 'rgba(26, 35, 64, 0.5)', borderRadius:'20px'}}>
                 <h3  id='homeHeaderText'  className="headerText" style={{fontSize:'2.2rem', paddingTop:'1%', color:'white', userSelect:'none',paddingLeft:'1%', paddingRight:'1%', marginLeft:'15%' , marginRight:'15%', borderRadius:'25px' ,marginBottom: '1%', paddingBottom: '1%', backgroundColor: 'transparent', textShadow: '2px 2px 2px black'}}>Service Locations</h3>
-                <div style={{display:'flex',  flexDirection:'row', justifyContent:'center', flexWrap:'wrap'}}>
+                <div id="serviceIconWrap" style={{display:'flex',  flexDirection:'row', justifyContent:'center', flexWrap:'wrap'}}>
                
                      <Row>
                             <Col>

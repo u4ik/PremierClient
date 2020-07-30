@@ -159,8 +159,8 @@
     }
     .transparentContainer {
         margin-top: 5%;
-        margin-left: 2% !important;
-        margin-right: 2% !important
+        margin-left: -1% !important;
+        margin-right: -1% !important
     }
     .testHomeQuote {
         font-size: 1rem !important;
@@ -187,12 +187,12 @@
         margin-right: 10% !important
     }
     #serviceHomeContainer {
-        margin-left: 2% !important;
-        margin-right: 2% !important;
+        margin-left: 5% !important;
+        margin-right: 5% !important;
     }
     #testimonialHomeContainer {
-        margin-left: 2% !important;
-        margin-right: 2% !important;
+        margin-left: 5% !important;
+        margin-right: 5% !important;
         /* min-height: 17vh !important; */
     }
     #testimonialUserTextContainer {}
@@ -239,6 +239,9 @@
     }
     .carousel-caption {
         padding-bottom: none !important;
+    }
+    #serviceIconWrap {
+        flex-wrap: nowrap !important;
     }
 }
 
