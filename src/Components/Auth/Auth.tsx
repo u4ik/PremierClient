@@ -1,8 +1,9 @@
 import React, { useState} from 'react';
-import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
+import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter, FormFeedback} from 'reactstrap';
 import './Auth.css';
 import Logo from '../../assets/Premier-Commercial-Services-icon.svg';
 import APIURL from '../../helpers/environment';
+import { invalid } from 'moment';
 
 const baseURL = `${APIURL}/user`;
 
@@ -65,7 +66,7 @@ const labelStyles:React.CSSProperties= {
 const errorStyle:React.CSSProperties ={
     color: 'white',
     textShadow: '1px 1px 1px black',
-    fontSize:'1.5rem'
+    fontSize:'.9rem'
 
 }
 
@@ -81,10 +82,15 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
     const [phoneNumber, setPhoneNumber] = useState('');
 
     const [errorMessage, setErrorMessage] = useState('')
+    const [phoneInputError, setPhoneInputError] = useState<boolean>(true);
+    const [passwordInputError, setPasswordInputError] = useState<boolean>(true);
+    const [emailInputError, setEmailInputError] = useState<boolean>(true);
+
     const [emailError, setEmailError] = useState('')
     const [passwordLengthError, setPasswordLengthError] = useState('')
 
     const [showSubmit, setShowSubmit] = useState(true); 
+    const [disabledSignupButton, setDisabledSignupButton] = useState(true)
 
     const submit = (e: any) => {
         e.preventDefault();
@@ -95,8 +101,8 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
                 email: email,
                 passwordhash: password,
                 location: location,
-                phoneNumber: phoneNumber,
-                isAdmin: 'uwishuwereanadminha1',
+                phoneNumber: '('+ phoneNumber.substring(0, 3) + ')' + '-'+phoneNumber.substring(3, 6) + '-' + phoneNumber.substring(6, 10),
+                isAdmin: 'sdf3x6G3kfDSkV38dY94',
                 serviceComplete: 'No'
         };
         fetch(url, {
@@ -110,13 +116,29 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
              console.log(userdata)
              setPasswordLengthError(userdata.PasswordError)
              setEmailError(userdata.EmailError)
+           
+             if(userdata.EmailError !== undefined){
+                 setEmailInputError(true)
+             }
+             else{
+                setEmailInputError(false)
+             }
+
+             if(userdata.Greeting !== undefined){
+                 props.setSignup(false)
+             }
+
              setErrorMessage(userdata.message)
+       
                 if(userdata.ID && userdata.Status !== undefined){
+                  
                     let userFirstName =  userdata.Greeting.replace(`Hello,!♥  Welcome :)`, '')
+              
                     props.setUserData(userdata)
                     props.setCurrentUserId(userdata.ID)
                     props.updateTheToken(userdata.sessionToken, userdata.Email, userdata.ADMIN, userdata.ServiceComplete, userdata.ID, userdata.FirstName, userdata.LastName)
                     console.log('Logged In!')
+
              }
             })
         .catch(err => console.log(err.message))
@@ -131,28 +153,49 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
                     <ModalBody style={{backgroundColor: '#009FE4', borderRadius: '0px 0px 20px 20px'}}>
                         <Form onSubmit={(e) => {
                                  submit(e)
-                                 props.setSignup(false)
+                             
+                           
                         }} style={{textAlign:'center'}}>
                             <h3 style={{textAlign:'center'}}>{props.signup ? 'Sign Up' : 'Sign In'}</h3>
                           <p style={errorStyle}>{errorMessage}</p>
-                          <p style={errorStyle}>{emailError}</p>
-                          <p style={errorStyle}>{passwordLengthError}</p>
+                          {/* <p style={errorStyle}>{phoneErrorMessage} </p> */}
+                          {/* <p style={errorStyle}>{emailError}</p> */}
+                          {/* <p style={errorStyle}>{passwordLengthError}</p> */}
                             <FormGroup>
                                 <Label style={labelStyles} htmlFor="email">Email</Label>
-                                <Input style = {inputStyles} type= "email" name="email" placeholder="johnsmith@email.com" value={email} onChange={e => setEmail(e.target.value)} required />
+                                <Input invalid={emailInputError} valid={!emailInputError} style = {inputStyles} type= "email" name="email" placeholder="johnsmith@email.com" value={email} onChange={(e) => {
+                                    
+                                    setEmail(e.target.value)
+                                        if(e.target.value.includes('@')){
+                                            setEmailInputError(false)
+                                        }
+                                        else{
+                                            setEmailInputError(true)
+                                        }
+                                    }} required />
+                            
+                            
+                            
+                            <FormFeedback style={errorStyle} >{emailError}</FormFeedback>
                             </FormGroup>
                             <FormGroup>
                                 <Label style={labelStyles} htmlFor="password">Password</Label>
-                                <Input style = {inputStyles} type="password" name="password" value={password} onChange={(e) => {
-                                    
-                                    
-                                    setPassword(e.target.value)
-                          
+                                <Input invalid={passwordInputError} valid={!passwordInputError} style = {inputStyles} minLength={5} type="password" name="password" value={password} onChange={(e) => {
+                                           setPassword(e.target.value)
+                                    if(e.target.value.length < 5) {
+                                  
+                                        setPasswordInputError(true)
+
+                                    }else{
+                                 
+                                        setPasswordInputError(false)
+                                    }
                                 
                                 }} required
                                     
                                     
                                     />
+                            <FormFeedback style={errorStyle}>{passwordLengthError}</FormFeedback>
                             </FormGroup>
                             {props.signup ? 
                             <div>
@@ -166,32 +209,53 @@ const Auth: React.FunctionComponent<displayAuthForm> = (props:displayAuthForm) =
                             </FormGroup>
                             <FormGroup>
                                 <Label style={labelStyles} htmlFor="location">Location</Label>
-                                <Input style = {inputStyles} type="text" name="location" value={location} onChange={e => setLocation(e.target.value)} required />
+                                <Input style = {inputStyles} type="text" name="location" value={location} onChange={e => {
+                                    
+                                    
+                                    
+                                    setLocation(e.target.value)}} required />
                             </FormGroup>
                             <FormGroup>
                                 <Label style={labelStyles} htmlFor="phoneNumber">Phone Number</Label>
-                                <Input style = {inputStyles} type="number" name="phoneNumber" placeholder="555-555-5555" value={phoneNumber} onChange={e => {
-                                    
-                                    
-                              
-                                    
-                                    
-                                    setPhoneNumber(e.target.value)}} required />
+                                <Input invalid={phoneInputError} valid={!phoneInputError} style = {inputStyles} maxlength = "10" type="tel" name="phoneNumber" placeholder="5555555555"  onChange={e => {
+                                   
+                                   
+                                   if(e.target.value.length < 10) {
+                             
+                                        setPhoneInputError(true)
+                                        setDisabledSignupButton(true)
+                                    }
+                                    else{
+                                        setPhoneNumber(e.target.value)
+                                        setDisabledSignupButton(false)
+                                        setPhoneInputError(false)
+                                    }
+
+                               }} required />
+                               <FormFeedback style={errorStyle}>Please enter your full phone number</FormFeedback>
                             </FormGroup>
                             </div>
                             : null}
                                              
                  
-                        <Button  type="button" onClick={() => props.setSignup(!props.signup)}>{props.signup ? 'Have an account? Signin' : 'Need an account? Signup!'}</Button>
+                        <Button  type="button" onClick={() => {
+                            
+                            setPasswordLengthError('')
+                            setEmailError('')
+                            setErrorMessage('')
+                            props.setSignup(!props.signup)}}>{props.signup ? 'Have an account? Signin' : 'Need an account? Signup!'}</Button>
                         { props.signup ?
-                        <Button type='submit'   color="primary" onClick={(e) => {
+                        <Button disabled={disabledSignupButton}  type='submit'   color="primary" onClick={(e) => {
                                
                                 // submit(e)
+                      
                            
                             }}>Signup</Button>:
                         <Button type='submit'  color="primary" onClick={(e) => {
                                 // toggle()
                                 // submit(e)
+                           
+                      
                             }}>Login</Button>
                         }
                     
