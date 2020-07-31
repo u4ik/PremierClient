@@ -95,8 +95,6 @@ const TestimonialsHome: React.FunctionComponent = (props) => {
             marginLeft: '10%',
             marginRight: '10%'
           }}>
-
-
             <div style={{ minHeight: '', overflowWrap: 'break-word' }} >
               <h3 className='testHomeQuote' style={{ fontSize: '1.4rem', textShadow: '1px 1px 1px black', color: 'white', userSelect: 'none' }}>{`"` + `${item.userQuote}` + `"`}</h3>
             </div>

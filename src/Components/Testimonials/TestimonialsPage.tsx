@@ -207,7 +207,7 @@ const TestimonialsPage: React.FunctionComponent<testProps> = (props: testProps) 
     )
   });
   return (
-    <div style={{ backgroundColor: 'white' }}>
+    <div style={{ backgroundColor: 'white', minHeight:'89vh' }}>
       <Spring
         config={{ duration: 600 }}
         native

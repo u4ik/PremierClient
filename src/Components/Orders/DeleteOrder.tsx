@@ -8,15 +8,18 @@ interface Delete {
     updateToken: string
     setShowDelete: any
     showDelete: boolean
-    userId: any
-    getUsers: any
-    userErrorText: string
-    setUserErrorText: any
+    orderId: any
+
+    // userErrorText: string
+    // setUserErrorText: any
+    fetchOrders:any
     userName: string
-    timeoutUserNotification: any
-    setUserDeleteToast: any
+    timeoutOrderNotification: any
+    setOrderDeleteToast: any
 }
-interface DeleteTypes {  
+
+interface DeleteTypes {
+   
     // setUserErrorText: any
 }
 
@@ -52,15 +55,15 @@ const labelStyles: React.CSSProperties = {
     textAlign: 'center',
     fontSize: '1.5rem'
 }
-const DeleteUser: React.FunctionComponent<Delete> = (props: Delete) => {
+const DeleteOrder: React.FunctionComponent<Delete> = (props: Delete) => {
     const toggle = () => {
         props.setShowDelete(!props.showDelete)
     };
-    const deleteUser = () => {
+    const deleteOrder = () => {
         let reqBody = {
             id: localStorage.getItem('id')
         }
-        fetch(`${APIURL}/user/delete/` + props.userId, {
+        fetch(`${APIURL}/orders/delete/` + props.orderId, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -69,15 +72,15 @@ const DeleteUser: React.FunctionComponent<Delete> = (props: Delete) => {
             body: JSON.stringify(reqBody)
         }).then(res => res.json())
             .then(response => {
-                if(response.Oops === undefined){
-                props.timeoutUserNotification();
-                props.setUserDeleteToast(false)
+                if(response.Destroyed !== undefined){
+                props.timeoutOrderNotification();
+                props.setOrderDeleteToast(false)
                 // console.log(response.Oops)
                 }
-                props.setUserErrorText(response.Oops)
+                // props.setUserErrorText(response.Oops)
             })
             .then(() => {
-                props.getUsers()
+                props.fetchOrders()
             })
             .catch(err => console.log(err.message))
     }
@@ -87,13 +90,13 @@ const DeleteUser: React.FunctionComponent<Delete> = (props: Delete) => {
                 <img src={Logo} style={{ width: '20%' }} />
             </ModalHeader>
             <ModalBody style={{ backgroundColor: '#009FE4' }}>
-                <p style={labelStyles}>Are you sure you want to delete this user?</p>
-                <p style={labelStyles}>{props.userName}</p>
+                <p style={labelStyles}>Are you sure you want to delete this order?</p>
+    <p style={labelStyles}>{props.userName}'s Order #{props.orderId}</p>
             </ModalBody>
             <ModalFooter style={modalFooterStyle}>
                 <div id="sendButton" style={{ textAlign: 'center', marginTop: '3%' }}>
                     <Button color="danger" type="submit" id="subm" value="Submit" className="btn btn-primary" onClick={(e) => {
-                        deleteUser();
+                        deleteOrder();
                         toggle();
                     }} >Delete</Button>
                     <Button style={{ marginLeft: '' }} color="secondary" onClick={toggle}>Cancel</Button>
@@ -103,4 +106,4 @@ const DeleteUser: React.FunctionComponent<Delete> = (props: Delete) => {
     )
 }
 
-export default DeleteUser
+export default DeleteOrder

@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Container, Table, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { MDBDataTable, MDBBtn } from 'mdbreact';
-
 import LoadingGif from '../../assets/Premier-Commercial-Services-icon.svg'
 import APIURL from '../../helpers/environment';
 import LogoIcon from '../../assets/Premier-Commercial-Services-icon.svg'
 import DeleteArrow from '../../assets/deletearrow.svg'
 import DeleteUser from '../Users/DeleteUser'
-
 import { Spring, animated } from 'react-spring/renderprops'
-
 import { MDBNotification } from "mdbreact";
 import { Toast, ToastBody, ToastHeader } from 'reactstrap';
 
