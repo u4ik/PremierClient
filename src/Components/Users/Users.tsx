@@ -32,10 +32,12 @@ const Users: React.FunctionComponent<UserProps> = (props: UserProps) => {
   const [showUserUpdateToast, setShowUserUpdateToast] = useState(true)
   const [showUserDeleteToast, setUserDeleteToast] = useState(true)
 
-  const deleteArrowStyle = {
+  const deleteArrowStyle:React.CSSProperties = {
     width: '2vw',
     filter: 'drop-shadow(.1px .1px .2px black)',
-    opacity: .7
+    opacity: .7,
+    cursor:'pointer',
+    textAlign:'center'
   }
 
   const getUsers = () => {
@@ -79,28 +81,44 @@ const Users: React.FunctionComponent<UserProps> = (props: UserProps) => {
       }
     }
   })
-  const updateUserNotification = () => {
+  const updateUserUpdateNotification = () => {
     return (
       <div className="p-3 my-2 rounded" style={{ position: 'fixed', marginLeft: '49%', marginRight: '49%', display: 'flex', flexDirection: 'row', justifyContent: 'center', zIndex: 999 }}>
-        {!showUserUpdateToast ?
-          <Toast style={{ width: '200px', position: 'fixed', marginLeft: '5%', marginRight: '5%', marginTop: '', zIndex: 999, background: 'rgba(10, 10, 10, .1)', borderRadius: '5px' }}>
-            <ToastHeader style={{ color: 'black', opacity: '.5' }}>
-              User: {userName}
-            </ToastHeader>
-            <ToastBody>
-              User Updated!
+
+        <Toast style={{ width: '200px', position: 'fixed', marginLeft: '', marginRight: '', marginTop: '', zIndex: 999, background: 'rgba(10, 10, 10, .1)', borderRadius: '5px' }}>
+          <ToastHeader style={{ color: 'black', opacity: '.5' }}>
+            Update: {userName}
+          </ToastHeader>
+          <ToastBody>
+            User Updated!
             </ToastBody>
-          </Toast>
-          : null}
+        </Toast>
+
+      </div>
+    )
+  }
+  
+  const updateUserDeleteNotification = () => {
+    return (
+      <div className="p-3 my-2 rounded" style={{ position: 'fixed', marginLeft: '49%', marginRight: '49%', display: 'flex', flexDirection: 'row', justifyContent: 'center', zIndex: 999 }}>
+
+        <Toast style={{ width: '200px', position: 'fixed', marginLeft: '', marginRight: '', marginTop: '', zIndex: 999, background: 'rgba(10, 10, 10, .1)', borderRadius: '5px' }}>
+          <ToastHeader style={{ color: 'black', opacity: '.5' }}>
+            Delete: {userName}
+          </ToastHeader>
+          <ToastBody>
+            User Deleted!
+            </ToastBody>
+        </Toast>
+
       </div>
     )
   }
 
-  // const setTimeout=( () => setShowUserUpdateToast(false), 1000);
-
   const timeoutUserNotification = () => {
     setTimeout(function () { setShowUserUpdateToast(true); setUserDeleteToast(true) }, 1000);
   }
+  // Updating The User Function
   const updateUser = (e: any) => {
     let token = localStorage.getItem('token')
 
@@ -118,7 +136,7 @@ const Users: React.FunctionComponent<UserProps> = (props: UserProps) => {
     }).then(res => res.json())
       .then(response => {
         console.log(response.id)
-        //  updateUserNotification();
+        //  updateUserUpdateNotification();
 
         // setTimeout();
         //  alert('Updated User')
@@ -131,7 +149,7 @@ const Users: React.FunctionComponent<UserProps> = (props: UserProps) => {
         }
       })
   }
-
+  // Data For Data Table
   let data = {
 
     columns: [
@@ -171,7 +189,7 @@ const Users: React.FunctionComponent<UserProps> = (props: UserProps) => {
         label: 'X',
         field: 'deleteUser',
         sort: 'asc',
-        width: 60
+        width: 50
 
       },
     ],
@@ -183,14 +201,14 @@ const Users: React.FunctionComponent<UserProps> = (props: UserProps) => {
       userData ? userData.map((user: any) => ({
         ...user,
         name: user.firstName + ' ' + user.lastName,
-        deleteUser: <img style={deleteArrowStyle} src={DeleteArrow} onClick={(e) => {
+        deleteUser: <span style={deleteArrowStyle} onClick={(e) => {
           // console.log(user.id);
           setUserId(user.id);
           setUserName(user.firstName + " " + user.lastName);
           setShowDelete(true);
           setUserErrorText('');
           setUserDeleteToast(true)
-        }}></img>,
+        }}>❌ </span>,
         serviceComplete: <select style={{ outline: 'none', border: 'none', backgroundColor: 'transparent' }} value={user.serviceComplete} name="name" id="" onClick={() => {
           // console.log(user.id);
           setUserName(user.firstName + " " + user.lastName)
@@ -211,7 +229,8 @@ const Users: React.FunctionComponent<UserProps> = (props: UserProps) => {
   return (
     props.isAdmin ?
       <div style={{ backgroundColor: 'white', color: '#009FE4', textShadow: '.4px .4px 1px black', minHeight: '89vh' }}>
-        <div style={{ textShadow: '.4px .4px 1px black' }}>
+        <div style={{ textShadow: '.4px .4px 1px black', }}>
+          {/* Logo Image */}
           <Spring
             config={{ duration: 600 }}
             native
@@ -223,20 +242,21 @@ const Users: React.FunctionComponent<UserProps> = (props: UserProps) => {
               </animated.div>
             )}
           </Spring>
-
+          {/* All Users Text */}
           <Spring
             config={{ duration: 600, delay: 400 }}
             native
             from={{ o: 0, marginT: '' }}
             to={{ o: 1, marginT: '' }}>
             {({ o, marginT }) => (
-              <animated.div style={{opacity: o,marginTop: marginT}}>
+              <animated.div style={{ opacity: o, marginTop: marginT }}>
                 <h3 style={{ fontSize: '2.2rem', paddingTop: '3%', textShadow: '0.5px 0.5px 0.5px black', color: '#177BBD', userSelect: 'none', marginBottom: '1%', paddingBottom: '1%', borderBottom: 'solid 1px white', backgroundColor: 'white' }} onClick={(e) => getUsers()}>
                   All Users</h3>
                 <p>{userErrorText}</p>
               </animated.div>
             )}
           </Spring>
+          {/* User Updated Notification */}
           {!showUserUpdateToast ?
             <Spring
               config={{ duration: 100 }}
@@ -244,28 +264,24 @@ const Users: React.FunctionComponent<UserProps> = (props: UserProps) => {
               from={{ o: 0, marginT: '' }}
               to={{ o: 1, marginT: '' }}>
               {({ o, marginT }) => (
-                <animated.div style={{opacity: o,marginTop: marginT,}}>
-                  {updateUserNotification()}
+                <animated.div style={{ opacity: o, marginTop: marginT, }}>
+                  {updateUserUpdateNotification()}
                 </animated.div>
               )}
             </Spring>
-            : 
+            :
             <Spring
               config={{ duration: 100 }}
               native
-
               from={{ o: 1, marginT: '' }}
-              to={{ o: 0, marginT: '' }}
-            >
+              to={{ o: 0, marginT: '' }}>
               {({ o, marginT }) => (
-                <animated.div style={{
-                  opacity: o,
-                  marginTop: marginT,
-                }}>
-                  {updateUserNotification()}
+                <animated.div style={{ opacity: o, marginTop: marginT, }}>
+                  {updateUserUpdateNotification()}
                 </animated.div>
               )}
             </Spring>}
+          {/* Deleted Notification */}
           {!showUserDeleteToast ?
             <Spring
               config={{ duration: 100 }}
@@ -273,29 +289,25 @@ const Users: React.FunctionComponent<UserProps> = (props: UserProps) => {
               from={{ o: 0, marginT: '' }}
               to={{ o: 1, marginT: '' }}>
               {({ o, marginT }) => (
-                <animated.div style={{opacity: o,marginTop: marginT,}}>
-                  {updateUserNotification()}
+                <animated.div style={{ opacity: o, marginTop: marginT, }}>
+                  {updateUserDeleteNotification()}
                 </animated.div>
               )}
             </Spring>
-            : 
+            :
             <Spring
               config={{ duration: 100 }}
               native
               from={{ o: 1, marginT: '' }}
-              to={{ o: 0, marginT: '' }}
-            >
+              to={{ o: 0, marginT: '' }}>
               {({ o, marginT }) => (
-                <animated.div style={{
-                  opacity: o,
-                  marginTop: marginT,
-                }}>
-                  {updateUserNotification()}
+                <animated.div style={{ opacity: o, marginTop: marginT, }}>
+                  {updateUserDeleteNotification()}
                 </animated.div>
               )}
             </Spring>}
         </div>
-
+        {/* Data Table */}
         <div className="" style={{ marginLeft: '', marginRight: '' }} >
           <Container>
             <Spring
@@ -304,10 +316,7 @@ const Users: React.FunctionComponent<UserProps> = (props: UserProps) => {
               from={{ o: 0, marginT: '' }}
               to={{ o: 1, marginT: '' }}>
               {({ o, marginT }) => (
-                <animated.div style={{
-                  opacity: o,
-                  marginTop: marginT
-                }}>
+                <animated.div style={{ opacity: o, marginTop: marginT }}>
                   <MDBDataTable style={{ color: '', textShadow: '' }}
                     scrollY
                     maxHeight="500px"
@@ -320,9 +329,9 @@ const Users: React.FunctionComponent<UserProps> = (props: UserProps) => {
             </Spring>
           </Container>
         </div>
-        <DeleteUser userName={userName} userErrorText={userErrorText} setUserErrorText={setUserErrorText} updateToken={props.updateToken} setShowDelete={setShowDelete} showDelete={showDelete} userId={userId} getUsers={getUsers} />
+        <DeleteUser timeoutUserNotification={timeoutUserNotification} setUserDeleteToast={setUserDeleteToast} userName={userName} userErrorText={userErrorText} setUserErrorText={setUserErrorText} updateToken={props.updateToken} setShowDelete={setShowDelete} showDelete={showDelete} userId={userId} getUsers={getUsers} />
       </div>
-      : 
+      :
       <div>
         <img style={{ width: '15vh', marginBottom: '50vh', marginTop: '28vh', filter: 'drop-shadow(2px 2px 2px black)' }} id='loadingImg' src={LoadingGif}></img>
       </div>

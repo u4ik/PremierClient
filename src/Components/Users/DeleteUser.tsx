@@ -15,10 +15,12 @@ interface Delete {
     setUserErrorText: any
 
     userName: string
+    timeoutUserNotification: any
+    setUserDeleteToast: any
 }
 
 interface DeleteTypes {
-
+   
     // setUserErrorText: any
 }
 
@@ -71,6 +73,8 @@ const DeleteUser: React.FunctionComponent<Delete> = (props: Delete) => {
             body: JSON.stringify(reqBody)
         }).then(res => res.json())
             .then(response => {
+                props.timeoutUserNotification();
+                props.setUserDeleteToast(false)
                 // console.log(response.Oops)
                 props.setUserErrorText(response.Oops)
             })

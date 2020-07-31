@@ -50,10 +50,12 @@ const Orders: React.FunctionComponent<orderProps> = (props: orderProps) => {
     textShadow: '1px 1px 1px black'
   }
 
-  const deleteArrowStyle = {
+  const deleteArrowStyle:React.CSSProperties = {
     width: '2vw',
     filter: 'drop-shadow(.1px .1px .2px black)',
-    opacity: .7
+    opacity: .7,
+    cursor:'pointer',
+    textAlign:'center'
   }
 
   const fetchOrders = () => {
@@ -177,7 +179,7 @@ const Orders: React.FunctionComponent<orderProps> = (props: orderProps) => {
 
       userOrders ? userOrders.map((order: any) => ({
         ...order,
-        deleteOrder: <img style={deleteArrowStyle} src={DeleteArrow}></img>,
+        deleteOrder: <span style={deleteArrowStyle} >❌</span>,
         serviceReq: Object.keys(order.serviceReq) + " " + "-"
           + (order.serviceReq.Restaurant ? JSON.stringify(order.serviceReq.Restaurant).replace('{', ' ').replace('}', ' ').replace(/,/g, "-").replace(/"/g, " ").replace(/true/g, "Yes").replace(/false/g, "No") : '')
           + (order.serviceReq.Office ? JSON.stringify(order.serviceReq.Office).replace('{', ' ').replace('}', ' ').replace(/,/g, "-").replace(/"/g, " ").replace(/true/g, "Yes").replace(/false/g, "No") : '')
