@@ -73,9 +73,12 @@ const DeleteUser: React.FunctionComponent<Delete> = (props: Delete) => {
             body: JSON.stringify(reqBody)
         }).then(res => res.json())
             .then(response => {
+                if(response.Oops === undefined){
                 props.timeoutUserNotification();
                 props.setUserDeleteToast(false)
                 // console.log(response.Oops)
+               
+                }
                 props.setUserErrorText(response.Oops)
             })
             .then(() => {

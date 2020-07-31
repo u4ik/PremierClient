@@ -91,7 +91,7 @@ const TestimonialsHome: React.FunctionComponent = (props) => {
             userSelect: 'none',
             marginBottom: '',
             width: 'auto',
-            filter: 'drop-shadow(2px 2px 1px black)',
+            filter: 'drop-shadow(1px 1px 1px black)',
             marginLeft: '10%',
             marginRight: '10%'
           }}>
