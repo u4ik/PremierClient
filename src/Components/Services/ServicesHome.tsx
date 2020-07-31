@@ -1,32 +1,32 @@
 import React from 'react';
 
-import RestaurantImg from  '../../assets/locationIcons/restaurantyellow.svg'
-import AthleticImg from  '../../assets/locationIcons/athleticyellow.svg'
-import GroceryImg from  '../../assets/locationIcons/groceryyellow.svg'
-import MedicalImg from  '../../assets/locationIcons/medical2yellow.svg'
-import OfficeImg from  '../../assets/locationIcons/officeyellow.svg'
-import ServicesImg from  '../../assets/locationIcons/servicesyellow.svg'
+import RestaurantImg from '../../assets/locationIcons/restaurantyellow.svg'
+import AthleticImg from '../../assets/locationIcons/athleticyellow.svg'
+import GroceryImg from '../../assets/locationIcons/groceryyellow.svg'
+import MedicalImg from '../../assets/locationIcons/medical2yellow.svg'
+import OfficeImg from '../../assets/locationIcons/officeyellow.svg'
+import ServicesImg from '../../assets/locationIcons/servicesyellow.svg'
 
-import {Col, Row} from 'reactstrap'
+import { Col, Row } from 'reactstrap'
 import { MDBPopover, MDBPopoverBody, MDBPopoverHeader, MDBBtn } from "mdbreact";
 
-import {Spring, animated} from 'react-spring/renderprops'
+import { Spring, animated } from 'react-spring/renderprops'
 
 import './Services.css'
 
 
-const iconStyle:React.CSSProperties={
+const iconStyle: React.CSSProperties = {
     width: '50%',
-    filter:'drop-shadow(2px 2px 1px black)',
-    userSelect:'none',
+    filter: 'drop-shadow(2px 2px 1px black)',
+    userSelect: 'none',
 }
 
-const iconText:React.CSSProperties={
-    fontSize:'1rem',
-    color:'white',
+const iconText: React.CSSProperties = {
+    fontSize: '1rem',
+    color: 'white',
     fontWeight: 'bold',
-    textShadow:'.1rem .1rem .1rem black',
-    userSelect:'none'
+    textShadow: '.1rem .1rem .1rem black',
+    userSelect: 'none'
 }
 //Popover Descriptions
 let RestaurantInfo = 'There are many different services offered for our restaurant clients. Including, but not limited to, back kitchen cleaning, dining area, restroom mantinence and window care. '
@@ -41,244 +41,248 @@ class ServicesHome extends React.Component {
     render() {
         return (
 
-            <div id='serviceHomeContainer' style={{display:'flex',flexDirection: 'column',width:'',marginLeft:'18.5%',marginRight:'18.5%',marginBottom:'3%',   background: 'rgba(26, 35, 64, 0.5)', borderRadius:'20px'}}>
-                <h3  id='homeHeaderText'  className="headerText" style={{fontSize:'2.2rem', paddingTop:'1%', color:'white', userSelect:'none',paddingLeft:'1%', paddingRight:'1%', marginLeft:'15%' , marginRight:'15%', borderRadius:'25px' ,marginBottom: '1%', paddingBottom: '1%', backgroundColor: 'transparent', textShadow: '2px 2px 2px black'}}>Service Locations</h3>
-                <div id="serviceIconWrap" style={{display:'flex',  flexDirection:'row', justifyContent:'center', flexWrap:'wrap'}}>
-               
-                     <Row>
-                            <Col>
+            <div id='serviceHomeContainer' style={{ display: 'flex', flexDirection: 'column', width: '', marginLeft: '18.5%', marginRight: '18.5%', marginBottom: '3%', background: 'rgba(26, 35, 64, 0.5)', borderRadius: '20px' }}>
+                <h3 id='homeHeaderText' className="headerText" style={{ fontSize: '2.2rem', paddingTop: '1%', color: 'white', userSelect: 'none', paddingLeft: '1%', paddingRight: '1%', marginLeft: '15%', marginRight: '15%', borderRadius: '25px', marginBottom: '1%', paddingBottom: '1%', backgroundColor: 'transparent', textShadow: '2px 2px 2px black' }}>Service Locations</h3>
+                <div id="serviceIconWrap" style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', flexWrap: 'wrap' }}>
+
+                    <Row>
+                        <Col>
                             <Spring
-                                config={{duration: 200, delay: 800}} 
+                                config={{ duration: 200, delay: 800 }}
                                 native
                                 from={{ o: 0 }}
-                                to={{ o: 1  }} 
-                                >
+                                to={{ o: 1 }}
+                            >
                                 {({ o }) => (
-                                <animated.div style={{
+                                    <animated.div style={{
                                         opacity: o
-                                        
-                                }}> 
-                        <div className = "icon1">
-                                    <MDBPopover
-                                    placement="top"
-                                    popover
-                                    clickable
-                                    id="popper1"
-                                    >
-                                    <MDBBtn>    
-                                        <img id="PopoverFocus"  draggable = 'false' className='locationIcon' style ={iconStyle} src={RestaurantImg}/>
-                                        <p style={iconText} className="iconText">Restaurants</p>
-                                    </MDBBtn>
-                                    <div>
-                                        <MDBPopoverHeader>Restaurants</MDBPopoverHeader>
-                                        <MDBPopoverBody>
-                                        {RestaurantInfo}
-                                        </MDBPopoverBody>
-                                    </div>
-                                    </MDBPopover>
-                        </div>
-                                </animated.div>
-                                )}
-                                </Spring>
-                            </Col>
-                            <Col>
-                            <Spring
-                                config={{duration: 200, delay: 900}} 
-                                native
-                                from={{ o: 0 }}
-                                to={{ o: 1  }} 
-                                >
-                                {({ o }) => (
-                                <animated.div style={{
-                                        opacity: o
-                                        
-                                }}> 
-                        <div style={{ }}  className = "icon1">
-                                    <MDBPopover
-                                    placement="top"
-                                    popover
-                                    clickable
-                                    id="popper1"
-                                    >
-                                    <MDBBtn>    
-                                        <img id="PopoverFocus"  draggable = 'false' className='locationIcon' style ={iconStyle} src={AthleticImg}/>
-                                        <p style={iconText} className="iconText">Athletics</p>
-                                    </MDBBtn>
-                                    <div>
-                                        <MDBPopoverHeader>Athletics</MDBPopoverHeader>
-                                        <MDBPopoverBody>
-                                        {AthleticInfo}
-                                        </MDBPopoverBody>
-                                    </div>
-                                    </MDBPopover>
 
-                                
-
-                        </div>
-                        </animated.div>
-                                )}
-                                </Spring>
-                            </Col>
-                            <Col>
-                            <Spring
-                                config={{duration: 200, delay: 1000}} 
-                                native
-                                from={{ o: 0 }}
-                                to={{ o: 1  }} 
-                                >
-                                {({ o }) => (
-                                <animated.div style={{
-                                        opacity: o
-                                        
-                                }}> 
-                        <div style={{ }}  className = "icon1">
-                                    <MDBPopover
-                                    placement="top"
-                                    popover
-                                    clickable
-                                    id="popper1"
-                                    >
-                                    <MDBBtn>    
-                                        <img id="PopoverFocus"  draggable = 'false' className='locationIcon' style ={iconStyle} src={MedicalImg}/>
-                                        <p style={iconText} className="iconText">Medical</p>
-                                    </MDBBtn>
-                                    <div>
-                                        <MDBPopoverHeader>Medical</MDBPopoverHeader>
-                                        <MDBPopoverBody>
-                                        {MedicalInfo}
-                                        </MDBPopoverBody>
-                                    </div>
-                                    </MDBPopover>
-
-                                
-
-                        </div>
-                        </animated.div>
-                                )}
-                                </Spring>
-                            </Col>  
-                        </Row>  
-                        <Row>       
-                            <Col>
-                            <Spring
-                                config={{duration: 200, delay: 1100}} 
-                                native
-                                from={{ o: 0 }}
-                                to={{ o: 1  }} 
-                                >
-                                {({ o }) => (
-                                <animated.div style={{
-                                        opacity: o
-                                        
-                                }}> 
-                        <div style={{ }}  className = "icon1">
-                                    <MDBPopover
-                                    placement="top"
-                                    popover
-                                    clickable
-                                    id="popper1"
-                                    >
-                                    <MDBBtn>    
-                                        <img id="PopoverFocus"  draggable = 'false' className='locationIcon' style ={iconStyle} src={OfficeImg}/>
-                                        <p style={iconText} className="iconText">Office</p>
-                                    </MDBBtn>
-                                    <div>
-                                        <MDBPopoverHeader>Office</MDBPopoverHeader>
-                                        <MDBPopoverBody>
-                                        {OfficeInfo}
-                                        </MDBPopoverBody>
-                                    </div>
-                                    </MDBPopover>
-
-                                
-
-                        </div>
-                        </animated.div>
-                                )}
-                                </Spring>
-                            </Col>     
-                            
-                            <Col>
-                            <Spring
-                                config={{duration: 200, delay: 1200}} 
-                                native
-                                from={{ o: 0 }}
-                                to={{ o: 1  }} 
-                                >
-                                {({ o }) => (
-                                <animated.div style={{
-                                        opacity: o
-                                        
-                                }}> 
-                        <div style={{}}  className = "icon1">
-                                    <MDBPopover
-                                    placement="top"
-                                    popover
-                                    clickable
-                                    id="popper1"
-                                    >
-                                    <MDBBtn>    
-                                        <img id="PopoverFocus"  draggable = 'false' className='locationIcon' style ={iconStyle} src={GroceryImg}/>
-                                        <p style={iconText} className="iconText">Grocery</p>
-                                    </MDBBtn>
-                                    <div>
-                                        <MDBPopoverHeader>Grocery</MDBPopoverHeader>
-                                        <MDBPopoverBody>
-                                        {GroceryInfo}
-                                        </MDBPopoverBody>
-                                    </div>
-                                    </MDBPopover>
-
-                                
-
-                        </div>
-                        </animated.div>
-                                )}
-                                </Spring>
-                            </Col> 
-                            <Col>                
-                            <Spring
-                                config={{duration: 200, delay: 1200}} 
-                                native
-                                from={{ o: 0 }}
-                                to={{ o: 1  }} 
-                                >
-                                {({ o }) => (
-                                <animated.div style={{
-                                        opacity: o
-                                        
-                                }}> 
-                        <div style={{ }}  className = "icon1">
-                                                <MDBPopover
+                                    }}>
+                                        <div className="icon1">
+                                            <MDBPopover
                                                 placement="top"
                                                 popover
                                                 clickable
                                                 id="popper1"
-                                                >
-                                                <MDBBtn>    
-                                                    <img id="PopoverFocus"  draggable = 'false' className='locationIcon' style ={iconStyle} src={ServicesImg}/>
+                                            >
+                                                <MDBBtn>
+                                                    <img id="PopoverFocus" draggable='false' className='locationIcon' style={iconStyle} src={RestaurantImg} />
+                                                    <p style={iconText} className="iconText">Restaurants</p>
+                                                </MDBBtn>
+                                                <div>
+                                                    <MDBPopoverHeader>Restaurants</MDBPopoverHeader>
+                                                    <MDBPopoverBody>
+                                                        {RestaurantInfo}
+                                                    </MDBPopoverBody>
+                                                </div>
+                                            </MDBPopover>
+                                        </div>
+                                    </animated.div>
+                                )}
+                            </Spring>
+                        </Col>
+                        <Col>
+                            <Spring
+                                config={{ duration: 200, delay: 900 }}
+                                native
+                                from={{ o: 0 }}
+                                to={{ o: 1 }}
+                            >
+                                {({ o }) => (
+                                    <animated.div style={{
+                                        opacity: o
+
+                                    }}>
+                                        <div style={{}} className="icon1">
+                                            <MDBPopover
+                                                placement="top"
+                                                popover
+                                                clickable
+                                                id="popper1"
+                                            >
+                                                <MDBBtn>
+                                                    <img id="PopoverFocus" draggable='false' className='locationIcon' style={iconStyle} src={AthleticImg} />
+                                                    <p style={iconText} className="iconText">Athletics</p>
+                                                </MDBBtn>
+                                                <div>
+                                                    <MDBPopoverHeader>Athletics</MDBPopoverHeader>
+                                                    <MDBPopoverBody>
+                                                        {AthleticInfo}
+                                                    </MDBPopoverBody>
+                                                </div>
+                                            </MDBPopover>
+
+
+
+                                        </div>
+                                    </animated.div>
+                                )}
+                            </Spring>
+                        </Col>
+                        <Col>
+                            <Spring
+                                config={{ duration: 200, delay: 1000 }}
+                                native
+                                from={{ o: 0 }}
+                                to={{ o: 1 }}
+                            >
+                                {({ o }) => (
+                                    <animated.div style={{
+                                        opacity: o
+
+                                    }}>
+                                        <div style={{}} className="icon1">
+                                            <MDBPopover
+                                                placement="top"
+                                                popover
+                                                clickable
+                                                id="popper1"
+                                            >
+                                                <MDBBtn>
+                                                    <img id="PopoverFocus" draggable='false' className='locationIcon' style={iconStyle} src={MedicalImg} />
+                                                    <p style={iconText} className="iconText">Medical</p>
+                                                </MDBBtn>
+                                                <div>
+                                                    <MDBPopoverHeader>Medical</MDBPopoverHeader>
+                                                    <MDBPopoverBody>
+                                                        {MedicalInfo}
+                                                    </MDBPopoverBody>
+                                                </div>
+                                            </MDBPopover>
+
+
+
+                                        </div>
+                                    </animated.div>
+                                )}
+                            </Spring>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <Spring
+                                config={{ duration: 200, delay: 1100 }}
+                                native
+                                from={{ o: 0 }}
+                                to={{ o: 1 }}
+                            >
+                                {({ o }) => (
+                                    <animated.div style={{
+                                        opacity: o
+
+                                    }}>
+                                        <div style={{}} className="icon1">
+                                            <MDBPopover
+                                                placement="top"
+                                                popover
+                                                clickable
+                                                id="popper1"
+                                            >
+                                                <MDBBtn>
+                                                    <img id="PopoverFocus" draggable='false' className='locationIcon' style={iconStyle} src={OfficeImg} />
+                                                    <p style={iconText} className="iconText">Office</p>
+                                                </MDBBtn>
+                                                <div>
+                                                    <MDBPopoverHeader>Office</MDBPopoverHeader>
+                                                    <MDBPopoverBody>
+                                                        {OfficeInfo}
+                                                    </MDBPopoverBody>
+                                                </div>
+                                            </MDBPopover>
+
+
+
+                                        </div>
+                                    </animated.div>
+                                )}
+                            </Spring>
+                        </Col>
+
+                        <Col>
+                            <Spring
+                                config={{ duration: 200, delay: 1200 }}
+                                native
+                                from={{ o: 0 }}
+                                to={{ o: 1 }}
+                            >
+                                {({ o }) => (
+                                    <animated.div style={{
+                                        opacity: o
+
+                                    }}>
+                                        <div style={{}} className="icon1">
+                                            <MDBPopover
+                                                placement="top"
+                                                popover
+                                                clickable
+                                                data-animation="true"
+                                                delay="500"
+                                                // trigger="hover"
+                                                id="popper1"
+                                            >
+                                                <MDBBtn>
+                                                    <img id="PopoverFocus" draggable='false' className='locationIcon' style={iconStyle} src={GroceryImg} />
+                                                    <p style={iconText} className="iconText">Grocery</p>
+                                                </MDBBtn>
+                                                <div>
+                                                    <MDBPopoverHeader>Grocery</MDBPopoverHeader>
+                                                    <MDBPopoverBody>
+                                                        {GroceryInfo}
+                                                    </MDBPopoverBody>
+                                                </div>
+                                            </MDBPopover>
+
+
+
+                                        </div>
+                                    </animated.div>
+                                )}
+                            </Spring>
+                        </Col>
+                        <Col>
+                            <Spring
+                                config={{ duration: 200, delay: 1200 }}
+                                native
+                                from={{ o: 0 }}
+                                to={{ o: 1 }}
+                            >
+                                {({ o }) => (
+                                    <animated.div style={{
+                                        opacity: o
+
+                                    }}>
+                                        <div style={{}} className="icon1">
+                                            <MDBPopover
+                                                placement="top"
+                                                popover
+                                                clickable
+                                                // trigger="hover"
+                                                id="popper1"
+                                            >
+                                                <MDBBtn>
+                                                    <img id="PopoverFocus" draggable='false' className='locationIcon' style={iconStyle} src={ServicesImg} />
                                                     <p style={iconText} className="iconText">Services</p>
                                                 </MDBBtn>
                                                 <div>
                                                     <MDBPopoverHeader>Services</MDBPopoverHeader>
                                                     <MDBPopoverBody>
-                                                {ServicesInfo}
+                                                        {ServicesInfo}
                                                     </MDBPopoverBody>
                                                 </div>
-                                                </MDBPopover>
-                                    </div>
+                                            </MDBPopover>
+                                        </div>
                                     </animated.div>
                                 )}
-                                </Spring>
-                            </Col>
-                        </Row>      
-               
+                            </Spring>
+                        </Col>
+                    </Row>
+
                 </div>
                 {/* <hr style={{ marginLeft: '15%', marginRight: '15%' }} /> */}
             </div>
-   
 
-            );
+
+        );
     }
 }
 

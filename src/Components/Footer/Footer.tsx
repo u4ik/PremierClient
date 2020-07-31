@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Edit from '../../assets/edit/delete/editwhite.svg'
 import APIURL from '../../helpers/environment';
@@ -6,32 +6,32 @@ import APIURL from '../../helpers/environment';
 
 
 
-const footerWrap: React.CSSProperties ={
+const footerWrap: React.CSSProperties = {
     background: '#177BBD',
     alignItems: 'center',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
-    color:'white',
-    minHeight:'120px',
-    paddingBottom:' 25px',
-    paddingTop: '25px'
-    
+    color: 'white',
+    minHeight: '120px',
+    paddingBottom: ' none',
+    paddingTop: 'none'
+
 }
 
-const footerText: React.CSSProperties ={
+const footerText: React.CSSProperties = {
     marginBottom: '1%',
     textShadow: '.1rem .1rem .1rem #024160'
 }
-const footerText1: React.CSSProperties ={
+const footerText1: React.CSSProperties = {
     marginBottom: '1%',
     textShadow: '.1rem .1rem .1rem #024160',
-    fontSize:'1.2rem',
-    color:'#E8C10D'
+    fontSize: '1.2rem',
+    color: '#E8C10D'
 }
 
 
-interface FooterProps  {
+interface FooterProps {
 
     isAdmin: boolean
 }
@@ -64,59 +64,59 @@ const Footer: React.FunctionComponent<FooterProps> = (props: FooterProps) => {
 
 
     const editIcon = {
-        width:'3%',
-        marginTop:'3%',
-        marginBottom:'3%'
+        width: '3%',
+        marginTop: '3%',
+        marginBottom: '3%'
     }
 
 
     const fetchSite = () => {
-        fetch(`${APIURL}/site/all`,  {
+        fetch(`${APIURL}/site/all`, {
             method: 'GET',
             headers: {
-                'Content-Type' : 'application/json',
+                'Content-Type': 'application/json',
             }
         }).then(res => res.json())
-        .then(site => {
-             setSiteId(site.SiteInfo[0].id)
-      
-            setFooterTextTitle(site.SiteInfo[0].footerTextTitle)
-            setFooterTextPhone(site.SiteInfo[0].footerTextPhone)
-            setFooterTextAddressStreet(site.SiteInfo[0].footerTextAddressStreet)
-            setFooterTextAddressTown(site.SiteInfo[0].footerTextAddressTown)
-            setFooterTextAddressStreet(site.SiteInfo[0].footerTextAddressStreet)
+            .then(site => {
+                setSiteId(site.SiteInfo[0].id)
 
-            setEditFooterTextTitle(site.SiteInfo[0].footerTextTitle)
-            setEditFooterTextPhone(site.SiteInfo[0].footerTextPhone)
-            setEditFooterTextAddressStreet(site.SiteInfo[0].footerTextAddressStreet)
-            setEditFooterTextAddressTown(site.SiteInfo[0].footerTextAddressTown)
-            setEditFooterTextAddressStreet(site.SiteInfo[0].footerTextAddressStreet)
+                setFooterTextTitle(site.SiteInfo[0].footerTextTitle)
+                setFooterTextPhone(site.SiteInfo[0].footerTextPhone)
+                setFooterTextAddressStreet(site.SiteInfo[0].footerTextAddressStreet)
+                setFooterTextAddressTown(site.SiteInfo[0].footerTextAddressTown)
+                setFooterTextAddressStreet(site.SiteInfo[0].footerTextAddressStreet)
+
+                setEditFooterTextTitle(site.SiteInfo[0].footerTextTitle)
+                setEditFooterTextPhone(site.SiteInfo[0].footerTextPhone)
+                setEditFooterTextAddressStreet(site.SiteInfo[0].footerTextAddressStreet)
+                setEditFooterTextAddressTown(site.SiteInfo[0].footerTextAddressTown)
+                setEditFooterTextAddressStreet(site.SiteInfo[0].footerTextAddressStreet)
 
 
 
-                
-        })
+
+            })
     }
 
     const updateSite = () => {
         let token = localStorage.getItem('token')
-        const reqBody = { 
+        const reqBody = {
             footerTextTitle: editFooterTextTitle,
             footerTextPhone: editFooterTextPhone,
             footerTextAddressStreet: editFooterTextAddressStreet,
             footerTextAddressTown: editFooterTextAddressTown
         }
-        fetch(`${APIURL}/site/edit/` + siteId,  {
+        fetch(`${APIURL}/site/edit/` + siteId, {
             method: 'PUT',
             headers: {
-                'Content-Type' : 'application/json',
-                'Authorization' : token!
+                'Content-Type': 'application/json',
+                'Authorization': token!
             },
             body: JSON.stringify(reqBody)
         }).then(res => res.json())
-        .then(site => {
-            fetchSite();
-            
+            .then(site => {
+                fetchSite();
+
                 setEditText1(false);
                 setEditText2(false);
                 setEditText3(false);
@@ -124,126 +124,126 @@ const Footer: React.FunctionComponent<FooterProps> = (props: FooterProps) => {
                 setEditImg2('');
                 setEditImg3('');
             })
-        }
-    
+    }
 
 
 
 
 
 
-    useEffect(() =>{
+
+    useEffect(() => {
 
         fetchSite();
 
-    },[])
-    
+    }, [])
 
 
 
-  return (
-    <div className=""  style={footerWrap}>
-        <div color="faded" style={{
-            display:'flex',
-            flexDirection:'column'
-        }}>
-            {props.isAdmin ?
-            <div>
-                <div style={{minHeight:'25px'}} onClick={() => {
-                    setEditText1(true);
-                    setEditImg(Edit);
-                }}>
-                    
-                    {editText1 ?
-                    <div style={{display:'flex', flexDirection:'column', justifyContent:'center'}} 
-                    onMouseLeave={() => {
-                        setEditText1(false);
-                        setEditImg('');
-                    }}>
-                        
-                        <input defaultValue={footerTextTitle} onChange={(e) => {
-                            setEditFooterTextTitle(e.target.value)
-                        }}></input>
-                        <div style={{display:'flex', flexDirection:'row', justifyContent:'center'}}>
-                            <img style={editIcon} src={Edit} onClick={() => updateSite()} ></img>
+
+    return (
+        <div className="" style={footerWrap}>
+            <div color="faded" style={{
+                display: 'flex',
+                flexDirection: 'column'
+            }}>
+                {props.isAdmin ?
+                    <div>
+                        <div style={{ minHeight: '25px' }} onClick={() => {
+                            setEditText1(true);
+                            setEditImg(Edit);
+                        }}>
+
+                            {editText1 ?
+                                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
+                                    onMouseLeave={() => {
+                                        setEditText1(false);
+                                        setEditImg('');
+                                    }}>
+
+                                    <input defaultValue={footerTextTitle} onChange={(e) => {
+                                        setEditFooterTextTitle(e.target.value)
+                                    }}></input>
+                                    <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
+                                        <img style={editIcon} src={Edit} onClick={() => updateSite()} ></img>
+                                    </div>
+                                </div>
+                                : <p style={footerText1}>{footerTextTitle} </p>}
+                        </div>
+                        <div style={{ minHeight: '25px' }} onClick={() => {
+                            setEditText2(true);
+                            setEditImg(Edit);
+                        }}>
+
+                            {editText2 ?
+                                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
+                                    onMouseLeave={() => {
+                                        setEditText2(false);
+                                        setEditImg('');
+                                    }}>
+
+                                    <input defaultValue={footerTextPhone} onChange={(e) => {
+                                        setEditFooterTextPhone(e.target.value)
+                                    }}></input>
+                                    <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
+                                        <img style={editIcon} src={Edit} onClick={() => updateSite()} ></img>
+                                    </div>
+                                </div>
+                                : <p style={footerText}>{footerTextPhone} </p>}
+                        </div>
+                        <div style={{ minHeight: '25px' }} onClick={() => {
+                            setEditText3(true);
+                            setEditImg(Edit);
+                        }}>
+
+                            {editText3 ?
+                                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
+                                    onMouseLeave={() => {
+                                        setEditText3(false);
+                                        setEditImg('');
+                                    }}>
+
+                                    <input defaultValue={footerTextAddressStreet} onChange={(e) => {
+                                        setEditFooterTextAddressStreet(e.target.value)
+                                    }}></input>
+                                    <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
+                                        <img style={editIcon} src={Edit} onClick={() => updateSite()} ></img>
+                                    </div>
+                                </div>
+                                : <p style={footerText}>{footerTextAddressStreet} </p>}
+                        </div>
+                        <div style={{ minHeight: '25px' }} onClick={() => {
+                            setEditText4(true);
+                            setEditImg(Edit);
+                        }}>
+
+                            {editText4 ?
+                                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
+                                    onMouseLeave={() => {
+                                        setEditText4(false);
+                                        setEditImg('');
+                                    }}>
+
+                                    <input defaultValue={footerTextAddressTown} onChange={(e) => {
+                                        setEditFooterTextAddressTown(e.target.value)
+                                    }}></input>
+                                    <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
+                                        <img style={editIcon} src={Edit} onClick={() => updateSite()} ></img>
+                                    </div>
+                                </div>
+                                : <p style={footerText}>{footerTextAddressTown} </p>}
                         </div>
                     </div>
-                    :<p style={footerText1}>{footerTextTitle} </p> }                   
-                </div>
-                <div style={{minHeight:'25px'}} onClick={() => {
-                    setEditText2(true);
-                    setEditImg(Edit);
-                }}>
-                    
-                    {editText2 ?
-                    <div style={{display:'flex', flexDirection:'column', justifyContent:'center'}} 
-                    onMouseLeave={() => {
-                        setEditText2(false);
-                        setEditImg('');
-                    }}>
-                        
-                        <input defaultValue={footerTextPhone} onChange={(e) => {
-                            setEditFooterTextPhone(e.target.value)
-                        }}></input>
-                        <div style={{display:'flex', flexDirection:'row', justifyContent:'center'}}>
-                            <img style={editIcon} src={Edit} onClick={() => updateSite()} ></img>
-                        </div>
-                    </div>
-                    :<p style={footerText}>{footerTextPhone} </p> }                   
-                </div>
-                <div style={{minHeight:'25px'}} onClick={() => {
-                    setEditText3(true);
-                    setEditImg(Edit);
-                }}>
-                    
-                    {editText3 ?
-                    <div style={{display:'flex', flexDirection:'column', justifyContent:'center'}} 
-                    onMouseLeave={() => {
-                        setEditText3(false);
-                        setEditImg('');
-                    }}>
-                        
-                        <input defaultValue={footerTextAddressStreet} onChange={(e) => {
-                            setEditFooterTextAddressStreet(e.target.value)
-                        }}></input>
-                        <div style={{display:'flex', flexDirection:'row', justifyContent:'center'}}>
-                            <img style={editIcon} src={Edit} onClick={() => updateSite()} ></img>
-                        </div>
-                    </div>
-                    :<p style={footerText}>{footerTextAddressStreet} </p> }                   
-                </div>
-                <div style={{minHeight:'25px'}} onClick={() => {
-                    setEditText4(true);
-                    setEditImg(Edit);
-                }}>
-                    
-                    {editText4 ?
-                    <div style={{display:'flex', flexDirection:'column', justifyContent:'center'}} 
-                    onMouseLeave={() => {
-                        setEditText4(false);
-                        setEditImg('');
-                    }}>
-                        
-                        <input defaultValue={footerTextAddressTown} onChange={(e) => {
-                            setEditFooterTextAddressTown(e.target.value)
-                        }}></input>
-                        <div style={{display:'flex', flexDirection:'row', justifyContent:'center'}}>
-                            <img style={editIcon} src={Edit} onClick={() => updateSite()} ></img>
-                        </div>
-                    </div>
-                    :<p style={footerText}>{footerTextAddressTown} </p> }                   
-                </div>
+                    :
+                    <div>
+                        <p style={footerText1}>{footerTextTitle}</p>
+                        <p style={footerText}>{footerTextPhone}</p>
+                        <p style={footerText}>{footerTextAddressStreet}</p>
+                        <p style={footerText}>{footerTextAddressTown}</p>
+                    </div>}
             </div>
-            :
-            <div>
-            <p style={footerText1}>{footerTextTitle}</p>
-            <p style={footerText}>{footerTextPhone}</p>
-            <p style={footerText}>{footerTextAddressStreet}</p>
-            <p style={footerText}>{footerTextAddressTown}</p>
-        </div>}
         </div>
-    </div>
-  );
+    );
 }
 
 export default Footer;
