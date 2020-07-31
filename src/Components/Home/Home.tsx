@@ -171,7 +171,7 @@ class Home extends React.Component<HomeProps, HomeTypes> {
 
                                     }}>
 
-                                        <div className="transparentContainer" style={{ display: 'flex', flexDirection: 'column', marginLeft: '-5%', marginRight: '-5%', background: 'rgba(26, 35, 64, 0.5)', borderRadius: '20px' }}>
+                                        <div className="transparentContainer" style={{ display: 'flex', flexDirection: 'column', marginLeft: '5%', marginRight: '5%', background: 'rgba(26, 35, 64, 0.5)', borderRadius: '20px' }}>
                                             <div className="welcomeText" style={{ padding: '2%', textAlign: 'center' }} >
 
 

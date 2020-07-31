@@ -13,16 +13,16 @@
         margin-bottom: 5vw
     }
     .transparentContainer {
-        margin-right: -10% !important;
-        margin-left: -10% !important
+        margin-right: 4% !important;
+        margin-left: 4% !important
     }
     #serviceHomeContainer {
-        margin-left: 6% !important;
-        margin-right: 6% !important;
+        margin-left: 8% !important;
+        margin-right: 8% !important;
     }
     #testimonialHomeContainer {
-        margin-left: 6% !important;
-        margin-right: 6% !important;
+        margin-left: 8% !important;
+        margin-right: 8% !important;
         /* min-height: 17vh !important; */
     }
 }
@@ -32,11 +32,24 @@
         margin-bottom: 3.1vw
     }
     .transparentContainer {
-        margin-right: -42% !important;
-        margin-left: -42% !important
+        margin-right: -38% !important;
+        margin-left: -38% !important
     }
     #testimonialUserTextContainer {
         margin-top: -.1% !important;
+    }
+}
+
+
+/* 1920x1080 */
+
+@media screen and (min-device-width: 1920px) and (max-device-height: 1080px) {
+    #titleId {
+        margin-bottom: 4vw
+    }
+    .transparentContainer {
+        margin-right: -6% !important;
+        margin-left: -6% !important
     }
 }
 
@@ -431,19 +444,6 @@
         margin-bottom: 3.9vw
     }
 } */
-
-
-/* 1920x1080 */
-
-@media screen and (min-device-width: 1920px) and (max-device-height: 1080px) {
-    #titleId {
-        margin-bottom: 4vw
-    }
-    .transparentContainer {
-        margin-right: -24% !important;
-        margin-left: -24% !important
-    }
-}
 
 
 /* 4k
