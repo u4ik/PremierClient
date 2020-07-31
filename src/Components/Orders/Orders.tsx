@@ -116,9 +116,9 @@ const Orders: React.FunctionComponent<orderProps> = (props: orderProps) => {
 
   const updateOrderUpdateNotification = () => {
     return (
-      <div className="p-3 my-2 rounded" style={{ position: 'fixed', marginLeft: '49%', marginRight: '49%', display: 'flex', flexDirection: 'row', justifyContent: 'center', zIndex: 999 }}>
+      <div className="p-3 my-2 rounded" style={{ position: 'fixed', marginLeft: '49%', marginRight: '49%', marginBottom:'', bottom:'60%',display: 'flex', flexDirection: 'row', justifyContent: 'center', zIndex: 999 }}>
 
-        <Toast style={{ width: '200px', position: 'fixed', marginLeft: '', marginRight: '', marginTop: '', zIndex: 999, background: 'rgba(10, 10, 10, .1)', borderRadius: '5px' }}>
+        <Toast style={{ width: '200px', position: 'fixed', marginLeft: '', marginRight: '', marginTop: '',marginBottom:'', zIndex: 999, background: 'rgba(10, 10, 10, .1)', borderRadius: '5px' }}>
           <ToastHeader style={{ color: 'black', opacity: '.5' }}>
             Update: {userName}'s Order'
           </ToastHeader>
@@ -133,7 +133,7 @@ const Orders: React.FunctionComponent<orderProps> = (props: orderProps) => {
 
   const updateOrderDeleteNotification = () => {
     return (
-      <div className="p-3 my-2 rounded" style={{ position: 'fixed', marginLeft: '49%', marginRight: '49%', display: 'flex', flexDirection: 'row', justifyContent: 'center', zIndex: 999 }}>
+      <div className="p-3 my-2 rounded" style={{  bottom:'60%',position: 'fixed', marginLeft: '49%', marginRight: '49%', display: 'flex', flexDirection: 'row', justifyContent: 'center', zIndex: 999 }}>
 
         <Toast style={{ width: '200px', position: 'fixed', marginLeft: '', marginRight: '', marginTop: '', zIndex: 999, background: 'rgba(10, 10, 10, .1)', borderRadius: '5px' }}>
           <ToastHeader style={{ color: 'black', opacity: '.5' }}>

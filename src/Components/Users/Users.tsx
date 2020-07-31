@@ -80,7 +80,7 @@ const Users: React.FunctionComponent<UserProps> = (props: UserProps) => {
   })
   const updateUserUpdateNotification = () => {
     return (
-      <div className="p-3 my-2 rounded" style={{ position: 'fixed', marginLeft: '49%', marginRight: '49%', display: 'flex', flexDirection: 'row', justifyContent: 'center', zIndex: 999 }}>
+      <div className="p-3 my-2 rounded" style={{  bottom:'60%',position: 'fixed', marginLeft: '49%', marginRight: '49%', display: 'flex', flexDirection: 'row', justifyContent: 'center', zIndex: 999 }}>
 
         <Toast style={{ width: '200px', position: 'fixed', marginLeft: '', marginRight: '', marginTop: '', zIndex: 999, background: 'rgba(10, 10, 10, .1)', borderRadius: '5px' }}>
           <ToastHeader style={{ color: 'black', opacity: '.5' }}>
@@ -97,7 +97,7 @@ const Users: React.FunctionComponent<UserProps> = (props: UserProps) => {
   
   const updateUserDeleteNotification = () => {
     return (
-      <div className="p-3 my-2 rounded" style={{ position: 'fixed', marginLeft: '49%', marginRight: '49%', display: 'flex', flexDirection: 'row', justifyContent: 'center', zIndex: 999 }}>
+      <div className="p-3 my-2 rounded" style={{ bottom:'60%', position: 'fixed', marginLeft: '49%', marginRight: '49%', display: 'flex', flexDirection: 'row', justifyContent: 'center', zIndex: 999 }}>
 
         <Toast style={{ width: '200px', position: 'fixed', marginLeft: '', marginRight: '', marginTop: '', zIndex: 999, background: 'rgba(10, 10, 10, .1)', borderRadius: '5px' }}>
           <ToastHeader style={{ color: 'black', opacity: '.5' }}>
